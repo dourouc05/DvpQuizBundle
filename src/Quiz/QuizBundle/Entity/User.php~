@@ -14,9 +14,30 @@ class User extends BaseUser
 	* @ORM\generatedValue(strategy="AUTO")
 	*/
 	protected $id;
+    
+    /**
+     * @ORM\Column(type="string")
+     */
+    protected $username;
+    
+    /**
+     * @ORM\Column(type="string")
+     * @var string
+     */
+    protected $email;
 
 	public function __construct()
 	{
 		parent::__construct();
 	}
+
+    /**
+     * Get id
+     *
+     * @return integer $id
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
 }
