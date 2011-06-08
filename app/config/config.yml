@@ -68,10 +68,10 @@ sf2gen_console:
     local: true 
     all: true
     
-fos_user:
-    db_driver: orm
-    firewall_name: main
-    use_listener: false
-    class:
-        model:
-            user:  MyApp\UtilisateurBundle\Entity\Utilisateur
+# fos_user:
+    # db_driver: orm
+    # firewall_name: main
+    # use_listener: false
+    # class:
+        # model:
+            # user:  QuizBundle\QuizBundle\Entity\User

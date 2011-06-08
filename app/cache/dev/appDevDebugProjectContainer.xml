@@ -5,7 +5,7 @@
     <parameter key="kernel.environment">dev</parameter>
     <parameter key="kernel.debug">true</parameter>
     <parameter key="kernel.name">app</parameter>
-    <parameter key="kernel.cache_dir">G:\Dvp\_RUBRIQUES\dvpquizbundle\app/cache/dev</parameter>
+    <parameter key="kernel.cache_dir">G:\Dvp\_RUBRIQUES\dvpquizbundle\app/cache/dev_new</parameter>
     <parameter key="kernel.logs_dir">G:\Dvp\_RUBRIQUES\dvpquizbundle\app/logs</parameter>
     <parameter key="kernel.bundles" type="collection">
       <parameter key="FrameworkBundle">Symfony\Bundle\FrameworkBundle\FrameworkBundle</parameter>
@@ -55,7 +55,7 @@
     <parameter key="translation.loader.yml.class">Symfony\Component\Translation\Loader\YamlFileLoader</parameter>
     <parameter key="translation.loader.xliff.class">Symfony\Component\Translation\Loader\XliffFileLoader</parameter>
     <parameter key="debug.event_dispatcher.class">Symfony\Bundle\FrameworkBundle\Debug\TraceableEventDispatcher</parameter>
-    <parameter key="debug.container.dump">G:\Dvp\_RUBRIQUES\dvpquizbundle\app/cache/dev/appDevDebugProjectContainer.xml</parameter>
+    <parameter key="debug.container.dump">G:\Dvp\_RUBRIQUES\dvpquizbundle\app/cache/dev_new/appDevDebugProjectContainer.xml</parameter>
     <parameter key="kernel.cache_warmup">false</parameter>
     <parameter key="kernel.secret">246d4fd592b1375e6114e109779706462106114e1097797064621033150141a0dc49b33150141a0dc49be5aa2851d51088dc4</parameter>
     <parameter key="exception_listener.controller">Symfony\Bundle\FrameworkBundle\Controller\ExceptionController::showAction</parameter>
@@ -99,7 +99,7 @@
     <parameter key="data_collector.memory.class">Symfony\Component\HttpKernel\DataCollector\MemoryDataCollector</parameter>
     <parameter key="profiler_listener.only_exceptions">false</parameter>
     <parameter key="profiler_listener.only_master_requests">false</parameter>
-    <parameter key="profiler.storage.dsn">sqlite:G:\Dvp\_RUBRIQUES\dvpquizbundle\app/cache/dev/profiler.db</parameter>
+    <parameter key="profiler.storage.dsn">sqlite:G:\Dvp\_RUBRIQUES\dvpquizbundle\app/cache/dev_new/profiler.db</parameter>
     <parameter key="profiler.storage.username"></parameter>
     <parameter key="profiler.storage.password"></parameter>
     <parameter key="profiler.storage.lifetime">86400</parameter>
@@ -239,7 +239,7 @@
     <parameter key="twig.options" type="collection">
       <parameter key="debug">true</parameter>
       <parameter key="strict_variables">true</parameter>
-      <parameter key="cache">G:\Dvp\_RUBRIQUES\dvpquizbundle\app/cache/dev/twig</parameter>
+      <parameter key="cache">G:\Dvp\_RUBRIQUES\dvpquizbundle\app/cache/dev_new/twig</parameter>
       <parameter key="charset">UTF-8</parameter>
     </parameter>
     <parameter key="monolog.logger.class">Symfony\Bridge\Monolog\Logger</parameter>
@@ -314,7 +314,7 @@
     </parameter>
     <parameter key="doctrine.default_entity_manager">default</parameter>
     <parameter key="doctrine.orm.auto_generate_proxy_classes">true</parameter>
-    <parameter key="doctrine.orm.proxy_dir">G:\Dvp\_RUBRIQUES\dvpquizbundle\app/cache/dev/doctrine/orm/Proxies</parameter>
+    <parameter key="doctrine.orm.proxy_dir">G:\Dvp\_RUBRIQUES\dvpquizbundle\app/cache/dev_new/doctrine/orm/Proxies</parameter>
     <parameter key="doctrine.orm.proxy_namespace">Proxies</parameter>
     <parameter key="assetic.asset_factory.class">Symfony\Bundle\AsseticBundle\Factory\AssetFactory</parameter>
     <parameter key="assetic.asset_manager.class">Assetic\Factory\LazyAssetManager</parameter>
@@ -328,7 +328,7 @@
     <parameter key="assetic.filter_manager.class">Symfony\Bundle\AsseticBundle\FilterManager</parameter>
     <parameter key="assetic.worker.ensure_filter.class">Assetic\Factory\Worker\EnsureFilterWorker</parameter>
     <parameter key="assetic.node.paths" type="collection"/>
-    <parameter key="assetic.cache_dir">G:\Dvp\_RUBRIQUES\dvpquizbundle\app/cache/dev/assetic</parameter>
+    <parameter key="assetic.cache_dir">G:\Dvp\_RUBRIQUES\dvpquizbundle\app/cache/dev_new/assetic</parameter>
     <parameter key="assetic.twig_extension.class">Symfony\Bundle\AsseticBundle\Twig\AsseticExtension</parameter>
     <parameter key="assetic.twig_formula_loader.class">Assetic\Extension\Twig\TwigFormulaLoader</parameter>
     <parameter key="assetic.helper.dynamic.class">Symfony\Bundle\AsseticBundle\Templating\DynamicAsseticHelper</parameter>
@@ -770,7 +770,7 @@
         <argument key="translation.loader.xliff">xliff</argument>
       </argument>
       <argument type="collection">
-        <argument key="cache_dir">G:\Dvp\_RUBRIQUES\dvpquizbundle\app/cache/dev/translations</argument>
+        <argument key="cache_dir">G:\Dvp\_RUBRIQUES\dvpquizbundle\app/cache/dev_new/translations</argument>
         <argument key="debug">true</argument>
       </argument>
       <argument type="service" id="session"/>
@@ -952,7 +952,7 @@
     <service id="file.temporary_storage" class="Symfony\Component\HttpFoundation\File\SessionBasedTemporaryStorage">
       <argument type="service" id="session"/>
       <argument>246d4fd592b1375e6114e109779706462106114e1097797064621033150141a0dc49b33150141a0dc49be5aa2851d51088dc4</argument>
-      <argument>G:\Dvp\_RUBRIQUES\dvpquizbundle\app/cache/dev/upload</argument>
+      <argument>G:\Dvp\_RUBRIQUES\dvpquizbundle\app/cache/dev_new/upload</argument>
     </service>
     <service id="validator" class="Symfony\Component\Validator\Validator">
       <argument type="service" id="validator.mapping.class_metadata_factory"/>
@@ -998,7 +998,7 @@
       <tag name="monolog.logger" channel="profiler"/>
       <argument type="service">
         <service class="Symfony\Component\HttpKernel\Profiler\SqliteProfilerStorage" public="false">
-          <argument>sqlite:G:\Dvp\_RUBRIQUES\dvpquizbundle\app/cache/dev/profiler.db</argument>
+          <argument>sqlite:G:\Dvp\_RUBRIQUES\dvpquizbundle\app/cache/dev_new/profiler.db</argument>
           <argument></argument>
           <argument></argument>
           <argument>86400</argument>
@@ -1196,7 +1196,7 @@
       </argument>
       <argument>G:\Dvp\_RUBRIQUES\dvpquizbundle\app/config/routing_dev.yml</argument>
       <argument type="collection">
-        <argument key="cache_dir">G:\Dvp\_RUBRIQUES\dvpquizbundle\app/cache/dev</argument>
+        <argument key="cache_dir">G:\Dvp\_RUBRIQUES\dvpquizbundle\app/cache/dev_new</argument>
         <argument key="debug">true</argument>
         <argument key="generator_class">Symfony\Component\Routing\Generator\UrlGenerator</argument>
         <argument key="generator_base_class">Symfony\Component\Routing\Generator\UrlGenerator</argument>
@@ -1209,7 +1209,7 @@
       </argument>
     </service>
     <service id="router.cached" class="Symfony\Bundle\FrameworkBundle\Routing\CachedRouter">
-      <argument key="0">G:\Dvp\_RUBRIQUES\dvpquizbundle\app/cache/dev</argument>
+      <argument key="0">G:\Dvp\_RUBRIQUES\dvpquizbundle\app/cache/dev_new</argument>
       <argument key="matcher_cache_class">app%kernel.environment%UrlMatcher</argument>
       <argument key="generator_cache_class">app%kernel.environment%UrlGenerator</argument>
     </service>
@@ -1536,7 +1536,7 @@
       <argument type="collection">
         <argument key="debug">true</argument>
         <argument key="strict_variables">true</argument>
-        <argument key="cache">G:\Dvp\_RUBRIQUES\dvpquizbundle\app/cache/dev/twig</argument>
+        <argument key="cache">G:\Dvp\_RUBRIQUES\dvpquizbundle\app/cache/dev_new/twig</argument>
         <argument key="charset">UTF-8</argument>
       </argument>
       <call method="addExtension">
@@ -1698,9 +1698,7 @@
       <argument type="service">
         <service class="Doctrine\ORM\Configuration" public="false">
           <call method="setEntityNamespaces">
-            <argument type="collection">
-              <argument key="StofDoctrineExtensionsBundle">Stof\DoctrineExtensionsBundle\Entity</argument>
-            </argument>
+            <argument type="collection"/>
           </call>
           <call method="setMetadataCacheImpl">
             <argument type="service">
@@ -1731,22 +1729,11 @@
           </call>
           <call method="setMetadataDriverImpl">
             <argument type="service">
-              <service class="Doctrine\ORM\Mapping\Driver\DriverChain" public="false">
-                <call method="addDriver">
-                  <argument type="service">
-                    <service class="Symfony\Bundle\DoctrineBundle\Mapping\Driver\XmlDriver" public="false">
-                      <argument type="collection">
-                        <argument key="Stof\DoctrineExtensionsBundle\Entity">G:\Dvp\_RUBRIQUES\dvpquizbundle\vendor\bundles\Stof\DoctrineExtensionsBundle\Resources\config\doctrine</argument>
-                      </argument>
-                    </service>
-                  </argument>
-                  <argument>Stof\DoctrineExtensionsBundle\Entity</argument>
-                </call>
-              </service>
+              <service class="Doctrine\ORM\Mapping\Driver\DriverChain" public="false"/>
             </argument>
           </call>
           <call method="setProxyDir">
-            <argument>G:\Dvp\_RUBRIQUES\dvpquizbundle\app/cache/dev/doctrine/orm/Proxies</argument>
+            <argument>G:\Dvp\_RUBRIQUES\dvpquizbundle\app/cache/dev_new/doctrine/orm/Proxies</argument>
           </call>
           <call method="setProxyNamespace">
             <argument>Proxies</argument>
@@ -1781,7 +1768,7 @@
             </argument>
             <argument type="service">
               <service class="Assetic\Cache\ConfigCache" public="false">
-                <argument>G:\Dvp\_RUBRIQUES\dvpquizbundle\app/cache/dev/assetic/config</argument>
+                <argument>G:\Dvp\_RUBRIQUES\dvpquizbundle\app/cache/dev_new/assetic/config</argument>
               </service>
             </argument>
             <argument>true</argument>
@@ -2236,7 +2223,7 @@
       <argument type="service" id="assetic.cache"/>
     </service>
     <service id="assetic.cache" class="Assetic\Cache\FilesystemCache" public="false">
-      <argument>G:\Dvp\_RUBRIQUES\dvpquizbundle\app/cache/dev/assetic/assets</argument>
+      <argument>G:\Dvp\_RUBRIQUES\dvpquizbundle\app/cache/dev_new/assetic/assets</argument>
     </service>
     <service id="assetic.request_listener" class="Symfony\Bundle\AsseticBundle\EventListener\RequestListener">
       <tag name="kernel.listener" event="core.request" method="onCoreRequest"/>
@@ -2442,7 +2429,7 @@
       <argument type="service">
         <service class="Doctrine\Common\Annotations\AnnotationReader" public="false"/>
       </argument>
-      <argument>G:\Dvp\_RUBRIQUES\dvpquizbundle\app/cache/dev/annotations</argument>
+      <argument>G:\Dvp\_RUBRIQUES\dvpquizbundle\app/cache/dev_new/annotations</argument>
       <argument>true</argument>
     </service>
     <service id="security.encoder_factory" class="Symfony\Component\Security\Core\Encoder\EncoderFactory">
