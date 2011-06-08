@@ -23,6 +23,8 @@ class AppKernel extends Kernel
             new AntiMattr\GoogleBundle\GoogleBundle(),
             // new FOS\UserBundle\FOSUserBundle(),
             new Stof\DoctrineExtensionsBundle\StofDoctrineExtensionsBundle(),
+            
+            new Quiz\QuizBundle\QuizQuizBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test')))

@@ -55,7 +55,7 @@ class appDevDebugProjectContainer extends Container
      */
     protected function getAnnotationReaderService()
     {
-        return $this->services['annotation_reader'] = new \Doctrine\Common\Annotations\FileCacheReader(new \Doctrine\Common\Annotations\AnnotationReader(), 'G:\\Dvp\\_RUBRIQUES\\dvpquizbundle\\app/cache/dev_new/annotations', true);
+        return $this->services['annotation_reader'] = new \Doctrine\Common\Annotations\FileCacheReader(new \Doctrine\Common\Annotations\AnnotationReader(), 'G:\\Dvp\\_RUBRIQUES\\dvpquizbundle\\app/cache/dev/annotations', true);
     }
 
     /**
@@ -70,7 +70,7 @@ class appDevDebugProjectContainer extends Container
     {
         $a = $this->get('templating.loader');
 
-        $this->services['assetic.asset_manager'] = $instance = new \Assetic\Factory\LazyAssetManager($this->get('assetic.asset_factory'), array('twig' => new \Assetic\Factory\Loader\CachedFormulaLoader(new \Assetic\Extension\Twig\TwigFormulaLoader($this->get('twig')), new \Assetic\Cache\ConfigCache('G:\\Dvp\\_RUBRIQUES\\dvpquizbundle\\app/cache/dev_new/assetic/config'), true)));
+        $this->services['assetic.asset_manager'] = $instance = new \Assetic\Factory\LazyAssetManager($this->get('assetic.asset_factory'), array('twig' => new \Assetic\Factory\Loader\CachedFormulaLoader(new \Assetic\Extension\Twig\TwigFormulaLoader($this->get('twig')), new \Assetic\Cache\ConfigCache('G:\\Dvp\\_RUBRIQUES\\dvpquizbundle\\app/cache/dev/assetic/config'), true)));
 
         $instance->addResource(new \Assetic\Factory\Resource\CoalescingDirectoryResource(array(0 => new \Symfony\Bundle\AsseticBundle\Factory\Resource\DirectoryResource($a, 'FrameworkBundle', 'G:\\Dvp\\_RUBRIQUES\\dvpquizbundle\\app/Resources/FrameworkBundle/views', '/^[^.]+\\.[^.]+\\.twig$/'), 1 => new \Symfony\Bundle\AsseticBundle\Factory\Resource\DirectoryResource($a, 'FrameworkBundle', 'G:\\Dvp\\_RUBRIQUES\\dvpquizbundle\\vendor\\symfony\\src\\Symfony\\Bundle\\FrameworkBundle/Resources/views', '/^[^.]+\\.[^.]+\\.twig$/'))), 'twig');
         $instance->addResource(new \Assetic\Factory\Resource\CoalescingDirectoryResource(array(0 => new \Symfony\Bundle\AsseticBundle\Factory\Resource\DirectoryResource($a, 'SecurityBundle', 'G:\\Dvp\\_RUBRIQUES\\dvpquizbundle\\app/Resources/SecurityBundle/views', '/^[^.]+\\.[^.]+\\.twig$/'), 1 => new \Symfony\Bundle\AsseticBundle\Factory\Resource\DirectoryResource($a, 'SecurityBundle', 'G:\\Dvp\\_RUBRIQUES\\dvpquizbundle\\vendor\\symfony\\src\\Symfony\\Bundle\\SecurityBundle/Resources/views', '/^[^.]+\\.[^.]+\\.twig$/'))), 'twig');
@@ -83,6 +83,7 @@ class appDevDebugProjectContainer extends Container
         $instance->addResource(new \Assetic\Factory\Resource\CoalescingDirectoryResource(array(0 => new \Symfony\Bundle\AsseticBundle\Factory\Resource\DirectoryResource($a, 'JMSSecurityExtraBundle', 'G:\\Dvp\\_RUBRIQUES\\dvpquizbundle\\app/Resources/JMSSecurityExtraBundle/views', '/^[^.]+\\.[^.]+\\.twig$/'), 1 => new \Symfony\Bundle\AsseticBundle\Factory\Resource\DirectoryResource($a, 'JMSSecurityExtraBundle', 'G:\\Dvp\\_RUBRIQUES\\dvpquizbundle\\vendor\\bundles\\JMS\\SecurityExtraBundle/Resources/views', '/^[^.]+\\.[^.]+\\.twig$/'))), 'twig');
         $instance->addResource(new \Assetic\Factory\Resource\CoalescingDirectoryResource(array(0 => new \Symfony\Bundle\AsseticBundle\Factory\Resource\DirectoryResource($a, 'GoogleBundle', 'G:\\Dvp\\_RUBRIQUES\\dvpquizbundle\\app/Resources/GoogleBundle/views', '/^[^.]+\\.[^.]+\\.twig$/'), 1 => new \Symfony\Bundle\AsseticBundle\Factory\Resource\DirectoryResource($a, 'GoogleBundle', 'G:\\Dvp\\_RUBRIQUES\\dvpquizbundle\\vendor\\bundles\\AntiMattr\\GoogleBundle/Resources/views', '/^[^.]+\\.[^.]+\\.twig$/'))), 'twig');
         $instance->addResource(new \Assetic\Factory\Resource\CoalescingDirectoryResource(array(0 => new \Symfony\Bundle\AsseticBundle\Factory\Resource\DirectoryResource($a, 'StofDoctrineExtensionsBundle', 'G:\\Dvp\\_RUBRIQUES\\dvpquizbundle\\app/Resources/StofDoctrineExtensionsBundle/views', '/^[^.]+\\.[^.]+\\.twig$/'), 1 => new \Symfony\Bundle\AsseticBundle\Factory\Resource\DirectoryResource($a, 'StofDoctrineExtensionsBundle', 'G:\\Dvp\\_RUBRIQUES\\dvpquizbundle\\vendor\\bundles\\Stof\\DoctrineExtensionsBundle/Resources/views', '/^[^.]+\\.[^.]+\\.twig$/'))), 'twig');
+        $instance->addResource(new \Assetic\Factory\Resource\CoalescingDirectoryResource(array(0 => new \Symfony\Bundle\AsseticBundle\Factory\Resource\DirectoryResource($a, 'QuizQuizBundle', 'G:\\Dvp\\_RUBRIQUES\\dvpquizbundle\\app/Resources/QuizQuizBundle/views', '/^[^.]+\\.[^.]+\\.twig$/'), 1 => new \Symfony\Bundle\AsseticBundle\Factory\Resource\DirectoryResource($a, 'QuizQuizBundle', 'G:\\Dvp\\_RUBRIQUES\\dvpquizbundle\\src\\Quiz\\QuizBundle/Resources/views', '/^[^.]+\\.[^.]+\\.twig$/'))), 'twig');
         $instance->addResource(new \Assetic\Factory\Resource\CoalescingDirectoryResource(array(0 => new \Symfony\Bundle\AsseticBundle\Factory\Resource\DirectoryResource($a, 'AcmeDemoBundle', 'G:\\Dvp\\_RUBRIQUES\\dvpquizbundle\\app/Resources/AcmeDemoBundle/views', '/^[^.]+\\.[^.]+\\.twig$/'), 1 => new \Symfony\Bundle\AsseticBundle\Factory\Resource\DirectoryResource($a, 'AcmeDemoBundle', 'G:\\Dvp\\_RUBRIQUES\\dvpquizbundle\\src\\Acme\\DemoBundle/Resources/views', '/^[^.]+\\.[^.]+\\.twig$/'))), 'twig');
         $instance->addResource(new \Assetic\Factory\Resource\CoalescingDirectoryResource(array(0 => new \Symfony\Bundle\AsseticBundle\Factory\Resource\DirectoryResource($a, 'WebProfilerBundle', 'G:\\Dvp\\_RUBRIQUES\\dvpquizbundle\\app/Resources/WebProfilerBundle/views', '/^[^.]+\\.[^.]+\\.twig$/'), 1 => new \Symfony\Bundle\AsseticBundle\Factory\Resource\DirectoryResource($a, 'WebProfilerBundle', 'G:\\Dvp\\_RUBRIQUES\\dvpquizbundle\\vendor\\symfony\\src\\Symfony\\Bundle\\WebProfilerBundle/Resources/views', '/^[^.]+\\.[^.]+\\.twig$/'))), 'twig');
         $instance->addResource(new \Assetic\Factory\Resource\CoalescingDirectoryResource(array(0 => new \Symfony\Bundle\AsseticBundle\Factory\Resource\DirectoryResource($a, 'SymfonyWebConfiguratorBundle', 'G:\\Dvp\\_RUBRIQUES\\dvpquizbundle\\app/Resources/SymfonyWebConfiguratorBundle/views', '/^[^.]+\\.[^.]+\\.twig$/'), 1 => new \Symfony\Bundle\AsseticBundle\Factory\Resource\DirectoryResource($a, 'SymfonyWebConfiguratorBundle', 'G:\\Dvp\\_RUBRIQUES\\dvpquizbundle\\vendor\\bundles\\Symfony\\Bundle\\WebConfiguratorBundle/Resources/views', '/^[^.]+\\.[^.]+\\.twig$/'))), 'twig');
@@ -228,18 +229,21 @@ class appDevDebugProjectContainer extends Container
         $c = new \Doctrine\Common\Cache\ArrayCache();
         $c->setNamespace('sf2orm_default_df77742386d42b218843e620c0fdf541');
 
-        $d = new \Doctrine\ORM\Configuration();
-        $d->setEntityNamespaces(array());
-        $d->setMetadataCacheImpl($a);
-        $d->setQueryCacheImpl($b);
-        $d->setResultCacheImpl($c);
-        $d->setMetadataDriverImpl(new \Doctrine\ORM\Mapping\Driver\DriverChain());
-        $d->setProxyDir('G:\\Dvp\\_RUBRIQUES\\dvpquizbundle\\app/cache/dev_new/doctrine/orm/Proxies');
-        $d->setProxyNamespace('Proxies');
-        $d->setAutoGenerateProxyClasses(true);
-        $d->setClassMetadataFactoryName('Doctrine\\ORM\\Mapping\\ClassMetadataFactory');
+        $d = new \Doctrine\ORM\Mapping\Driver\DriverChain();
+        $d->addDriver(new \Doctrine\ORM\Mapping\Driver\AnnotationDriver(new \Symfony\Bundle\DoctrineBundle\Annotations\IndexedReader($this->get('annotation_reader')), array(0 => 'G:\\Dvp\\_RUBRIQUES\\dvpquizbundle\\src\\Quiz\\QuizBundle\\Entity')), 'Quiz\\QuizBundle\\Entity');
 
-        return $this->services['doctrine.orm.default_entity_manager'] = call_user_func(array('Doctrine\\ORM\\EntityManager', 'create'), $this->get('doctrine.dbal.default_connection'), $d);
+        $e = new \Doctrine\ORM\Configuration();
+        $e->setEntityNamespaces(array('QuizQuizBundle' => 'Quiz\\QuizBundle\\Entity'));
+        $e->setMetadataCacheImpl($a);
+        $e->setQueryCacheImpl($b);
+        $e->setResultCacheImpl($c);
+        $e->setMetadataDriverImpl($d);
+        $e->setProxyDir('G:\\Dvp\\_RUBRIQUES\\dvpquizbundle\\app/cache/dev/doctrine/orm/Proxies');
+        $e->setProxyNamespace('Proxies');
+        $e->setAutoGenerateProxyClasses(true);
+        $e->setClassMetadataFactoryName('Doctrine\\ORM\\Mapping\\ClassMetadataFactory');
+
+        return $this->services['doctrine.orm.default_entity_manager'] = call_user_func(array('Doctrine\\ORM\\EntityManager', 'create'), $this->get('doctrine.dbal.default_connection'), $e);
     }
 
     /**
@@ -315,7 +319,7 @@ class appDevDebugProjectContainer extends Container
      */
     protected function getFile_TemporaryStorageService()
     {
-        return $this->services['file.temporary_storage'] = new \Symfony\Component\HttpFoundation\File\SessionBasedTemporaryStorage($this->get('session'), '246d4fd592b1375e6114e109779706462106114e1097797064621033150141a0dc49b33150141a0dc49be5aa2851d51088dc4', 'G:\\Dvp\\_RUBRIQUES\\dvpquizbundle\\app/cache/dev_new/upload');
+        return $this->services['file.temporary_storage'] = new \Symfony\Component\HttpFoundation\File\SessionBasedTemporaryStorage($this->get('session'), '246d4fd592b1375e6114e109779706462106114e1097797064621033150141a0dc49b33150141a0dc49be5aa2851d51088dc4', 'G:\\Dvp\\_RUBRIQUES\\dvpquizbundle\\app/cache/dev/upload');
     }
 
     /**
@@ -1058,7 +1062,7 @@ class appDevDebugProjectContainer extends Container
         $c = new \Symfony\Component\HttpKernel\DataCollector\EventDataCollector();
         $c->setEventDispatcher($this->get('event_dispatcher'));
 
-        $this->services['profiler'] = $instance = new \Symfony\Component\HttpKernel\Profiler\Profiler(new \Symfony\Component\HttpKernel\Profiler\SqliteProfilerStorage('sqlite:G:\\Dvp\\_RUBRIQUES\\dvpquizbundle\\app/cache/dev_new/profiler.db', '', '', 86400), $a);
+        $this->services['profiler'] = $instance = new \Symfony\Component\HttpKernel\Profiler\Profiler(new \Symfony\Component\HttpKernel\Profiler\SqliteProfilerStorage('sqlite:G:\\Dvp\\_RUBRIQUES\\dvpquizbundle\\app/cache/dev/profiler.db', '', '', 86400), $a);
 
         $instance->add(new \Symfony\Component\HttpKernel\DataCollector\ConfigDataCollector($b));
         $instance->add($this->get('data_collector.request'));
@@ -1127,7 +1131,7 @@ class appDevDebugProjectContainer extends Container
      */
     protected function getRouter_CachedService()
     {
-        return $this->services['router.cached'] = new \Symfony\Bundle\FrameworkBundle\Routing\CachedRouter('G:\\Dvp\\_RUBRIQUES\\dvpquizbundle\\app/cache/dev_new', 'appdevUrlMatcher', 'appdevUrlGenerator');
+        return $this->services['router.cached'] = new \Symfony\Bundle\FrameworkBundle\Routing\CachedRouter('G:\\Dvp\\_RUBRIQUES\\dvpquizbundle\\app/cache/dev', 'appdevUrlMatcher', 'appdevUrlGenerator');
     }
 
     /**
@@ -1140,7 +1144,7 @@ class appDevDebugProjectContainer extends Container
      */
     protected function getRouter_RealService()
     {
-        return $this->services['router.real'] = new \Symfony\Component\Routing\Router(new \Symfony\Bundle\FrameworkBundle\Routing\LazyLoader($this, 'routing.loader.real'), 'G:\\Dvp\\_RUBRIQUES\\dvpquizbundle\\app/config/routing_dev.yml', array('cache_dir' => 'G:\\Dvp\\_RUBRIQUES\\dvpquizbundle\\app/cache/dev_new', 'debug' => true, 'generator_class' => 'Symfony\\Component\\Routing\\Generator\\UrlGenerator', 'generator_base_class' => 'Symfony\\Component\\Routing\\Generator\\UrlGenerator', 'generator_dumper_class' => 'Symfony\\Component\\Routing\\Generator\\Dumper\\PhpGeneratorDumper', 'generator_cache_class' => 'appdevUrlGenerator', 'matcher_class' => 'Symfony\\Bundle\\FrameworkBundle\\Routing\\RedirectableUrlMatcher', 'matcher_base_class' => 'Symfony\\Bundle\\FrameworkBundle\\Routing\\RedirectableUrlMatcher', 'matcher_dumper_class' => 'Symfony\\Component\\Routing\\Matcher\\Dumper\\PhpMatcherDumper', 'matcher_cache_class' => 'appdevUrlMatcher'));
+        return $this->services['router.real'] = new \Symfony\Component\Routing\Router(new \Symfony\Bundle\FrameworkBundle\Routing\LazyLoader($this, 'routing.loader.real'), 'G:\\Dvp\\_RUBRIQUES\\dvpquizbundle\\app/config/routing_dev.yml', array('cache_dir' => 'G:\\Dvp\\_RUBRIQUES\\dvpquizbundle\\app/cache/dev', 'debug' => true, 'generator_class' => 'Symfony\\Component\\Routing\\Generator\\UrlGenerator', 'generator_base_class' => 'Symfony\\Component\\Routing\\Generator\\UrlGenerator', 'generator_dumper_class' => 'Symfony\\Component\\Routing\\Generator\\Dumper\\PhpGeneratorDumper', 'generator_cache_class' => 'appdevUrlGenerator', 'matcher_class' => 'Symfony\\Bundle\\FrameworkBundle\\Routing\\RedirectableUrlMatcher', 'matcher_base_class' => 'Symfony\\Bundle\\FrameworkBundle\\Routing\\RedirectableUrlMatcher', 'matcher_dumper_class' => 'Symfony\\Component\\Routing\\Matcher\\Dumper\\PhpMatcherDumper', 'matcher_cache_class' => 'appdevUrlMatcher'));
     }
 
     /**
@@ -1846,7 +1850,7 @@ class appDevDebugProjectContainer extends Container
      */
     protected function getTranslator_RealService()
     {
-        return $this->services['translator.real'] = new \Symfony\Bundle\FrameworkBundle\Translation\Translator($this, $this->get('translator.selector'), array('translation.loader.php' => 'php', 'translation.loader.yml' => 'yml', 'translation.loader.xliff' => 'xliff'), array('cache_dir' => 'G:\\Dvp\\_RUBRIQUES\\dvpquizbundle\\app/cache/dev_new/translations', 'debug' => true), $this->get('session'));
+        return $this->services['translator.real'] = new \Symfony\Bundle\FrameworkBundle\Translation\Translator($this, $this->get('translator.selector'), array('translation.loader.php' => 'php', 'translation.loader.yml' => 'yml', 'translation.loader.xliff' => 'xliff'), array('cache_dir' => 'G:\\Dvp\\_RUBRIQUES\\dvpquizbundle\\app/cache/dev/translations', 'debug' => true), $this->get('session'));
     }
 
     /**
@@ -1859,7 +1863,7 @@ class appDevDebugProjectContainer extends Container
      */
     protected function getTwigService()
     {
-        $this->services['twig'] = $instance = new \Twig_Environment($this->get('twig.loader'), array('debug' => true, 'strict_variables' => true, 'cache' => 'G:\\Dvp\\_RUBRIQUES\\dvpquizbundle\\app/cache/dev_new/twig', 'charset' => 'UTF-8'));
+        $this->services['twig'] = $instance = new \Twig_Environment($this->get('twig.loader'), array('debug' => true, 'strict_variables' => true, 'cache' => 'G:\\Dvp\\_RUBRIQUES\\dvpquizbundle\\app/cache/dev/twig', 'charset' => 'UTF-8'));
 
         $instance->addExtension(new \Symfony\Bundle\SecurityBundle\Twig\Extension\SecurityExtension($this->get('security.context')));
         $instance->addExtension(new \Symfony\Bridge\Twig\Extension\TranslationExtension($this->get('translator')));
@@ -1990,7 +1994,7 @@ class appDevDebugProjectContainer extends Container
      */
     protected function getAssetic_CacheService()
     {
-        return $this->services['assetic.cache'] = new \Assetic\Cache\FilesystemCache('G:\\Dvp\\_RUBRIQUES\\dvpquizbundle\\app/cache/dev_new/assetic/assets');
+        return $this->services['assetic.cache'] = new \Assetic\Cache\FilesystemCache('G:\\Dvp\\_RUBRIQUES\\dvpquizbundle\\app/cache/dev/assetic/assets');
     }
 
     /**
@@ -2192,7 +2196,7 @@ class appDevDebugProjectContainer extends Container
             'kernel.environment' => 'dev',
             'kernel.debug' => true,
             'kernel.name' => 'app',
-            'kernel.cache_dir' => 'G:\\Dvp\\_RUBRIQUES\\dvpquizbundle\\app/cache/dev_new',
+            'kernel.cache_dir' => 'G:\\Dvp\\_RUBRIQUES\\dvpquizbundle\\app/cache/dev',
             'kernel.logs_dir' => 'G:\\Dvp\\_RUBRIQUES\\dvpquizbundle\\app/logs',
             'kernel.bundles' => array(
                 'FrameworkBundle' => 'Symfony\\Bundle\\FrameworkBundle\\FrameworkBundle',
@@ -2206,6 +2210,7 @@ class appDevDebugProjectContainer extends Container
                 'JMSSecurityExtraBundle' => 'JMS\\SecurityExtraBundle\\JMSSecurityExtraBundle',
                 'GoogleBundle' => 'AntiMattr\\GoogleBundle\\GoogleBundle',
                 'StofDoctrineExtensionsBundle' => 'Stof\\DoctrineExtensionsBundle\\StofDoctrineExtensionsBundle',
+                'QuizQuizBundle' => 'Quiz\\QuizBundle\\QuizQuizBundle',
                 'AcmeDemoBundle' => 'Acme\\DemoBundle\\AcmeDemoBundle',
                 'WebProfilerBundle' => 'Symfony\\Bundle\\WebProfilerBundle\\WebProfilerBundle',
                 'SymfonyWebConfiguratorBundle' => 'Symfony\\Bundle\\WebConfiguratorBundle\\SymfonyWebConfiguratorBundle',
@@ -2242,7 +2247,7 @@ class appDevDebugProjectContainer extends Container
             'translation.loader.yml.class' => 'Symfony\\Component\\Translation\\Loader\\YamlFileLoader',
             'translation.loader.xliff.class' => 'Symfony\\Component\\Translation\\Loader\\XliffFileLoader',
             'debug.event_dispatcher.class' => 'Symfony\\Bundle\\FrameworkBundle\\Debug\\TraceableEventDispatcher',
-            'debug.container.dump' => 'G:\\Dvp\\_RUBRIQUES\\dvpquizbundle\\app/cache/dev_new/appDevDebugProjectContainer.xml',
+            'debug.container.dump' => 'G:\\Dvp\\_RUBRIQUES\\dvpquizbundle\\app/cache/dev/appDevDebugProjectContainer.xml',
             'kernel.cache_warmup' => false,
             'kernel.secret' => '246d4fd592b1375e6114e109779706462106114e1097797064621033150141a0dc49b33150141a0dc49be5aa2851d51088dc4',
             'exception_listener.controller' => 'Symfony\\Bundle\\FrameworkBundle\\Controller\\ExceptionController::showAction',
@@ -2288,7 +2293,7 @@ class appDevDebugProjectContainer extends Container
             'data_collector.memory.class' => 'Symfony\\Component\\HttpKernel\\DataCollector\\MemoryDataCollector',
             'profiler_listener.only_exceptions' => false,
             'profiler_listener.only_master_requests' => false,
-            'profiler.storage.dsn' => 'sqlite:G:\\Dvp\\_RUBRIQUES\\dvpquizbundle\\app/cache/dev_new/profiler.db',
+            'profiler.storage.dsn' => 'sqlite:G:\\Dvp\\_RUBRIQUES\\dvpquizbundle\\app/cache/dev/profiler.db',
             'profiler.storage.username' => '',
             'profiler.storage.password' => '',
             'profiler.storage.lifetime' => 86400,
@@ -2428,7 +2433,7 @@ class appDevDebugProjectContainer extends Container
             'twig.options' => array(
                 'debug' => true,
                 'strict_variables' => true,
-                'cache' => 'G:\\Dvp\\_RUBRIQUES\\dvpquizbundle\\app/cache/dev_new/twig',
+                'cache' => 'G:\\Dvp\\_RUBRIQUES\\dvpquizbundle\\app/cache/dev/twig',
                 'charset' => 'UTF-8',
             ),
             'monolog.logger.class' => 'Symfony\\Bridge\\Monolog\\Logger',
@@ -2505,7 +2510,7 @@ class appDevDebugProjectContainer extends Container
             ),
             'doctrine.default_entity_manager' => 'default',
             'doctrine.orm.auto_generate_proxy_classes' => true,
-            'doctrine.orm.proxy_dir' => 'G:\\Dvp\\_RUBRIQUES\\dvpquizbundle\\app/cache/dev_new/doctrine/orm/Proxies',
+            'doctrine.orm.proxy_dir' => 'G:\\Dvp\\_RUBRIQUES\\dvpquizbundle\\app/cache/dev/doctrine/orm/Proxies',
             'doctrine.orm.proxy_namespace' => 'Proxies',
             'assetic.asset_factory.class' => 'Symfony\\Bundle\\AsseticBundle\\Factory\\AssetFactory',
             'assetic.asset_manager.class' => 'Assetic\\Factory\\LazyAssetManager',
@@ -2521,7 +2526,7 @@ class appDevDebugProjectContainer extends Container
             'assetic.node.paths' => array(
 
             ),
-            'assetic.cache_dir' => 'G:\\Dvp\\_RUBRIQUES\\dvpquizbundle\\app/cache/dev_new/assetic',
+            'assetic.cache_dir' => 'G:\\Dvp\\_RUBRIQUES\\dvpquizbundle\\app/cache/dev/assetic',
             'assetic.twig_extension.class' => 'Symfony\\Bundle\\AsseticBundle\\Twig\\AsseticExtension',
             'assetic.twig_formula_loader.class' => 'Assetic\\Extension\\Twig\\TwigFormulaLoader',
             'assetic.helper.dynamic.class' => 'Symfony\\Bundle\\AsseticBundle\\Templating\\DynamicAsseticHelper',
