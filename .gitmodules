@@ -4,3 +4,6 @@
 [submodule "vendor/bundles/Sf2gen/Bundle/ConsoleBundle"]
 	path = vendor/bundles/Sf2gen/Bundle/ConsoleBundle
 	url = git://github.com/RapotOR/ConsoleBundle.git
+[submodule "vendor/bundles/FOS/UserBundle"]
+	path = vendor/bundles/FOS/UserBundle
+	url = git://github.com/FriendsOfSymfony/UserBundle.git
