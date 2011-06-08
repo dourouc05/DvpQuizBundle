@@ -21,6 +21,7 @@
       <parameter key="AcmeDemoBundle">Acme\DemoBundle\AcmeDemoBundle</parameter>
       <parameter key="WebProfilerBundle">Symfony\Bundle\WebProfilerBundle\WebProfilerBundle</parameter>
       <parameter key="SymfonyWebConfiguratorBundle">Symfony\Bundle\WebConfiguratorBundle\SymfonyWebConfiguratorBundle</parameter>
+      <parameter key="Sf2genConsoleBundle">Sf2gen\Bundle\ConsoleBundle\Sf2genConsoleBundle</parameter>
     </parameter>
     <parameter key="kernel.charset">UTF-8</parameter>
     <parameter key="kernel.container_class">appDevDebugProjectContainer</parameter>
@@ -377,6 +378,10 @@
     <parameter key="web_profiler.debug_toolbar.intercept_redirects">false</parameter>
     <parameter key="web_profiler.debug_toolbar.verbose">true</parameter>
     <parameter key="symfony.webconfigurator.class">Symfony\Bundle\WebConfiguratorBundle\Configurator</parameter>
+    <parameter key="sf2gen.console.class">Sf2gen\Bundle\ConsoleBundle\Sf2genConsoleListener</parameter>
+    <parameter key="sf2gen_console.apps" type="collection">
+      <parameter>app</parameter>
+    </parameter>
     <parameter key="data_collector.templates" type="collection">
       <parameter key="data_collector.config" type="collection">
         <parameter>config</parameter>
@@ -693,6 +698,14 @@
         <argument>core.response</argument>
         <argument type="collection">
           <argument>web_profiler.debug_toolbar</argument>
+          <argument>onCoreResponse</argument>
+        </argument>
+        <argument>-128</argument>
+      </call>
+      <call method="addListenerService">
+        <argument>core.response</argument>
+        <argument type="collection">
+          <argument>sf2gen.toolbar</argument>
           <argument>onCoreResponse</argument>
         </argument>
         <argument>-128</argument>
@@ -1332,6 +1345,11 @@
         <service class="Symfony\Bundle\SecurityBundle\Security\FirewallMap" public="false">
           <argument type="service" id="service_container"/>
           <argument type="collection">
+            <argument key="security.firewall.map.context.sf2gen" type="service">
+              <service class="Symfony\Component\HttpFoundation\RequestMatcher" public="false">
+                <argument>/_sf2gencdt/.*</argument>
+              </service>
+            </argument>
             <argument key="security.firewall.map.context.profiler" type="service">
               <service class="Symfony\Component\HttpFoundation\RequestMatcher" public="false">
                 <argument>^/_profiler</argument>
@@ -1387,6 +1405,10 @@
           </service>
         </argument>
       </call>
+    </service>
+    <service id="security.firewall.map.context.sf2gen" class="Symfony\Bundle\SecurityBundle\Security\FirewallContext">
+      <argument type="collection"/>
+      <argument>null</argument>
     </service>
     <service id="security.firewall.map.context.profiler" class="Symfony\Bundle\SecurityBundle\Security\FirewallContext">
       <argument type="collection"/>
@@ -2098,6 +2120,33 @@
       </call>
       <call method="addResource">
         <argument type="service">
+          <service class="Assetic\Factory\Resource\CoalescingDirectoryResource" public="false">
+            <tag name="assetic.templating.twig"/>
+            <tag name="assetic.formula_resource" loader="twig"/>
+            <argument type="collection">
+              <argument type="service">
+                <service class="%assetic.directory_resource.class%" public="false">
+                  <argument type="service" id="templating.loader"/>
+                  <argument>Sf2genConsoleBundle</argument>
+                  <argument>G:\Dvp\_RUBRIQUES\dvpquizbundle\app/Resources/Sf2genConsoleBundle/views</argument>
+                  <argument>/^[^.]+\.[^.]+\.twig$/</argument>
+                </service>
+              </argument>
+              <argument type="service">
+                <service class="%assetic.directory_resource.class%" public="false">
+                  <argument type="service" id="templating.loader"/>
+                  <argument>Sf2genConsoleBundle</argument>
+                  <argument>G:\Dvp\_RUBRIQUES\dvpquizbundle\vendor\bundles\Sf2gen\Bundle\ConsoleBundle/Resources/views</argument>
+                  <argument>/^[^.]+\.[^.]+\.twig$/</argument>
+                </service>
+              </argument>
+            </argument>
+          </service>
+        </argument>
+        <argument>twig</argument>
+      </call>
+      <call method="addResource">
+        <argument type="service">
           <service class="Symfony\Bundle\AsseticBundle\Factory\Resource\DirectoryResource" public="false">
             <tag name="assetic.templating.twig"/>
             <tag name="assetic.formula_resource" loader="twig"/>
@@ -2223,6 +2272,11 @@
     </service>
     <service id="symfony.webconfigurator" class="Symfony\Bundle\WebConfiguratorBundle\Configurator">
       <argument>G:\Dvp\_RUBRIQUES\dvpquizbundle\app</argument>
+    </service>
+    <service id="sf2gen.toolbar" class="Sf2gen\Bundle\ConsoleBundle\Sf2genConsoleListener">
+      <tag name="kernel.listener" event="core.response" method="onCoreResponse" priority="-128"/>
+      <argument type="service" id="kernel"/>
+      <argument type="service" id="templating"/>
     </service>
     <service id="monolog.logger.request" class="Symfony\Bridge\Monolog\Logger">
       <argument>request</argument>

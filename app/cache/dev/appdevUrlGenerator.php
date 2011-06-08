@@ -33,6 +33,8 @@ class appdevUrlGenerator extends Symfony\Component\Routing\Generator\UrlGenerato
        '_configurator_home' => true,
        '_configurator_step' => true,
        '_configurator_final' => true,
+       '_sf2gencdt' => true,
+       '_sf2gencdt_request' => true,
     );
 
     /**
@@ -154,5 +156,15 @@ class appdevUrlGenerator extends Symfony\Component\Routing\Generator\UrlGenerato
     private function get_configurator_finalRouteInfo()
     {
         return array(array (), array (  '_controller' => 'Symfony\\Bundle\\WebConfiguratorBundle\\Controller\\ConfiguratorController::finalAction',), array (), array (  0 =>   array (    0 => 'text',    1 => '/_configurator/final',  ),));
+    }
+
+    private function get_sf2gencdtRouteInfo()
+    {
+        return array(array (), array (  '_controller' => 'Sf2gen\\Bundle\\ConsoleBundle\\Controller\\ConsoleController::toolbarAction',), array (), array (  0 =>   array (    0 => 'text',    1 => '/_sf2gencdt/',  ),));
+    }
+
+    private function get_sf2gencdt_requestRouteInfo()
+    {
+        return array(array (), array (  '_controller' => 'Sf2gen\\Bundle\\ConsoleBundle\\Controller\\ConsoleController::requestAction',), array (), array (  0 =>   array (    0 => 'text',    1 => '/_sf2gencdt/request/',  ),));
     }
 }

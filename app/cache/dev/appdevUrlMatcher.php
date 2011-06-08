@@ -145,6 +145,25 @@ class appdevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
     
         }
 
+        if (0 === strpos($pathinfo, '/_sf2gencdt')) {
+            // _sf2gencdt
+            if (rtrim($pathinfo, '/') === '/_sf2gencdt') {
+                if (substr($pathinfo, -1) !== '/') {
+                    return $this->redirect($pathinfo.'/', '_sf2gencdt');
+                }
+                return array (  '_controller' => 'Sf2gen\\Bundle\\ConsoleBundle\\Controller\\ConsoleController::toolbarAction',  '_route' => '_sf2gencdt',);
+            }
+    
+            // _sf2gencdt_request
+            if (rtrim($pathinfo, '/') === '/_sf2gencdt/request') {
+                if (substr($pathinfo, -1) !== '/') {
+                    return $this->redirect($pathinfo.'/', '_sf2gencdt_request');
+                }
+                return array (  '_controller' => 'Sf2gen\\Bundle\\ConsoleBundle\\Controller\\ConsoleController::requestAction',  '_route' => '_sf2gencdt_request',);
+            }
+    
+        }
+
         throw 0 < count($allow) ? new MethodNotAllowedException(array_unique($allow)) : new ResourceNotFoundException();
     }
 }

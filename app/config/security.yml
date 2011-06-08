@@ -13,6 +13,10 @@ security:
                 admin: { password: adminpass, roles: [ 'ROLE_ADMIN' ] }
 
     firewalls:
+        sf2gen:
+            pattern:    /_sf2gencdt/.*
+            security:  false
+            
         profiler:
             pattern:  ^/_profiler
             security: false

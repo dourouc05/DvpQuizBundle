@@ -62,3 +62,8 @@ google:
                 name:      MyJavaScriptCompatibleVariableNameWithNoSpaces
                 accountId: UA-20125448-1
                 domain:    quiz.developpez.com
+
+sf2gen_console:
+    toolbar: true 
+    local: true 
+    all: true

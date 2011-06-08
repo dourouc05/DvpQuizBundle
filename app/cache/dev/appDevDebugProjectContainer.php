@@ -85,6 +85,7 @@ class appDevDebugProjectContainer extends Container
         $instance->addResource(new \Assetic\Factory\Resource\CoalescingDirectoryResource(array(0 => new \Symfony\Bundle\AsseticBundle\Factory\Resource\DirectoryResource($a, 'AcmeDemoBundle', 'G:\\Dvp\\_RUBRIQUES\\dvpquizbundle\\app/Resources/AcmeDemoBundle/views', '/^[^.]+\\.[^.]+\\.twig$/'), 1 => new \Symfony\Bundle\AsseticBundle\Factory\Resource\DirectoryResource($a, 'AcmeDemoBundle', 'G:\\Dvp\\_RUBRIQUES\\dvpquizbundle\\src\\Acme\\DemoBundle/Resources/views', '/^[^.]+\\.[^.]+\\.twig$/'))), 'twig');
         $instance->addResource(new \Assetic\Factory\Resource\CoalescingDirectoryResource(array(0 => new \Symfony\Bundle\AsseticBundle\Factory\Resource\DirectoryResource($a, 'WebProfilerBundle', 'G:\\Dvp\\_RUBRIQUES\\dvpquizbundle\\app/Resources/WebProfilerBundle/views', '/^[^.]+\\.[^.]+\\.twig$/'), 1 => new \Symfony\Bundle\AsseticBundle\Factory\Resource\DirectoryResource($a, 'WebProfilerBundle', 'G:\\Dvp\\_RUBRIQUES\\dvpquizbundle\\vendor\\symfony\\src\\Symfony\\Bundle\\WebProfilerBundle/Resources/views', '/^[^.]+\\.[^.]+\\.twig$/'))), 'twig');
         $instance->addResource(new \Assetic\Factory\Resource\CoalescingDirectoryResource(array(0 => new \Symfony\Bundle\AsseticBundle\Factory\Resource\DirectoryResource($a, 'SymfonyWebConfiguratorBundle', 'G:\\Dvp\\_RUBRIQUES\\dvpquizbundle\\app/Resources/SymfonyWebConfiguratorBundle/views', '/^[^.]+\\.[^.]+\\.twig$/'), 1 => new \Symfony\Bundle\AsseticBundle\Factory\Resource\DirectoryResource($a, 'SymfonyWebConfiguratorBundle', 'G:\\Dvp\\_RUBRIQUES\\dvpquizbundle\\vendor\\bundles\\Symfony\\Bundle\\WebConfiguratorBundle/Resources/views', '/^[^.]+\\.[^.]+\\.twig$/'))), 'twig');
+        $instance->addResource(new \Assetic\Factory\Resource\CoalescingDirectoryResource(array(0 => new \Symfony\Bundle\AsseticBundle\Factory\Resource\DirectoryResource($a, 'Sf2genConsoleBundle', 'G:\\Dvp\\_RUBRIQUES\\dvpquizbundle\\app/Resources/Sf2genConsoleBundle/views', '/^[^.]+\\.[^.]+\\.twig$/'), 1 => new \Symfony\Bundle\AsseticBundle\Factory\Resource\DirectoryResource($a, 'Sf2genConsoleBundle', 'G:\\Dvp\\_RUBRIQUES\\dvpquizbundle\\vendor\\bundles\\Sf2gen\\Bundle\\ConsoleBundle/Resources/views', '/^[^.]+\\.[^.]+\\.twig$/'))), 'twig');
         $instance->addResource(new \Symfony\Bundle\AsseticBundle\Factory\Resource\DirectoryResource($a, '', 'G:\\Dvp\\_RUBRIQUES\\dvpquizbundle\\app/Resources/views', '/^[^.]+\\.[^.]+\\.twig$/'), 'twig');
 
         return $instance;
@@ -285,6 +286,7 @@ class appDevDebugProjectContainer extends Container
         $instance->addListenerService('core.controller', array(0 => 'security.extra.controller_listener', 1 => 'onCoreController'), -255);
         $instance->addListenerService('core.controller', array(0 => 'acme.demo.listener', 1 => 'onCoreController'), 0);
         $instance->addListenerService('core.response', array(0 => 'web_profiler.debug_toolbar', 1 => 'onCoreResponse'), -128);
+        $instance->addListenerService('core.response', array(0 => 'sf2gen.toolbar', 1 => 'onCoreResponse'), -128);
 
         return $instance;
     }
@@ -1243,7 +1245,7 @@ class appDevDebugProjectContainer extends Container
      */
     protected function getSecurity_FirewallService()
     {
-        return $this->services['security.firewall'] = new \Symfony\Component\Security\Http\Firewall(new \Symfony\Bundle\SecurityBundle\Security\FirewallMap($this, array('security.firewall.map.context.profiler' => new \Symfony\Component\HttpFoundation\RequestMatcher('^/_profiler'), 'security.firewall.map.context.wdt' => new \Symfony\Component\HttpFoundation\RequestMatcher('^/_wdt'), 'security.firewall.map.context.login' => new \Symfony\Component\HttpFoundation\RequestMatcher('^/demo/secured/login$'), 'security.firewall.map.context.secured_area' => new \Symfony\Component\HttpFoundation\RequestMatcher('^/demo/secured/'))), $this->get('event_dispatcher'));
+        return $this->services['security.firewall'] = new \Symfony\Component\Security\Http\Firewall(new \Symfony\Bundle\SecurityBundle\Security\FirewallMap($this, array('security.firewall.map.context.sf2gen' => new \Symfony\Component\HttpFoundation\RequestMatcher('/_sf2gencdt/.*'), 'security.firewall.map.context.profiler' => new \Symfony\Component\HttpFoundation\RequestMatcher('^/_profiler'), 'security.firewall.map.context.wdt' => new \Symfony\Component\HttpFoundation\RequestMatcher('^/_wdt'), 'security.firewall.map.context.login' => new \Symfony\Component\HttpFoundation\RequestMatcher('^/demo/secured/login$'), 'security.firewall.map.context.secured_area' => new \Symfony\Component\HttpFoundation\RequestMatcher('^/demo/secured/'))), $this->get('event_dispatcher'));
     }
 
     /**
@@ -1293,6 +1295,19 @@ class appDevDebugProjectContainer extends Container
         $f->addHandler(new \Symfony\Component\Security\Http\Logout\SessionLogoutHandler());
 
         return $this->services['security.firewall.map.context.secured_area'] = new \Symfony\Bundle\SecurityBundle\Security\FirewallContext(array(0 => new \Symfony\Component\Security\Http\Firewall\ChannelListener($e, new \Symfony\Component\Security\Http\EntryPoint\RetryAuthenticationEntryPoint(), $a), 1 => new \Symfony\Component\Security\Http\Firewall\ContextListener($b, array(0 => $this->get('security.user.provider.concrete.in_memory')), 'secured_area', $a, $c), 2 => $f, 3 => new \Symfony\Component\Security\Http\Firewall\UsernamePasswordFormAuthenticationListener($b, $d, new \Symfony\Component\Security\Http\Session\SessionAuthenticationStrategy('migrate'), 'secured_area', array('check_path' => '/demo/secured/login_check', 'login_path' => '/demo/secured/login', 'use_forward' => false, 'always_use_default_target_path' => false, 'default_target_path' => '/', 'target_path_parameter' => '_target_path', 'use_referer' => false, 'failure_path' => NULL, 'failure_forward' => false, 'username_parameter' => '_username', 'password_parameter' => '_password', 'csrf_parameter' => '_csrf_token', 'intention' => 'authenticate', 'post_only' => true), NULL, NULL, $a, $c), 4 => new \Symfony\Component\Security\Http\Firewall\AccessListener($b, $this->get('security.access.decision_manager'), $e, $d, $a)), new \Symfony\Component\Security\Http\Firewall\ExceptionListener($b, $this->get('security.authentication.trust_resolver'), new \Symfony\Component\Security\Http\EntryPoint\FormAuthenticationEntryPoint($this->get('http_kernel'), '/demo/secured/login', false), NULL, NULL, $a));
+    }
+
+    /**
+     * Gets the 'security.firewall.map.context.sf2gen' service.
+     *
+     * This service is shared.
+     * This method always returns the same instance of the service.
+     *
+     * @return Symfony\Bundle\SecurityBundle\Security\FirewallContext A Symfony\Bundle\SecurityBundle\Security\FirewallContext instance.
+     */
+    protected function getSecurity_Firewall_Map_Context_Sf2genService()
+    {
+        return $this->services['security.firewall.map.context.sf2gen'] = new \Symfony\Bundle\SecurityBundle\Security\FirewallContext(array(), NULL);
     }
 
     /**
@@ -1457,6 +1472,19 @@ class appDevDebugProjectContainer extends Container
     protected function getSessionListenerService()
     {
         return $this->services['session_listener'] = new \Symfony\Bundle\FrameworkBundle\EventListener\SessionListener($this);
+    }
+
+    /**
+     * Gets the 'sf2gen.toolbar' service.
+     *
+     * This service is shared.
+     * This method always returns the same instance of the service.
+     *
+     * @return Sf2gen\Bundle\ConsoleBundle\Sf2genConsoleListener A Sf2gen\Bundle\ConsoleBundle\Sf2genConsoleListener instance.
+     */
+    protected function getSf2gen_ToolbarService()
+    {
+        return $this->services['sf2gen.toolbar'] = new \Sf2gen\Bundle\ConsoleBundle\Sf2genConsoleListener($this->get('kernel'), $this->get('templating'));
     }
 
     /**
@@ -2161,6 +2189,7 @@ class appDevDebugProjectContainer extends Container
                 'AcmeDemoBundle' => 'Acme\\DemoBundle\\AcmeDemoBundle',
                 'WebProfilerBundle' => 'Symfony\\Bundle\\WebProfilerBundle\\WebProfilerBundle',
                 'SymfonyWebConfiguratorBundle' => 'Symfony\\Bundle\\WebConfiguratorBundle\\SymfonyWebConfiguratorBundle',
+                'Sf2genConsoleBundle' => 'Sf2gen\\Bundle\\ConsoleBundle\\Sf2genConsoleBundle',
             ),
             'kernel.charset' => 'UTF-8',
             'kernel.container_class' => 'appDevDebugProjectContainer',
@@ -2527,6 +2556,10 @@ class appDevDebugProjectContainer extends Container
             'web_profiler.debug_toolbar.intercept_redirects' => false,
             'web_profiler.debug_toolbar.verbose' => true,
             'symfony.webconfigurator.class' => 'Symfony\\Bundle\\WebConfiguratorBundle\\Configurator',
+            'sf2gen.console.class' => 'Sf2gen\\Bundle\\ConsoleBundle\\Sf2genConsoleListener',
+            'sf2gen_console.apps' => array(
+                0 => 'app',
+            ),
             'data_collector.templates' => array(
                 'data_collector.config' => array(
                     0 => 'config',

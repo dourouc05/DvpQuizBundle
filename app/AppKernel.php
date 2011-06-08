@@ -23,10 +23,12 @@ class AppKernel extends Kernel
             new AntiMattr\GoogleBundle\GoogleBundle(),
         );
 
-        if (in_array($this->getEnvironment(), array('dev', 'test'))) {
+        if (in_array($this->getEnvironment(), array('dev', 'test')))
+        {
             $bundles[] = new Acme\DemoBundle\AcmeDemoBundle();
             $bundles[] = new Symfony\Bundle\WebProfilerBundle\WebProfilerBundle();
             $bundles[] = new Symfony\Bundle\WebConfiguratorBundle\SymfonyWebConfiguratorBundle();
+            $bundles[] = new Sf2gen\Bundle\ConsoleBundle\Sf2genConsoleBundle();
         }
 
         return $bundles;
@@ -34,7 +36,8 @@ class AppKernel extends Kernel
 
     public function init()
     {
-        if ($this->debug) {
+        if ($this->debug)
+        {
             ini_set('display_errors', 1);
             error_reporting(-1);
 
@@ -43,7 +46,9 @@ class AppKernel extends Kernel
             if ('cli' !== php_sapi_name()) {
                 ExceptionHandler::register();
             }
-        } else {
+        }
+        else
+        {
             ini_set('display_errors', 0);
         }
     }
