@@ -1,0 +1,38 @@
+<?php
+
+namespace Quiz\QuizBundle\Entity;
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * @ORM\Entity
+ */
+class Rubrique
+{
+    /**
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue
+     */
+    protected $id;
+    
+    /** 
+     * @ORM\Column(name="name", type="string")
+     * 
+     * Nom de la rubrique
+     */
+    protected $name; 
+    
+    /**
+     * @ORM\Column(name="coldr", type="string")
+     * 
+     * URL de la colonne de droite à inclure
+     */
+    protected $colonneDroite; 
+    
+    /** 
+     * @ORM\Column(name="xiti", type="integer")
+     * 
+     * Numéro XiTi de la rubrique
+     */
+    protected $xiti; 
+}
