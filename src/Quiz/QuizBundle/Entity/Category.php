@@ -68,8 +68,202 @@ class Category
     protected $parent; 
       
     /** 
-     * @OneToMany(targetEntity="Category", mappedBy="parent") 
+     * @ORM\OneToMany(targetEntity="Category", mappedBy="parent") 
      * @ORM\OrderBy({"lft" = "ASC"}) 
      */
     protected $children; 
+    public function __construct()
+    {
+        $this->children = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+    
+    /**
+     * Get id
+     *
+     * @return integer $id
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set title
+     *
+     * @param string $title
+     */
+    public function setTitle($title)
+    {
+        $this->title = $title;
+    }
+
+    /**
+     * Get title
+     *
+     * @return string $title
+     */
+    public function getTitle()
+    {
+        return $this->title;
+    }
+
+    /**
+     * Set slug
+     *
+     * @param string $slug
+     */
+    public function setSlug($slug)
+    {
+        $this->slug = $slug;
+    }
+
+    /**
+     * Get slug
+     *
+     * @return string $slug
+     */
+    public function getSlug()
+    {
+        return $this->slug;
+    }
+
+    /**
+     * Set lft
+     *
+     * @param integer $lft
+     */
+    public function setLft($lft)
+    {
+        $this->lft = $lft;
+    }
+
+    /**
+     * Get lft
+     *
+     * @return integer $lft
+     */
+    public function getLft()
+    {
+        return $this->lft;
+    }
+
+    /**
+     * Set lvl
+     *
+     * @param integer $lvl
+     */
+    public function setLvl($lvl)
+    {
+        $this->lvl = $lvl;
+    }
+
+    /**
+     * Get lvl
+     *
+     * @return integer $lvl
+     */
+    public function getLvl()
+    {
+        return $this->lvl;
+    }
+
+    /**
+     * Set rgt
+     *
+     * @param integer $rgt
+     */
+    public function setRgt($rgt)
+    {
+        $this->rgt = $rgt;
+    }
+
+    /**
+     * Get rgt
+     *
+     * @return integer $rgt
+     */
+    public function getRgt()
+    {
+        return $this->rgt;
+    }
+
+    /**
+     * Set root
+     *
+     * @param integer $root
+     */
+    public function setRoot($root)
+    {
+        $this->root = $root;
+    }
+
+    /**
+     * Get root
+     *
+     * @return integer $root
+     */
+    public function getRoot()
+    {
+        return $this->root;
+    }
+
+    /**
+     * Set rubrique
+     *
+     * @param Quiz\QuizBundle\Entity\Rubrique $rubrique
+     */
+    public function setRubrique(\Quiz\QuizBundle\Entity\Rubrique $rubrique)
+    {
+        $this->rubrique = $rubrique;
+    }
+
+    /**
+     * Get rubrique
+     *
+     * @return Quiz\QuizBundle\Entity\Rubrique $rubrique
+     */
+    public function getRubrique()
+    {
+        return $this->rubrique;
+    }
+
+    /**
+     * Set parent
+     *
+     * @param Quiz\QuizBundle\Entity\Category $parent
+     */
+    public function setParent(\Quiz\QuizBundle\Entity\Category $parent)
+    {
+        $this->parent = $parent;
+    }
+
+    /**
+     * Get parent
+     *
+     * @return Quiz\QuizBundle\Entity\Category $parent
+     */
+    public function getParent()
+    {
+        return $this->parent;
+    }
+
+    /**
+     * Add children
+     *
+     * @param Quiz\QuizBundle\Entity\Category $children
+     */
+    public function addChildren(\Quiz\QuizBundle\Entity\Category $children)
+    {
+        $this->children[] = $children;
+    }
+
+    /**
+     * Get children
+     *
+     * @return Doctrine\Common\Collections\Collection $children
+     */
+    public function getChildren()
+    {
+        return $this->children;
+    }
 }

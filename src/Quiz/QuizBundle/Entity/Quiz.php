@@ -93,4 +93,144 @@ class Quiz
             return -1; 
         }
     }
+
+    /**
+     * Get id
+     *
+     * @return integer $id
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set deleted
+     *
+     * @param boolean $deleted
+     */
+    public function setDeleted($deleted)
+    {
+        $this->deleted = $deleted;
+    }
+
+    /**
+     * Get deleted
+     *
+     * @return boolean $deleted
+     */
+    public function getDeleted()
+    {
+        return $this->deleted;
+    }
+
+    /**
+     * Set name
+     *
+     * @param text $name
+     */
+    public function setName($name)
+    {
+        $this->name = $name;
+    }
+
+    /**
+     * Get name
+     *
+     * @return text $name
+     */
+    public function getName()
+    {
+        return $this->name;
+    }
+
+    /**
+     * Set visits
+     *
+     * @param integer $visits
+     */
+    public function setVisits($visits)
+    {
+        $this->visits = $visits;
+    }
+
+    /**
+     * Get visits
+     *
+     * @return integer $visits
+     */
+    public function getVisits()
+    {
+        return $this->visits;
+    }
+
+    /**
+     * Set random
+     *
+     * @param boolean $random
+     */
+    public function setRandom($random)
+    {
+        $this->random = $random;
+    }
+
+    /**
+     * Get random
+     *
+     * @return boolean $random
+     */
+    public function getRandom()
+    {
+        return $this->random;
+    }
+
+    /**
+     * Set questionsToShow
+     *
+     * @param integer $questionsToShow
+     */
+    public function setQuestionsToShow($questionsToShow)
+    {
+        $this->questionsToShow = $questionsToShow;
+    }
+
+    /**
+     * Set category
+     *
+     * @param integer $category
+     */
+    public function setCategory($category)
+    {
+        $this->category = $category;
+    }
+
+    /**
+     * Get category
+     *
+     * @return integer $category
+     */
+    public function getCategory()
+    {
+        return $this->category;
+    }
+
+    /**
+     * Set slug
+     *
+     * @param string $slug
+     */
+    public function setSlug($slug)
+    {
+        $this->slug = $slug;
+    }
+
+    /**
+     * Get slug
+     *
+     * @return string $slug
+     */
+    public function getSlug()
+    {
+        return $this->slug;
+    }
 }
