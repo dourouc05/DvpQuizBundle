@@ -1,3 +1,6 @@
 [submodule "vendor/bundles/AntiMattr/GoogleBundle"]
 	path = vendor/bundles/AntiMattr/GoogleBundle
 	url = git@github.com:antimattr/GoogleBundle.git
+[submodule "vendor/bundles/Sf2gen/Bundle/ConsoleBundle"]
+	path = vendor/bundles/Sf2gen/Bundle/ConsoleBundle
+	url = git://github.com/RapotOR/ConsoleBundle.git
