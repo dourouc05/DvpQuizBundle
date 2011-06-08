@@ -67,3 +67,11 @@ sf2gen_console:
     toolbar: true 
     local: true 
     all: true
+    
+fos_user:
+    db_driver: orm
+    firewall_name: main
+    use_listener: false
+    class:
+        model:
+            user:  MyApp\UtilisateurBundle\Entity\Utilisateur

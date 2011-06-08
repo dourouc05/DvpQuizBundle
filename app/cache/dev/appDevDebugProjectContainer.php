@@ -82,6 +82,7 @@ class appDevDebugProjectContainer extends Container
         $instance->addResource(new \Assetic\Factory\Resource\CoalescingDirectoryResource(array(0 => new \Symfony\Bundle\AsseticBundle\Factory\Resource\DirectoryResource($a, 'SensioFrameworkExtraBundle', 'G:\\Dvp\\_RUBRIQUES\\dvpquizbundle\\app/Resources/SensioFrameworkExtraBundle/views', '/^[^.]+\\.[^.]+\\.twig$/'), 1 => new \Symfony\Bundle\AsseticBundle\Factory\Resource\DirectoryResource($a, 'SensioFrameworkExtraBundle', 'G:\\Dvp\\_RUBRIQUES\\dvpquizbundle\\vendor\\bundles\\Sensio\\Bundle\\FrameworkExtraBundle/Resources/views', '/^[^.]+\\.[^.]+\\.twig$/'))), 'twig');
         $instance->addResource(new \Assetic\Factory\Resource\CoalescingDirectoryResource(array(0 => new \Symfony\Bundle\AsseticBundle\Factory\Resource\DirectoryResource($a, 'JMSSecurityExtraBundle', 'G:\\Dvp\\_RUBRIQUES\\dvpquizbundle\\app/Resources/JMSSecurityExtraBundle/views', '/^[^.]+\\.[^.]+\\.twig$/'), 1 => new \Symfony\Bundle\AsseticBundle\Factory\Resource\DirectoryResource($a, 'JMSSecurityExtraBundle', 'G:\\Dvp\\_RUBRIQUES\\dvpquizbundle\\vendor\\bundles\\JMS\\SecurityExtraBundle/Resources/views', '/^[^.]+\\.[^.]+\\.twig$/'))), 'twig');
         $instance->addResource(new \Assetic\Factory\Resource\CoalescingDirectoryResource(array(0 => new \Symfony\Bundle\AsseticBundle\Factory\Resource\DirectoryResource($a, 'GoogleBundle', 'G:\\Dvp\\_RUBRIQUES\\dvpquizbundle\\app/Resources/GoogleBundle/views', '/^[^.]+\\.[^.]+\\.twig$/'), 1 => new \Symfony\Bundle\AsseticBundle\Factory\Resource\DirectoryResource($a, 'GoogleBundle', 'G:\\Dvp\\_RUBRIQUES\\dvpquizbundle\\vendor\\bundles\\AntiMattr\\GoogleBundle/Resources/views', '/^[^.]+\\.[^.]+\\.twig$/'))), 'twig');
+        $instance->addResource(new \Assetic\Factory\Resource\CoalescingDirectoryResource(array(0 => new \Symfony\Bundle\AsseticBundle\Factory\Resource\DirectoryResource($a, 'StofDoctrineExtensionsBundle', 'G:\\Dvp\\_RUBRIQUES\\dvpquizbundle\\app/Resources/StofDoctrineExtensionsBundle/views', '/^[^.]+\\.[^.]+\\.twig$/'), 1 => new \Symfony\Bundle\AsseticBundle\Factory\Resource\DirectoryResource($a, 'StofDoctrineExtensionsBundle', 'G:\\Dvp\\_RUBRIQUES\\dvpquizbundle\\vendor\\bundles\\Stof\\DoctrineExtensionsBundle/Resources/views', '/^[^.]+\\.[^.]+\\.twig$/'))), 'twig');
         $instance->addResource(new \Assetic\Factory\Resource\CoalescingDirectoryResource(array(0 => new \Symfony\Bundle\AsseticBundle\Factory\Resource\DirectoryResource($a, 'AcmeDemoBundle', 'G:\\Dvp\\_RUBRIQUES\\dvpquizbundle\\app/Resources/AcmeDemoBundle/views', '/^[^.]+\\.[^.]+\\.twig$/'), 1 => new \Symfony\Bundle\AsseticBundle\Factory\Resource\DirectoryResource($a, 'AcmeDemoBundle', 'G:\\Dvp\\_RUBRIQUES\\dvpquizbundle\\src\\Acme\\DemoBundle/Resources/views', '/^[^.]+\\.[^.]+\\.twig$/'))), 'twig');
         $instance->addResource(new \Assetic\Factory\Resource\CoalescingDirectoryResource(array(0 => new \Symfony\Bundle\AsseticBundle\Factory\Resource\DirectoryResource($a, 'WebProfilerBundle', 'G:\\Dvp\\_RUBRIQUES\\dvpquizbundle\\app/Resources/WebProfilerBundle/views', '/^[^.]+\\.[^.]+\\.twig$/'), 1 => new \Symfony\Bundle\AsseticBundle\Factory\Resource\DirectoryResource($a, 'WebProfilerBundle', 'G:\\Dvp\\_RUBRIQUES\\dvpquizbundle\\vendor\\symfony\\src\\Symfony\\Bundle\\WebProfilerBundle/Resources/views', '/^[^.]+\\.[^.]+\\.twig$/'))), 'twig');
         $instance->addResource(new \Assetic\Factory\Resource\CoalescingDirectoryResource(array(0 => new \Symfony\Bundle\AsseticBundle\Factory\Resource\DirectoryResource($a, 'SymfonyWebConfiguratorBundle', 'G:\\Dvp\\_RUBRIQUES\\dvpquizbundle\\app/Resources/SymfonyWebConfiguratorBundle/views', '/^[^.]+\\.[^.]+\\.twig$/'), 1 => new \Symfony\Bundle\AsseticBundle\Factory\Resource\DirectoryResource($a, 'SymfonyWebConfiguratorBundle', 'G:\\Dvp\\_RUBRIQUES\\dvpquizbundle\\vendor\\bundles\\Symfony\\Bundle\\WebConfiguratorBundle/Resources/views', '/^[^.]+\\.[^.]+\\.twig$/'))), 'twig');
@@ -227,18 +228,21 @@ class appDevDebugProjectContainer extends Container
         $c = new \Doctrine\Common\Cache\ArrayCache();
         $c->setNamespace('sf2orm_default_df77742386d42b218843e620c0fdf541');
 
-        $d = new \Doctrine\ORM\Configuration();
-        $d->setEntityNamespaces(array());
-        $d->setMetadataCacheImpl($a);
-        $d->setQueryCacheImpl($b);
-        $d->setResultCacheImpl($c);
-        $d->setMetadataDriverImpl(new \Doctrine\ORM\Mapping\Driver\DriverChain());
-        $d->setProxyDir('G:\\Dvp\\_RUBRIQUES\\dvpquizbundle\\app/cache/dev/doctrine/orm/Proxies');
-        $d->setProxyNamespace('Proxies');
-        $d->setAutoGenerateProxyClasses(true);
-        $d->setClassMetadataFactoryName('Doctrine\\ORM\\Mapping\\ClassMetadataFactory');
+        $d = new \Doctrine\ORM\Mapping\Driver\DriverChain();
+        $d->addDriver(new \Symfony\Bundle\DoctrineBundle\Mapping\Driver\XmlDriver(array('Stof\\DoctrineExtensionsBundle\\Entity' => 'G:\\Dvp\\_RUBRIQUES\\dvpquizbundle\\vendor\\bundles\\Stof\\DoctrineExtensionsBundle\\Resources\\config\\doctrine')), 'Stof\\DoctrineExtensionsBundle\\Entity');
 
-        return $this->services['doctrine.orm.default_entity_manager'] = call_user_func(array('Doctrine\\ORM\\EntityManager', 'create'), $this->get('doctrine.dbal.default_connection'), $d);
+        $e = new \Doctrine\ORM\Configuration();
+        $e->setEntityNamespaces(array('StofDoctrineExtensionsBundle' => 'Stof\\DoctrineExtensionsBundle\\Entity'));
+        $e->setMetadataCacheImpl($a);
+        $e->setQueryCacheImpl($b);
+        $e->setResultCacheImpl($c);
+        $e->setMetadataDriverImpl($d);
+        $e->setProxyDir('G:\\Dvp\\_RUBRIQUES\\dvpquizbundle\\app/cache/dev/doctrine/orm/Proxies');
+        $e->setProxyNamespace('Proxies');
+        $e->setAutoGenerateProxyClasses(true);
+        $e->setClassMetadataFactoryName('Doctrine\\ORM\\Mapping\\ClassMetadataFactory');
+
+        return $this->services['doctrine.orm.default_entity_manager'] = call_user_func(array('Doctrine\\ORM\\EntityManager', 'create'), $this->get('doctrine.dbal.default_connection'), $e);
     }
 
     /**
@@ -1488,6 +1492,24 @@ class appDevDebugProjectContainer extends Container
     }
 
     /**
+     * Gets the 'stof_doctrine_extensions.listener.loggable' service.
+     *
+     * This service is shared.
+     * This method always returns the same instance of the service.
+     *
+     * @return Stof\DoctrineExtensionsBundle\Listener\LoggableListener A Stof\DoctrineExtensionsBundle\Listener\LoggableListener instance.
+     */
+    protected function getStofDoctrineExtensions_Listener_LoggableService()
+    {
+        $this->services['stof_doctrine_extensions.listener.loggable'] = $instance = new \Stof\DoctrineExtensionsBundle\Listener\LoggableListener();
+
+        $instance->setContainer($this);
+        $instance->setAnnotationReader($this->get('annotation_reader'));
+
+        return $instance;
+    }
+
+    /**
      * Gets the 'swiftmailer.plugin.messagelogger' service.
      *
      * This service is shared.
@@ -2186,6 +2208,7 @@ class appDevDebugProjectContainer extends Container
                 'SensioFrameworkExtraBundle' => 'Sensio\\Bundle\\FrameworkExtraBundle\\SensioFrameworkExtraBundle',
                 'JMSSecurityExtraBundle' => 'JMS\\SecurityExtraBundle\\JMSSecurityExtraBundle',
                 'GoogleBundle' => 'AntiMattr\\GoogleBundle\\GoogleBundle',
+                'StofDoctrineExtensionsBundle' => 'Stof\\DoctrineExtensionsBundle\\StofDoctrineExtensionsBundle',
                 'AcmeDemoBundle' => 'Acme\\DemoBundle\\AcmeDemoBundle',
                 'WebProfilerBundle' => 'Symfony\\Bundle\\WebProfilerBundle\\WebProfilerBundle',
                 'SymfonyWebConfiguratorBundle' => 'Symfony\\Bundle\\WebConfiguratorBundle\\SymfonyWebConfiguratorBundle',
@@ -2511,7 +2534,7 @@ class appDevDebugProjectContainer extends Container
             'assetic.use_controller' => true,
             'assetic.read_from' => 'G:\\Dvp\\_RUBRIQUES\\dvpquizbundle\\app/../web',
             'assetic.write_to' => 'G:\\Dvp\\_RUBRIQUES\\dvpquizbundle\\app/../web',
-            'assetic.java.bin' => 'C:\\Windows\\system32\\java.EXE',
+            'assetic.java.bin' => 'c:\\Windows\\system32\\java.EXE',
             'assetic.node.bin' => '/usr/bin/node',
             'assetic.sass.bin' => '/usr/bin/sass',
             'assetic.filter.cssrewrite.class' => 'Assetic\\Filter\\CssRewriteFilter',
@@ -2552,6 +2575,13 @@ class appDevDebugProjectContainer extends Container
                     'domain' => 'quiz.developpez.com',
                 ),
             ),
+            'stof_doctrine_extensions.default_locale' => 'en',
+            'stof_doctrine_extensions.translation_fallback' => false,
+            'stof_doctrine_extensions.listener.translatable.class' => 'Stof\\DoctrineExtensionsBundle\\Listener\\TranslationListener',
+            'stof_doctrine_extensions.listener.timestampable.class' => 'Gedmo\\Timestampable\\TimestampableListener',
+            'stof_doctrine_extensions.listener.sluggable.class' => 'Gedmo\\Sluggable\\SluggableListener',
+            'stof_doctrine_extensions.listener.tree.class' => 'Gedmo\\Tree\\TreeListener',
+            'stof_doctrine_extensions.listener.loggable.class' => 'Stof\\DoctrineExtensionsBundle\\Listener\\LoggableListener',
             'web_profiler.debug_toolbar.class' => 'Symfony\\Bundle\\WebProfilerBundle\\EventListener\\WebDebugToolbarListener',
             'web_profiler.debug_toolbar.intercept_redirects' => false,
             'web_profiler.debug_toolbar.verbose' => true,

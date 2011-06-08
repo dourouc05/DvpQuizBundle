@@ -16,6 +16,8 @@ $loader->registerNamespaces(array(
     'AntiMattr'         => __DIR__.'/../vendor/bundles', 
     'Sf2gen'            => __DIR__.'/../vendor/bundles',
     'FOS'               => __DIR__.'/../vendor/bundles',
+    'Stof'              => __DIR__.'/../vendor/bundles',
+    'Gedmo'             => __DIR__.'/../vendor/gedmo-doctrine-extensions/lib',
 ));
 $loader->registerPrefixes(array(
     'Twig_Extensions_' => __DIR__.'/../vendor/twig-extensions/lib',
