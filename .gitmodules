@@ -1,0 +1,3 @@
+[submodule "vendor/bundles/AntiMattr/GoogleBundle"]
+	path = vendor/bundles/AntiMattr/GoogleBundle
+	url = git@github.com:antimattr/GoogleBundle.git
