@@ -95,6 +95,9 @@ class Category
     public function setTitle($title)
     {
         $this->title = $title;
+        
+        // $log = new Log();
+        // $log->
     }
 
     /**
