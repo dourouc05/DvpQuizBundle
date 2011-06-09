@@ -26,9 +26,16 @@ class User extends BaseUser
      * @var string
      */
     protected $email;
+    
+    /** 
+     * @ORM\ManyToMany(targetEntity="Log")
+     * @ORM\JoinColumn(referencedColumnName="id")
+     */
+    protected $logs; 
 
 	public function __construct()
 	{
+        $this->logs = new ArrayCollection();
 		parent::__construct();
 	}
 
@@ -80,5 +87,25 @@ class User extends BaseUser
     public function getEmail()
     {
         return $this->email;
+    }
+
+    /**
+     * Add logs
+     *
+     * @param Quiz\QuizBundle\Entity\Log $logs
+     */
+    public function addLogs(\Quiz\QuizBundle\Entity\Log $logs)
+    {
+        $this->logs[] = $logs;
+    }
+
+    /**
+     * Get logs
+     *
+     * @return Doctrine\Common\Collections\Collection $logs
+     */
+    public function getLogs()
+    {
+        return $this->logs;
     }
 }

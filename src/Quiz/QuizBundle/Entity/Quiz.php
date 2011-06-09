@@ -81,6 +81,11 @@ class Quiz
         return $this->deleted; 
     }
     
+    public function addVisit()
+    {
+        $this->visits += 1;
+    }
+    
     public function getQuestionsToShow()
     {
         // On ne peut donner un nombre de questions à montrer que si le quiz est aléatoire
@@ -109,7 +114,7 @@ class Quiz
      *
      * @param boolean $deleted
      */
-    public function setDeleted($deleted)
+    private function setDeleted($deleted)
     {
         $this->deleted = $deleted;
     }
@@ -119,7 +124,7 @@ class Quiz
      *
      * @return boolean $deleted
      */
-    public function getDeleted()
+    private function getDeleted()
     {
         return $this->deleted;
     }
@@ -149,7 +154,7 @@ class Quiz
      *
      * @param integer $visits
      */
-    public function setVisits($visits)
+    private function setVisits($visits)
     {
         $this->visits = $visits;
     }

@@ -10,6 +10,11 @@ use Gedmo\Mapping\Annotation as Gedmo;
  */
 class Category
 {
+    public function __construct()
+    {
+        $this->children = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+    
     /**
      * @ORM\Column(type="integer")
      * @ORM\Id
@@ -32,7 +37,7 @@ class Category
     protected $slug; 
     
     /** 
-     * @ORM\ManyToOne(targetEntity="Rubrique")
+     * @ORM\ManyToOne(targetEntity="Rubrique", inversedBy="categories")
      * @ORM\JoinColumn(referencedColumnName="id")
      */
     protected $rubrique; 
@@ -72,10 +77,6 @@ class Category
      * @ORM\OrderBy({"lft" = "ASC"}) 
      */
     protected $children; 
-    public function __construct()
-    {
-        $this->children = new \Doctrine\Common\Collections\ArrayCollection();
-    }
     
     /**
      * Get id

@@ -8,6 +8,11 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Rubrique
 {
+    public function __construct()
+    {
+        $this->categories = new ArrayCollection();
+    }
+    
     /**
      * @ORM\Column(name="id", type="integer")
      * @ORM\Id
@@ -35,6 +40,11 @@ class Rubrique
      * Numéro XiTi de la rubrique
      */
     protected $xiti; 
+    
+    /**
+     * @ORM\OneToMany(targetEntity="Category", mappedBy="rubrique")
+     */
+    protected $categories;
 
     /**
      * Get id
@@ -104,5 +114,25 @@ class Rubrique
     public function getXiti()
     {
         return $this->xiti;
+    }
+
+    /**
+     * Add categories
+     *
+     * @param Quiz\QuizBundle\Entity\Category $categories
+     */
+    public function addCategories(\Quiz\QuizBundle\Entity\Category $categories)
+    {
+        $this->categories[] = $categories;
+    }
+
+    /**
+     * Get categories
+     *
+     * @return Doctrine\Common\Collections\Collection $categories
+     */
+    public function getCategories()
+    {
+        return $this->categories;
     }
 }
