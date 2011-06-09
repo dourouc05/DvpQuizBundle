@@ -29,7 +29,6 @@ class User extends BaseUser
     
     /** 
      * @ORM\ManyToMany(targetEntity="Log")
-     * @ORM\JoinColumn(referencedColumnName="id")
      */
     protected $logs; 
 

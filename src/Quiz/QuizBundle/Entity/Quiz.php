@@ -53,7 +53,6 @@ class Quiz
     /**
      * @ORM\Column(name="category_id", type="integer")
      * @ORM\ManyToOne(targetEntity="Category")
-     * @ORM\JoinColumn(name="category_id", referencedColumnName="id")
      * 
      * Catégorie du quiz
      */

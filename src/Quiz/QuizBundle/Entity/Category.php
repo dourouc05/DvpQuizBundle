@@ -38,7 +38,6 @@ class Category
     
     /** 
      * @ORM\ManyToOne(targetEntity="Rubrique", inversedBy="categories")
-     * @ORM\JoinColumn(referencedColumnName="id")
      */
     protected $rubrique; 
     

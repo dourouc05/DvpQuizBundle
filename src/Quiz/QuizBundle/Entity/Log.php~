@@ -17,13 +17,11 @@ class Log
     
     /**
      * @ORM\ManyToOne(targetEntity="LogCategory", inversedBy="logs")
-     * @ORM\JoinColumn(referencedColumnName="id")
      */
     protected $category;
     
     /**
      * @ORM\ManyToOne(targetEntity="User", inversedBy="logs")
-     * @ORM\JoinColumn(referencedColumnName="id")
      */
     protected $who; 
     
