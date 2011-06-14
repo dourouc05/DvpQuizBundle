@@ -7,12 +7,21 @@ use Quiz\QuizBundle\Entity\LogCategory;
  
 class LoadLogEntryData implements FixtureInterface
 {
+    private $mgr; 
+
     public function load($manager)
     {
+        $this->mgr = $manager; 
+        $this->newCat('Édition de catégorie');
+        $this->newCat('Édition de quiz');
+        $this->mgr->flush();
+    }
+    
+    private function newCat($name)
+    {
         $cat = new LogCategory();
-        $cat->setName('Édition de catégorie');
+        $cat->setName($name);
  
-        $manager->persist($cat);
-        $manager->flush();
+        $this->mgr->persist($cat);
     }
 }
