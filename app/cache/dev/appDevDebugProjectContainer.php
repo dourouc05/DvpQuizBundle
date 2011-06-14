@@ -83,6 +83,11 @@ class appDevDebugProjectContainer extends Container
         $instance->addResource(new \Assetic\Factory\Resource\CoalescingDirectoryResource(array(0 => new \Symfony\Bundle\AsseticBundle\Factory\Resource\DirectoryResource($a, 'JMSSecurityExtraBundle', 'G:\\Dvp\\_RUBRIQUES\\dvpquizbundle\\app/Resources/JMSSecurityExtraBundle/views', '/^[^.]+\\.[^.]+\\.twig$/'), 1 => new \Symfony\Bundle\AsseticBundle\Factory\Resource\DirectoryResource($a, 'JMSSecurityExtraBundle', 'G:\\Dvp\\_RUBRIQUES\\dvpquizbundle\\vendor\\bundles\\JMS\\SecurityExtraBundle/Resources/views', '/^[^.]+\\.[^.]+\\.twig$/'))), 'twig');
         $instance->addResource(new \Assetic\Factory\Resource\CoalescingDirectoryResource(array(0 => new \Symfony\Bundle\AsseticBundle\Factory\Resource\DirectoryResource($a, 'DoctrineFixturesBundle', 'G:\\Dvp\\_RUBRIQUES\\dvpquizbundle\\app/Resources/DoctrineFixturesBundle/views', '/^[^.]+\\.[^.]+\\.twig$/'), 1 => new \Symfony\Bundle\AsseticBundle\Factory\Resource\DirectoryResource($a, 'DoctrineFixturesBundle', 'G:\\Dvp\\_RUBRIQUES\\dvpquizbundle\\vendor\\bundles\\Symfony\\Bundle\\DoctrineFixturesBundle/Resources/views', '/^[^.]+\\.[^.]+\\.twig$/'))), 'twig');
         $instance->addResource(new \Assetic\Factory\Resource\CoalescingDirectoryResource(array(0 => new \Symfony\Bundle\AsseticBundle\Factory\Resource\DirectoryResource($a, 'GoogleBundle', 'G:\\Dvp\\_RUBRIQUES\\dvpquizbundle\\app/Resources/GoogleBundle/views', '/^[^.]+\\.[^.]+\\.twig$/'), 1 => new \Symfony\Bundle\AsseticBundle\Factory\Resource\DirectoryResource($a, 'GoogleBundle', 'G:\\Dvp\\_RUBRIQUES\\dvpquizbundle\\vendor\\bundles\\AntiMattr\\GoogleBundle/Resources/views', '/^[^.]+\\.[^.]+\\.twig$/'))), 'twig');
+        $instance->addResource(new \Assetic\Factory\Resource\CoalescingDirectoryResource(array(0 => new \Symfony\Bundle\AsseticBundle\Factory\Resource\DirectoryResource($a, 'SonatajQueryBundle', 'G:\\Dvp\\_RUBRIQUES\\dvpquizbundle\\app/Resources/SonatajQueryBundle/views', '/^[^.]+\\.[^.]+\\.twig$/'), 1 => new \Symfony\Bundle\AsseticBundle\Factory\Resource\DirectoryResource($a, 'SonatajQueryBundle', 'G:\\Dvp\\_RUBRIQUES\\dvpquizbundle\\vendor\\bundles\\Sonata\\jQueryBundle/Resources/views', '/^[^.]+\\.[^.]+\\.twig$/'))), 'twig');
+        $instance->addResource(new \Assetic\Factory\Resource\CoalescingDirectoryResource(array(0 => new \Symfony\Bundle\AsseticBundle\Factory\Resource\DirectoryResource($a, 'SonataBluePrintBundle', 'G:\\Dvp\\_RUBRIQUES\\dvpquizbundle\\app/Resources/SonataBluePrintBundle/views', '/^[^.]+\\.[^.]+\\.twig$/'), 1 => new \Symfony\Bundle\AsseticBundle\Factory\Resource\DirectoryResource($a, 'SonataBluePrintBundle', 'G:\\Dvp\\_RUBRIQUES\\dvpquizbundle\\vendor\\bundles\\Sonata\\BluePrintBundle/Resources/views', '/^[^.]+\\.[^.]+\\.twig$/'))), 'twig');
+        $instance->addResource(new \Assetic\Factory\Resource\CoalescingDirectoryResource(array(0 => new \Symfony\Bundle\AsseticBundle\Factory\Resource\DirectoryResource($a, 'SonataAdminBundle', 'G:\\Dvp\\_RUBRIQUES\\dvpquizbundle\\app/Resources/SonataAdminBundle/views', '/^[^.]+\\.[^.]+\\.twig$/'), 1 => new \Symfony\Bundle\AsseticBundle\Factory\Resource\DirectoryResource($a, 'SonataAdminBundle', 'G:\\Dvp\\_RUBRIQUES\\dvpquizbundle\\vendor\\bundles\\Sonata\\AdminBundle/Resources/views', '/^[^.]+\\.[^.]+\\.twig$/'))), 'twig');
+        $instance->addResource(new \Assetic\Factory\Resource\CoalescingDirectoryResource(array(0 => new \Symfony\Bundle\AsseticBundle\Factory\Resource\DirectoryResource($a, 'KnplabsMenuBundle', 'G:\\Dvp\\_RUBRIQUES\\dvpquizbundle\\app/Resources/KnplabsMenuBundle/views', '/^[^.]+\\.[^.]+\\.twig$/'), 1 => new \Symfony\Bundle\AsseticBundle\Factory\Resource\DirectoryResource($a, 'KnplabsMenuBundle', 'G:\\Dvp\\_RUBRIQUES\\dvpquizbundle\\vendor\\bundles\\Knplabs\\Bundle\\MenuBundle/Resources/views', '/^[^.]+\\.[^.]+\\.twig$/'))), 'twig');
+        $instance->addResource(new \Assetic\Factory\Resource\CoalescingDirectoryResource(array(0 => new \Symfony\Bundle\AsseticBundle\Factory\Resource\DirectoryResource($a, 'FOSUserBundle', 'G:\\Dvp\\_RUBRIQUES\\dvpquizbundle\\app/Resources/FOSUserBundle/views', '/^[^.]+\\.[^.]+\\.twig$/'), 1 => new \Symfony\Bundle\AsseticBundle\Factory\Resource\DirectoryResource($a, 'FOSUserBundle', 'G:\\Dvp\\_RUBRIQUES\\dvpquizbundle\\vendor\\bundles\\FOS\\UserBundle/Resources/views', '/^[^.]+\\.[^.]+\\.twig$/'))), 'twig');
         $instance->addResource(new \Assetic\Factory\Resource\CoalescingDirectoryResource(array(0 => new \Symfony\Bundle\AsseticBundle\Factory\Resource\DirectoryResource($a, 'StofDoctrineExtensionsBundle', 'G:\\Dvp\\_RUBRIQUES\\dvpquizbundle\\app/Resources/StofDoctrineExtensionsBundle/views', '/^[^.]+\\.[^.]+\\.twig$/'), 1 => new \Symfony\Bundle\AsseticBundle\Factory\Resource\DirectoryResource($a, 'StofDoctrineExtensionsBundle', 'G:\\Dvp\\_RUBRIQUES\\dvpquizbundle\\vendor\\bundles\\Stof\\DoctrineExtensionsBundle/Resources/views', '/^[^.]+\\.[^.]+\\.twig$/'))), 'twig');
         $instance->addResource(new \Assetic\Factory\Resource\CoalescingDirectoryResource(array(0 => new \Symfony\Bundle\AsseticBundle\Factory\Resource\DirectoryResource($a, 'QuizQuizBundle', 'G:\\Dvp\\_RUBRIQUES\\dvpquizbundle\\app/Resources/QuizQuizBundle/views', '/^[^.]+\\.[^.]+\\.twig$/'), 1 => new \Symfony\Bundle\AsseticBundle\Factory\Resource\DirectoryResource($a, 'QuizQuizBundle', 'G:\\Dvp\\_RUBRIQUES\\dvpquizbundle\\src\\Quiz\\QuizBundle/Resources/views', '/^[^.]+\\.[^.]+\\.twig$/'))), 'twig');
         $instance->addResource(new \Assetic\Factory\Resource\CoalescingDirectoryResource(array(0 => new \Symfony\Bundle\AsseticBundle\Factory\Resource\DirectoryResource($a, 'AcmeDemoBundle', 'G:\\Dvp\\_RUBRIQUES\\dvpquizbundle\\app/Resources/AcmeDemoBundle/views', '/^[^.]+\\.[^.]+\\.twig$/'), 1 => new \Symfony\Bundle\AsseticBundle\Factory\Resource\DirectoryResource($a, 'AcmeDemoBundle', 'G:\\Dvp\\_RUBRIQUES\\dvpquizbundle\\src\\Acme\\DemoBundle/Resources/views', '/^[^.]+\\.[^.]+\\.twig$/'))), 'twig');
@@ -231,10 +236,11 @@ class appDevDebugProjectContainer extends Container
         $c->setNamespace('sf2orm_default_df77742386d42b218843e620c0fdf541');
 
         $d = new \Doctrine\ORM\Mapping\Driver\DriverChain();
+        $d->addDriver(new \Symfony\Bundle\DoctrineBundle\Mapping\Driver\XmlDriver(array('FOS\\UserBundle\\Entity' => 'G:\\Dvp\\_RUBRIQUES\\dvpquizbundle\\vendor\\bundles\\FOS\\UserBundle\\Resources\\config\\doctrine')), 'FOS\\UserBundle\\Entity');
         $d->addDriver(new \Doctrine\ORM\Mapping\Driver\AnnotationDriver(new \Symfony\Bundle\DoctrineBundle\Annotations\IndexedReader($this->get('annotation_reader')), array(0 => 'G:\\Dvp\\_RUBRIQUES\\dvpquizbundle\\src\\Quiz\\QuizBundle\\Entity')), 'Quiz\\QuizBundle\\Entity');
 
         $e = new \Doctrine\ORM\Configuration();
-        $e->setEntityNamespaces(array('QuizQuizBundle' => 'Quiz\\QuizBundle\\Entity'));
+        $e->setEntityNamespaces(array('FOSUserBundle' => 'FOS\\UserBundle\\Entity', 'QuizQuizBundle' => 'Quiz\\QuizBundle\\Entity'));
         $e->setMetadataCacheImpl($a);
         $e->setQueryCacheImpl($b);
         $e->setResultCacheImpl($c);
@@ -290,6 +296,7 @@ class appDevDebugProjectContainer extends Container
         $instance->addListenerService('core.view', array(0 => 'sensio_framework_extra.view.listener', 1 => 'onCoreView'), 0);
         $instance->addListenerService('core.response', array(0 => 'sensio_framework_extra.cache.listener', 1 => 'onCoreResponse'), 0);
         $instance->addListenerService('core.controller', array(0 => 'security.extra.controller_listener', 1 => 'onCoreController'), -255);
+        $instance->addListenerService('security.interactive_login', array(0 => 'fos_user.security.interactive_login_listener', 1 => 'onSecurityInteractiveLogin'), 0);
         $instance->addListenerService('core.controller', array(0 => 'acme.demo.listener', 1 => 'onCoreController'), 0);
         $instance->addListenerService('core.response', array(0 => 'web_profiler.debug_toolbar', 1 => 'onCoreResponse'), -128);
         $instance->addListenerService('core.response', array(0 => 'sf2gen.toolbar', 1 => 'onCoreResponse'), -128);
@@ -372,7 +379,7 @@ class appDevDebugProjectContainer extends Container
      */
     protected function getForm_FactoryService()
     {
-        return $this->services['form.factory'] = new \Symfony\Component\Form\FormFactory(array(0 => new \Symfony\Component\Form\Extension\DependencyInjection\DependencyInjectionExtension($this, array('field' => 'form.type.field', 'form' => 'form.type.form', 'birthday' => 'form.type.birthday', 'checkbox' => 'form.type.checkbox', 'choice' => 'form.type.choice', 'collection' => 'form.type.collection', 'country' => 'form.type.country', 'date' => 'form.type.date', 'datetime' => 'form.type.datetime', 'email' => 'form.type.email', 'file' => 'form.type.file', 'hidden' => 'form.type.hidden', 'integer' => 'form.type.integer', 'language' => 'form.type.language', 'locale' => 'form.type.locale', 'money' => 'form.type.money', 'number' => 'form.type.number', 'password' => 'form.type.password', 'percent' => 'form.type.percent', 'radio' => 'form.type.radio', 'repeated' => 'form.type.repeated', 'search' => 'form.type.search', 'textarea' => 'form.type.textarea', 'text' => 'form.type.text', 'time' => 'form.type.time', 'timezone' => 'form.type.timezone', 'url' => 'form.type.url', 'csrf' => 'form.type.csrf', 'entity' => 'form.type.entity'), array('field' => array(0 => 'form.type_extension.field'), 'form' => array(0 => 'form.type_extension.csrf')), array(0 => 'form.type_guesser.validator', 1 => 'form.type_guesser.doctrine'))));
+        return $this->services['form.factory'] = new \Symfony\Component\Form\FormFactory(array(0 => new \Symfony\Component\Form\Extension\DependencyInjection\DependencyInjectionExtension($this, array('field' => 'form.type.field', 'form' => 'form.type.form', 'birthday' => 'form.type.birthday', 'checkbox' => 'form.type.checkbox', 'choice' => 'form.type.choice', 'collection' => 'form.type.collection', 'country' => 'form.type.country', 'date' => 'form.type.date', 'datetime' => 'form.type.datetime', 'email' => 'form.type.email', 'file' => 'form.type.file', 'hidden' => 'form.type.hidden', 'integer' => 'form.type.integer', 'language' => 'form.type.language', 'locale' => 'form.type.locale', 'money' => 'form.type.money', 'number' => 'form.type.number', 'password' => 'form.type.password', 'percent' => 'form.type.percent', 'radio' => 'form.type.radio', 'repeated' => 'form.type.repeated', 'search' => 'form.type.search', 'textarea' => 'form.type.textarea', 'text' => 'form.type.text', 'time' => 'form.type.time', 'timezone' => 'form.type.timezone', 'url' => 'form.type.url', 'csrf' => 'form.type.csrf', 'entity' => 'form.type.entity', 'sonata_type_admin' => 'sonata.admin.form.type.admin', 'sonata_type_collection' => 'sonata.admin.form.type.collection', 'sonata_type_model' => 'sonata.admin.form.type.model', 'sonata_type_immutable_array' => 'sonata.admin.form.type.array', 'fos_user.profile.form.type' => 'fos_user.profile.form.type', 'fos_user.registration.form.type' => 'fos_user.registration.form.type', 'fos_user.change_password.form.type' => 'fos_user.change_password.form.type', 'fos_user.resetting.form.type' => 'fos_user.resetting.form.type'), array('field' => array(0 => 'form.type_extension.field'), 'form' => array(0 => 'form.type_extension.csrf')), array(0 => 'form.type_guesser.validator', 1 => 'form.type_guesser.doctrine'))));
     }
 
     /**
@@ -805,6 +812,333 @@ class appDevDebugProjectContainer extends Container
     }
 
     /**
+     * Gets the 'fos_user.change_password.form' service.
+     *
+     * This service is shared.
+     * This method always returns the same instance of the service.
+     *
+     * @return Symfony\Component\Form\Form A Symfony\Component\Form\Form instance.
+     */
+    protected function getFosUser_ChangePassword_FormService()
+    {
+        return $this->services['fos_user.change_password.form'] = $this->get('form.factory')->createNamed($this->get('fos_user.change_password.form.type'), 'fos_user_change_password_form', '', array('data_class' => 'FOS\\UserBundle\\Form\\ChangePassword', 'validation_groups' => array(0 => 'ChangePassword')));
+    }
+
+    /**
+     * Gets the 'fos_user.change_password.form.handler' service.
+     *
+     * This service is shared.
+     * This method always returns the same instance of the service.
+     *
+     * @return FOS\UserBundle\Form\ChangePasswordFormHandler A FOS\UserBundle\Form\ChangePasswordFormHandler instance.
+     */
+    protected function getFosUser_ChangePassword_Form_HandlerService()
+    {
+        if (!isset($this->scopedServices['request'])) {
+            throw new InactiveScopeException('fos_user.change_password.form.handler', 'request');
+        }
+
+        return $this->services['fos_user.change_password.form.handler'] = $this->scopedServices['request']['fos_user.change_password.form.handler'] = new \FOS\UserBundle\Form\ChangePasswordFormHandler($this->get('fos_user.change_password.form'), $this->get('request'), $this->get('fos_user.user_manager'));
+    }
+
+    /**
+     * Gets the 'fos_user.change_password.form.type' service.
+     *
+     * This service is shared.
+     * This method always returns the same instance of the service.
+     *
+     * @return FOS\UserBundle\Form\ChangePasswordFormType A FOS\UserBundle\Form\ChangePasswordFormType instance.
+     */
+    protected function getFosUser_ChangePassword_Form_TypeService()
+    {
+        return $this->services['fos_user.change_password.form.type'] = new \FOS\UserBundle\Form\ChangePasswordFormType();
+    }
+
+    /**
+     * Gets the 'fos_user.mailer' service.
+     *
+     * This service is shared.
+     * This method always returns the same instance of the service.
+     *
+     * @return FOS\UserBundle\Mailer\Mailer A FOS\UserBundle\Mailer\Mailer instance.
+     */
+    protected function getFosUser_MailerService()
+    {
+        return $this->services['fos_user.mailer'] = new \FOS\UserBundle\Mailer\Mailer($this->get('mailer'), $this->get('router.real'), $this->get('templating'), array('confirmation.template' => 'FOSUserBundle:Registration:email.txt.twig', 'resetting.template' => 'FOSUserBundle:Resetting:email.txt.twig', 'from_email' => array('confirmation' => array('webmaster@example.com' => 'webmaster'), 'resetting' => array('webmaster@example.com' => 'webmaster'))));
+    }
+
+    /**
+     * Gets the 'fos_user.profile.form' service.
+     *
+     * This service is shared.
+     * This method always returns the same instance of the service.
+     *
+     * @return Symfony\Component\Form\Form A Symfony\Component\Form\Form instance.
+     */
+    protected function getFosUser_Profile_FormService()
+    {
+        return $this->services['fos_user.profile.form'] = $this->get('fos_user.profile.form.builder')->getForm();
+    }
+
+    /**
+     * Gets the 'fos_user.profile.form.builder' service.
+     *
+     * This service is shared.
+     * This method always returns the same instance of the service.
+     *
+     * @return Symfony\Component\Form\FormBuilder A Symfony\Component\Form\FormBuilder instance.
+     */
+    protected function getFosUser_Profile_Form_BuilderService()
+    {
+        $this->services['fos_user.profile.form.builder'] = $instance = $this->get('form.factory')->createNamedBuilder($this->get('fos_user.profile.form.type'), 'fos_user_profile_form', '', array('data_class' => 'QuizBundle\\QuizBundle\\Entity\\User', 'validation_groups' => array(0 => 'Profile')));
+
+        $instance->addEventSubscriber($this->get('fos_user.form.listener.user_canonical_fields'));
+
+        return $instance;
+    }
+
+    /**
+     * Gets the 'fos_user.profile.form.handler' service.
+     *
+     * This service is shared.
+     * This method always returns the same instance of the service.
+     *
+     * @return FOS\UserBundle\Form\ProfileFormHandler A FOS\UserBundle\Form\ProfileFormHandler instance.
+     */
+    protected function getFosUser_Profile_Form_HandlerService()
+    {
+        if (!isset($this->scopedServices['request'])) {
+            throw new InactiveScopeException('fos_user.profile.form.handler', 'request');
+        }
+
+        return $this->services['fos_user.profile.form.handler'] = $this->scopedServices['request']['fos_user.profile.form.handler'] = new \FOS\UserBundle\Form\ProfileFormHandler($this->get('fos_user.profile.form'), $this->get('request'), $this->get('fos_user.user_manager'));
+    }
+
+    /**
+     * Gets the 'fos_user.profile.form.type' service.
+     *
+     * This service is shared.
+     * This method always returns the same instance of the service.
+     *
+     * @return FOS\UserBundle\Form\ProfileFormType A FOS\UserBundle\Form\ProfileFormType instance.
+     */
+    protected function getFosUser_Profile_Form_TypeService()
+    {
+        return $this->services['fos_user.profile.form.type'] = new \FOS\UserBundle\Form\ProfileFormType();
+    }
+
+    /**
+     * Gets the 'fos_user.registration.form' service.
+     *
+     * This service is shared.
+     * This method always returns the same instance of the service.
+     *
+     * @return Symfony\Component\Form\Form A Symfony\Component\Form\Form instance.
+     */
+    protected function getFosUser_Registration_FormService()
+    {
+        return $this->services['fos_user.registration.form'] = $this->get('fos_user.registration.form.builder')->getForm();
+    }
+
+    /**
+     * Gets the 'fos_user.registration.form.builder' service.
+     *
+     * This service is shared.
+     * This method always returns the same instance of the service.
+     *
+     * @return Symfony\Component\Form\FormBuilder A Symfony\Component\Form\FormBuilder instance.
+     */
+    protected function getFosUser_Registration_Form_BuilderService()
+    {
+        $this->services['fos_user.registration.form.builder'] = $instance = $this->get('form.factory')->createNamedBuilder($this->get('fos_user.registration.form.type'), 'fos_user_registration_form', '', array('data_class' => 'QuizBundle\\QuizBundle\\Entity\\User', 'validation_groups' => array(0 => 'Registration')));
+
+        $instance->addEventSubscriber($this->get('fos_user.form.listener.user_canonical_fields'));
+
+        return $instance;
+    }
+
+    /**
+     * Gets the 'fos_user.registration.form.handler' service.
+     *
+     * This service is shared.
+     * This method always returns the same instance of the service.
+     *
+     * @return FOS\UserBundle\Form\RegistrationFormHandler A FOS\UserBundle\Form\RegistrationFormHandler instance.
+     */
+    protected function getFosUser_Registration_Form_HandlerService()
+    {
+        if (!isset($this->scopedServices['request'])) {
+            throw new InactiveScopeException('fos_user.registration.form.handler', 'request');
+        }
+
+        return $this->services['fos_user.registration.form.handler'] = $this->scopedServices['request']['fos_user.registration.form.handler'] = new \FOS\UserBundle\Form\RegistrationFormHandler($this->get('fos_user.registration.form'), $this->get('request'), $this->get('fos_user.user_manager'));
+    }
+
+    /**
+     * Gets the 'fos_user.registration.form.type' service.
+     *
+     * This service is shared.
+     * This method always returns the same instance of the service.
+     *
+     * @return FOS\UserBundle\Form\RegistrationFormType A FOS\UserBundle\Form\RegistrationFormType instance.
+     */
+    protected function getFosUser_Registration_Form_TypeService()
+    {
+        return $this->services['fos_user.registration.form.type'] = new \FOS\UserBundle\Form\RegistrationFormType();
+    }
+
+    /**
+     * Gets the 'fos_user.resetting.form' service.
+     *
+     * This service is shared.
+     * This method always returns the same instance of the service.
+     *
+     * @return Symfony\Component\Form\Form A Symfony\Component\Form\Form instance.
+     */
+    protected function getFosUser_Resetting_FormService()
+    {
+        return $this->services['fos_user.resetting.form'] = $this->get('form.factory')->createNamed($this->get('fos_user.resetting.form.type'), 'fos_user_resetting_form', '', array('data_class' => 'FOS\\UserBundle\\Form\\ResetPassword', 'validation_groups' => array(0 => 'ResetPassword')));
+    }
+
+    /**
+     * Gets the 'fos_user.resetting.form.handler' service.
+     *
+     * This service is shared.
+     * This method always returns the same instance of the service.
+     *
+     * @return FOS\UserBundle\Form\ResettingFormHandler A FOS\UserBundle\Form\ResettingFormHandler instance.
+     */
+    protected function getFosUser_Resetting_Form_HandlerService()
+    {
+        if (!isset($this->scopedServices['request'])) {
+            throw new InactiveScopeException('fos_user.resetting.form.handler', 'request');
+        }
+
+        return $this->services['fos_user.resetting.form.handler'] = $this->scopedServices['request']['fos_user.resetting.form.handler'] = new \FOS\UserBundle\Form\ResettingFormHandler($this->get('fos_user.resetting.form'), $this->get('request'), $this->get('fos_user.user_manager'));
+    }
+
+    /**
+     * Gets the 'fos_user.resetting.form.type' service.
+     *
+     * This service is shared.
+     * This method always returns the same instance of the service.
+     *
+     * @return FOS\UserBundle\Form\ResettingFormType A FOS\UserBundle\Form\ResettingFormType instance.
+     */
+    protected function getFosUser_Resetting_Form_TypeService()
+    {
+        return $this->services['fos_user.resetting.form.type'] = new \FOS\UserBundle\Form\ResettingFormType();
+    }
+
+    /**
+     * Gets the 'fos_user.security.interactive_login_listener' service.
+     *
+     * This service is shared.
+     * This method always returns the same instance of the service.
+     *
+     * @return FOS\UserBundle\Security\InteractiveLoginListener A FOS\UserBundle\Security\InteractiveLoginListener instance.
+     */
+    protected function getFosUser_Security_InteractiveLoginListenerService()
+    {
+        return $this->services['fos_user.security.interactive_login_listener'] = new \FOS\UserBundle\Security\InteractiveLoginListener($this->get('fos_user.user_manager'));
+    }
+
+    /**
+     * Gets the 'fos_user.user_manager' service.
+     *
+     * This service is shared.
+     * This method always returns the same instance of the service.
+     *
+     * @return FOS\UserBundle\Entity\UserManager A FOS\UserBundle\Entity\UserManager instance.
+     */
+    protected function getFosUser_UserManagerService()
+    {
+        return $this->services['fos_user.user_manager'] = new \FOS\UserBundle\Entity\UserManager($this->get('security.encoder_factory'), 'sha512', $this->get('fos_user.util.username_canonicalizer'), $this->get('fos_user.util.email_canonicalizer'), $this->get('doctrine.orm.default_entity_manager'), 'QuizBundle\\QuizBundle\\Entity\\User');
+    }
+
+    /**
+     * Gets the 'fos_user.util.ace_manager' service.
+     *
+     * This service is shared.
+     * This method always returns the same instance of the service.
+     *
+     * @return FOS\UserBundle\Util\AceManager A FOS\UserBundle\Util\AceManager instance.
+     */
+    protected function getFosUser_Util_AceManagerService()
+    {
+        return $this->services['fos_user.util.ace_manager'] = new \FOS\UserBundle\Util\AceManager(NULL);
+    }
+
+    /**
+     * Gets the 'fos_user.util.email_canonicalizer' service.
+     *
+     * This service is shared.
+     * This method always returns the same instance of the service.
+     *
+     * @return FOS\UserBundle\Util\Canonicalizer A FOS\UserBundle\Util\Canonicalizer instance.
+     */
+    protected function getFosUser_Util_EmailCanonicalizerService()
+    {
+        return $this->services['fos_user.util.email_canonicalizer'] = new \FOS\UserBundle\Util\Canonicalizer();
+    }
+
+    /**
+     * Gets the 'fos_user.util.user_manipulator' service.
+     *
+     * This service is shared.
+     * This method always returns the same instance of the service.
+     *
+     * @return FOS\UserBundle\Util\UserManipulator A FOS\UserBundle\Util\UserManipulator instance.
+     */
+    protected function getFosUser_Util_UserManipulatorService()
+    {
+        return $this->services['fos_user.util.user_manipulator'] = new \FOS\UserBundle\Util\UserManipulator($this->get('fos_user.user_manager'));
+    }
+
+    /**
+     * Gets the 'fos_user.util.username_canonicalizer' service.
+     *
+     * This service is shared.
+     * This method always returns the same instance of the service.
+     *
+     * @return FOS\UserBundle\Util\Canonicalizer A FOS\UserBundle\Util\Canonicalizer instance.
+     */
+    protected function getFosUser_Util_UsernameCanonicalizerService()
+    {
+        return $this->services['fos_user.util.username_canonicalizer'] = new \FOS\UserBundle\Util\Canonicalizer();
+    }
+
+    /**
+     * Gets the 'fos_user.validator.password' service.
+     *
+     * This service is shared.
+     * This method always returns the same instance of the service.
+     *
+     * @return FOS\UserBundle\Validator\PasswordValidator A FOS\UserBundle\Validator\PasswordValidator instance.
+     */
+    protected function getFosUser_Validator_PasswordService()
+    {
+        $this->services['fos_user.validator.password'] = $instance = new \FOS\UserBundle\Validator\PasswordValidator();
+
+        $instance->setEncoderFactory($this->get('security.encoder_factory'));
+
+        return $instance;
+    }
+
+    /**
+     * Gets the 'fos_user.validator.unique' service.
+     *
+     * This service is shared.
+     * This method always returns the same instance of the service.
+     *
+     * @return FOS\UserBundle\Validator\UniqueValidator A FOS\UserBundle\Validator\UniqueValidator instance.
+     */
+    protected function getFosUser_Validator_UniqueService()
+    {
+        return $this->services['fos_user.validator.unique'] = new \FOS\UserBundle\Validator\UniqueValidator($this->get('fos_user.user_manager'));
+    }
+
+    /**
      * Gets the 'google.analytics' service.
      *
      * This service is shared.
@@ -873,6 +1207,19 @@ class appDevDebugProjectContainer extends Container
     protected function getMailerService()
     {
         return $this->services['mailer'] = new \Swift_Mailer($this->get('swiftmailer.transport'));
+    }
+
+    /**
+     * Gets the 'menu.provider' service.
+     *
+     * This service is shared.
+     * This method always returns the same instance of the service.
+     *
+     * @return Knplabs\Bundle\MenuBundle\Provider\LazyProvider A Knplabs\Bundle\MenuBundle\Provider\LazyProvider instance.
+     */
+    protected function getMenu_ProviderService()
+    {
+        return $this->services['menu.provider'] = new \Knplabs\Bundle\MenuBundle\Provider\LazyProvider($this);
     }
 
     /**
@@ -1185,6 +1532,7 @@ class appDevDebugProjectContainer extends Container
         $d->addLoader(new \Symfony\Component\Routing\Loader\AnnotationDirectoryLoader($a, $c));
         $d->addLoader(new \Symfony\Component\Routing\Loader\AnnotationFileLoader($a, $c));
         $d->addLoader($c);
+        $d->addLoader($this->get('sonata.admin.route_loader'));
 
         return $this->services['routing.loader.real'] = new \Symfony\Bundle\FrameworkBundle\Routing\DelegatingLoader($this->get('controller_name_converter'), $this->get('monolog.logger.router'), $d);
     }
@@ -1221,11 +1569,11 @@ class appDevDebugProjectContainer extends Container
      * This service is shared.
      * This method always returns the same instance of the service.
      *
-     * @return Symfony\Component\Security\Core\Encoder\EncoderFactory A Symfony\Component\Security\Core\Encoder\EncoderFactory instance.
+     * @return FOS\UserBundle\Security\Encoder\EncoderFactory A FOS\UserBundle\Security\Encoder\EncoderFactory instance.
      */
     protected function getSecurity_EncoderFactoryService()
     {
-        return $this->services['security.encoder_factory'] = new \Symfony\Component\Security\Core\Encoder\EncoderFactory(array('Symfony\\Component\\Security\\Core\\User\\User' => array('class' => 'Symfony\\Component\\Security\\Core\\Encoder\\PlaintextPasswordEncoder', 'arguments' => array(0 => false))));
+        return $this->services['security.encoder_factory'] = new \FOS\UserBundle\Security\Encoder\EncoderFactory('Symfony\\Component\\Security\\Core\\Encoder\\MessageDigestPasswordEncoder', false, 1, new \Symfony\Component\Security\Core\Encoder\EncoderFactory(array('Symfony\\Component\\Security\\Core\\User\\User' => array('class' => 'Symfony\\Component\\Security\\Core\\Encoder\\PlaintextPasswordEncoder', 'arguments' => array(0 => false)))));
     }
 
     /**
@@ -1491,6 +1839,194 @@ class appDevDebugProjectContainer extends Container
     protected function getSf2gen_ToolbarService()
     {
         return $this->services['sf2gen.toolbar'] = new \Sf2gen\Bundle\ConsoleBundle\Sf2genConsoleListener($this->get('kernel'), $this->get('templating'));
+    }
+
+    /**
+     * Gets the 'sonata.admin.builder.orm_datagrid' service.
+     *
+     * This service is shared.
+     * This method always returns the same instance of the service.
+     *
+     * @return Sonata\AdminBundle\Builder\ORM\DatagridBuilder A Sonata\AdminBundle\Builder\ORM\DatagridBuilder instance.
+     */
+    protected function getSonata_Admin_Builder_OrmDatagridService()
+    {
+        return $this->services['sonata.admin.builder.orm_datagrid'] = new \Sonata\AdminBundle\Builder\ORM\DatagridBuilder($this->get('form.factory'));
+    }
+
+    /**
+     * Gets the 'sonata.admin.builder.orm_form' service.
+     *
+     * This service is shared.
+     * This method always returns the same instance of the service.
+     *
+     * @return Sonata\AdminBundle\Builder\ORM\FormContractor A Sonata\AdminBundle\Builder\ORM\FormContractor instance.
+     */
+    protected function getSonata_Admin_Builder_OrmFormService()
+    {
+        return $this->services['sonata.admin.builder.orm_form'] = new \Sonata\AdminBundle\Builder\ORM\FormContractor($this->get('form.factory'));
+    }
+
+    /**
+     * Gets the 'sonata.admin.builder.orm_list' service.
+     *
+     * This service is shared.
+     * This method always returns the same instance of the service.
+     *
+     * @return Sonata\AdminBundle\Builder\ORM\ListBuilder A Sonata\AdminBundle\Builder\ORM\ListBuilder instance.
+     */
+    protected function getSonata_Admin_Builder_OrmListService()
+    {
+        return $this->services['sonata.admin.builder.orm_list'] = new \Sonata\AdminBundle\Builder\ORM\ListBuilder();
+    }
+
+    /**
+     * Gets the 'sonata.admin.form.type.admin' service.
+     *
+     * This service is shared.
+     * This method always returns the same instance of the service.
+     *
+     * @return Sonata\AdminBundle\Form\Type\AdminType A Sonata\AdminBundle\Form\Type\AdminType instance.
+     */
+    protected function getSonata_Admin_Form_Type_AdminService()
+    {
+        return $this->services['sonata.admin.form.type.admin'] = new \Sonata\AdminBundle\Form\Type\AdminType();
+    }
+
+    /**
+     * Gets the 'sonata.admin.form.type.array' service.
+     *
+     * This service is shared.
+     * This method always returns the same instance of the service.
+     *
+     * @return Sonata\AdminBundle\Form\Type\ImmutableArrayType A Sonata\AdminBundle\Form\Type\ImmutableArrayType instance.
+     */
+    protected function getSonata_Admin_Form_Type_ArrayService()
+    {
+        return $this->services['sonata.admin.form.type.array'] = new \Sonata\AdminBundle\Form\Type\ImmutableArrayType();
+    }
+
+    /**
+     * Gets the 'sonata.admin.form.type.collection' service.
+     *
+     * This service is shared.
+     * This method always returns the same instance of the service.
+     *
+     * @return Sonata\AdminBundle\Form\Type\CollectionType A Sonata\AdminBundle\Form\Type\CollectionType instance.
+     */
+    protected function getSonata_Admin_Form_Type_CollectionService()
+    {
+        return $this->services['sonata.admin.form.type.collection'] = new \Sonata\AdminBundle\Form\Type\CollectionType();
+    }
+
+    /**
+     * Gets the 'sonata.admin.form.type.model' service.
+     *
+     * This service is shared.
+     * This method always returns the same instance of the service.
+     *
+     * @return Sonata\AdminBundle\Form\Type\ModelType A Sonata\AdminBundle\Form\Type\ModelType instance.
+     */
+    protected function getSonata_Admin_Form_Type_ModelService()
+    {
+        return $this->services['sonata.admin.form.type.model'] = new \Sonata\AdminBundle\Form\Type\ModelType();
+    }
+
+    /**
+     * Gets the 'sonata.admin.helper' service.
+     *
+     * This service is shared.
+     * This method always returns the same instance of the service.
+     *
+     * @return Sonata\AdminBundle\Admin\AdminHelper A Sonata\AdminBundle\Admin\AdminHelper instance.
+     */
+    protected function getSonata_Admin_HelperService()
+    {
+        return $this->services['sonata.admin.helper'] = new \Sonata\AdminBundle\Admin\AdminHelper($this->get('sonata.admin.pool'));
+    }
+
+    /**
+     * Gets the 'sonata.admin.manager.orm' service.
+     *
+     * This service is shared.
+     * This method always returns the same instance of the service.
+     *
+     * @return Sonata\AdminBundle\Model\ORM\ModelManager A Sonata\AdminBundle\Model\ORM\ModelManager instance.
+     */
+    protected function getSonata_Admin_Manager_OrmService()
+    {
+        return $this->services['sonata.admin.manager.orm'] = new \Sonata\AdminBundle\Model\ORM\ModelManager($this->get('doctrine.orm.default_entity_manager'));
+    }
+
+    /**
+     * Gets the 'sonata.admin.pool' service.
+     *
+     * This service is shared.
+     * This method always returns the same instance of the service.
+     *
+     * @return Sonata\AdminBundle\Admin\Pool A Sonata\AdminBundle\Admin\Pool instance.
+     */
+    protected function getSonata_Admin_PoolService()
+    {
+        $this->services['sonata.admin.pool'] = $instance = new \Sonata\AdminBundle\Admin\Pool($this);
+
+        $instance->setAdminServiceIds(array());
+        $instance->setAdminGroups(array());
+        $instance->setAdminClasses(array());
+
+        return $instance;
+    }
+
+    /**
+     * Gets the 'sonata.admin.route_loader' service.
+     *
+     * This service is shared.
+     * This method always returns the same instance of the service.
+     *
+     * @return Sonata\AdminBundle\Route\AdminPoolLoader A Sonata\AdminBundle\Route\AdminPoolLoader instance.
+     */
+    protected function getSonata_Admin_RouteLoaderService()
+    {
+        return $this->services['sonata.admin.route_loader'] = new \Sonata\AdminBundle\Route\AdminPoolLoader($this->get('sonata.admin.pool'), array(), $this);
+    }
+
+    /**
+     * Gets the 'sonata.admin.security.handler.acl' service.
+     *
+     * This service is shared.
+     * This method always returns the same instance of the service.
+     *
+     * @return Sonata\AdminBundle\Security\Handler\AclSecurityHandler A Sonata\AdminBundle\Security\Handler\AclSecurityHandler instance.
+     */
+    protected function getSonata_Admin_Security_Handler_AclService()
+    {
+        return $this->services['sonata.admin.security.handler.acl'] = new \Sonata\AdminBundle\Security\Handler\AclSecurityHandler($this->get('security.context'));
+    }
+
+    /**
+     * Gets the 'sonata.admin.security.handler.noop' service.
+     *
+     * This service is shared.
+     * This method always returns the same instance of the service.
+     *
+     * @return Sonata\AdminBundle\Security\Handler\NoopSecurityHandler A Sonata\AdminBundle\Security\Handler\NoopSecurityHandler instance.
+     */
+    protected function getSonata_Admin_Security_Handler_NoopService()
+    {
+        return $this->services['sonata.admin.security.handler.noop'] = new \Sonata\AdminBundle\Security\Handler\NoopSecurityHandler();
+    }
+
+    /**
+     * Gets the 'sonata.admin.twig.extension' service.
+     *
+     * This service is shared.
+     * This method always returns the same instance of the service.
+     *
+     * @return Sonata\AdminBundle\Twig\Extension\SonataAdminExtension A Sonata\AdminBundle\Twig\Extension\SonataAdminExtension instance.
+     */
+    protected function getSonata_Admin_Twig_ExtensionService()
+    {
+        return $this->services['sonata.admin.twig.extension'] = new \Sonata\AdminBundle\Twig\Extension\SonataAdminExtension();
     }
 
     /**
@@ -1876,6 +2412,7 @@ class appDevDebugProjectContainer extends Container
         $instance->addExtension(new \Symfony\Bridge\Twig\Extension\FormExtension(array(0 => 'TwigBundle:Form:div_layout.html.twig')));
         $instance->addExtension(new \Symfony\Bundle\AsseticBundle\Twig\AsseticExtension($this->get('assetic.asset_factory'), true, array()));
         $instance->addExtension(new \AntiMattr\GoogleBundle\Extension\AnalyticsExtension($this->get('templating.helper.google_analytics')));
+        $instance->addExtension($this->get('sonata.admin.twig.extension'));
         $instance->addExtension($this->get('twig.extension.acme.demo'));
 
         return $instance;
@@ -1904,7 +2441,7 @@ class appDevDebugProjectContainer extends Container
      */
     protected function getValidatorService()
     {
-        return $this->services['validator'] = new \Symfony\Component\Validator\Validator($this->get('validator.mapping.class_metadata_factory'), new \Symfony\Bundle\FrameworkBundle\Validator\ConstraintValidatorFactory($this, array('doctrine.orm.validator.unique' => 'doctrine.orm.validator.unique')));
+        return $this->services['validator'] = new \Symfony\Component\Validator\Validator($this->get('validator.mapping.class_metadata_factory'), new \Symfony\Bundle\FrameworkBundle\Validator\ConstraintValidatorFactory($this, array('doctrine.orm.validator.unique' => 'doctrine.orm.validator.unique', 'fos_user.validator.unique' => 'fos_user.validator.unique', 'fos_user.validator.password' => 'fos_user.validator.password')));
     }
 
     /**
@@ -2033,6 +2570,23 @@ class appDevDebugProjectContainer extends Container
     }
 
     /**
+     * Gets the 'fos_user.form.listener.user_canonical_fields' service.
+     *
+     * This service is shared.
+     * This method always returns the same instance of the service.
+     *
+     * This service is private.
+     * If you want to be able to request this service from the container directly,
+     * make it public, otherwise you might end up with broken code.
+     *
+     * @return FOS\UserBundle\Form\UpdateCanonicalFieldsListener A FOS\UserBundle\Form\UpdateCanonicalFieldsListener instance.
+     */
+    protected function getFosUser_Form_Listener_UserCanonicalFieldsService()
+    {
+        return $this->services['fos_user.form.listener.user_canonical_fields'] = new \FOS\UserBundle\Form\UpdateCanonicalFieldsListener($this->get('fos_user.user_manager'));
+    }
+
+    /**
      * Gets the 'security.access.decision_manager' service.
      *
      * This service is shared.
@@ -2153,7 +2707,7 @@ class appDevDebugProjectContainer extends Container
      */
     protected function getValidator_Mapping_ClassMetadataFactoryService()
     {
-        return $this->services['validator.mapping.class_metadata_factory'] = new \Symfony\Component\Validator\Mapping\ClassMetadataFactory(new \Symfony\Component\Validator\Mapping\Loader\LoaderChain(array(0 => new \Symfony\Component\Validator\Mapping\Loader\AnnotationLoader($this->get('annotation_reader')), 1 => new \Symfony\Component\Validator\Mapping\Loader\StaticMethodLoader(), 2 => new \Symfony\Component\Validator\Mapping\Loader\XmlFilesLoader(array(0 => 'G:\\Dvp\\_RUBRIQUES\\dvpquizbundle\\vendor\\symfony\\src\\Symfony\\Bundle\\FrameworkBundle\\DependencyInjection/../../../Component/Form/Resources/config/validation.xml')), 3 => new \Symfony\Component\Validator\Mapping\Loader\YamlFilesLoader(array()))), NULL);
+        return $this->services['validator.mapping.class_metadata_factory'] = new \Symfony\Component\Validator\Mapping\ClassMetadataFactory(new \Symfony\Component\Validator\Mapping\Loader\LoaderChain(array(0 => new \Symfony\Component\Validator\Mapping\Loader\AnnotationLoader($this->get('annotation_reader')), 1 => new \Symfony\Component\Validator\Mapping\Loader\StaticMethodLoader(), 2 => new \Symfony\Component\Validator\Mapping\Loader\XmlFilesLoader(array(0 => 'G:\\Dvp\\_RUBRIQUES\\dvpquizbundle\\vendor\\symfony\\src\\Symfony\\Bundle\\FrameworkBundle\\DependencyInjection/../../../Component/Form/Resources/config/validation.xml', 1 => 'G:\\Dvp\\_RUBRIQUES\\dvpquizbundle\\vendor\\bundles\\FOS\\UserBundle\\Resources\\config\\validation.xml')), 3 => new \Symfony\Component\Validator\Mapping\Loader\YamlFilesLoader(array()))), NULL);
     }
 
     /**
@@ -2211,6 +2765,11 @@ class appDevDebugProjectContainer extends Container
                 'JMSSecurityExtraBundle' => 'JMS\\SecurityExtraBundle\\JMSSecurityExtraBundle',
                 'DoctrineFixturesBundle' => 'Symfony\\Bundle\\DoctrineFixturesBundle\\DoctrineFixturesBundle',
                 'GoogleBundle' => 'AntiMattr\\GoogleBundle\\GoogleBundle',
+                'SonatajQueryBundle' => 'Sonata\\jQueryBundle\\SonatajQueryBundle',
+                'SonataBluePrintBundle' => 'Sonata\\BluePrintBundle\\SonataBluePrintBundle',
+                'SonataAdminBundle' => 'Sonata\\AdminBundle\\SonataAdminBundle',
+                'KnplabsMenuBundle' => 'Knplabs\\Bundle\\MenuBundle\\KnplabsMenuBundle',
+                'FOSUserBundle' => 'FOS\\UserBundle\\FOSUserBundle',
                 'StofDoctrineExtensionsBundle' => 'Stof\\DoctrineExtensionsBundle\\StofDoctrineExtensionsBundle',
                 'QuizQuizBundle' => 'Quiz\\QuizBundle\\QuizQuizBundle',
                 'AcmeDemoBundle' => 'Acme\\DemoBundle\\AcmeDemoBundle',
@@ -2280,6 +2839,7 @@ class appDevDebugProjectContainer extends Container
             'validator.validator_factory.class' => 'Symfony\\Bundle\\FrameworkBundle\\Validator\\ConstraintValidatorFactory',
             'validator.mapping.loader.xml_files_loader.mapping_files' => array(
                 0 => 'G:\\Dvp\\_RUBRIQUES\\dvpquizbundle\\vendor\\symfony\\src\\Symfony\\Bundle\\FrameworkBundle\\DependencyInjection/../../../Component/Form/Resources/config/validation.xml',
+                1 => 'G:\\Dvp\\_RUBRIQUES\\dvpquizbundle\\vendor\\bundles\\FOS\\UserBundle\\Resources\\config\\validation.xml',
             ),
             'validator.mapping.loader.yaml_files_loader.mapping_files' => array(
 
@@ -2538,7 +3098,7 @@ class appDevDebugProjectContainer extends Container
             'assetic.use_controller' => true,
             'assetic.read_from' => 'G:\\Dvp\\_RUBRIQUES\\dvpquizbundle\\app/../web',
             'assetic.write_to' => 'G:\\Dvp\\_RUBRIQUES\\dvpquizbundle\\app/../web',
-            'assetic.java.bin' => 'C:\\Windows\\system32\\java.EXE',
+            'assetic.java.bin' => 'c:\\Windows\\system32\\java.EXE',
             'assetic.node.bin' => '/usr/bin/node',
             'assetic.sass.bin' => '/usr/bin/sass',
             'assetic.filter.cssrewrite.class' => 'Assetic\\Filter\\CssRewriteFilter',
@@ -2579,6 +3139,55 @@ class appDevDebugProjectContainer extends Container
                     'domain' => 'quiz.developpez.com',
                 ),
             ),
+            'sonata.admin.templates.layout' => 'SonataAdminBundle::standard_layout.html.twig',
+            'sonata.admin.templates.ajax' => 'SonataAdminBundle::ajax_layout.html.twig',
+            'menu.provider.class' => 'Knplabs\\Bundle\\MenuBundle\\Provider\\LazyProvider',
+            'fos_user.user_manager.class' => 'FOS\\UserBundle\\Entity\\UserManager',
+            'fos_user.validator.password.class' => 'FOS\\UserBundle\\Validator\\PasswordValidator',
+            'fos_user.validator.unique.class' => 'FOS\\UserBundle\\Validator\\UniqueValidator',
+            'fos_user.encoder_factory.class' => 'FOS\\UserBundle\\Security\\Encoder\\EncoderFactory',
+            'fos_user.security.interactive_login_listener.class' => 'FOS\\UserBundle\\Security\\InteractiveLoginListener',
+            'fos_user.firewall_name' => 'main',
+            'fos_user.model.user.class' => 'QuizBundle\\QuizBundle\\Entity\\User',
+            'fos_user.encoder.algorithm' => 'sha512',
+            'fos_user.encoder.encode_as_base64' => false,
+            'fos_user.encoder.iterations' => 1,
+            'fos_user.template.engine' => 'twig',
+            'fos_user.template.theme' => 'FOSUserBundle::form.html.twig',
+            'fos_user.registration.confirmation.from_email' => array(
+                'webmaster@example.com' => 'webmaster',
+            ),
+            'fos_user.resetting.email.from_email' => array(
+                'webmaster@example.com' => 'webmaster',
+            ),
+            'fos_user.profile.form.validation_groups' => array(
+                0 => 'Profile',
+            ),
+            'fos_user.profile.form.name' => 'fos_user_profile_form',
+            'fos_user.profile.form.type.class' => 'FOS\\UserBundle\\Form\\ProfileFormType',
+            'fos_user.profile.form.handler.class' => 'FOS\\UserBundle\\Form\\ProfileFormHandler',
+            'fos_user.registration.form.validation_groups' => array(
+                0 => 'Registration',
+            ),
+            'fos_user.registration.form.name' => 'fos_user_registration_form',
+            'fos_user.registration.confirmation.enabled' => false,
+            'fos_user.registration.confirmation.template' => 'FOSUserBundle:Registration:email.txt.twig',
+            'fos_user.registration.form.type.class' => 'FOS\\UserBundle\\Form\\RegistrationFormType',
+            'fos_user.registration.form.handler.class' => 'FOS\\UserBundle\\Form\\RegistrationFormHandler',
+            'fos_user.change_password.form.validation_groups' => array(
+                0 => 'ChangePassword',
+            ),
+            'fos_user.change_password.form.name' => 'fos_user_change_password_form',
+            'fos_user.change_password.form.type.class' => 'FOS\\UserBundle\\Form\\ChangePasswordFormType',
+            'fos_user.change_password.form.handler.class' => 'FOS\\UserBundle\\Form\\ChangePasswordFormHandler',
+            'fos_user.resetting.form.validation_groups' => array(
+                0 => 'ResetPassword',
+            ),
+            'fos_user.resetting.form.name' => 'fos_user_resetting_form',
+            'fos_user.resetting.token_ttl' => 86400,
+            'fos_user.resetting.email.template' => 'FOSUserBundle:Resetting:email.txt.twig',
+            'fos_user.resetting.form.type.class' => 'FOS\\UserBundle\\Form\\ResettingFormType',
+            'fos_user.resetting.form.handler.class' => 'FOS\\UserBundle\\Form\\ResettingFormHandler',
             'stof_doctrine_extensions.default_locale' => 'en',
             'stof_doctrine_extensions.translation_fallback' => false,
             'stof_doctrine_extensions.listener.translatable.class' => 'Stof\\DoctrineExtensionsBundle\\Listener\\TranslationListener',

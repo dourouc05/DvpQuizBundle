@@ -164,6 +164,29 @@ class appdevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
     
         }
 
+        if (0 === strpos($pathinfo, '/admin')) {
+            // sonata_admin_dashboard
+            if ($pathinfo === '/admin/dashboard') {
+                return array (  '_controller' => 'Sonata\\AdminBundle\\Controller\\CoreController::dashboardAction',  '_route' => 'sonata_admin_dashboard',);
+            }
+    
+            // sonata_admin_retrieve_form_element
+            if ($pathinfo === '/admin/core/get-form-field-element') {
+                return array (  '_controller' => 'Sonata\\AdminBundle\\Controller\\HelperController::retrieveFormFieldElementAction',  '_route' => 'sonata_admin_retrieve_form_element',);
+            }
+    
+            // sonata_admin_append_form_element
+            if ($pathinfo === '/admin/core/append-form-field-element') {
+                return array (  '_controller' => 'Sonata\\AdminBundle\\Controller\\HelperController::appendFormFieldElementAction',  '_route' => 'sonata_admin_append_form_element',);
+            }
+    
+            // sonata_admin_short_object_information
+            if ($pathinfo === '/admin/core/get-short-object-description') {
+                return array (  '_controller' => 'Sonata\\AdminBundle\\Controller\\HelperController::getShortObjectDescriptionAction',  '_route' => 'sonata_admin_short_object_information',);
+            }
+    
+        }
+
         throw 0 < count($allow) ? new MethodNotAllowedException(array_unique($allow)) : new ResourceNotFoundException();
     }
 }

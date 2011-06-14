@@ -22,6 +22,12 @@
 [submodule "vendor/bundles/Sonata/AdminBundle"]
 	path = vendor/bundles/Sonata/AdminBundle
 	url = git@github.com:sonata-project/AdminBundle.git
-[submodule "vendor/bundles/Sonata/MenuBundle"]
-	path = vendor/bundles/Sonata/MenuBundle
+[submodule "vendor/bundles/Kpnlabs/MenuBundle"]
+	path = vendor/bundles/Kpnlabs/MenuBundle
+	url = git@github.com:sonata-project/MenuBundle.git
+[submodule "vendor/bundles/Kpnlabs/Bundle/MenuBundle"]
+	path = vendor/bundles/Kpnlabs/Bundle/MenuBundle
+	url = git@github.com:sonata-project/MenuBundle.git
+[submodule "vendor/bundles/Knplabs/Bundle/MenuBundle"]
+	path = vendor/bundles/Knplabs/Bundle/MenuBundle
 	url = git@github.com:sonata-project/MenuBundle.git

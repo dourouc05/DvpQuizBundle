@@ -35,6 +35,10 @@ class appdevUrlGenerator extends Symfony\Component\Routing\Generator\UrlGenerato
        '_configurator_final' => true,
        '_sf2gencdt' => true,
        '_sf2gencdt_request' => true,
+       'sonata_admin_dashboard' => true,
+       'sonata_admin_retrieve_form_element' => true,
+       'sonata_admin_append_form_element' => true,
+       'sonata_admin_short_object_information' => true,
     );
 
     /**
@@ -166,5 +170,25 @@ class appdevUrlGenerator extends Symfony\Component\Routing\Generator\UrlGenerato
     private function get_sf2gencdt_requestRouteInfo()
     {
         return array(array (), array (  '_controller' => 'Sf2gen\\Bundle\\ConsoleBundle\\Controller\\ConsoleController::requestAction',), array (), array (  0 =>   array (    0 => 'text',    1 => '/_sf2gencdt/request/',  ),));
+    }
+
+    private function getsonata_admin_dashboardRouteInfo()
+    {
+        return array(array (), array (  '_controller' => 'Sonata\\AdminBundle\\Controller\\CoreController::dashboardAction',), array (), array (  0 =>   array (    0 => 'text',    1 => '/admin/dashboard',  ),));
+    }
+
+    private function getsonata_admin_retrieve_form_elementRouteInfo()
+    {
+        return array(array (), array (  '_controller' => 'Sonata\\AdminBundle\\Controller\\HelperController::retrieveFormFieldElementAction',), array (), array (  0 =>   array (    0 => 'text',    1 => '/admin/core/get-form-field-element',  ),));
+    }
+
+    private function getsonata_admin_append_form_elementRouteInfo()
+    {
+        return array(array (), array (  '_controller' => 'Sonata\\AdminBundle\\Controller\\HelperController::appendFormFieldElementAction',), array (), array (  0 =>   array (    0 => 'text',    1 => '/admin/core/append-form-field-element',  ),));
+    }
+
+    private function getsonata_admin_short_object_informationRouteInfo()
+    {
+        return array(array (), array (  '_controller' => 'Sonata\\AdminBundle\\Controller\\HelperController::getShortObjectDescriptionAction',), array (), array (  0 =>   array (    0 => 'text',    1 => '/admin/core/get-short-object-description',  ),));
     }
 }

@@ -16,16 +16,16 @@ class User extends BaseUser
 	*/
 	protected $id;
     
-    /**
-     * @ORM\Column(type="string")
-     */
-    protected $username;
+    // /**
+     // * @ORM\Column(type="string")
+     // */
+    // protected $username;
     
-    /**
-     * @ORM\Column(type="string")
-     * @var string
-     */
-    protected $email;
+    // /**
+     // * @ORM\Column(type="string")
+     // * @var string
+     // */
+    // protected $email;
     
     /** 
      * @ORM\ManyToMany(targetEntity="Log")

@@ -68,6 +68,7 @@ Symfony\Component\DependencyInjection\Compiler\ReplaceAliasByActualDefinitionPas
 Symfony\Component\DependencyInjection\Compiler\ReplaceAliasByActualDefinitionPass: Changed reference of service "templating.cache_warmer.template_paths" previously pointing to "templating.locator.uncached" to "templating.locator".
 Symfony\Component\DependencyInjection\Compiler\ReplaceAliasByActualDefinitionPass: Changed reference of service "twig.loader" previously pointing to "templating.locator.uncached" to "templating.locator".
 Symfony\Component\DependencyInjection\Compiler\ReplaceAliasByActualDefinitionPass: Changed reference of service "templating.loader" previously pointing to "templating.locator.uncached" to "templating.locator".
+Symfony\Component\DependencyInjection\Compiler\ReplaceAliasByActualDefinitionPass: Changed reference of service "fos_user.mailer.default" previously pointing to "templating.engine.twig" to "templating".
 Symfony\Component\DependencyInjection\Compiler\ReplaceAliasByActualDefinitionPass: Changed reference of service "web_profiler.debug_toolbar" previously pointing to "templating.engine.twig" to "templating".
 Symfony\Component\DependencyInjection\Compiler\ReplaceAliasByActualDefinitionPass: Changed reference of service "sf2gen.toolbar" previously pointing to "templating.engine.twig" to "templating".
 Symfony\Component\DependencyInjection\Compiler\ReplaceAliasByActualDefinitionPass: Changed reference of service "validator.mapping.loader.annotation_loader" previously pointing to "annotations.file_cache_reader" to "annotation_reader".
@@ -80,9 +81,14 @@ Symfony\Component\DependencyInjection\Compiler\ReplaceAliasByActualDefinitionPas
 Symfony\Component\DependencyInjection\Compiler\ReplaceAliasByActualDefinitionPass: Changed reference of service "stof_doctrine_extensions.listener.sluggable" previously pointing to "annotations.file_cache_reader" to "annotation_reader".
 Symfony\Component\DependencyInjection\Compiler\ReplaceAliasByActualDefinitionPass: Changed reference of service "stof_doctrine_extensions.listener.translatable" previously pointing to "annotations.file_cache_reader" to "annotation_reader".
 Symfony\Component\DependencyInjection\Compiler\ReplaceAliasByActualDefinitionPass: Changed reference of service "stof_doctrine_extensions.listener.loggable" previously pointing to "annotations.file_cache_reader" to "annotation_reader".
-Symfony\Component\DependencyInjection\Compiler\ReplaceAliasByActualDefinitionPass: Changed reference of service "security.authentication.provider.dao.secured_area" previously pointing to "security.encoder_factory.generic" to "security.encoder_factory".
+Symfony\Component\DependencyInjection\Compiler\ReplaceAliasByActualDefinitionPass: Changed reference of service "security.authentication.provider.dao.secured_area" previously pointing to "fos_user.encoder_factory" to "security.encoder_factory".
+Symfony\Component\DependencyInjection\Compiler\ReplaceAliasByActualDefinitionPass: Changed reference of service "fos_user.user_manager" previously pointing to "fos_user.encoder_factory" to "security.encoder_factory".
+Symfony\Component\DependencyInjection\Compiler\ReplaceAliasByActualDefinitionPass: Changed reference of service "fos_user.validator.password" previously pointing to "fos_user.encoder_factory" to "security.encoder_factory".
 Symfony\Component\DependencyInjection\Compiler\ReplaceAliasByActualDefinitionPass: Changed reference of service "security.access.method_interceptor" previously pointing to "monolog.logger" to "logger".
 Symfony\Component\DependencyInjection\Compiler\ReplaceAliasByActualDefinitionPass: Changed reference of service "swiftmailer.mailer" previously pointing to "swiftmailer.transport.smtp" to "swiftmailer.transport".
+Symfony\Component\DependencyInjection\Compiler\ReplaceAliasByActualDefinitionPass: Changed reference of service "fos_user.mailer.default" previously pointing to "swiftmailer.mailer" to "mailer".
+Symfony\Component\DependencyInjection\Compiler\ReplaceAliasByActualDefinitionPass: Changed reference of service "fos_user.user_manager" previously pointing to "fos_user.util.email_canonicalizer.default" to "fos_user.util.email_canonicalizer".
+Symfony\Component\DependencyInjection\Compiler\ReplaceAliasByActualDefinitionPass: Changed reference of service "fos_user.user_manager" previously pointing to "fos_user.util.username_canonicalizer.default" to "fos_user.util.username_canonicalizer".
 Symfony\Component\DependencyInjection\Compiler\InlineServiceDefinitionsPass: Inlined service "controller_resolver" to "http_kernel".
 Symfony\Component\DependencyInjection\Compiler\InlineServiceDefinitionsPass: Inlined service "assetic.asset_manager_cache_warmer" to "cache_warmer".
 Symfony\Component\DependencyInjection\Compiler\InlineServiceDefinitionsPass: Inlined service "router.cache_warmer" to "cache_warmer".
@@ -160,6 +166,7 @@ Symfony\Component\DependencyInjection\Compiler\InlineServiceDefinitionsPass: Inl
 Symfony\Component\DependencyInjection\Compiler\InlineServiceDefinitionsPass: Inlined service "doctrine.orm.default_result_cache" to "doctrine.orm.default_configuration".
 Symfony\Component\DependencyInjection\Compiler\InlineServiceDefinitionsPass: Inlined service "doctrine.orm.default_metadata_driver" to "doctrine.orm.default_configuration".
 Symfony\Component\DependencyInjection\Compiler\InlineServiceDefinitionsPass: Inlined service "doctrine.orm.metadata.annotation_reader" to "doctrine.orm.default_annotation_metadata_driver".
+Symfony\Component\DependencyInjection\Compiler\InlineServiceDefinitionsPass: Inlined service "doctrine.orm.default_xml_metadata_driver" to "doctrine.orm.default_metadata_driver".
 Symfony\Component\DependencyInjection\Compiler\InlineServiceDefinitionsPass: Inlined service "doctrine.orm.default_annotation_metadata_driver" to "doctrine.orm.default_metadata_driver".
 Symfony\Component\DependencyInjection\Compiler\InlineServiceDefinitionsPass: Inlined service "doctrine.orm.default_configuration" to "doctrine.orm.default_entity_manager".
 Symfony\Component\DependencyInjection\Compiler\InlineServiceDefinitionsPass: Inlined service "assetic.twig_formula_loader" to "assetic.asset_manager".
@@ -174,6 +181,11 @@ Symfony\Component\DependencyInjection\Compiler\InlineServiceDefinitionsPass: Inl
 Symfony\Component\DependencyInjection\Compiler\InlineServiceDefinitionsPass: Inlined service "assetic.twig_directory_resource.jmssecurityextrabundle" to "assetic.asset_manager".
 Symfony\Component\DependencyInjection\Compiler\InlineServiceDefinitionsPass: Inlined service "assetic.twig_directory_resource.doctrinefixturesbundle" to "assetic.asset_manager".
 Symfony\Component\DependencyInjection\Compiler\InlineServiceDefinitionsPass: Inlined service "assetic.twig_directory_resource.googlebundle" to "assetic.asset_manager".
+Symfony\Component\DependencyInjection\Compiler\InlineServiceDefinitionsPass: Inlined service "assetic.twig_directory_resource.sonatajquerybundle" to "assetic.asset_manager".
+Symfony\Component\DependencyInjection\Compiler\InlineServiceDefinitionsPass: Inlined service "assetic.twig_directory_resource.sonatablueprintbundle" to "assetic.asset_manager".
+Symfony\Component\DependencyInjection\Compiler\InlineServiceDefinitionsPass: Inlined service "assetic.twig_directory_resource.sonataadminbundle" to "assetic.asset_manager".
+Symfony\Component\DependencyInjection\Compiler\InlineServiceDefinitionsPass: Inlined service "assetic.twig_directory_resource.knplabsmenubundle" to "assetic.asset_manager".
+Symfony\Component\DependencyInjection\Compiler\InlineServiceDefinitionsPass: Inlined service "assetic.twig_directory_resource.fosuserbundle" to "assetic.asset_manager".
 Symfony\Component\DependencyInjection\Compiler\InlineServiceDefinitionsPass: Inlined service "assetic.twig_directory_resource.stofdoctrineextensionsbundle" to "assetic.asset_manager".
 Symfony\Component\DependencyInjection\Compiler\InlineServiceDefinitionsPass: Inlined service "assetic.twig_directory_resource.quizquizbundle" to "assetic.asset_manager".
 Symfony\Component\DependencyInjection\Compiler\InlineServiceDefinitionsPass: Inlined service "assetic.twig_directory_resource.acmedemobundle" to "assetic.asset_manager".
@@ -188,6 +200,7 @@ Symfony\Component\DependencyInjection\Compiler\InlineServiceDefinitionsPass: Inl
 Symfony\Component\DependencyInjection\Compiler\InlineServiceDefinitionsPass: Inlined service "assetic.config_cache" to "assetic.twig_formula_loader".
 Symfony\Component\DependencyInjection\Compiler\InlineServiceDefinitionsPass: Inlined service "security.access.after_invocation_manager" to "security.access.method_interceptor".
 Symfony\Component\DependencyInjection\Compiler\InlineServiceDefinitionsPass: Inlined service "security.access.run_as_manager" to "security.access.method_interceptor".
+Symfony\Component\DependencyInjection\Compiler\InlineServiceDefinitionsPass: Inlined service "security.encoder_factory.generic" to "security.encoder_factory".
 Symfony\Component\DependencyInjection\Compiler\InlineServiceDefinitionsPass: Inlined service "swiftmailer.transport.authhandler" to "swiftmailer.transport".
 Symfony\Component\DependencyInjection\Compiler\RemoveUnusedDefinitionsPass: Removed service "controller_resolver"; reason: unused
 Symfony\Component\DependencyInjection\Compiler\RemoveUnusedDefinitionsPass: Removed service "session.storage.filesystem"; reason: unused
@@ -221,6 +234,7 @@ Symfony\Component\DependencyInjection\Compiler\RemoveUnusedDefinitionsPass: Remo
 Symfony\Component\DependencyInjection\Compiler\RemoveUnusedDefinitionsPass: Removed service "templating.asset.default_package"; reason: unused
 Symfony\Component\DependencyInjection\Compiler\RemoveUnusedDefinitionsPass: Removed service "annotations.cached_reader"; reason: unused
 Symfony\Component\DependencyInjection\Compiler\RemoveUnusedDefinitionsPass: Removed service "security.authentication.session_strategy"; reason: unused
+Symfony\Component\DependencyInjection\Compiler\RemoveUnusedDefinitionsPass: Removed service "security.encoder_factory.generic"; reason: unused
 Symfony\Component\DependencyInjection\Compiler\RemoveUnusedDefinitionsPass: Removed service "security.user_checker"; reason: unused
 Symfony\Component\DependencyInjection\Compiler\RemoveUnusedDefinitionsPass: Removed service "security.role_hierarchy"; reason: unused
 Symfony\Component\DependencyInjection\Compiler\RemoveUnusedDefinitionsPass: Removed service "security.access.authenticated_voter"; reason: unused
@@ -282,6 +296,7 @@ Symfony\Component\DependencyInjection\Compiler\RemoveUnusedDefinitionsPass: Remo
 Symfony\Component\DependencyInjection\Compiler\RemoveUnusedDefinitionsPass: Removed service "doctrine.orm.metadata.annotation_reader"; reason: unused
 Symfony\Component\DependencyInjection\Compiler\RemoveUnusedDefinitionsPass: Removed service "doctrine.orm.proxy_cache_warmer"; reason: unused
 Symfony\Component\DependencyInjection\Compiler\RemoveUnusedDefinitionsPass: Removed service "doctrine.orm.default_configuration"; reason: unused
+Symfony\Component\DependencyInjection\Compiler\RemoveUnusedDefinitionsPass: Removed service "doctrine.orm.default_xml_metadata_driver"; reason: unused
 Symfony\Component\DependencyInjection\Compiler\RemoveUnusedDefinitionsPass: Removed service "doctrine.orm.default_annotation_metadata_driver"; reason: unused
 Symfony\Component\DependencyInjection\Compiler\RemoveUnusedDefinitionsPass: Removed service "doctrine.orm.default_metadata_driver"; reason: unused
 Symfony\Component\DependencyInjection\Compiler\RemoveUnusedDefinitionsPass: Removed service "doctrine.orm.default_metadata_cache"; reason: unused
@@ -307,6 +322,11 @@ Symfony\Component\DependencyInjection\Compiler\RemoveUnusedDefinitionsPass: Remo
 Symfony\Component\DependencyInjection\Compiler\RemoveUnusedDefinitionsPass: Removed service "assetic.twig_directory_resource.jmssecurityextrabundle"; reason: unused
 Symfony\Component\DependencyInjection\Compiler\RemoveUnusedDefinitionsPass: Removed service "assetic.twig_directory_resource.doctrinefixturesbundle"; reason: unused
 Symfony\Component\DependencyInjection\Compiler\RemoveUnusedDefinitionsPass: Removed service "assetic.twig_directory_resource.googlebundle"; reason: unused
+Symfony\Component\DependencyInjection\Compiler\RemoveUnusedDefinitionsPass: Removed service "assetic.twig_directory_resource.sonatajquerybundle"; reason: unused
+Symfony\Component\DependencyInjection\Compiler\RemoveUnusedDefinitionsPass: Removed service "assetic.twig_directory_resource.sonatablueprintbundle"; reason: unused
+Symfony\Component\DependencyInjection\Compiler\RemoveUnusedDefinitionsPass: Removed service "assetic.twig_directory_resource.sonataadminbundle"; reason: unused
+Symfony\Component\DependencyInjection\Compiler\RemoveUnusedDefinitionsPass: Removed service "assetic.twig_directory_resource.knplabsmenubundle"; reason: unused
+Symfony\Component\DependencyInjection\Compiler\RemoveUnusedDefinitionsPass: Removed service "assetic.twig_directory_resource.fosuserbundle"; reason: unused
 Symfony\Component\DependencyInjection\Compiler\RemoveUnusedDefinitionsPass: Removed service "assetic.twig_directory_resource.stofdoctrineextensionsbundle"; reason: unused
 Symfony\Component\DependencyInjection\Compiler\RemoveUnusedDefinitionsPass: Removed service "assetic.twig_directory_resource.quizquizbundle"; reason: unused
 Symfony\Component\DependencyInjection\Compiler\RemoveUnusedDefinitionsPass: Removed service "assetic.twig_directory_resource.acmedemobundle"; reason: unused
@@ -322,6 +342,8 @@ Symfony\Component\DependencyInjection\Compiler\RemoveUnusedDefinitionsPass: Remo
 Symfony\Component\DependencyInjection\Compiler\RemoveUnusedDefinitionsPass: Removed service "security.access.after_invocation.acl_provider"; reason: unused
 Symfony\Component\DependencyInjection\Compiler\RemoveUnusedDefinitionsPass: Removed service "security.extra.iddqd_voter"; reason: unused
 Symfony\Component\DependencyInjection\Compiler\RemoveUnusedDefinitionsPass: Removed service "twig.extension.google_analytics"; reason: unused
+Symfony\Component\DependencyInjection\Compiler\RemoveUnusedDefinitionsPass: Removed service "fos_user.user_listener"; reason: unused
+Symfony\Component\DependencyInjection\Compiler\RemoveUnusedDefinitionsPass: Removed service "fos_user.mailer.noop"; reason: unused
 Symfony\Component\DependencyInjection\Compiler\RemoveUnusedDefinitionsPass: Removed service "stof_doctrine_extensions.listener.timestampable"; reason: unused
 Symfony\Component\DependencyInjection\Compiler\RemoveUnusedDefinitionsPass: Removed service "stof_doctrine_extensions.listener.tree"; reason: unused
 Symfony\Component\DependencyInjection\Compiler\RemoveUnusedDefinitionsPass: Removed service "stof_doctrine_extensions.listener.sluggable"; reason: unused

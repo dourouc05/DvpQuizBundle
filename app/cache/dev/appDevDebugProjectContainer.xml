@@ -19,6 +19,11 @@
       <parameter key="JMSSecurityExtraBundle">JMS\SecurityExtraBundle\JMSSecurityExtraBundle</parameter>
       <parameter key="DoctrineFixturesBundle">Symfony\Bundle\DoctrineFixturesBundle\DoctrineFixturesBundle</parameter>
       <parameter key="GoogleBundle">AntiMattr\GoogleBundle\GoogleBundle</parameter>
+      <parameter key="SonatajQueryBundle">Sonata\jQueryBundle\SonatajQueryBundle</parameter>
+      <parameter key="SonataBluePrintBundle">Sonata\BluePrintBundle\SonataBluePrintBundle</parameter>
+      <parameter key="SonataAdminBundle">Sonata\AdminBundle\SonataAdminBundle</parameter>
+      <parameter key="KnplabsMenuBundle">Knplabs\Bundle\MenuBundle\KnplabsMenuBundle</parameter>
+      <parameter key="FOSUserBundle">FOS\UserBundle\FOSUserBundle</parameter>
       <parameter key="StofDoctrineExtensionsBundle">Stof\DoctrineExtensionsBundle\StofDoctrineExtensionsBundle</parameter>
       <parameter key="QuizQuizBundle">Quiz\QuizBundle\QuizQuizBundle</parameter>
       <parameter key="AcmeDemoBundle">Acme\DemoBundle\AcmeDemoBundle</parameter>
@@ -88,6 +93,7 @@
     <parameter key="validator.validator_factory.class">Symfony\Bundle\FrameworkBundle\Validator\ConstraintValidatorFactory</parameter>
     <parameter key="validator.mapping.loader.xml_files_loader.mapping_files" type="collection">
       <parameter>G:\Dvp\_RUBRIQUES\dvpquizbundle\vendor\symfony\src\Symfony\Bundle\FrameworkBundle\DependencyInjection/../../../Component/Form/Resources/config/validation.xml</parameter>
+      <parameter>G:\Dvp\_RUBRIQUES\dvpquizbundle\vendor\bundles\FOS\UserBundle\Resources\config\validation.xml</parameter>
     </parameter>
     <parameter key="validator.mapping.loader.yaml_files_loader.mapping_files" type="collection"/>
     <parameter key="profiler.class">Symfony\Component\HttpKernel\Profiler\Profiler</parameter>
@@ -340,7 +346,7 @@
     <parameter key="assetic.use_controller">true</parameter>
     <parameter key="assetic.read_from">G:\Dvp\_RUBRIQUES\dvpquizbundle\app/../web</parameter>
     <parameter key="assetic.write_to">G:\Dvp\_RUBRIQUES\dvpquizbundle\app/../web</parameter>
-    <parameter key="assetic.java.bin">C:\Windows\system32\java.EXE</parameter>
+    <parameter key="assetic.java.bin">c:\Windows\system32\java.EXE</parameter>
     <parameter key="assetic.node.bin">/usr/bin/node</parameter>
     <parameter key="assetic.sass.bin">/usr/bin/sass</parameter>
     <parameter key="assetic.filter.cssrewrite.class">Assetic\Filter\CssRewriteFilter</parameter>
@@ -377,6 +383,55 @@
         <parameter key="domain">quiz.developpez.com</parameter>
       </parameter>
     </parameter>
+    <parameter key="sonata.admin.templates.layout">SonataAdminBundle::standard_layout.html.twig</parameter>
+    <parameter key="sonata.admin.templates.ajax">SonataAdminBundle::ajax_layout.html.twig</parameter>
+    <parameter key="menu.provider.class">Knplabs\Bundle\MenuBundle\Provider\LazyProvider</parameter>
+    <parameter key="fos_user.user_manager.class">FOS\UserBundle\Entity\UserManager</parameter>
+    <parameter key="fos_user.validator.password.class">FOS\UserBundle\Validator\PasswordValidator</parameter>
+    <parameter key="fos_user.validator.unique.class">FOS\UserBundle\Validator\UniqueValidator</parameter>
+    <parameter key="fos_user.encoder_factory.class">FOS\UserBundle\Security\Encoder\EncoderFactory</parameter>
+    <parameter key="fos_user.security.interactive_login_listener.class">FOS\UserBundle\Security\InteractiveLoginListener</parameter>
+    <parameter key="fos_user.firewall_name">main</parameter>
+    <parameter key="fos_user.model.user.class">QuizBundle\QuizBundle\Entity\User</parameter>
+    <parameter key="fos_user.encoder.algorithm">sha512</parameter>
+    <parameter key="fos_user.encoder.encode_as_base64">false</parameter>
+    <parameter key="fos_user.encoder.iterations">1</parameter>
+    <parameter key="fos_user.template.engine">twig</parameter>
+    <parameter key="fos_user.template.theme">FOSUserBundle::form.html.twig</parameter>
+    <parameter key="fos_user.registration.confirmation.from_email" type="collection">
+      <parameter key="webmaster@example.com">webmaster</parameter>
+    </parameter>
+    <parameter key="fos_user.resetting.email.from_email" type="collection">
+      <parameter key="webmaster@example.com">webmaster</parameter>
+    </parameter>
+    <parameter key="fos_user.profile.form.validation_groups" type="collection">
+      <parameter>Profile</parameter>
+    </parameter>
+    <parameter key="fos_user.profile.form.name">fos_user_profile_form</parameter>
+    <parameter key="fos_user.profile.form.type.class">FOS\UserBundle\Form\ProfileFormType</parameter>
+    <parameter key="fos_user.profile.form.handler.class">FOS\UserBundle\Form\ProfileFormHandler</parameter>
+    <parameter key="fos_user.registration.form.validation_groups" type="collection">
+      <parameter>Registration</parameter>
+    </parameter>
+    <parameter key="fos_user.registration.form.name">fos_user_registration_form</parameter>
+    <parameter key="fos_user.registration.confirmation.enabled">false</parameter>
+    <parameter key="fos_user.registration.confirmation.template">FOSUserBundle:Registration:email.txt.twig</parameter>
+    <parameter key="fos_user.registration.form.type.class">FOS\UserBundle\Form\RegistrationFormType</parameter>
+    <parameter key="fos_user.registration.form.handler.class">FOS\UserBundle\Form\RegistrationFormHandler</parameter>
+    <parameter key="fos_user.change_password.form.validation_groups" type="collection">
+      <parameter>ChangePassword</parameter>
+    </parameter>
+    <parameter key="fos_user.change_password.form.name">fos_user_change_password_form</parameter>
+    <parameter key="fos_user.change_password.form.type.class">FOS\UserBundle\Form\ChangePasswordFormType</parameter>
+    <parameter key="fos_user.change_password.form.handler.class">FOS\UserBundle\Form\ChangePasswordFormHandler</parameter>
+    <parameter key="fos_user.resetting.form.validation_groups" type="collection">
+      <parameter>ResetPassword</parameter>
+    </parameter>
+    <parameter key="fos_user.resetting.form.name">fos_user_resetting_form</parameter>
+    <parameter key="fos_user.resetting.token_ttl">86400</parameter>
+    <parameter key="fos_user.resetting.email.template">FOSUserBundle:Resetting:email.txt.twig</parameter>
+    <parameter key="fos_user.resetting.form.type.class">FOS\UserBundle\Form\ResettingFormType</parameter>
+    <parameter key="fos_user.resetting.form.handler.class">FOS\UserBundle\Form\ResettingFormHandler</parameter>
     <parameter key="stof_doctrine_extensions.default_locale">en</parameter>
     <parameter key="stof_doctrine_extensions.translation_fallback">false</parameter>
     <parameter key="stof_doctrine_extensions.listener.translatable.class">Stof\DoctrineExtensionsBundle\Listener\TranslationListener</parameter>
@@ -697,6 +752,14 @@
         <argument>-255</argument>
       </call>
       <call method="addListenerService">
+        <argument>security.interactive_login</argument>
+        <argument type="collection">
+          <argument>fos_user.security.interactive_login_listener</argument>
+          <argument>onSecurityInteractiveLogin</argument>
+        </argument>
+        <argument>0</argument>
+      </call>
+      <call method="addListenerService">
         <argument>core.controller</argument>
         <argument type="collection">
           <argument>acme.demo.listener</argument>
@@ -830,6 +893,14 @@
               <argument key="url">form.type.url</argument>
               <argument key="csrf">form.type.csrf</argument>
               <argument key="entity">form.type.entity</argument>
+              <argument key="sonata_type_admin">sonata.admin.form.type.admin</argument>
+              <argument key="sonata_type_collection">sonata.admin.form.type.collection</argument>
+              <argument key="sonata_type_model">sonata.admin.form.type.model</argument>
+              <argument key="sonata_type_immutable_array">sonata.admin.form.type.array</argument>
+              <argument key="fos_user.profile.form.type">fos_user.profile.form.type</argument>
+              <argument key="fos_user.registration.form.type">fos_user.registration.form.type</argument>
+              <argument key="fos_user.change_password.form.type">fos_user.change_password.form.type</argument>
+              <argument key="fos_user.resetting.form.type">fos_user.resetting.form.type</argument>
             </argument>
             <argument type="collection">
               <argument key="field" type="collection">
@@ -963,6 +1034,8 @@
           <argument type="service" id="service_container"/>
           <argument type="collection">
             <argument key="doctrine.orm.validator.unique">doctrine.orm.validator.unique</argument>
+            <argument key="fos_user.validator.unique">fos_user.validator.unique</argument>
+            <argument key="fos_user.validator.password">fos_user.validator.password</argument>
           </argument>
         </service>
       </argument>
@@ -983,6 +1056,7 @@
               <service class="Symfony\Component\Validator\Mapping\Loader\XmlFilesLoader" public="false">
                 <argument type="collection">
                   <argument>G:\Dvp\_RUBRIQUES\dvpquizbundle\vendor\symfony\src\Symfony\Bundle\FrameworkBundle\DependencyInjection/../../../Component/Form/Resources/config/validation.xml</argument>
+                  <argument>G:\Dvp\_RUBRIQUES\dvpquizbundle\vendor\bundles\FOS\UserBundle\Resources\config\validation.xml</argument>
                 </argument>
               </service>
             </argument>
@@ -1185,6 +1259,9 @@
                 <argument type="service" id="annotation_reader"/>
               </service>
             </argument>
+          </call>
+          <call method="addLoader">
+            <argument type="service" id="sonata.admin.route_loader"/>
           </call>
         </service>
       </argument>
@@ -1626,6 +1703,9 @@
         </argument>
       </call>
       <call method="addExtension">
+        <argument type="service" id="sonata.admin.twig.extension"/>
+      </call>
+      <call method="addExtension">
         <argument type="service" id="twig.extension.acme.demo"/>
       </call>
     </service>
@@ -1701,6 +1781,7 @@
         <service class="Doctrine\ORM\Configuration" public="false">
           <call method="setEntityNamespaces">
             <argument type="collection">
+              <argument key="FOSUserBundle">FOS\UserBundle\Entity</argument>
               <argument key="QuizQuizBundle">Quiz\QuizBundle\Entity</argument>
             </argument>
           </call>
@@ -1734,6 +1815,16 @@
           <call method="setMetadataDriverImpl">
             <argument type="service">
               <service class="Doctrine\ORM\Mapping\Driver\DriverChain" public="false">
+                <call method="addDriver">
+                  <argument type="service">
+                    <service class="Symfony\Bundle\DoctrineBundle\Mapping\Driver\XmlDriver" public="false">
+                      <argument type="collection">
+                        <argument key="FOS\UserBundle\Entity">G:\Dvp\_RUBRIQUES\dvpquizbundle\vendor\bundles\FOS\UserBundle\Resources\config\doctrine</argument>
+                      </argument>
+                    </service>
+                  </argument>
+                  <argument>FOS\UserBundle\Entity</argument>
+                </call>
                 <call method="addDriver">
                   <argument type="service">
                     <service class="Doctrine\ORM\Mapping\Driver\AnnotationDriver" public="false">
@@ -2101,6 +2192,141 @@
               <argument type="service">
                 <service class="%assetic.directory_resource.class%" public="false">
                   <argument type="service" id="templating.loader"/>
+                  <argument>SonatajQueryBundle</argument>
+                  <argument>G:\Dvp\_RUBRIQUES\dvpquizbundle\app/Resources/SonatajQueryBundle/views</argument>
+                  <argument>/^[^.]+\.[^.]+\.twig$/</argument>
+                </service>
+              </argument>
+              <argument type="service">
+                <service class="%assetic.directory_resource.class%" public="false">
+                  <argument type="service" id="templating.loader"/>
+                  <argument>SonatajQueryBundle</argument>
+                  <argument>G:\Dvp\_RUBRIQUES\dvpquizbundle\vendor\bundles\Sonata\jQueryBundle/Resources/views</argument>
+                  <argument>/^[^.]+\.[^.]+\.twig$/</argument>
+                </service>
+              </argument>
+            </argument>
+          </service>
+        </argument>
+        <argument>twig</argument>
+      </call>
+      <call method="addResource">
+        <argument type="service">
+          <service class="Assetic\Factory\Resource\CoalescingDirectoryResource" public="false">
+            <tag name="assetic.templating.twig"/>
+            <tag name="assetic.formula_resource" loader="twig"/>
+            <argument type="collection">
+              <argument type="service">
+                <service class="%assetic.directory_resource.class%" public="false">
+                  <argument type="service" id="templating.loader"/>
+                  <argument>SonataBluePrintBundle</argument>
+                  <argument>G:\Dvp\_RUBRIQUES\dvpquizbundle\app/Resources/SonataBluePrintBundle/views</argument>
+                  <argument>/^[^.]+\.[^.]+\.twig$/</argument>
+                </service>
+              </argument>
+              <argument type="service">
+                <service class="%assetic.directory_resource.class%" public="false">
+                  <argument type="service" id="templating.loader"/>
+                  <argument>SonataBluePrintBundle</argument>
+                  <argument>G:\Dvp\_RUBRIQUES\dvpquizbundle\vendor\bundles\Sonata\BluePrintBundle/Resources/views</argument>
+                  <argument>/^[^.]+\.[^.]+\.twig$/</argument>
+                </service>
+              </argument>
+            </argument>
+          </service>
+        </argument>
+        <argument>twig</argument>
+      </call>
+      <call method="addResource">
+        <argument type="service">
+          <service class="Assetic\Factory\Resource\CoalescingDirectoryResource" public="false">
+            <tag name="assetic.templating.twig"/>
+            <tag name="assetic.formula_resource" loader="twig"/>
+            <argument type="collection">
+              <argument type="service">
+                <service class="%assetic.directory_resource.class%" public="false">
+                  <argument type="service" id="templating.loader"/>
+                  <argument>SonataAdminBundle</argument>
+                  <argument>G:\Dvp\_RUBRIQUES\dvpquizbundle\app/Resources/SonataAdminBundle/views</argument>
+                  <argument>/^[^.]+\.[^.]+\.twig$/</argument>
+                </service>
+              </argument>
+              <argument type="service">
+                <service class="%assetic.directory_resource.class%" public="false">
+                  <argument type="service" id="templating.loader"/>
+                  <argument>SonataAdminBundle</argument>
+                  <argument>G:\Dvp\_RUBRIQUES\dvpquizbundle\vendor\bundles\Sonata\AdminBundle/Resources/views</argument>
+                  <argument>/^[^.]+\.[^.]+\.twig$/</argument>
+                </service>
+              </argument>
+            </argument>
+          </service>
+        </argument>
+        <argument>twig</argument>
+      </call>
+      <call method="addResource">
+        <argument type="service">
+          <service class="Assetic\Factory\Resource\CoalescingDirectoryResource" public="false">
+            <tag name="assetic.templating.twig"/>
+            <tag name="assetic.formula_resource" loader="twig"/>
+            <argument type="collection">
+              <argument type="service">
+                <service class="%assetic.directory_resource.class%" public="false">
+                  <argument type="service" id="templating.loader"/>
+                  <argument>KnplabsMenuBundle</argument>
+                  <argument>G:\Dvp\_RUBRIQUES\dvpquizbundle\app/Resources/KnplabsMenuBundle/views</argument>
+                  <argument>/^[^.]+\.[^.]+\.twig$/</argument>
+                </service>
+              </argument>
+              <argument type="service">
+                <service class="%assetic.directory_resource.class%" public="false">
+                  <argument type="service" id="templating.loader"/>
+                  <argument>KnplabsMenuBundle</argument>
+                  <argument>G:\Dvp\_RUBRIQUES\dvpquizbundle\vendor\bundles\Knplabs\Bundle\MenuBundle/Resources/views</argument>
+                  <argument>/^[^.]+\.[^.]+\.twig$/</argument>
+                </service>
+              </argument>
+            </argument>
+          </service>
+        </argument>
+        <argument>twig</argument>
+      </call>
+      <call method="addResource">
+        <argument type="service">
+          <service class="Assetic\Factory\Resource\CoalescingDirectoryResource" public="false">
+            <tag name="assetic.templating.twig"/>
+            <tag name="assetic.formula_resource" loader="twig"/>
+            <argument type="collection">
+              <argument type="service">
+                <service class="%assetic.directory_resource.class%" public="false">
+                  <argument type="service" id="templating.loader"/>
+                  <argument>FOSUserBundle</argument>
+                  <argument>G:\Dvp\_RUBRIQUES\dvpquizbundle\app/Resources/FOSUserBundle/views</argument>
+                  <argument>/^[^.]+\.[^.]+\.twig$/</argument>
+                </service>
+              </argument>
+              <argument type="service">
+                <service class="%assetic.directory_resource.class%" public="false">
+                  <argument type="service" id="templating.loader"/>
+                  <argument>FOSUserBundle</argument>
+                  <argument>G:\Dvp\_RUBRIQUES\dvpquizbundle\vendor\bundles\FOS\UserBundle/Resources/views</argument>
+                  <argument>/^[^.]+\.[^.]+\.twig$/</argument>
+                </service>
+              </argument>
+            </argument>
+          </service>
+        </argument>
+        <argument>twig</argument>
+      </call>
+      <call method="addResource">
+        <argument type="service">
+          <service class="Assetic\Factory\Resource\CoalescingDirectoryResource" public="false">
+            <tag name="assetic.templating.twig"/>
+            <tag name="assetic.formula_resource" loader="twig"/>
+            <argument type="collection">
+              <argument type="service">
+                <service class="%assetic.directory_resource.class%" public="false">
+                  <argument type="service" id="templating.loader"/>
                   <argument>StofDoctrineExtensionsBundle</argument>
                   <argument>G:\Dvp\_RUBRIQUES\dvpquizbundle\app/Resources/StofDoctrineExtensionsBundle/views</argument>
                   <argument>/^[^.]+\.[^.]+\.twig$/</argument>
@@ -2365,6 +2591,174 @@
       <tag name="templating.helper" alias="google_analytics"/>
       <argument type="service" id="google.analytics"/>
     </service>
+    <service id="sonata.admin.manager.orm" class="Sonata\AdminBundle\Model\ORM\ModelManager">
+      <argument type="service" id="doctrine.orm.default_entity_manager"/>
+    </service>
+    <service id="sonata.admin.builder.orm_form" class="Sonata\AdminBundle\Builder\ORM\FormContractor">
+      <argument type="service" id="form.factory"/>
+    </service>
+    <service id="sonata.admin.builder.orm_list" class="Sonata\AdminBundle\Builder\ORM\ListBuilder"/>
+    <service id="sonata.admin.builder.orm_datagrid" class="Sonata\AdminBundle\Builder\ORM\DatagridBuilder">
+      <argument type="service" id="form.factory"/>
+    </service>
+    <service id="sonata.admin.twig.extension" class="Sonata\AdminBundle\Twig\Extension\SonataAdminExtension">
+      <tag name="twig.extension"/>
+    </service>
+    <service id="sonata.admin.pool" class="Sonata\AdminBundle\Admin\Pool">
+      <argument type="service" id="service_container"/>
+      <call method="setAdminServiceIds">
+        <argument type="collection"/>
+      </call>
+      <call method="setAdminGroups">
+        <argument type="collection"/>
+      </call>
+      <call method="setAdminClasses">
+        <argument type="collection"/>
+      </call>
+    </service>
+    <service id="sonata.admin.route_loader" class="Sonata\AdminBundle\Route\AdminPoolLoader">
+      <tag name="routing.loader"/>
+      <argument type="service" id="sonata.admin.pool"/>
+      <argument type="collection"/>
+      <argument type="service" id="service_container"/>
+    </service>
+    <service id="sonata.admin.helper" class="Sonata\AdminBundle\Admin\AdminHelper">
+      <argument type="service" id="sonata.admin.pool"/>
+    </service>
+    <service id="sonata.admin.security.handler.noop" class="Sonata\AdminBundle\Security\Handler\NoopSecurityHandler"/>
+    <service id="sonata.admin.security.handler.acl" class="Sonata\AdminBundle\Security\Handler\AclSecurityHandler">
+      <argument type="service" id="security.context"/>
+    </service>
+    <service id="sonata.admin.form.type.admin" class="Sonata\AdminBundle\Form\Type\AdminType">
+      <tag name="form.type" alias="sonata_type_admin"/>
+    </service>
+    <service id="sonata.admin.form.type.collection" class="Sonata\AdminBundle\Form\Type\CollectionType">
+      <tag name="form.type" alias="sonata_type_collection"/>
+    </service>
+    <service id="sonata.admin.form.type.model" class="Sonata\AdminBundle\Form\Type\ModelType">
+      <tag name="form.type" alias="sonata_type_model"/>
+    </service>
+    <service id="sonata.admin.form.type.array" class="Sonata\AdminBundle\Form\Type\ImmutableArrayType">
+      <tag name="form.type" alias="sonata_type_immutable_array"/>
+    </service>
+    <service id="menu.provider" class="Knplabs\Bundle\MenuBundle\Provider\LazyProvider">
+      <argument type="service" id="service_container"/>
+    </service>
+    <service id="fos_user.user_manager" class="FOS\UserBundle\Entity\UserManager">
+      <argument type="service" id="security.encoder_factory"/>
+      <argument>sha512</argument>
+      <argument type="service" id="fos_user.util.username_canonicalizer"/>
+      <argument type="service" id="fos_user.util.email_canonicalizer"/>
+      <argument type="service" id="doctrine.orm.default_entity_manager"/>
+      <argument>QuizBundle\QuizBundle\Entity\User</argument>
+    </service>
+    <service id="fos_user.validator.unique" class="FOS\UserBundle\Validator\UniqueValidator">
+      <tag name="validator.constraint_validator" alias="fos_user.validator.unique"/>
+      <argument type="service" id="fos_user.user_manager"/>
+    </service>
+    <service id="fos_user.validator.password" class="FOS\UserBundle\Validator\PasswordValidator">
+      <tag name="validator.constraint_validator" alias="fos_user.validator.password"/>
+      <call method="setEncoderFactory">
+        <argument type="service" id="security.encoder_factory"/>
+      </call>
+    </service>
+    <service id="fos_user.security.interactive_login_listener" class="FOS\UserBundle\Security\InteractiveLoginListener">
+      <tag name="kernel.listener" event="security.interactive_login" method="onSecurityInteractiveLogin"/>
+      <argument type="service" id="fos_user.user_manager"/>
+    </service>
+    <service id="fos_user.util.user_manipulator" class="FOS\UserBundle\Util\UserManipulator">
+      <argument type="service" id="fos_user.user_manager"/>
+    </service>
+    <service id="fos_user.util.ace_manager" class="FOS\UserBundle\Util\AceManager">
+      <argument>null</argument>
+    </service>
+    <service id="fos_user.form.listener.user_canonical_fields" class="FOS\UserBundle\Form\UpdateCanonicalFieldsListener" public="false">
+      <argument type="service" id="fos_user.user_manager"/>
+    </service>
+    <service id="fos_user.profile.form" class="Symfony\Component\Form\Form" factory-method="getForm" factory-service="fos_user.profile.form.builder"/>
+    <service id="fos_user.profile.form.builder" class="Symfony\Component\Form\FormBuilder" factory-method="createNamedBuilder" factory-service="form.factory">
+      <argument type="service" id="fos_user.profile.form.type"/>
+      <argument>fos_user_profile_form</argument>
+      <argument></argument>
+      <argument type="collection">
+        <argument key="data_class">QuizBundle\QuizBundle\Entity\User</argument>
+        <argument key="validation_groups" type="collection">
+          <argument>Profile</argument>
+        </argument>
+      </argument>
+      <call method="addEventSubscriber">
+        <argument type="service" id="fos_user.form.listener.user_canonical_fields"/>
+      </call>
+    </service>
+    <service id="fos_user.profile.form.type" class="FOS\UserBundle\Form\ProfileFormType">
+      <tag name="form.type"/>
+    </service>
+    <service id="fos_user.profile.form.handler" class="FOS\UserBundle\Form\ProfileFormHandler" scope="request">
+      <argument type="service" id="fos_user.profile.form"/>
+      <argument type="service" id="request"/>
+      <argument type="service" id="fos_user.user_manager"/>
+    </service>
+    <service id="fos_user.registration.form" class="Symfony\Component\Form\Form" factory-method="getForm" factory-service="fos_user.registration.form.builder"/>
+    <service id="fos_user.registration.form.builder" class="Symfony\Component\Form\FormBuilder" factory-method="createNamedBuilder" factory-service="form.factory">
+      <argument type="service" id="fos_user.registration.form.type"/>
+      <argument>fos_user_registration_form</argument>
+      <argument></argument>
+      <argument type="collection">
+        <argument key="data_class">QuizBundle\QuizBundle\Entity\User</argument>
+        <argument key="validation_groups" type="collection">
+          <argument>Registration</argument>
+        </argument>
+      </argument>
+      <call method="addEventSubscriber">
+        <argument type="service" id="fos_user.form.listener.user_canonical_fields"/>
+      </call>
+    </service>
+    <service id="fos_user.registration.form.type" class="FOS\UserBundle\Form\RegistrationFormType">
+      <tag name="form.type"/>
+    </service>
+    <service id="fos_user.registration.form.handler" class="FOS\UserBundle\Form\RegistrationFormHandler" scope="request">
+      <argument type="service" id="fos_user.registration.form"/>
+      <argument type="service" id="request"/>
+      <argument type="service" id="fos_user.user_manager"/>
+    </service>
+    <service id="fos_user.change_password.form" class="Symfony\Component\Form\Form" factory-method="createNamed" factory-service="form.factory">
+      <argument type="service" id="fos_user.change_password.form.type"/>
+      <argument>fos_user_change_password_form</argument>
+      <argument></argument>
+      <argument type="collection">
+        <argument key="data_class">FOS\UserBundle\Form\ChangePassword</argument>
+        <argument key="validation_groups" type="collection">
+          <argument>ChangePassword</argument>
+        </argument>
+      </argument>
+    </service>
+    <service id="fos_user.change_password.form.type" class="FOS\UserBundle\Form\ChangePasswordFormType">
+      <tag name="form.type"/>
+    </service>
+    <service id="fos_user.change_password.form.handler" class="FOS\UserBundle\Form\ChangePasswordFormHandler" scope="request">
+      <argument type="service" id="fos_user.change_password.form"/>
+      <argument type="service" id="request"/>
+      <argument type="service" id="fos_user.user_manager"/>
+    </service>
+    <service id="fos_user.resetting.form" class="Symfony\Component\Form\Form" factory-method="createNamed" factory-service="form.factory">
+      <argument type="service" id="fos_user.resetting.form.type"/>
+      <argument>fos_user_resetting_form</argument>
+      <argument></argument>
+      <argument type="collection">
+        <argument key="data_class">FOS\UserBundle\Form\ResetPassword</argument>
+        <argument key="validation_groups" type="collection">
+          <argument>ResetPassword</argument>
+        </argument>
+      </argument>
+    </service>
+    <service id="fos_user.resetting.form.type" class="FOS\UserBundle\Form\ResettingFormType">
+      <tag name="form.type"/>
+    </service>
+    <service id="fos_user.resetting.form.handler" class="FOS\UserBundle\Form\ResettingFormHandler" scope="request">
+      <argument type="service" id="fos_user.resetting.form"/>
+      <argument type="service" id="request"/>
+      <argument type="service" id="fos_user.user_manager"/>
+    </service>
     <service id="stof_doctrine_extensions.listener.loggable" class="Stof\DoctrineExtensionsBundle\Listener\LoggableListener">
       <call method="setContainer">
         <argument type="service" id="service_container"/>
@@ -2506,14 +2900,21 @@
       <argument>G:\Dvp\_RUBRIQUES\dvpquizbundle\app/cache/dev/annotations</argument>
       <argument>true</argument>
     </service>
-    <service id="security.encoder_factory" class="Symfony\Component\Security\Core\Encoder\EncoderFactory">
-      <argument type="collection">
-        <argument key="Symfony\Component\Security\Core\User\User" type="collection">
-          <argument key="class">%security.encoder.plain.class%</argument>
-          <argument key="arguments" type="collection">
-            <argument>false</argument>
+    <service id="security.encoder_factory" class="FOS\UserBundle\Security\Encoder\EncoderFactory">
+      <argument>Symfony\Component\Security\Core\Encoder\MessageDigestPasswordEncoder</argument>
+      <argument>false</argument>
+      <argument>1</argument>
+      <argument type="service">
+        <service class="Symfony\Component\Security\Core\Encoder\EncoderFactory" public="false">
+          <argument type="collection">
+            <argument key="Symfony\Component\Security\Core\User\User" type="collection">
+              <argument key="class">%security.encoder.plain.class%</argument>
+              <argument key="arguments" type="collection">
+                <argument>false</argument>
+              </argument>
+            </argument>
           </argument>
-        </argument>
+        </service>
       </argument>
     </service>
     <service id="logger" class="Symfony\Bridge\Monolog\Logger">
@@ -2581,6 +2982,25 @@
     <service id="mailer" class="Swift_Mailer">
       <argument type="service" id="swiftmailer.transport"/>
     </service>
+    <service id="fos_user.mailer" class="FOS\UserBundle\Mailer\Mailer">
+      <argument type="service" id="mailer"/>
+      <argument type="service" id="router.real"/>
+      <argument type="service" id="templating"/>
+      <argument type="collection">
+        <argument key="confirmation.template">FOSUserBundle:Registration:email.txt.twig</argument>
+        <argument key="resetting.template">FOSUserBundle:Resetting:email.txt.twig</argument>
+        <argument key="from_email" type="collection">
+          <argument key="confirmation" type="collection">
+            <argument key="webmaster@example.com">webmaster</argument>
+          </argument>
+          <argument key="resetting" type="collection">
+            <argument key="webmaster@example.com">webmaster</argument>
+          </argument>
+        </argument>
+      </argument>
+    </service>
+    <service id="fos_user.util.email_canonicalizer" class="FOS\UserBundle\Util\Canonicalizer"/>
+    <service id="fos_user.util.username_canonicalizer" class="FOS\UserBundle\Util\Canonicalizer"/>
     <service id="debug.event_dispatcher" alias="event_dispatcher"/>
     <service id="router" alias="router.real"/>
     <service id="database_connection" alias="doctrine.dbal.default_connection"/>
