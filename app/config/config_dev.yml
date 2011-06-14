@@ -21,3 +21,8 @@ monolog:
 
 assetic:
     use_controller: true
+
+sf2gen_console:
+    toolbar: true 
+    local: true 
+    all: true
