@@ -13,3 +13,15 @@
 [submodule "vendor/bundles/Stof/DoctrineExtensionsBundle"]
 	path = vendor/bundles/Stof/DoctrineExtensionsBundle
 	url = git://github.com/stof/DoctrineExtensionsBundle.git
+[submodule "vendor/bundles/Sonata/jQueryBundle"]
+	path = vendor/bundles/Sonata/jQueryBundle
+	url = git@github.com:sonata-project/jQueryBundle.git
+[submodule "vendor/bundles/Sonata/BluePrintBundle"]
+	path = vendor/bundles/Sonata/BluePrintBundle
+	url = git@github.com:sonata-project/BluePrintBundle.git
+[submodule "vendor/bundles/Sonata/AdminBundle"]
+	path = vendor/bundles/Sonata/AdminBundle
+	url = git@github.com:sonata-project/AdminBundle.git
+[submodule "vendor/bundles/Sonata/MenuBundle"]
+	path = vendor/bundles/Sonata/MenuBundle
+	url = git@github.com:sonata-project/MenuBundle.git
