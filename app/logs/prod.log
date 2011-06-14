@@ -1,0 +1,84 @@
+[2011-06-14 22:33:33] event.DEBUG: Notified event "core.request" to listener "Symfony\Bundle\FrameworkBundle\EventListener\RouterListener::onEarlyCoreRequest". 
+[2011-06-14 22:33:33] event.DEBUG: Notified event "core.request" to listener "Symfony\Bundle\FrameworkBundle\EventListener\SessionListener::onCoreRequest". 
+[2011-06-14 22:33:33] event.DEBUG: Notified event "core.request" to listener "Symfony\Component\Security\Http\Firewall::onCoreRequest". 
+[2011-06-14 22:33:33] request.INFO: Matched route "homepage" (parameters: "_controller": "Quiz\QuizBundle\Controller\DefaultController::indexAction", "_route": "homepage") 
+[2011-06-14 22:33:33] event.DEBUG: Notified event "core.request" to listener "Symfony\Bundle\FrameworkBundle\EventListener\RouterListener::onCoreRequest". 
+[2011-06-14 22:33:33] request.INFO: Using controller "Quiz\QuizBundle\Controller\DefaultController::indexAction" 
+[2011-06-14 22:33:33] event.DEBUG: Notified event "core.controller" to listener "Sensio\Bundle\FrameworkExtraBundle\EventListener\ControllerListener::onCoreController". 
+[2011-06-14 22:33:33] event.DEBUG: Notified event "core.controller" to listener "Sensio\Bundle\FrameworkExtraBundle\EventListener\ParamConverterListener::onCoreController". 
+[2011-06-14 22:33:33] event.DEBUG: Notified event "core.controller" to listener "Sensio\Bundle\FrameworkExtraBundle\EventListener\TemplateListener::onCoreController". 
+[2011-06-14 22:33:33] event.DEBUG: Notified event "core.controller" to listener "JMS\SecurityExtraBundle\Controller\ControllerListener::onCoreController". 
+[2011-06-14 22:33:33] request.CRITICAL: Twig_Error_Runtime: An exception has been thrown during the rendering of a template ("Template name "layout.html" is not valid (format is "bundle:section:template.format.engine").") in "QuizQuizBundle:Default:index.html.twig". (uncaught exception) at G:\Dvp\_RUBRIQUES\dvpquizbundle\vendor\twig\lib\Twig\Template.php line 182 
+[2011-06-14 22:33:33] event.DEBUG: Notified event "core.request" to listener "Symfony\Bundle\FrameworkBundle\EventListener\RouterListener::onEarlyCoreRequest". 
+[2011-06-14 22:33:33] event.DEBUG: Notified event "core.request" to listener "Symfony\Bundle\FrameworkBundle\EventListener\SessionListener::onCoreRequest". 
+[2011-06-14 22:33:33] event.DEBUG: Notified event "core.request" to listener "Symfony\Component\Security\Http\Firewall::onCoreRequest". 
+[2011-06-14 22:33:33] event.DEBUG: Notified event "core.request" to listener "Symfony\Bundle\FrameworkBundle\EventListener\RouterListener::onCoreRequest". 
+[2011-06-14 22:33:33] request.INFO: Using controller "Symfony\Bundle\FrameworkBundle\Controller\ExceptionController::showAction" 
+[2011-06-14 22:33:33] event.DEBUG: Notified event "core.controller" to listener "Sensio\Bundle\FrameworkExtraBundle\EventListener\ControllerListener::onCoreController". 
+[2011-06-14 22:33:33] event.DEBUG: Notified event "core.controller" to listener "Sensio\Bundle\FrameworkExtraBundle\EventListener\ParamConverterListener::onCoreController". 
+[2011-06-14 22:33:33] event.DEBUG: Notified event "core.controller" to listener "Sensio\Bundle\FrameworkExtraBundle\EventListener\TemplateListener::onCoreController". 
+[2011-06-14 22:33:33] event.DEBUG: Notified event "core.controller" to listener "JMS\SecurityExtraBundle\Controller\ControllerListener::onCoreController". 
+[2011-06-14 22:33:33] event.DEBUG: Notified event "core.response" to listener "Symfony\Component\HttpKernel\EventListener\ResponseListener::onCoreResponse". 
+[2011-06-14 22:33:33] event.DEBUG: Notified event "core.response" to listener "Symfony\Bundle\SecurityBundle\EventListener\ResponseListener::onCoreResponse". 
+[2011-06-14 22:33:33] event.DEBUG: Notified event "core.response" to listener "Sensio\Bundle\FrameworkExtraBundle\EventListener\CacheListener::onCoreResponse". 
+[2011-06-14 22:33:33] event.DEBUG: Notified event "core.exception" to listener "Symfony\Component\HttpKernel\EventListener\ExceptionListener::onCoreException". 
+[2011-06-14 22:33:33] event.DEBUG: Listener "Symfony\Component\HttpKernel\EventListener\ExceptionListener::onCoreException" stopped propagation of the event "core.exception". 
+[2011-06-14 22:33:33] event.DEBUG: Notified event "core.response" to listener "Symfony\Component\HttpKernel\EventListener\ResponseListener::onCoreResponse". 
+[2011-06-14 22:33:33] event.DEBUG: Notified event "core.response" to listener "Symfony\Bundle\SecurityBundle\EventListener\ResponseListener::onCoreResponse". 
+[2011-06-14 22:33:33] event.DEBUG: Notified event "core.response" to listener "Sensio\Bundle\FrameworkExtraBundle\EventListener\CacheListener::onCoreResponse". 
+[2011-06-14 22:34:17] event.DEBUG: Notified event "core.request" to listener "Symfony\Bundle\FrameworkBundle\EventListener\RouterListener::onEarlyCoreRequest". 
+[2011-06-14 22:34:17] event.DEBUG: Notified event "core.request" to listener "Symfony\Bundle\FrameworkBundle\EventListener\SessionListener::onCoreRequest". 
+[2011-06-14 22:34:17] event.DEBUG: Notified event "core.request" to listener "Symfony\Component\Security\Http\Firewall::onCoreRequest". 
+[2011-06-14 22:34:17] request.INFO: Matched route "homepage" (parameters: "_controller": "Quiz\QuizBundle\Controller\DefaultController::indexAction", "_route": "homepage") 
+[2011-06-14 22:34:17] event.DEBUG: Notified event "core.request" to listener "Symfony\Bundle\FrameworkBundle\EventListener\RouterListener::onCoreRequest". 
+[2011-06-14 22:34:17] request.INFO: Using controller "Quiz\QuizBundle\Controller\DefaultController::indexAction" 
+[2011-06-14 22:34:17] event.DEBUG: Notified event "core.controller" to listener "Sensio\Bundle\FrameworkExtraBundle\EventListener\ControllerListener::onCoreController". 
+[2011-06-14 22:34:17] event.DEBUG: Notified event "core.controller" to listener "Sensio\Bundle\FrameworkExtraBundle\EventListener\ParamConverterListener::onCoreController". 
+[2011-06-14 22:34:17] event.DEBUG: Notified event "core.controller" to listener "Sensio\Bundle\FrameworkExtraBundle\EventListener\TemplateListener::onCoreController". 
+[2011-06-14 22:34:17] event.DEBUG: Notified event "core.controller" to listener "JMS\SecurityExtraBundle\Controller\ControllerListener::onCoreController". 
+[2011-06-14 22:34:18] request.CRITICAL: Twig_Error_Runtime: An exception has been thrown during the rendering of a template ("Warning: file_get_contents(C:/Program Files (x86)/EasyPHP-5.3.6.0/www/template/caches/tetexhtml65.cache) [<a href='function.file-get-contents'>function.file-get-contents</a>]: failed to open stream: No such file or directory in G:\Dvp\_RUBRIQUES\dvpquizbundle\src\Quiz\QuizBundle\Twig\Extension\QuizQuizExtension.php line 39") in "QuizQuizBundle::layout.html.twig" at line 16. (uncaught exception) at G:\Dvp\_RUBRIQUES\dvpquizbundle\vendor\twig\lib\Twig\Template.php line 182 
+[2011-06-14 22:34:18] event.DEBUG: Notified event "core.request" to listener "Symfony\Bundle\FrameworkBundle\EventListener\RouterListener::onEarlyCoreRequest". 
+[2011-06-14 22:34:18] event.DEBUG: Notified event "core.request" to listener "Symfony\Bundle\FrameworkBundle\EventListener\SessionListener::onCoreRequest". 
+[2011-06-14 22:34:18] event.DEBUG: Notified event "core.request" to listener "Symfony\Component\Security\Http\Firewall::onCoreRequest". 
+[2011-06-14 22:34:18] event.DEBUG: Notified event "core.request" to listener "Symfony\Bundle\FrameworkBundle\EventListener\RouterListener::onCoreRequest". 
+[2011-06-14 22:34:18] request.INFO: Using controller "Symfony\Bundle\FrameworkBundle\Controller\ExceptionController::showAction" 
+[2011-06-14 22:34:18] event.DEBUG: Notified event "core.controller" to listener "Sensio\Bundle\FrameworkExtraBundle\EventListener\ControllerListener::onCoreController". 
+[2011-06-14 22:34:18] event.DEBUG: Notified event "core.controller" to listener "Sensio\Bundle\FrameworkExtraBundle\EventListener\ParamConverterListener::onCoreController". 
+[2011-06-14 22:34:18] event.DEBUG: Notified event "core.controller" to listener "Sensio\Bundle\FrameworkExtraBundle\EventListener\TemplateListener::onCoreController". 
+[2011-06-14 22:34:18] event.DEBUG: Notified event "core.controller" to listener "JMS\SecurityExtraBundle\Controller\ControllerListener::onCoreController". 
+[2011-06-14 22:34:18] event.DEBUG: Notified event "core.response" to listener "Symfony\Component\HttpKernel\EventListener\ResponseListener::onCoreResponse". 
+[2011-06-14 22:34:18] event.DEBUG: Notified event "core.response" to listener "Symfony\Bundle\SecurityBundle\EventListener\ResponseListener::onCoreResponse". 
+[2011-06-14 22:34:18] event.DEBUG: Notified event "core.response" to listener "Sensio\Bundle\FrameworkExtraBundle\EventListener\CacheListener::onCoreResponse". 
+[2011-06-14 22:34:18] event.DEBUG: Notified event "core.exception" to listener "Symfony\Component\HttpKernel\EventListener\ExceptionListener::onCoreException". 
+[2011-06-14 22:34:18] event.DEBUG: Listener "Symfony\Component\HttpKernel\EventListener\ExceptionListener::onCoreException" stopped propagation of the event "core.exception". 
+[2011-06-14 22:34:18] event.DEBUG: Notified event "core.response" to listener "Symfony\Component\HttpKernel\EventListener\ResponseListener::onCoreResponse". 
+[2011-06-14 22:34:18] event.DEBUG: Notified event "core.response" to listener "Symfony\Bundle\SecurityBundle\EventListener\ResponseListener::onCoreResponse". 
+[2011-06-14 22:34:18] event.DEBUG: Notified event "core.response" to listener "Sensio\Bundle\FrameworkExtraBundle\EventListener\CacheListener::onCoreResponse". 
+[2011-06-14 22:34:19] event.DEBUG: Notified event "core.request" to listener "Symfony\Bundle\FrameworkBundle\EventListener\RouterListener::onEarlyCoreRequest". 
+[2011-06-14 22:34:19] event.DEBUG: Notified event "core.request" to listener "Symfony\Bundle\FrameworkBundle\EventListener\SessionListener::onCoreRequest". 
+[2011-06-14 22:34:19] event.DEBUG: Notified event "core.request" to listener "Symfony\Component\Security\Http\Firewall::onCoreRequest". 
+[2011-06-14 22:34:19] request.INFO: Matched route "homepage" (parameters: "_controller": "Quiz\QuizBundle\Controller\DefaultController::indexAction", "_route": "homepage") 
+[2011-06-14 22:34:19] event.DEBUG: Notified event "core.request" to listener "Symfony\Bundle\FrameworkBundle\EventListener\RouterListener::onCoreRequest". 
+[2011-06-14 22:34:19] request.INFO: Using controller "Quiz\QuizBundle\Controller\DefaultController::indexAction" 
+[2011-06-14 22:34:19] event.DEBUG: Notified event "core.controller" to listener "Sensio\Bundle\FrameworkExtraBundle\EventListener\ControllerListener::onCoreController". 
+[2011-06-14 22:34:19] event.DEBUG: Notified event "core.controller" to listener "Sensio\Bundle\FrameworkExtraBundle\EventListener\ParamConverterListener::onCoreController". 
+[2011-06-14 22:34:19] event.DEBUG: Notified event "core.controller" to listener "Sensio\Bundle\FrameworkExtraBundle\EventListener\TemplateListener::onCoreController". 
+[2011-06-14 22:34:19] event.DEBUG: Notified event "core.controller" to listener "JMS\SecurityExtraBundle\Controller\ControllerListener::onCoreController". 
+[2011-06-14 22:34:19] request.CRITICAL: Twig_Error_Runtime: An exception has been thrown during the rendering of a template ("Warning: file_get_contents(C:/Program Files (x86)/EasyPHP-5.3.6.0/www/template/caches/tetexhtml65.cache) [<a href='function.file-get-contents'>function.file-get-contents</a>]: failed to open stream: No such file or directory in G:\Dvp\_RUBRIQUES\dvpquizbundle\src\Quiz\QuizBundle\Twig\Extension\QuizQuizExtension.php line 39") in "QuizQuizBundle::layout.html.twig" at line 16. (uncaught exception) at G:\Dvp\_RUBRIQUES\dvpquizbundle\vendor\twig\lib\Twig\Template.php line 182 
+[2011-06-14 22:34:19] event.DEBUG: Notified event "core.request" to listener "Symfony\Bundle\FrameworkBundle\EventListener\RouterListener::onEarlyCoreRequest". 
+[2011-06-14 22:34:19] event.DEBUG: Notified event "core.request" to listener "Symfony\Bundle\FrameworkBundle\EventListener\SessionListener::onCoreRequest". 
+[2011-06-14 22:34:19] event.DEBUG: Notified event "core.request" to listener "Symfony\Component\Security\Http\Firewall::onCoreRequest". 
+[2011-06-14 22:34:19] event.DEBUG: Notified event "core.request" to listener "Symfony\Bundle\FrameworkBundle\EventListener\RouterListener::onCoreRequest". 
+[2011-06-14 22:34:19] request.INFO: Using controller "Symfony\Bundle\FrameworkBundle\Controller\ExceptionController::showAction" 
+[2011-06-14 22:34:19] event.DEBUG: Notified event "core.controller" to listener "Sensio\Bundle\FrameworkExtraBundle\EventListener\ControllerListener::onCoreController". 
+[2011-06-14 22:34:19] event.DEBUG: Notified event "core.controller" to listener "Sensio\Bundle\FrameworkExtraBundle\EventListener\ParamConverterListener::onCoreController". 
+[2011-06-14 22:34:19] event.DEBUG: Notified event "core.controller" to listener "Sensio\Bundle\FrameworkExtraBundle\EventListener\TemplateListener::onCoreController". 
+[2011-06-14 22:34:19] event.DEBUG: Notified event "core.controller" to listener "JMS\SecurityExtraBundle\Controller\ControllerListener::onCoreController". 
+[2011-06-14 22:34:19] event.DEBUG: Notified event "core.response" to listener "Symfony\Component\HttpKernel\EventListener\ResponseListener::onCoreResponse". 
+[2011-06-14 22:34:19] event.DEBUG: Notified event "core.response" to listener "Symfony\Bundle\SecurityBundle\EventListener\ResponseListener::onCoreResponse". 
+[2011-06-14 22:34:19] event.DEBUG: Notified event "core.response" to listener "Sensio\Bundle\FrameworkExtraBundle\EventListener\CacheListener::onCoreResponse". 
+[2011-06-14 22:34:19] event.DEBUG: Notified event "core.exception" to listener "Symfony\Component\HttpKernel\EventListener\ExceptionListener::onCoreException". 
+[2011-06-14 22:34:19] event.DEBUG: Listener "Symfony\Component\HttpKernel\EventListener\ExceptionListener::onCoreException" stopped propagation of the event "core.exception". 
+[2011-06-14 22:34:19] event.DEBUG: Notified event "core.response" to listener "Symfony\Component\HttpKernel\EventListener\ResponseListener::onCoreResponse". 
+[2011-06-14 22:34:19] event.DEBUG: Notified event "core.response" to listener "Symfony\Bundle\SecurityBundle\EventListener\ResponseListener::onCoreResponse". 
+[2011-06-14 22:34:19] event.DEBUG: Notified event "core.response" to listener "Sensio\Bundle\FrameworkExtraBundle\EventListener\CacheListener::onCoreResponse". 
