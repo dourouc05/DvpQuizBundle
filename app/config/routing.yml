@@ -6,3 +6,6 @@ _sonata_admin:
     resource: .
     type: sonata_admin
     prefix: /admin
+    
+_main:
+    resource: '@QuizQuizBundle/Resources/config/routing.yml'
