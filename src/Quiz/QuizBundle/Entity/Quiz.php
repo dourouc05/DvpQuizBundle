@@ -262,12 +262,22 @@ class Quiz
     {
         return $this->slug;
     }
-    
+
+    /**
+     * Get created
+     *
+     * @return datetime $created
+     */
     public function getCreated()
     {
-        return $this->created; 
+        return $this->created;
     }
-    
+
+    /**
+     * Get updated
+     *
+     * @return datetime $updated
+     */
     public function getUpdated()
     {
         return $this->updated;
@@ -278,7 +288,7 @@ class Quiz
      *
      * @param datetime $created
      */
-    public function setCreated($created)
+    private function setCreated($created)
     {
         $this->created = $created;
     }
@@ -288,7 +298,7 @@ class Quiz
      *
      * @param datetime $updated
      */
-    public function setUpdated($updated)
+    private function setUpdated($updated)
     {
         $this->updated = $updated;
     }

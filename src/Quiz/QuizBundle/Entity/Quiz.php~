@@ -262,14 +262,44 @@ class Quiz
     {
         return $this->slug;
     }
-    
-    public function getCreated()
+
+    /**
+     * Set created
+     *
+     * @param datetime $created
+     */
+    private function setCreated($created)
     {
-        return $this->created; 
+        $this->created = $created;
     }
-    
-    public function getUpdated()
+
+    /**
+     * Set updated
+     *
+     * @param datetime $updated
+     */
+    private function setUpdated($updated)
     {
-        return $this->updated;
+        $this->updated = $updated;
+    }
+
+    /**
+     * Set author
+     *
+     * @param Quiz\QuizBundle\Entity\User $author
+     */
+    public function setAuthor(\Quiz\QuizBundle\Entity\User $author)
+    {
+        $this->author = $author;
+    }
+
+    /**
+     * Get author
+     *
+     * @return Quiz\QuizBundle\Entity\User $author
+     */
+    public function getAuthor()
+    {
+        return $this->author;
     }
 }
