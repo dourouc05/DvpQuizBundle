@@ -73,6 +73,18 @@ class Quiz
      */
     protected $author; 
     
+    /**
+     * @ORM\Column(type="datetime")
+     * @Gedmo\Timestampable(on="create")
+     */
+    protected $created; 
+    
+    /**
+     * @ORM\Column(type="datetime")
+     * @Gedmo\Timestampable(on="update")
+     */
+    protected $updated; 
+    
     public function delete()
     {
         $this->deleted = true;
@@ -249,5 +261,55 @@ class Quiz
     public function getSlug()
     {
         return $this->slug;
+    }
+    
+    public function getCreated()
+    {
+        return $this->created; 
+    }
+    
+    public function getUpdated()
+    {
+        return $this->updated;
+    }
+
+    /**
+     * Set created
+     *
+     * @param datetime $created
+     */
+    public function setCreated($created)
+    {
+        $this->created = $created;
+    }
+
+    /**
+     * Set updated
+     *
+     * @param datetime $updated
+     */
+    public function setUpdated($updated)
+    {
+        $this->updated = $updated;
+    }
+
+    /**
+     * Set author
+     *
+     * @param Quiz\QuizBundle\Entity\User $author
+     */
+    public function setAuthor(\Quiz\QuizBundle\Entity\User $author)
+    {
+        $this->author = $author;
+    }
+
+    /**
+     * Get author
+     *
+     * @return Quiz\QuizBundle\Entity\User $author
+     */
+    public function getAuthor()
+    {
+        return $this->author;
     }
 }

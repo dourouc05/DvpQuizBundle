@@ -6,6 +6,7 @@ use Gedmo\Mapping\Annotation as Gedmo;
 
 /** 
  * @ORM\Entity(repositoryClass="Quiz\QuizBundle\Entity\Repository\SoftDeleteRepository")
+ * @Gedmo\Loggable
  */
 class Quiz
 {
@@ -51,7 +52,7 @@ class Quiz
     protected $questionsToShow; 
     
     /**
-     * @ORM\Column(name="category_id", type="integer")
+     * @ORM\Column(type="integer")
      * @ORM\ManyToOne(targetEntity="Category")
      * 
      * Catégorie du quiz
@@ -64,6 +65,25 @@ class Quiz
      * 
      */
     protected $slug; 
+    
+    /**
+     * @ORM\ManyToOne(targetEntity="User", inversedBy="quiz")
+     * 
+     * Auteur du quiz
+     */
+    protected $author; 
+    
+    /**
+     * @ORM\Column(type="datetime")
+     * @Gedmo\Timestampable(on="create")
+     */
+    protected $created; 
+    
+    /**
+     * @ORM\Column(type="datetime")
+     * @Gedmo\Timestampable(on="update")
+     */
+    protected $updated; 
     
     public function delete()
     {
@@ -196,6 +216,11 @@ class Quiz
     public function setQuestionsToShow($questionsToShow)
     {
         $this->questionsToShow = $questionsToShow;
+        
+        if(! $this->random)
+        {
+            $this->random = true;
+        }
     }
 
     /**
@@ -236,5 +261,15 @@ class Quiz
     public function getSlug()
     {
         return $this->slug;
+    }
+    
+    public function getCreated()
+    {
+        return $this->created; 
+    }
+    
+    public function getUpdated()
+    {
+        return $this->updated;
     }
 }

@@ -17,24 +17,13 @@ class User extends BaseUser
 	protected $id;
     
     /**
-     * @ORM\Column(type="string")
+     * @ORM\OneToMany(targetEntity="Quiz", mappedBy="user")
      */
-    protected $username;
-    
-    /**
-     * @ORM\Column(type="string")
-     * @var string
-     */
-    protected $email;
-    
-    /** 
-     * @ORM\ManyToMany(targetEntity="Log")
-     */
-    protected $logs; 
+    protected $quiz; 
 
 	public function __construct()
 	{
-        $this->logs = new ArrayCollection();
+        $this->quiz = new ArrayCollection();
 		parent::__construct();
 	}
 
@@ -86,25 +75,5 @@ class User extends BaseUser
     public function getEmail()
     {
         return $this->email;
-    }
-
-    /**
-     * Add logs
-     *
-     * @param Quiz\QuizBundle\Entity\Log $logs
-     */
-    public function addLogs(\Quiz\QuizBundle\Entity\Log $logs)
-    {
-        $this->logs[] = $logs;
-    }
-
-    /**
-     * Get logs
-     *
-     * @return Doctrine\Common\Collections\Collection $logs
-     */
-    public function getLogs()
-    {
-        return $this->logs;
     }
 }
