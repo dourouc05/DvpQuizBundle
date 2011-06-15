@@ -68,6 +68,7 @@ class Quiz
     
     /**
      * @ORM\Column(type="integer")
+     * @ORM\ManyToOne(targetEntity="User")
      * 
      * Auteur du quiz
      */
