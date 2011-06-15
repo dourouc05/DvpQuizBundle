@@ -36,13 +36,13 @@ class QuizQuizExtension extends \Twig_Extension
     
     public function gabUp($id)
     {
-        // return utf8_encode(file_get_contents($_SERVER['DOCUMENT_ROOT'] . '/template/caches/tetexhtml' . $id . '.cache'));
-        return utf8_encode(file_get_contents('http://www.developpez.com/template/caches/tetexhtml' . $id . '.cache'));
+        return utf8_encode(file_get_contents($_SERVER['DOCUMENT_ROOT'] . '/template/caches/tetexhtml' . $id . '.cache'));
+        // return utf8_encode(file_get_contents('http://www.developpez.com/template/caches/tetexhtml' . $id . '.cache'));
     }
     
     public function gabDown($id)
     {
-        // return utf8_encode(file_get_contents($_SERVER['DOCUMENT_ROOT'] . '/template/caches/piedxhtml' . $id . '.cache'));
-        return utf8_encode(file_get_contents('http://www.developpez.com/template/caches/piedxhtml' . $id . '.cache'));
+        return utf8_encode(file_get_contents($_SERVER['DOCUMENT_ROOT'] . '/template/caches/piedxhtml' . $id . '.cache'));
+        // return utf8_encode(file_get_contents('http://www.developpez.com/template/caches/piedxhtml' . $id . '.cache'));
     }
 }
