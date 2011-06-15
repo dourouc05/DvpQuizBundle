@@ -9,6 +9,12 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class User extends BaseUser
 {
+	public function __construct()
+	{
+        $this->quiz = new \Doctrine\Common\Collections\ArrayCollection();
+		parent::__construct();
+	}
+    
 	/**
 	* @ORM\Id
 	* @ORM\Column(type="integer")
@@ -20,12 +26,6 @@ class User extends BaseUser
      * @ORM\OneToMany(targetEntity="Quiz", mappedBy="user")
      */
     protected $quiz; 
-
-	public function __construct()
-	{
-        $this->quiz = new ArrayCollection();
-		parent::__construct();
-	}
 
     /**
      * Get id

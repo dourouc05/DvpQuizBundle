@@ -52,8 +52,7 @@ class Quiz
     protected $questionsToShow; 
     
     /**
-     * @ORM\Column(type="integer")
-     * @ORM\ManyToOne(targetEntity="Category")
+     * @ORM\ManyToOne(targetEntity="Category", inversedBy="quiz")
      * 
      * Catégorie du quiz
      */
@@ -221,26 +220,6 @@ class Quiz
         {
             $this->random = true;
         }
-    }
-
-    /**
-     * Set category
-     *
-     * @param integer $category
-     */
-    public function setCategory($category)
-    {
-        $this->category = $category;
-    }
-
-    /**
-     * Get category
-     *
-     * @return integer $category
-     */
-    public function getCategory()
-    {
-        return $this->category;
     }
 
     /**
