@@ -67,8 +67,7 @@ class Quiz
     protected $slug; 
     
     /**
-     * @ORM\Column(type="integer")
-     * @ORM\ManyToOne(targetEntity="User")
+     * @ORM\ManyToOne(targetEntity="User", inversedBy="quiz")
      * 
      * Auteur du quiz
      */

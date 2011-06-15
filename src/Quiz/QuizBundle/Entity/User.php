@@ -15,9 +15,15 @@ class User extends BaseUser
 	* @ORM\generatedValue(strategy="AUTO")
 	*/
 	protected $id;
+    
+    /**
+     * @ORM\OneToMany(targetEntity="Quiz", mappedBy="user")
+     */
+    protected $quiz; 
 
 	public function __construct()
 	{
+        $this->quiz = new ArrayCollection();
 		parent::__construct();
 	}
 
