@@ -52,7 +52,7 @@ class Quiz
     protected $questionsToShow; 
     
     /**
-     * @ORM\Column(name="category_id", type="integer")
+     * @ORM\Column(type="integer")
      * @ORM\ManyToOne(targetEntity="Category")
      * 
      * Catégorie du quiz
@@ -65,6 +65,13 @@ class Quiz
      * 
      */
     protected $slug; 
+    
+    /**
+     * @ORM\Column(type="integer")
+     * 
+     * Auteur du quiz
+     */
+    protected $author; 
     
     public function delete()
     {
@@ -197,6 +204,11 @@ class Quiz
     public function setQuestionsToShow($questionsToShow)
     {
         $this->questionsToShow = $questionsToShow;
+        
+        if(! $this->random)
+        {
+            $this->random = true;
+        }
     }
 
     /**
