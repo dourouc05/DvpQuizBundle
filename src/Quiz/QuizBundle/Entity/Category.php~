@@ -14,6 +14,7 @@ class Category
     public function __construct()
     {
         $this->children = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->quiz = new \Doctrine\Common\Collections\ArrayCollection();
     }
     
     /**
@@ -41,6 +42,11 @@ class Category
      * @ORM\ManyToOne(targetEntity="Rubrique", inversedBy="categories")
      */
     protected $rubrique; 
+    
+    /**
+     * @ORM\OneToMany(targetEntity="Quiz", mappedBy="category")
+     */
+    protected $quiz;
     
     /** 
      * @Gedmo\TreeLeft 

@@ -301,4 +301,24 @@ class Quiz
     {
         return $this->author;
     }
+
+    /**
+     * Set category
+     *
+     * @param Quiz\QuizBundle\Entity\Category $category
+     */
+    public function setCategory(\Quiz\QuizBundle\Entity\Category $category)
+    {
+        $this->category = $category;
+    }
+
+    /**
+     * Get category
+     *
+     * @return Quiz\QuizBundle\Entity\Category $category
+     */
+    public function getCategory()
+    {
+        return $this->category;
+    }
 }

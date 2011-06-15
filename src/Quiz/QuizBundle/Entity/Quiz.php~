@@ -52,8 +52,7 @@ class Quiz
     protected $questionsToShow; 
     
     /**
-     * @ORM\Column(type="integer")
-     * @ORM\ManyToOne(targetEntity="Category")
+     * @ORM\ManyToOne(targetEntity="Category", inversedBy="quiz")
      * 
      * Catégorie du quiz
      */
@@ -224,26 +223,6 @@ class Quiz
     }
 
     /**
-     * Set category
-     *
-     * @param integer $category
-     */
-    public function setCategory($category)
-    {
-        $this->category = $category;
-    }
-
-    /**
-     * Get category
-     *
-     * @return integer $category
-     */
-    public function getCategory()
-    {
-        return $this->category;
-    }
-
-    /**
      * Set slug
      *
      * @param string $slug
@@ -261,6 +240,26 @@ class Quiz
     public function getSlug()
     {
         return $this->slug;
+    }
+
+    /**
+     * Get created
+     *
+     * @return datetime $created
+     */
+    public function getCreated()
+    {
+        return $this->created;
+    }
+
+    /**
+     * Get updated
+     *
+     * @return datetime $updated
+     */
+    public function getUpdated()
+    {
+        return $this->updated;
     }
 
     /**

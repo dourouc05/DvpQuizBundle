@@ -13,7 +13,6 @@ class Rubrique
     public function __construct()
     {
         $this->categories = new ArrayCollection();
-        parent::__construct();
     }
     
     /**
