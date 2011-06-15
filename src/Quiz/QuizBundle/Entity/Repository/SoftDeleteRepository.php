@@ -21,7 +21,7 @@ class SoftDeleteRepository extends \Doctrine\ORM\EntityRepository
 
     private function fixCriteria(array $criteria)
     {
-        // À moins que ce ne soit explicitement précisé, on ne veut pas d'enregistrement marqué comme supprimés
+        // À moins que ce ne soit explicitement précisé, on ne veut pas d'enregistrement marqués comme supprimés
         if(!in_array('deleted', $criteria))
         {
             $criteria['deleted'] = false;

@@ -10,6 +10,11 @@ use Gedmo\Mapping\Annotation as Gedmo;
  */
 class Quiz
 {
+    public function __construct()
+    {
+        $this->question = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+    
     /**
      * @ORM\Column(type="integer")
      * @ORM\Id
@@ -83,6 +88,11 @@ class Quiz
      * @Gedmo\Timestampable(on="update")
      */
     protected $updated; 
+    
+    /**
+     * @ORM\OneToMany(targetEntity="Question", mappedBy="quiz")
+     */
+    protected $question;
     
     public function delete()
     {
@@ -320,5 +330,25 @@ class Quiz
     public function getCategory()
     {
         return $this->category;
+    }
+
+    /**
+     * Add question
+     *
+     * @param Quiz\QuizBundle\Entity\Question $question
+     */
+    public function addQuestion(\Quiz\QuizBundle\Entity\Question $question)
+    {
+        $this->question[] = $question;
+    }
+
+    /**
+     * Get question
+     *
+     * @return Doctrine\Common\Collections\Collection $question
+     */
+    public function getQuestion()
+    {
+        return $this->question;
     }
 }

@@ -12,7 +12,7 @@ class Rubrique
 {
     public function __construct()
     {
-        $this->categories = new ArrayCollection();
+        $this->categories = new \Doctrine\Common\Collections\ArrayCollection();
     }
     
     /**

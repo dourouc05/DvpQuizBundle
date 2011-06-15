@@ -1,0 +1,49 @@
+<?php
+
+namespace Quiz\QuizBundle\Entity;
+use Doctrine\ORM\Mapping as ORM;
+use Gedmo\Mapping\Annotation as Gedmo;
+
+/** 
+ * @ORM\Entity(repositoryClass="Quiz\QuizBundle\Entity\Repository\SoftDeleteRepository")
+ * @Gedmo\Loggable
+ */
+class Question
+{
+    public function __construct()
+    {
+        $this->answer = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+    
+    /**
+     * @ORM\Column(type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue
+     */
+    protected $id;
+    
+    /**
+     * @ORM\ManyToOne(targetEntity="Quiz", inversedBy="question")
+     */
+    protected $quiz;
+    
+    /**
+     * @ORM\OneToMany(targetEntity="Answer", mappedBy="question")
+     */
+    protected $answer; 
+    
+    /**
+     * @ORM\Column(type="string")
+     */
+    protected $question; 
+    
+    /**
+     * @ORM\Column(type="boolean")
+     */
+    protected $multipleAnswers; 
+    
+    /**
+     * @ORM\Column(type="text")
+     */
+    protected $explanation; 
+}

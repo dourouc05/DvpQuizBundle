@@ -276,4 +276,24 @@ class Category
     {
         return $this->children;
     }
+
+    /**
+     * Add quiz
+     *
+     * @param Quiz\QuizBundle\Entity\Quiz $quiz
+     */
+    public function addQuiz(\Quiz\QuizBundle\Entity\Quiz $quiz)
+    {
+        $this->quiz[] = $quiz;
+    }
+
+    /**
+     * Get quiz
+     *
+     * @return Doctrine\Common\Collections\Collection $quiz
+     */
+    public function getQuiz()
+    {
+        return $this->quiz;
+    }
 }
