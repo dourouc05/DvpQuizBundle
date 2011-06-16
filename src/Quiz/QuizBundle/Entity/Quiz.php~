@@ -331,4 +331,24 @@ class Quiz
     {
         return $this->category;
     }
+
+    /**
+     * Add question
+     *
+     * @param Quiz\QuizBundle\Entity\Question $question
+     */
+    public function addQuestion(\Quiz\QuizBundle\Entity\Question $question)
+    {
+        $this->question[] = $question;
+    }
+
+    /**
+     * Get question
+     *
+     * @return Doctrine\Common\Collections\Collection $question
+     */
+    public function getQuestion()
+    {
+        return $this->question;
+    }
 }
