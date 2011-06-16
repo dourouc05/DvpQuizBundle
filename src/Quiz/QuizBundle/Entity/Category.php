@@ -15,6 +15,7 @@ class Category
     {
         $this->children = new \Doctrine\Common\Collections\ArrayCollection();
         $this->quiz = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->deleted = false; 
     }
     
     /**

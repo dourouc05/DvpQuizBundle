@@ -13,6 +13,7 @@ class Question
     public function __construct()
     {
         $this->answer = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->deleted = false; 
     }
     
     /**
@@ -21,6 +22,11 @@ class Question
      * @ORM\GeneratedValue
      */
     protected $id;
+    
+    /**
+     * @ORM\Column(type="boolean")
+     */
+    protected $deleted;
     
     /**
      * @ORM\ManyToOne(targetEntity="Quiz", inversedBy="question")
@@ -55,6 +61,31 @@ class Question
     public function getId()
     {
         return $this->id;
+    }
+    
+    public function delete()
+    {
+        $this->deleted = true;
+    }
+    
+    public function undelete()
+    {
+        $this->deleted = false; 
+    }
+    
+    public function isDeleted()
+    {
+        return $this->deleted; 
+    }
+    
+    private function setDeleted($deleted)
+    {
+        $this->deleted = $deleted; 
+    }
+    
+    private function getDeleted()
+    {
+        return $this->deleted;
     }
 
     /**

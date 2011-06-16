@@ -10,12 +10,22 @@ use Gedmo\Mapping\Annotation as Gedmo;
  */
 class Answer
 {
+    public function __construct()
+    {
+        $this->deleted = false; 
+    }
+    
     /**
      * @ORM\Column(type="integer")
      * @ORM\Id
      * @ORM\GeneratedValue
      */
     protected $id;
+    
+    /**
+     * @ORM\Column(type="boolean")
+     */
+    protected $deleted;
     
     /** 
      * @ORM\ManyToOne(targetEntity="Question", inversedBy="answer")
@@ -36,7 +46,32 @@ class Answer
      * @ORM\Column(type="text")
      */
     protected $explanation; 
-
+    
+    public function delete()
+    {
+        $this->deleted = true;
+    }
+    
+    public function undelete()
+    {
+        $this->deleted = false; 
+    }
+    
+    public function isDeleted()
+    {
+        return $this->deleted; 
+    }
+    
+    private function setDeleted($deleted)
+    {
+        $this->deleted = $deleted; 
+    }
+    
+    private function getDeleted()
+    {
+        return $this->deleted;
+    }
+        
     /**
      * Get id
      *

@@ -29,34 +29,17 @@ class LoadRubriqueData implements FixtureInterface
         
         foreach($xml->rubriques->rubrique as $row)
         {
-            $this->newRubrique($row);exit;
+            $this->newRubrique($row);
         }
     }
     
     private function newRubrique($row)
     {
-        if(! $this->check404('http://' . $row['url'] . '/index/rightColumn'))
-                // Si pas de portail, on ne peut pas afficher correctement le 
-                // template, donc on zappe. 
-        {
-            return; 
-        }
-        
         $rb = new Rubrique();
         $rb->setXiti($row['xiti']); 
-        $rb->setName((string) $row); 
+        $rb->setName(utf8_decode((string) $row)); 
         $rb->setColonneDroite('http://' . $row['url'] . '/index/rightColumn'); 
         $this->manager->persist($rb);
-    }
-    
-    /**
-     *
-     * @param URL $url
-     * @return boolean true if not 404, false if 404
-     */
-    private function check404($url)
-    {
-        return truz; 
     }
  
     public function getOrder()
