@@ -13,7 +13,7 @@ class LoadAnswerData implements FixtureInterface
     private $manager; 
     
     public function load($manager)
-    {
+    {return; 
         $this->manager = $manager; 
         
         $this->newCategory();
@@ -54,6 +54,6 @@ class LoadAnswerData implements FixtureInterface
  
     public function getOrder()
     {
-        return 2; 
+        return 1; 
     }
 }
