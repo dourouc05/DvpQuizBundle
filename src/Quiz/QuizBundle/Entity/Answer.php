@@ -18,9 +18,9 @@ class Answer
     protected $id;
     
     /** 
-     * @ORM\ManyToOne(targetEntity="Question", inversedBy="question")
+     * @ORM\ManyToOne(targetEntity="Question", inversedBy="answer")
      */
-    protected $quiz; 
+    protected $question; 
     
     /**
      * @ORM\Column(type="string")
@@ -112,9 +112,9 @@ class Answer
      *
      * @param Quiz\QuizBundle\Entity\Question $quiz
      */
-    public function setQuiz(\Quiz\QuizBundle\Entity\Question $quiz)
+    public function setQuestion(\Quiz\QuizBundle\Entity\Question $question)
     {
-        $this->quiz = $quiz;
+        $this->question = $question;
     }
 
     /**
@@ -122,8 +122,8 @@ class Answer
      *
      * @return Quiz\QuizBundle\Entity\Question $quiz
      */
-    public function getQuiz()
+    public function getQuestion()
     {
-        return $this->quiz;
+        return $this->question;
     }
 }
