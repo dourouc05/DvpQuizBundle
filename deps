@@ -50,39 +50,39 @@
     target=/bundles/Symfony/Bundle/AsseticBundle
 
 [doctrine-fixtures]
-	git=http://github.com/doctrine/data-fixtures.git
+    git=http://github.com/doctrine/data-fixtures.git
 
 [gedmo-doctrine-extensions]
 	git=http://github.com/l3pp4rd/DoctrineExtensions.git
 
 [DoctrineFixturesBundle]
-	git=http://github.com/symfony/DoctrineFixturesBundle.git
-	target=/bundles/Symfony/Bundle
+    git=http://github.com/symfony/DoctrineFixturesBundle.git
+    target=/bundles/Symfony/Bundle/DoctrineFixturesBundle
 
 [DoctrineExtensionsBundle]
 	git=http://github.com/stof/DoctrineExtensionsBundle.git
-	target=/bundles/Stof
+	target=/bundles/Stof/DoctrineExtensionsBundle
 
 [jQueryBundle]
 	git=http://github.com/sonata-project/jQueryBundle.git
-	target=/bundles/Sonata
+	target=/bundles/Sonata/jQueryBundle
 
 [BluePrintBundle]
 	git=http://github.com/sonata-project/BluePrintBundle.git
-	target=/bundles/Sonata
+	target=/bundles/Sonata/BluePrintBundle
 
 [AdminBundle]
-	git=http://github.com/sonata-project/AdminBundle.git 
-	target=/bundles/Sonata
+	git=https://github.com/sonata-project/AdminBundle.git
+	target=/bundles/Sonata/AdminBundle
 
 [ConsoleBundle]
 	git=http://github.com/RapotOR/ConsoleBundle.git
-	target=/bundles/Sf2gen/Bundle
+	target=/bundles/Sf2gen/Bundle/ConsoleBundle
 
 [MenuBundle]
 	git=http://github.com/knplabs/MenuBundle.git
-	target=/bundles/Knplabs/Bundle
+	target=/bundles/Knplabs/Bundle/MenuBundle
 
 [UserBundle]
 	git=http://github.com/FriendsOfSymfony/UserBundle.git
-	target=/bundles/FOS
+	target=/bundles/FOS/UserBundle
