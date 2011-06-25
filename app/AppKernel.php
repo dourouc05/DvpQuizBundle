@@ -42,7 +42,7 @@ class AppKernel extends Kernel
 
         return $bundles;
     }
-
+/*
     public function init()
     {
         if ($this->debug)
@@ -60,7 +60,7 @@ class AppKernel extends Kernel
         {
             ini_set('display_errors', 0);
         }
-    }
+    }*/
 
     public function registerContainerConfiguration(LoaderInterface $loader)
     {
