@@ -25,9 +25,9 @@ class InitController extends Controller
         $this->catrep = $this->getDoctrine()->getRepository('QuizQuizBundle:Category');
         
         $this->importRubriques();
-        $this->importRubriques();
-        $this->importCategories();
+        $this->em->flush();
         
+        $this->importCategories();
         $this->em->flush();
         
         return $this->render('QuizQuizBundle:Init:index.html.twig');
@@ -148,7 +148,6 @@ class InitController extends Controller
                     }
                     
                     $this->em->persist($cat); 
-                    $this->em->flush();
                 }
                 catch(ErrorException $e)
                 {}
