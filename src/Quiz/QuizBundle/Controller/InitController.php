@@ -44,21 +44,33 @@ class InitController extends Controller
         // base, puis seulement on l'ajoute. 
         while($r = mysql_fetch_assoc($result))
         {
-            if($r['PORTAIL'] && $r['XITISITE'] && $r['LIB'] && $r['URL'] && $r['ID_RUBRIQUE'])
+            $rb = $this->getDoctrine()->getRepository('QuizQuizBundle:Rubrique')->find($r['ID_RUBRIQUE']);
+
+            if(! (bool) $rb)
             {
-                $rb = $this->getDoctrine()->getRepository('QuizQuizBundle:Rubrique')->find($r['ID_RUBRIQUE']);
-                
-                if(! (bool) $rb)
-                {
-                    $this->doRubrique($r);
-                }
+                $en = new Rubrique();
+                $en->setId($r['ID_RUBRIQUE']);
+                $en->setName($r['LIB']);
+                $en->setParent($r['ID_PARENT']);
+
+                if($r['PORTAIL'])
+                    $en->setColonneDroite('http://' . $r['URL'] . '/index/rightColumn');
+                else
+                    $en->setColonneDroite('http://www.developpez.com/index/rightColumn');
+
+                if(! $r['XITISITE'])
+                    $en->setXiti(1);
+                else
+                    $en->setXiti($r['XITISITE']);
+
+                $this->em->persist($en);
             }
         }
     }
     
     private function importCategories()
     {
-        $rbs = $this->getDoctrine()->getRepository('QuizQuizBundle:Category')->findAll(); 
+        $rbs = $this->rubrep->findAll(); 
         
         foreach($rbs as $r)
         {
@@ -69,6 +81,7 @@ class InitController extends Controller
                 $this->root->setRubrique($r); 
                 $this->root->setTitle($r->getName());
                 $this->em->persist($this->root); 
+                
             }
             // On est forcément dans une autre rubrique que l'accueil, traitement 
             // plus normal ; on évacue l'exception si rencontrée, car on lance ce
@@ -110,34 +123,17 @@ class InitController extends Controller
                     }
                     else
                     {
-                        $rp = $this->rubrep->find($r->getParent());
-                        $cp = $this->catrep->findOneByRubrique($rp); 
-                        $cat->setParent($cp); 
+//                        $rp = $this->rubrep->find($r->getParent());
+//                        $cp = $this->catrep->findOneByRubrique($rp); 
+//                        $cat->setParent($cp); 
                     }
                     
-                    $this->em->persist($em); 
+                    $this->em->persist($cat); 
                     $this->em->flush();
                 }
                 catch(ErrorException $e)
                 {}
             }
         }
-    }
-    
-    /**
-     * Génère toutes les entités pour une rubrique : la rubrique elle-même et 
-     * la catégorie associée (racine au besoin). 
-     * 
-     * @param array $r Une ligne de la table du gabarit
-     */
-    private function doRubrique($r)
-    {
-        $en = new Rubrique();
-        $en->setId($r['ID_RUBRIQUE']);
-        $en->setXiti($r['XITISITE']);
-        $en->setName($r['LIB']);
-        $en->setColonneDroite('http://' . $r['URL'] . '/index/rightColumn');
-        $en->setParent($r['ID_PARENT']);
-        $this->em->persist($en);
     }
 }
