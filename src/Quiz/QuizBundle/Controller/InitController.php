@@ -21,17 +21,13 @@ class InitController extends Controller
     public function importRubriquesAction()
     {
         $this->em = $this->getDoctrine()->getEntityManager();
-        $this->rubrep = $this->getDoctrine()->getRepository('QuizQuizBundle:Rubrique');
-        $this->catrep = $this->getDoctrine()->getRepository('QuizQuizBundle:Category');
+        $this->rubrep = $this->getDoctrine()->getRepository('\Quiz\QuizBundle\Entity\Rubrique');
+        $this->catrep = $this->getDoctrine()->getRepository('\Quiz\QuizBundle\Entity\Category');
         
         $this->importRubriques();
         $this->em->flush();
         
         $this->importCategories();
-        $this->em->flush();
-        $this->em->flush();
-        
-        $this->importCategories(true);
         $this->em->flush();
         
         return $this->render('QuizQuizBundle:Init:index.html.twig');
@@ -80,9 +76,16 @@ class InitController extends Controller
                 else
                     $en->setXiti($r['XITISITE']);
 
-                if($r['ID_PARENT'] == 0 && $r['ID_RUBRIQUE'] != 1)
-                    // Seul l'accueil a le droit de ne pas avoir de parent. 
-                    $en->setParent(1);
+                // Quand le gabarit n'a pas de rubrique parente, deux cas sont 
+                // possibles : 
+                // - soit c'est une vraie rubrique de premier niveau (d'où le 
+                //   tableau harcodé) ; 
+                // - soit c'est une erreur et on se met sous Autres (21). 
+                if($r['ID_PARENT'] == 0)
+                    if(in_array($r['ID_RUBRIQUE'], array(1, 4, 8, 13, 20, 30, 42, 54, 86, 88, 89, 90)))
+                        $en->setParent(0);
+                    else
+                        $en->setParent(21);
                 else
                     $en->setParent($r['ID_PARENT']);
                 
@@ -91,6 +94,29 @@ class InitController extends Controller
         }
     }
     
+    private function importCategories()
+    {
+        try
+        {
+            $this->root = $this->catrep->getRootNodesQuery()->setMaxResults(1)->getSingleResult();
+        }
+        catch(\Doctrine\ORM\NoResultException $e)
+        {
+            $rub = $this->rubrep->findOneById(1);
+            $this->root = new Category();
+            $this->root->setRubrique($rub);
+            $this->root->setTitle($rub->getName());
+            $this->em->persist($rub);
+        }
+        
+        $rubs = $this->rubrep->findAll();
+        
+        foreach($rubs as $r)
+        {
+            
+        }
+    }
+    /*
     private function importCategories($bis = false)
     {
         $rbs = $this->rubrep->findAll(); 
@@ -170,5 +196,5 @@ class InitController extends Controller
                 $this->em->persist($cat); 
             }
         }
-    }
+    }*/
 }
