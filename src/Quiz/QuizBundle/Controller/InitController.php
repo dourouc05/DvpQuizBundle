@@ -29,6 +29,10 @@ class InitController extends Controller
         
         $this->importCategories();
         $this->em->flush();
+        $this->em->flush();
+        
+        $this->importCategories(true);
+        $this->em->flush();
         
         return $this->render('QuizQuizBundle:Init:index.html.twig');
     }
@@ -87,14 +91,20 @@ class InitController extends Controller
         }
     }
     
-    private function importCategories()
+    private function importCategories($bis = false)
     {
         $rbs = $this->rubrep->findAll(); 
+        
+        $find = $this->catrep->find(1); 
+        if((bool) $find)
+        {
+            $this->root = $find; 
+        }
         
         foreach($rbs as $r)
         {
             // S'il n'y a pas de rubrique racine Accueil, on la crée
-            if($r->getId() == 1 && ! $this->root && ! (bool) $this->catrep->find(1))
+            if($r->getId() == 1 && ! $this->root)
             {
                 $this->root = new Category();
                 $this->root->setRubrique($r); 
@@ -108,7 +118,7 @@ class InitController extends Controller
             else
             {
                 $dep = $r->getCategories(); 
-                if((bool) $dep)
+                if(count($dep) > 0)
                 {
                     $cat = $dep[0]; 
                 }
@@ -149,9 +159,12 @@ class InitController extends Controller
                 }
                 else
                 {
-                      $rp = $this->rubrep->find($r->getParent());
-                      $cp = $rp->getCategories();
-                      $cat->setParent($cp[0]); 
+                    if($bis)
+                    {
+                        $rp = $this->rubrep->find($r->getParent());
+                        $cp = $rp->getCategories();
+                        $cat->setParent($cp[0]); 
+                    }
                 }
 
                 $this->em->persist($cat); 
