@@ -31,6 +31,8 @@ class InitController extends Controller
         
         $this->em->flush();
         
+        // Ensuite, on nettoie... 
+        
         return $this->render('QuizQuizBundle:Init:index.html.twig');
     }
     
@@ -94,6 +96,12 @@ class InitController extends Controller
         
         foreach($rbs as $r)
         {
+            // On commence par vérifier qu'il n'y a pas déjà de catégorie associée
+            // à la rubrique (à ce stade, il est impossible qu'il en soit autrement)
+            $cs = $this->catrep->findOneByRubrique($r);
+            if((bool) $cs)
+                continue; 
+            
             // S'il n'y a pas de rubrique racine Accueil, on la crée
             if($r->getId() == 1 && ! $this->root)
             {
