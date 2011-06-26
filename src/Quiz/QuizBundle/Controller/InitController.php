@@ -14,17 +14,21 @@ use Quiz\QuizBundle\Entity\Category;
 class InitController extends Controller
 {
     private $root;
+    private $catrep;
+    private $cats = array();
     
     public function importRubriquesAction()
     {
         $this->em = $this->getDoctrine()->getEntityManager();
+        $this->catrep = $this->getDoctrine()->getRepository('QuizQuizBundle:Category');
         
-        $this->importRubriquesAndCategories();
+        $this->importRubriques();
+        $this->importCategories();
         
         return $this->render('QuizQuizBundle:Init:index.html.twig');
     }
     
-    private function importRubriquesAndCategories()
+    private function importRubriques()
     {
         // Du gabarit, crée une connexion MySQL qu'on utilise
         require_once($_SERVER['DOCUMENT_ROOT'] . '/template/connexion.php');
@@ -49,6 +53,26 @@ class InitController extends Controller
         $this->em->flush();
     }
     
+    private function importCategories()
+    {
+        foreach($this->cats as $c)
+        {
+            $cat = new Category();
+            $cat->setRubrique($c['rb']);
+            $cat->setTitle($c['title']);
+            $cat->setParent($this->catrep->find($c['parent']));
+            $this->em->persist($cat);
+        }
+        
+        $this->em->flush();
+    }
+    
+    /**
+     * Génère toutes les entités pour une rubrique : la rubrique elle-même et 
+     * la catégorie associée (racine au besoin). 
+     * 
+     * @param array $r Une ligne de la table du gabarit
+     */
     private function doRubrique($r)
     {
         $en = new Rubrique();
@@ -64,6 +88,34 @@ class InitController extends Controller
             $this->root->setRubrique($en);
             $this->root->setTitle($r['LIB']);
             $this->em->persist($this->root);
+        }
+        else
+        {
+            $cat = new Category();
+            $cat->setRubrique($en);
+            $cat->setTitle($r['LIB']);
+            
+            if($r['ID_PARENT'] == 0)
+            {
+                $cat->setParent($this->root);
+            }
+            else
+            {
+                $parent = $this->catrep->find($r['ID_PARENT']);
+                if($parent)
+                {
+                    $cat->setParent($parent);
+                }
+                else
+                {
+                    $this->cats[] = array('rb' => &$en, 
+                                          'title' => $r['LIB'], 
+                                          'parent' => $r['ID_PARENT']);
+                    return;
+                }
+            }
+            
+            $this->em->persist($cat);
         }
     }
 }
