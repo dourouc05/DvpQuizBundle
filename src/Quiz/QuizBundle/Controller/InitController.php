@@ -13,8 +13,6 @@ use Quiz\QuizBundle\Entity\Category;
  */
 class InitController extends Controller
 {
-    private $root;
-    private $autres;
     private $rubrep;
     private $catrep;
     
@@ -109,13 +107,12 @@ class InitController extends Controller
                           ->createQueryBuilder('c')
                           ->where('c.id = :id')
                           ->setParameter('id', $r->getId())
+                                  
                           ->getQuery()
                           ->getResult();
             }
             catch(\Doctrine\Orm\NoResultException $e)
             {
-                $p = $r->getParent();
-
                 $cat = new Category();
                 $cat->setTitle($r->getName());
                 $cat->setRubrique($r);
@@ -130,6 +127,10 @@ class InitController extends Controller
         
         // On doit maintenant mettre les bonnes filiations ; on commence par ne 
         // charger que les rubriques devant avoir une catégorie en filiation. 
+        
+        // C'est ici que les romains s'empoignirent, car on a trop de rubriques
+        // avec des parents bizarres (notamment celles qui devraient être 
+        // racines et les enfants de Autres). 
         
         $rubs = $this->rubrep
                       ->createQueryBuilder('r')
