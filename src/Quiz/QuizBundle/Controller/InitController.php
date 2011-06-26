@@ -94,13 +94,12 @@ class InitController extends Controller
         foreach($rbs as $r)
         {
             // S'il n'y a pas de rubrique racine Accueil, on la crée
-            if($r->getId() == 1 && ! $this->root)
+            if($r->getId() == 1 && ! $this->root && ! (bool) $this->catrep->find(1))
             {
                 $this->root = new Category();
                 $this->root->setRubrique($r); 
                 $this->root->setTitle($r->getName());
                 $this->em->persist($this->root); 
-                
             }
             // On est forcément dans une autre rubrique que l'accueil, traitement 
             // plus normal ; on évacue l'exception si rencontrée, car on lance ce
@@ -108,49 +107,54 @@ class InitController extends Controller
             // ont un ID supérieur. 
             else
             {
-                try
+                $dep = $r->getCategories(); 
+                if((bool) $dep)
+                {
+                    $cat = $dep[0]; 
+                }
+                else
                 {
                     $cat = new Category();
-                    $cat->setRubrique($r); 
-                    $cat->setTitle($r->getName());
-                    
-                    if($r->getParent() == 0)
+                }
+                
+                $cat->setRubrique($r); 
+                $cat->setTitle($r->getName());
+
+                // Le cas de la rubrique bordel Autres. 
+                if($r->getId() == 21)
+                {
+                    $this->autres = &$cat; 
+                }
+
+                if($r->getParent() == 0)
+                {
+                    // Pour toutes les rubriques de premier niveau, le parent
+                    // est l'accueil. 
+                    if(in_array($r->getId(), array(4, 8, 13, 20, 30, 42, 54, 86, 88, 89, 90)))
                     {
-                        // Pour toutes les rubriques de premier niveau, le parent
-                        // est l'accueil. 
-                        if(in_array($r->getId(), array(4, 8, 13, 20, 30, 42, 54, 86, 88, 89, 90)))
-                        {
-                            $cat->setParent($this->root); 
-                        }
-                        // Les autres sont des erreurs du gabarit, donc dans autres, 
-                        // si la catégorie a déjà été créée. 
-                        elseif($this->autres)
-                        {
-                            $cat->setParent($this->autres); 
-                        }
-                        // Sinon, inutile de terminer cet élément, on passe à la 
-                        // rubrique suivante. 
-                        else
-                        {
-                            continue; 
-                        }
+                        $cat->setParent($this->root); 
                     }
-                    // Le cas de la rubrique bordel Autres. 
-                    elseif($r->getId() == 21)
+                    // Les autres sont des erreurs du gabarit, donc dans autres, 
+                    // si la catégorie a déjà été créée. 
+                    elseif($this->autres)
                     {
-                        $this->autres = &$cat; 
+                        $cat->setParent($this->autres); 
                     }
+                    // Sinon, inutile de terminer cet élément, on passe à la 
+                    // rubrique suivante. 
                     else
                     {
-//                        $rp = $this->rubrep->find($r->getParent());
-//                        $cp = $this->catrep->findOneByRubrique($rp); 
-//                        $cat->setParent($cp); 
+                        continue; 
                     }
-                    
-                    $this->em->persist($cat); 
                 }
-                catch(ErrorException $e)
-                {}
+                else
+                {
+                      $rp = $this->rubrep->find($r->getParent());
+                      $cp = $rp->getCategories();
+                      $cat->setParent($cp[0]); 
+                }
+
+                $this->em->persist($cat); 
             }
         }
     }
