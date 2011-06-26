@@ -18,7 +18,6 @@ class Rubrique
     /**
      * @ORM\Column(name="id", type="integer")
      * @ORM\Id
-     * @ORM\GeneratedValue
      */
     protected $id;
     
@@ -47,6 +46,16 @@ class Rubrique
      * @ORM\OneToMany(targetEntity="Category", mappedBy="rubrique")
      */
     protected $categories;
+
+    /**
+     * Set id
+     *
+     * @param integer $id
+     */
+    public function setId($id)
+    {
+        $this->id = $id;
+    }
 
     /**
      * Get id

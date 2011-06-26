@@ -1,3 +1,7 @@
 homepage:
-   pattern:  /
-   defaults: { _controller: QuizQuizBundle:Default:index }
+  pattern:  /
+  defaults: { _controller: QuizQuizBundle:Default:index }
+
+init:
+  pattern: /init
+  defaults: { _controller: QuizQuizBundle:Init:importRubriques }

@@ -4,9 +4,9 @@ namespace Quiz\QuizBundle\Entity\Repository;
 
 class SoftDeleteRepository extends \Doctrine\ORM\EntityRepository
 {
-    public function findBy(array $criteria)
+    public function findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
     {
-        return parent::findBy($this->fixCriteria($criteria));
+        return parent::findBy($this->fixCriteria($criteria), $orderBy, $limit, $offset);
     }
 
     public function findOneBy(array $criteria)
