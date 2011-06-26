@@ -96,10 +96,10 @@ class InitController extends Controller
     
     private function importCategories()
     {
-        $rubs = $this->rubrep->findAll();
-        
         // On insère toutes les catégories pour qu'on puisse mettre les filiations
         // correctes juste après. 
+        
+        $rubs = $this->rubrep->findAll();
         
         foreach($rubs as $r)
         {
@@ -114,92 +114,27 @@ class InitController extends Controller
         
         $this->flush();
         
+        // On doit maintenant mettre les bonnes filiations ; on commence par ne 
+        // charger que les rubriques devant avoir une catégorie en filiation. 
         
+        $rubs = $this->rubrep
+                      ->createQueryBuilder('r')
+                      ->where('r.parent != 0')
+                      ->getQuery()
+                      ->getResult();
+        
+        foreach($rubs as $r)
+        {
+            $catpar = $this->catrep
+                           ->createQueryBuilder('c')
+                           ->where('c.rubrique = :rub')
+                           ->setParameter('rub', $r->getParent())
+                           ->getQuery()
+                           ->getSingleResult();
             
-            if($p != 0)
-            {
-                $cat->setRoot(); 
-            }
+            $r->setRoot($catpar);
+            
+            $this->em->persist($r);
+        }
     }
-    /*
-    private function importCategories($bis = false)
-    {
-        $rbs = $this->rubrep->findAll(); 
-        
-        $find = $this->catrep->find(1); 
-        if((bool) $find)
-        {
-            $this->root = $find; 
-        }
-        
-        foreach($rbs as $r)
-        {
-            // S'il n'y a pas de rubrique racine Accueil, on la crée
-            if($r->getId() == 1 && ! $this->root)
-            {
-                $this->root = new Category();
-                $this->root->setRubrique($r); 
-                $this->root->setTitle($r->getName());
-                $this->em->persist($this->root); 
-            }
-            // On est forcément dans une autre rubrique que l'accueil, traitement 
-            // plus normal ; on évacue l'exception si rencontrée, car on lance ce
-            // traitement deux fois, pour créer les catégories dont les parents
-            // ont un ID supérieur. 
-            else
-            {
-                $dep = $r->getCategories(); 
-                if(count($dep) > 0)
-                {
-                    $cat = $dep[0]; 
-                }
-                else
-                {
-                    $cat = new Category();
-                }
-                
-                $cat->setRubrique($r); 
-                $cat->setTitle($r->getName());
-
-                // Le cas de la rubrique bordel Autres. 
-                if($r->getId() == 21)
-                {
-                    $this->autres = &$cat; 
-                }
-
-                if($r->getParent() == 0)
-                {
-                    // Pour toutes les rubriques de premier niveau, le parent
-                    // est l'accueil. 
-                    if(in_array($r->getId(), array(4, 8, 13, 20, 30, 42, 54, 86, 88, 89, 90)))
-                    {
-                        $cat->setParent($this->root); 
-                    }
-                    // Les autres sont des erreurs du gabarit, donc dans autres, 
-                    // si la catégorie a déjà été créée. 
-                    elseif($this->autres)
-                    {
-                        $cat->setParent($this->autres); 
-                    }
-                    // Sinon, inutile de terminer cet élément, on passe à la 
-                    // rubrique suivante. 
-                    else
-                    {
-                        continue; 
-                    }
-                }
-                else
-                {
-                    if($bis)
-                    {
-                        $rp = $this->rubrep->find($r->getParent());
-                        $cp = $rp->getCategories();
-                        $cat->setParent($cp[0]); 
-                    }
-                }
-
-                $this->em->persist($cat); 
-            }
-        }
-    }*/
 }
