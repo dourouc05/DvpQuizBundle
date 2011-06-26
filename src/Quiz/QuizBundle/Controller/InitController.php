@@ -15,7 +15,6 @@ class InitController extends Controller
 {
     private $root;
     private $catrep;
-    private $cats = array();
     
     public function importRubriquesAction()
     {
@@ -24,6 +23,8 @@ class InitController extends Controller
         
         $this->importRubriques();
         $this->importCategories();
+        
+        $this->em->flush();
         
         return $this->render('QuizQuizBundle:Init:index.html.twig');
     }
@@ -49,29 +50,23 @@ class InitController extends Controller
                 }
             }
         }
-        
-        $this->em->flush();
     }
     
     private function importCategories()
     {
-        foreach($this->cats as $c)
-        {
-            $cat = new Category();
-            $cat->setRubrique($c['rb']);
-            $cat->setTitle($c['title']);
-            try
-            {
-                $cat->setParent($this->catrep->find($c['parent']));
-            }
-            catch(ErrorException $e)
-            {
-                $cat->setParent($this->autres);
-            }
-            $this->em->persist($cat);
-        }
+        $rbs = $this->getDoctrine()->getRepository('QuizQuizBundle:Category')->findAll(); 
         
-        $this->em->flush();
+        foreach($rbs as $r)
+        {
+            // S'il n'y a pas de rubrique racine Accueil, on la crée
+            if($r->getId() == 1 && ! $this->root)
+            {
+                $this->root = new Category();
+                $this->root->setRubrique($r); 
+                $this->root->setTitle($r->getName());
+                $this->em->persist($this->root); 
+            }
+        }
     }
     
     /**
@@ -87,6 +82,7 @@ class InitController extends Controller
         $en->setXiti($r['XITISITE']);
         $en->setName($r['LIB']);
         $en->setColonneDroite('http://' . $r['URL'] . '/index/rightColumn');
+        $en->setParent($r['ID_PARENT']);
         $this->em->persist($en);
         
         if(! $this->root && (int) $r['ID_RUBRIQUE'] == 1)

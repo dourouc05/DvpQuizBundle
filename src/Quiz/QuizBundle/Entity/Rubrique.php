@@ -16,27 +16,27 @@ class Rubrique
     }
     
     /**
-     * @ORM\Column(name="id", type="integer")
+     * @ORM\Column(type="integer")
      * @ORM\Id
      */
     protected $id;
     
     /** 
-     * @ORM\Column(name="name", type="string")
+     * @ORM\Column(type="string")
      * 
      * Nom de la rubrique
      */
     protected $name; 
     
     /**
-     * @ORM\Column(name="coldr", type="string")
+     * @ORM\Column(type="string")
      * 
      * URL de la colonne de droite à inclure
      */
     protected $colonneDroite; 
     
     /** 
-     * @ORM\Column(name="xiti", type="integer")
+     * @ORM\Column(type="integer")
      * 
      * Numéro XiTi de la rubrique
      */
@@ -46,6 +46,14 @@ class Rubrique
      * @ORM\OneToMany(targetEntity="Category", mappedBy="rubrique")
      */
     protected $categories;
+    
+    /**
+     * @ORM\Column(type="integer")
+     * 
+     * Rubrique parente dans le gabarit (utilisé exclusivement pour la création
+     * des catégories ; après, on l'espère inutile...).
+     */
+    protected $parent; 
 
     /**
      * Set id
@@ -145,5 +153,25 @@ class Rubrique
     public function getCategories()
     {
         return $this->categories;
+    }
+    
+    /**
+     * Set parent
+     *
+     * @param integer $parent
+     */
+    public function setParent($parent)
+    {
+        $this->parent = $parent;
+    }
+
+    /**
+     * Get parent
+     *
+     * @return integer $parent
+     */
+    public function getParent()
+    {
+        return $this->parent;
     }
 }
