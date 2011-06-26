@@ -96,25 +96,30 @@ class InitController extends Controller
     
     private function importCategories()
     {
-        try
-        {
-            $this->root = $this->catrep->getRootNodesQuery()->setMaxResults(1)->getSingleResult();
-        }
-        catch(\Doctrine\ORM\NoResultException $e)
-        {
-            $rub = $this->rubrep->findOneById(1);
-            $this->root = new Category();
-            $this->root->setRubrique($rub);
-            $this->root->setTitle($rub->getName());
-            $this->em->persist($rub);
-        }
-        
         $rubs = $this->rubrep->findAll();
+        
+        // On insère toutes les catégories pour qu'on puisse mettre les filiations
+        // correctes juste après. 
         
         foreach($rubs as $r)
         {
+            $p = $r->getParent();
             
+            $cat = new Category();
+            $cat->setTitle($r->getName());
+            $cat->setRubrique($r);
+            
+            $this->em->persist($cat);
         }
+        
+        $this->flush();
+        
+        
+            
+            if($p != 0)
+            {
+                $cat->setRoot(); 
+            }
     }
     /*
     private function importCategories($bis = false)
