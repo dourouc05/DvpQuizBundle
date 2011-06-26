@@ -14,15 +14,19 @@ use Quiz\QuizBundle\Entity\Category;
 class InitController extends Controller
 {
     private $root;
+    private $rubrep;
     private $catrep;
     
     public function importRubriquesAction()
     {
         $this->em = $this->getDoctrine()->getEntityManager();
+        $this->rubrep = $this->getDoctrine()->getRepository('QuizQuizBundle:Rubrique');
         $this->catrep = $this->getDoctrine()->getRepository('QuizQuizBundle:Category');
         
         $this->importRubriques();
         $this->importCategories();
+        $this->importCategories(); // à faire deux fois, car des catégories peuvent
+        // avoir un parent qui les suit dans l'ordre des ID
         
         $this->em->flush();
         
@@ -66,6 +70,57 @@ class InitController extends Controller
                 $this->root->setTitle($r->getName());
                 $this->em->persist($this->root); 
             }
+            // On est forcément dans une autre rubrique que l'accueil, traitement 
+            // plus normal ; on évacue l'exception si rencontrée, car on lance ce
+            // traitement deux fois, pour créer les catégories dont les parents
+            // ont un ID supérieur. 
+            else
+            {
+                try
+                {
+                    $cat = new Category();
+                    $cat->setRubrique($r); 
+                    $cat->setTitle($r->getName());
+                    
+                    if($r->getParent() == 0)
+                    {
+                        // Pour toutes les rubriques de premier niveau, le parent
+                        // est l'accueil. 
+                        if(in_array($r->getId(), array(4, 8, 13, 20, 30, 42, 54, 86, 88, 89, 90)))
+                        {
+                            $cat->setParent($this->root); 
+                        }
+                        // Les autres sont des erreurs du gabarit, donc dans autres, 
+                        // si la catégorie a déjà été créée. 
+                        elseif($this->autres)
+                        {
+                            $cat->setParent($this->autres); 
+                        }
+                        // Sinon, inutile de terminer cet élément, on passe à la 
+                        // rubrique suivante. 
+                        else
+                        {
+                            continue; 
+                        }
+                    }
+                    // Le cas de la rubrique bordel Autres. 
+                    elseif($r->getId() == 21)
+                    {
+                        $this->autres = &$cat; 
+                    }
+                    else
+                    {
+                        $rp = $this->rubrep->find($r->getParent());
+                        $cp = $this->catrep->findOneByRubrique($rp); 
+                        $cat->setParent($cp); 
+                    }
+                    
+                    $this->em->persist($em); 
+                    $this->em->flush();
+                }
+                catch(ErrorException $e)
+                {}
+            }
         }
     }
     
@@ -84,51 +139,5 @@ class InitController extends Controller
         $en->setColonneDroite('http://' . $r['URL'] . '/index/rightColumn');
         $en->setParent($r['ID_PARENT']);
         $this->em->persist($en);
-        
-        if(! $this->root && (int) $r['ID_RUBRIQUE'] == 1)
-        {
-            $this->root = new Category();
-            $this->root->setRubrique($en);
-            $this->root->setTitle($r['LIB']);
-            $this->em->persist($this->root);
-        }
-        else
-        {
-            $cat = new Category();
-            $cat->setRubrique($en);
-            $cat->setTitle($r['LIB']);
-            
-            if($r['ID_RUBRIQUE'] == 21)
-            {
-                $this->autres = $cat; 
-            }
-            
-            // Si on a affaire à une rubrique de premier niveau, alors on la 
-            // scotche en enfant de Accueil
-            if($r['ID_PARENT'] == 0)
-            {
-                $cat->setParent($this->root);
-            }
-            else
-            {
-                // Il est possible que la rubrique parente n'ait pas encore été
-                // importée, on met donc cette catégorie de côté pour la créer
-                // plus tard
-                $parent = $this->catrep->find($r['ID_PARENT']);
-                try
-                {
-                    $cat->setParent($parent);
-                }
-                catch(ErrorException $e)
-                {
-                    $this->cats[] = array('rb' => &$en, 
-                                          'title' => $r['LIB'], 
-                                          'parent' => $r['ID_PARENT']);
-                    return;
-                }
-            }
-            
-            $this->em->persist($cat);
-        }
     }
 }
