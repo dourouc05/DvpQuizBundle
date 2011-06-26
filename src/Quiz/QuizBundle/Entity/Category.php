@@ -35,7 +35,7 @@ class Category
     
     /** 
      * @Gedmo\Slug(updatable=false)
-     * @ORM\Column(name="slug", type="string", unique=true) 
+     * @ORM\Column(type="string", unique=true) 
      */
     protected $slug; 
     

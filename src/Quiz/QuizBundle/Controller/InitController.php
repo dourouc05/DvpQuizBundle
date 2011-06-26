@@ -4,6 +4,7 @@ namespace Quiz\QuizBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Quiz\QuizBundle\Entity\Rubrique;
+use Quiz\QuizBundle\Entity\Category;
 
 /**
  * Description of InitController
@@ -12,17 +13,19 @@ use Quiz\QuizBundle\Entity\Rubrique;
  */
 class InitController extends Controller
 {
+    private $root;
+    
     public function importRubriquesAction()
     {
-        $this->importRubriques();
+        $this->em = $this->getDoctrine()->getEntityManager();
+        
+        $this->importRubriquesAndCategories();
         
         return $this->render('QuizQuizBundle:Init:index.html.twig');
     }
     
-    private function importRubriques()
+    private function importRubriquesAndCategories()
     {
-        $em = $this->getDoctrine()->getEntityManager();
-        
         // Du gabarit, crée une connexion MySQL qu'on utilise
         require_once($_SERVER['DOCUMENT_ROOT'] . '/template/connexion.php');
         $result = mysql_query('SELECT * FROM RUBRIQUE ORDER BY ID_RUBRIQUE');
@@ -38,16 +41,29 @@ class InitController extends Controller
                 
                 if(! (bool) $rb)
                 {
-                    $en = new Rubrique();
-                    $en->setId($r['ID_RUBRIQUE']);
-                    $en->setXiti($r['XITISITE']);
-                    $en->setName($r['LIB']);
-                    $en->setColonneDroite('http://' . $r['URL'] . '/index/rightColumn');
-                    $em->persist($en);
+                    $this->doRubrique($r);
                 }
             }
         }
         
-        $em->flush();
+        $this->em->flush();
+    }
+    
+    private function doRubrique($r)
+    {
+        $en = new Rubrique();
+        $en->setId($r['ID_RUBRIQUE']);
+        $en->setXiti($r['XITISITE']);
+        $en->setName($r['LIB']);
+        $en->setColonneDroite('http://' . $r['URL'] . '/index/rightColumn');
+        $this->em->persist($en);
+        
+        if(! $this->root && (int) $r['ID_RUBRIQUE'] == 1)
+        {
+            $this->root = new Category();
+            $this->root->setRubrique($en);
+            $this->root->setTitle($r['LIB']);
+            $this->em->persist($this->root);
+        }
     }
 }

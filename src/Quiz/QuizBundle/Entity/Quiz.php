@@ -28,7 +28,7 @@ class Quiz
     protected $deleted;
     
     /** 
-     * @ORM\Column(type="text")
+     * @ORM\Column(type="string")
      * @Gedmo\Sluggable
      * 
      * Le nom du quiz
