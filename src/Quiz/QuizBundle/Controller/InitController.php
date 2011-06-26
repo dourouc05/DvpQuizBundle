@@ -103,16 +103,30 @@ class InitController extends Controller
         
         foreach($rubs as $r)
         {
-            $p = $r->getParent();
-            
-            $cat = new Category();
-            $cat->setTitle($r->getName());
-            $cat->setRubrique($r);
-            
-            $this->em->persist($cat);
+            try
+            {
+                $b = $this->catrep
+                          ->createQueryBuilder('c')
+                          ->where('c.id = :id')
+                          ->setParameter('id', $r->getId())
+                          ->getQuery()
+                          ->getResult();
+            }
+            catch(\Doctrine\Orm\NoResultException $e)
+            {
+                $p = $r->getParent();
+
+                $cat = new Category();
+                $cat->setTitle($r->getName());
+                $cat->setRubrique($r);
+
+                $this->em->persist($cat);
+            }
+            catch(Exception $e)
+            {}
         }
         
-        $this->flush();
+        $this->em->flush();
         
         // On doit maintenant mettre les bonnes filiations ; on commence par ne 
         // charger que les rubriques devant avoir une catégorie en filiation. 
@@ -132,9 +146,16 @@ class InitController extends Controller
                            ->getQuery()
                            ->getSingleResult();
             
-            $r->setRoot($catpar);
+            $cat = $this->catrep
+                           ->createQueryBuilder('c')
+                           ->where('c.rubrique = :rub')
+                           ->setParameter('rub', $r)
+                           ->getQuery()
+                           ->getSingleResult();
             
-            $this->em->persist($r);
+            $cat->setParent($catpar);
+            
+            $this->em->persist($cat);
         }
     }
 }
