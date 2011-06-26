@@ -60,7 +60,14 @@ class InitController extends Controller
             $cat = new Category();
             $cat->setRubrique($c['rb']);
             $cat->setTitle($c['title']);
-            $cat->setParent($this->catrep->find($c['parent']));
+            try
+            {
+                $cat->setParent($this->catrep->find($c['parent']));
+            }
+            catch(ErrorException $e)
+            {
+                $cat->setParent($this->autres);
+            }
             $this->em->persist($cat);
         }
         
@@ -95,18 +102,28 @@ class InitController extends Controller
             $cat->setRubrique($en);
             $cat->setTitle($r['LIB']);
             
+            if($r['ID_RUBRIQUE'] == 21)
+            {
+                $this->autres = $cat; 
+            }
+            
+            // Si on a affaire à une rubrique de premier niveau, alors on la 
+            // scotche en enfant de Accueil
             if($r['ID_PARENT'] == 0)
             {
                 $cat->setParent($this->root);
             }
             else
             {
+                // Il est possible que la rubrique parente n'ait pas encore été
+                // importée, on met donc cette catégorie de côté pour la créer
+                // plus tard
                 $parent = $this->catrep->find($r['ID_PARENT']);
-                if($parent)
+                try
                 {
                     $cat->setParent($parent);
                 }
-                else
+                catch(ErrorException $e)
                 {
                     $this->cats[] = array('rb' => &$en, 
                                           'title' => $r['LIB'], 
