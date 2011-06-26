@@ -47,7 +47,17 @@ class InitController extends Controller
         {
             $rb = $this->getDoctrine()->getRepository('QuizQuizBundle:Rubrique')->find($r['ID_RUBRIQUE']);
 
-            if(! (bool) $rb)
+            // Si la rubrique existe déjà, on vérifie qu'on ne doit rien mettre 
+            // à jour. 
+            if((bool) $rb)
+            {
+                if($r['PORTAIL'])
+                    $rb->setColonneDroite('http://' . $r['URL'] . '/index/rightColumn');
+                if($r['XITISITE'] != 0)
+                    $rb->setXiti($r['XITISITE']);
+                $this->em->persist($rb);
+            }
+            else
             {
                 $en = new Rubrique();
                 $en->setId($r['ID_RUBRIQUE']);
