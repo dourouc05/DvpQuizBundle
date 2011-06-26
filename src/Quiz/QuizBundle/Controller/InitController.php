@@ -26,7 +26,7 @@ class InitController extends Controller
         
         $this->importRubriques();
         $this->importCategories();
-        $this->importCategories(); // à faire deux fois, car des catégories peuvent
+//        $this->importCategories(); // à faire deux fois, car des catégories peuvent
         // avoir un parent qui les suit dans l'ordre des ID
         
         $this->em->flush();
@@ -98,9 +98,9 @@ class InitController extends Controller
         {
             // On commence par vérifier qu'il n'y a pas déjà de catégorie associée
             // à la rubrique (à ce stade, il est impossible qu'il en soit autrement)
-            $cs = $this->catrep->findOneByRubrique($r);
-            if((bool) $cs)
-                continue; 
+//            $cs = $this->catrep->findOneByRubrique($r);
+//            if((bool) $cs)
+//                continue; 
             
             // S'il n'y a pas de rubrique racine Accueil, on la crée
             if($r->getId() == 1 && ! $this->root)
