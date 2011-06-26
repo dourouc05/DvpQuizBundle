@@ -23,9 +23,13 @@ class InitController extends Controller
     {
         $em = $this->getDoctrine()->getEntityManager();
         
+        // Du gabarit, crée une connexion MySQL qu'on utilise
         require_once($_SERVER['DOCUMENT_ROOT'] . '/template/connexion.php');
         $result = mysql_query('SELECT * FROM RUBRIQUE ORDER BY ID_RUBRIQUE');
         
+        // Pour chaque ligne, on vérifie qu'on a les infos nécessaires (sans quoi
+        // tout peut planter à l'affichage...), qu'on n'a pas déjà la rubrique en 
+        // base, puis seulement on l'ajoute. 
         while($r = mysql_fetch_assoc($result))
         {
             if($r['PORTAIL'] && $r['XITISITE'] && $r['LIB'] && $r['URL'] && $r['ID_RUBRIQUE'])
