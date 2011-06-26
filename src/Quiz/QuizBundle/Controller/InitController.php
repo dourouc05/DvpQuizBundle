@@ -14,6 +14,7 @@ use Quiz\QuizBundle\Entity\Category;
 class InitController extends Controller
 {
     private $root;
+    private $autres;
     private $rubrep;
     private $catrep;
     
@@ -51,18 +52,27 @@ class InitController extends Controller
                 $en = new Rubrique();
                 $en->setId($r['ID_RUBRIQUE']);
                 $en->setName($r['LIB']);
-                $en->setParent($r['ID_PARENT']);
 
                 if($r['PORTAIL'])
+                    // Quand pas de portail installé (mégarubriques EDI, Langages, 
+                    // etc.), on défaulte sur l'accueil. 
                     $en->setColonneDroite('http://' . $r['URL'] . '/index/rightColumn');
                 else
                     $en->setColonneDroite('http://www.developpez.com/index/rightColumn');
 
-                if(! $r['XITISITE'])
+                if($r['XITISITE'] == 0)
+                    // Quand on n'a pas de XiTi, on se démerde et on défaulte 
+                    // sur l'accueil. 
                     $en->setXiti(1);
                 else
                     $en->setXiti($r['XITISITE']);
 
+                if($r['ID_PARENT'] == 0 && $r['ID_RUBRIQUE'] != 1)
+                    // Seul l'accueil a le droit de ne pas avoir de parent. 
+                    $en->setParent(1);
+                else
+                    $en->setParent($r['ID_PARENT']);
+                
                 $this->em->persist($en);
             }
         }
