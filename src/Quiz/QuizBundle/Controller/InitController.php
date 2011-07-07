@@ -42,6 +42,36 @@ class InitController extends Controller
         // base, puis seulement on l'ajoute. 
         while($r = mysql_fetch_assoc($result))
         {
+            $r['ID_RUBRIQUE'] = (int) $r['ID_RUBRIQUE'];
+            $r['ID_PARENT']   = (int) $r['ID_PARENT'];
+            
+            // Certaines rubriques n'ont pas besoin d'apparaître ici, surtout qu'elles
+            // n'ont pas d'enfant et que cela ne posera aucun problème (club, rubriques
+            // fantômes, emploi, bac à sable, etc.). 
+            if(in_array($r['ID_RUBRIQUE'], array(6, 14, 15, 22, 23, 24, 26, 28, 35, 48, 52, 62, 63, 112)))
+                continue; 
+            
+            // D'autres rubriques ne peuvent pas apparaître avec parent sous peine
+            // de faire apparaître des rubriques stagnantes dans les menus. On donne
+            // donc les parents manuellement. 
+            switch($r['ID_RUBRIQUE'])
+            {
+            case 44:  // IRC
+                $r['ID_PARENT'] = 70; // enfant de Réseau
+                break;
+            case 49:  // LaTeX
+            case 60:  // Fortran
+            case 61:  // PureBasic
+            case 100: // R
+                $r['ID_PARENT'] = 21; // enfants de Autres
+                break;
+            case 68:  // UNIX
+            case 69:  // BSD
+            case 110: // Systèmes embarqués
+                $r['ID_PARENT'] = 30; // enfants de Systèmes
+                break;
+            }
+            
             $rb = $this->getDoctrine()->getRepository('QuizQuizBundle:Rubrique')->find($r['ID_RUBRIQUE']);
 
             // Si la rubrique existe déjà, on vérifie qu'on ne doit rien mettre 
