@@ -26,7 +26,7 @@ class AppKernel extends Kernel
             new Sonata\jQueryBundle\SonatajQueryBundle(),
             new Sonata\BluePrintBundle\SonataBluePrintBundle(),
             new Sonata\AdminBundle\SonataAdminBundle(),
-            new Knplabs\Bundle\MenuBundle\KnplabsMenuBundle(),
+            new Knp\Bundle\MenuBundle\KnpMenuBundle(),
             new FOS\UserBundle\FOSUserBundle(),
             new Stof\DoctrineExtensionsBundle\StofDoctrineExtensionsBundle(),
             
@@ -38,43 +38,13 @@ class AppKernel extends Kernel
             $bundles[] = new Acme\DemoBundle\AcmeDemoBundle();
             $bundles[] = new Symfony\Bundle\WebProfilerBundle\WebProfilerBundle();
             $bundles[] = new Sf2gen\Bundle\ConsoleBundle\Sf2genConsoleBundle();
-            $bundles[] = new JMS\DebuggingBundle\JMSDebuggingBundle($this);
         }
 
         return $bundles;
     }
-/*
-    public function init()
-    {
-        if ($this->debug)
-        {
-            ini_set('display_errors', 1);
-            error_reporting(-1);
-
-            DebugUniversalClassLoader::enable();
-            ErrorHandler::register();
-            if ('cli' !== php_sapi_name()) {
-                ExceptionHandler::register();
-            }
-        }
-        else
-        {
-            ini_set('display_errors', 0);
-        }
-    }*/
 
     public function registerContainerConfiguration(LoaderInterface $loader)
     {
         $loader->load(__DIR__.'/config/config_'.$this->getEnvironment().'.yml');
-    }
-    
-    public function getContainerBaseClass()
-    {
-        if($this->isDebug())
-        {
-            return '\JMS\DebuggingBundle\DependencyInjection\TraceableContainer';
-        }
-        
-        return  parent::getContainerBaseClass();
     }
 }

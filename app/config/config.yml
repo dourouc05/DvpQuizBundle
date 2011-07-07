@@ -67,4 +67,9 @@ fos_user:
 stof_doctrine_extensions:
     default_locale: fr_BE
     orm: 
-        default: ~
+        default: 
+            tree: true
+            timestampable: true
+            sluggable: true
+            loggable: true
+            translatable: false

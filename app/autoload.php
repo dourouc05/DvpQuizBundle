@@ -20,7 +20,7 @@ $loader->registerNamespaces(array(
     'FOS'                               => __DIR__.'/../vendor/bundles',
     'Stof'                              => __DIR__.'/../vendor/bundles',
     'Sonata'                            => __DIR__.'/../vendor/bundles',
-    'Knplabs'                           => __DIR__.'/../vendor/bundles',
+    'Knp'                               => __DIR__.'/../vendor/bundles',
     'Gedmo'                             => __DIR__.'/../vendor/gedmo-doctrine-extensions/lib',
     'Quiz'                              => __DIR__.'/../src/',
 ));
