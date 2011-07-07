@@ -86,3 +86,11 @@
 [UserBundle]
 	git=http://github.com/FriendsOfSymfony/UserBundle.git
 	target=/bundles/FOS/UserBundle
+
+[ConsoleBundle]
+    git=http://github.com/RapotOR/ConsoleBundle.git
+    target=/bundles/Sf2gen/Bundle/ConsoleBundle
+
+[DebuggingBundle]
+    git=http://github.com/schmittjoh/DebuggingBundle.git
+    target=/bundles/JMS/DebuggingBundle

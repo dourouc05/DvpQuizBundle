@@ -38,6 +38,7 @@ class AppKernel extends Kernel
             $bundles[] = new Acme\DemoBundle\AcmeDemoBundle();
             $bundles[] = new Symfony\Bundle\WebProfilerBundle\WebProfilerBundle();
             $bundles[] = new Sf2gen\Bundle\ConsoleBundle\Sf2genConsoleBundle();
+            $bundles[] = new JMS\DebuggingBundle\JMSDebuggingBundle($this);
         }
 
         return $bundles;
@@ -65,5 +66,15 @@ class AppKernel extends Kernel
     public function registerContainerConfiguration(LoaderInterface $loader)
     {
         $loader->load(__DIR__.'/config/config_'.$this->getEnvironment().'.yml');
+    }
+    
+    public function getContainerBaseClass()
+    {
+        if($this->isDebug())
+        {
+            return '\JMS\DebuggingBundle\DependencyInjection\TraceableContainer';
+        }
+        
+        return  parent::getContainerBaseClass();
     }
 }

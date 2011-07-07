@@ -63,3 +63,8 @@ fos_user:
     firewall_name: main
     use_listener:  false
     user_class:    QuizBundle\QuizBundle\Entity\User
+    
+stof_doctrine_extensions:
+    default_locale: fr_BE
+    orm: 
+        default: ~
