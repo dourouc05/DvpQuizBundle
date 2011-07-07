@@ -22,8 +22,8 @@ class InitController extends Controller
         $this->rubrep = $this->getDoctrine()->getRepository('\Quiz\QuizBundle\Entity\Rubrique');
         $this->catrep = $this->getDoctrine()->getRepository('\Quiz\QuizBundle\Entity\Category');
         
-        $this->importRubriques();
-        $this->em->flush();
+//        $this->importRubriques();
+//        $this->em->flush();
         
         $this->importCategories();
         $this->em->flush();
@@ -135,13 +135,14 @@ class InitController extends Controller
             {
                 $b = $this->catrep
                           ->createQueryBuilder('c')
-                          ->where('c.id = :id')
-                          ->setParameter('id', $r->getId())
+                          ->where('c.rubrique = :r')
+                          ->setParameter('r', $r)
                           ->getQuery()
                           ->getResult();
             }
             catch(Exception $e)
             {}
+            
             
             if(! (bool) $b)
             {
@@ -150,16 +151,9 @@ class InitController extends Controller
                 $cat->setRubrique($r);
                 $this->em->persist($cat);
             }
-            else
-            {
-                $b = $b[0];
-                $b->setTitle($r->getName());
-                $this->em->persist($b);
-            }
-            $this->em->flush();
         }
         
-        $this->em->flush();exit;
+        $this->em->flush();
         
         // On doit maintenant mettre les bonnes filiations ; on commence par ne 
         // charger que les rubriques devant avoir une catégorie en filiation. 
