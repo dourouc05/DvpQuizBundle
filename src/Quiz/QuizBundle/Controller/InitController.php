@@ -22,8 +22,8 @@ class InitController extends Controller
         $this->rubrep = $this->getDoctrine()->getRepository('\Quiz\QuizBundle\Entity\Rubrique');
         $this->catrep = $this->getDoctrine()->getRepository('\Quiz\QuizBundle\Entity\Category');
         
-//        $this->importRubriques();
-//        $this->em->flush();
+        $this->importRubriques();
+        $this->em->flush();
         
         $this->importCategories();
         $this->em->flush();
