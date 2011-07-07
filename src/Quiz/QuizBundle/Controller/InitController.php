@@ -131,29 +131,35 @@ class InitController extends Controller
         
         foreach($rubs as $r)
         {
-            try
+            try 
             {
                 $b = $this->catrep
                           ->createQueryBuilder('c')
                           ->where('c.id = :id')
                           ->setParameter('id', $r->getId())
-                                  
                           ->getQuery()
                           ->getResult();
             }
-            catch(\Doctrine\Orm\NoResultException $e)
+            catch(Exception $e)
+            {}
+            
+            if(! (bool) $b)
             {
                 $cat = new Category();
                 $cat->setTitle($r->getName());
                 $cat->setRubrique($r);
-
                 $this->em->persist($cat);
             }
-            catch(Exception $e)
-            {}
+            else
+            {
+                $b = $b[0];
+                $b->setTitle($r->getName());
+                $this->em->persist($b);
+            }
+            $this->em->flush();
         }
         
-        $this->em->flush();
+        $this->em->flush();exit;
         
         // On doit maintenant mettre les bonnes filiations ; on commence par ne 
         // charger que les rubriques devant avoir une catégorie en filiation. 
@@ -165,17 +171,21 @@ class InitController extends Controller
         $rubs = $this->rubrep
                       ->createQueryBuilder('r')
                       ->where('r.parent != 0')
+                      ->orderBy('r.id', 'DESC')
                       ->getQuery()
                       ->getResult();
         
         foreach($rubs as $r)
         {
-            $catpar = $this->catrep
-                           ->createQueryBuilder('c')
-                           ->where('c.rubrique = :rub')
-                           ->setParameter('rub', $r->getParent())
-                           ->getQuery()
-                           ->getSingleResult();
+            if($r->getParent() != 0)
+            {
+                $catpar = $this->catrep
+                               ->createQueryBuilder('c')
+                               ->where('c.rubrique = :rub')
+                               ->setParameter('rub', $r->getParent())
+                               ->getQuery()
+                               ->getSingleResult();
+            }
             
             $cat = $this->catrep
                            ->createQueryBuilder('c')
@@ -187,6 +197,7 @@ class InitController extends Controller
             $cat->setParent($catpar);
             
             $this->em->persist($cat);
+            $this->em->flush();
         }
     }
 }
