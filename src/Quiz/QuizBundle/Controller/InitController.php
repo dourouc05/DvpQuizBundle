@@ -22,8 +22,11 @@ class InitController extends Controller
         $this->rubrep = $this->getDoctrine()->getRepository('\Quiz\QuizBundle\Entity\Rubrique');
         $this->catrep = $this->getDoctrine()->getRepository('\Quiz\QuizBundle\Entity\Category');
         
-//        $this->importRubriques(); // flush() après chaque enregistrement
+        $this->importRubriques(); 
+        $this->em->flush(); 
+        
         $this->importCategories();
+        $this->em->flush(); 
         
         return $this->render('QuizQuizBundle:Init:index.html.twig');
     }
@@ -148,7 +151,6 @@ class InitController extends Controller
                 $cat->setTitle($r->getName());
                 $cat->setRubrique($r);
                 $this->em->persist($cat);
-                $this->em->flush();
             }
         }
         
