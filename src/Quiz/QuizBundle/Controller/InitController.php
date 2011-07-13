@@ -22,11 +22,8 @@ class InitController extends Controller
         $this->rubrep = $this->getDoctrine()->getRepository('\Quiz\QuizBundle\Entity\Rubrique');
         $this->catrep = $this->getDoctrine()->getRepository('\Quiz\QuizBundle\Entity\Category');
         
-        $this->importRubriques();
-        $this->em->flush();
-        
+        $this->importRubriques(); // flush() après chaque enregistrement
         $this->importCategories();
-        $this->em->flush();
         
         return $this->render('QuizQuizBundle:Init:index.html.twig');
     }
@@ -83,6 +80,7 @@ class InitController extends Controller
                 if($r['XITISITE'] != 0)
                     $rb->setXiti($r['XITISITE']);
                 $this->em->persist($rb);
+                $this->em->flush();
             }
             else
             {
@@ -118,6 +116,7 @@ class InitController extends Controller
                     $en->setParent($r['ID_PARENT']);
                 
                 $this->em->persist($en);
+                $this->em->flush();
             }
         }
     }
@@ -126,7 +125,6 @@ class InitController extends Controller
     {
         // On insère toutes les catégories pour qu'on puisse mettre les filiations
         // correctes juste après. 
-        
         $rubs = $this->rubrep->findAll();
         
         foreach($rubs as $r)
@@ -150,6 +148,7 @@ class InitController extends Controller
                 $cat->setTitle($r->getName());
                 $cat->setRubrique($r);
                 $this->em->persist($cat);
+                $this->em->flush();
             }
         }
         
