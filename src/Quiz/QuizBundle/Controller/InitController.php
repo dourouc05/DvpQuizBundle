@@ -23,13 +23,20 @@ class InitController extends Controller
         $this->catrep = $this->getDoctrine()->getRepository('\Quiz\QuizBundle\Entity\Category');
         
         $this->importRubriques(); 
-        $this->em->flush(); 
+//        $this->em->flush(); 
         
         $this->importCategories();
-        $this->em->flush(); 
+//        $this->em->flush(); 
         
-        return $this->render('QuizQuizBundle:Init:index.html.twig');
+        return $this->render('QuizQuizBundle:Init:rubriques.html.twig');
     }
+    
+    public function createQuizAction()
+    {
+        return $this->render('QuizQuizBundle:Init:quiz.html.twig');
+    }
+    
+    /* HELPERS */
     
     private function importRubriques()
     {
@@ -83,7 +90,7 @@ class InitController extends Controller
                 if($r['XITISITE'] != 0)
                     $rb->setXiti($r['XITISITE']);
                 $this->em->persist($rb);
-                $this->em->flush();
+//                $this->em->flush();
             }
             else
             {
@@ -119,7 +126,7 @@ class InitController extends Controller
                     $en->setParent($r['ID_PARENT']);
                 
                 $this->em->persist($en);
-                $this->em->flush();
+//                $this->em->flush();
             }
         }
     }
@@ -151,6 +158,7 @@ class InitController extends Controller
                 $cat->setTitle($r->getName());
                 $cat->setRubrique($r);
                 $this->em->persist($cat);
+//                $this->em->flush();
             }
         }
         
@@ -192,7 +200,7 @@ class InitController extends Controller
             $cat->setParent($catpar);
             
             $this->em->persist($cat);
-            $this->em->flush();
+//            $this->em->flush();
         }
     }
 }

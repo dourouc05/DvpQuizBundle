@@ -4,10 +4,11 @@ namespace Quiz\QuizBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Mapping\Annotation as Gedmo;
 
-/** 
+/**
  * @ORM\Entity(repositoryClass="Quiz\QuizBundle\Entity\Repository\SoftDeleteRepository")
- * @Gedmo\Loggable
  */
+// Old annotations
+// * @Gedmo\Loggable
 class Answer
 {
     public function __construct()

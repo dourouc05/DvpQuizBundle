@@ -2,6 +2,10 @@ homepage:
   pattern:  /
   defaults: { _controller: QuizQuizBundle:Default:index }
 
-init:
-  pattern: /init
+init_rub:
+  pattern: /init/rubriques
   defaults: { _controller: QuizQuizBundle:Init:importRubriques }
+  
+init_quiz: 
+  pattern: /init/premier-quiz
+  defaults: { _controller: QuizQuizBundle:Init:createQuiz }

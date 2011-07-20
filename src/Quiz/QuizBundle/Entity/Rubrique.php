@@ -6,8 +6,9 @@ use Gedmo\Mapping\Annotation as Gedmo;
 
 /**
  * @ORM\Entity
- * @Gedmo\Loggable
  */
+// Old annotations
+// * @Gedmo\Loggable
 class Rubrique
 {
     public function __construct()
