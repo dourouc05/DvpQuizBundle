@@ -17,6 +17,7 @@ class Quiz
         $this->visits = 0;
         $this->random = false;
         $this->questionsToShow = -1;
+        $this->deleted = false;
     }
     
     /**
@@ -342,6 +343,21 @@ class Quiz
      */
     public function addQuestion(\Quiz\QuizBundle\Entity\Question $question)
     {
+        $this->question[] = $question;
+    }
+
+    /**
+     * Add a bunch of questions
+     *
+     * @param Quiz\QuizBundle\Entity\Question $questions
+     */
+    public function addQuestions($questions)
+    {
+        if(is_array($answers))
+            if(is_array($this->question))
+                $this->question = array_merge($this->answer, $answers);
+            else
+                $this->question = $answers;
         $this->question[] = $question;
     }
 

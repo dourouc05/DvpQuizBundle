@@ -14,7 +14,7 @@ class Answer
     public function __construct()
     {
         $this->deleted = false; 
-        $this->right = false;
+        $this->isRight = false;
     }
     
     /**

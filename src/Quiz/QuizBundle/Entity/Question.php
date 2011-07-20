@@ -189,20 +189,6 @@ class Question
     }
 
     /**
-     * Add bunch of answers
-     *
-     * @param Quiz\QuizBundle\Entity\Answer[] $answers
-     */
-    public function addAnswers($answers)
-    {
-        if(is_array($answers))
-            if(is_array($this->answer))
-                $this->answer = array_merge($this->answer, $answers);
-            else
-                $this->answer = $answers;
-    }
-
-    /**
      * Get answer
      *
      * @return Doctrine\Common\Collections\Collection $answer

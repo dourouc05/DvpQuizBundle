@@ -52,11 +52,17 @@ class InitController extends Controller
         
         $q = new Question();
         $q->setQuestion('Oui ou non ?');
-        $q->addAnswers(array($ans1, $ans2));
+        $q->addAnswer($ans1);
+        $q->addAnswer($ans2);
         $this->em->persist($q);
+        $this->em->flush();
+        var_dump(1);
         
         $qu = new Quiz();
         $qu->setName('Premier quiz de test');
+        $qu->addQuestion($q);
+        $this->em->persist($qu);
+        $this->em->flush();
         
         return $this->render('QuizQuizBundle:Init:quiz.html.twig');
     }
