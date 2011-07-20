@@ -14,6 +14,7 @@ class Answer
     public function __construct()
     {
         $this->deleted = false; 
+        $this->right = false;
     }
     
     /**
@@ -29,21 +30,29 @@ class Answer
     protected $deleted;
     
     /** 
+     * Question à laquelle appartient cette réponse
+     * 
      * @ORM\ManyToOne(targetEntity="Question", inversedBy="answer")
      */
     protected $question; 
     
     /**
+     * Texte de la réponse
+     * 
      * @ORM\Column(type="string")
      */
     protected $text; 
     
     /**
+     * Cette réponse est-elle correcte ?
+     * 
      * @ORM\Column(type="boolean")
      */
     protected $isRight; 
     
     /**
+     * Explication affichée pour cette réponse à la correction
+     * 
      * @ORM\Column(type="text")
      */
     protected $explanation; 

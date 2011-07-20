@@ -29,26 +29,36 @@ class Question
     protected $deleted;
     
     /**
+     * Quiz auquel appartient cette question
+     * 
      * @ORM\ManyToOne(targetEntity="Quiz", inversedBy="question")
      */
     protected $quiz;
     
     /**
+     * Tableau de réponses possibles
+     * 
      * @ORM\OneToMany(targetEntity="Answer", mappedBy="question")
      */
     protected $answer; 
     
     /**
+     * Question posée
+     * 
      * @ORM\Column(type="string")
      */
     protected $question; 
     
     /**
+     * Peut-on sélectionner plusieurs réponses ?
+     * 
      * @ORM\Column(type="boolean")
      */
     protected $multipleAnswers; 
     
     /**
+     * Explication affichée en haut de correction
+     * 
      * @ORM\Column(type="text")
      */
     protected $explanation; 
@@ -176,6 +186,20 @@ class Question
     public function addAnswer(\Quiz\QuizBundle\Entity\Answer $answer)
     {
         $this->answer[] = $answer;
+    }
+
+    /**
+     * Add bunch of answers
+     *
+     * @param Quiz\QuizBundle\Entity\Answer[] $answers
+     */
+    public function addAnswers($answers)
+    {
+        if(is_array($answers))
+            if(is_array($this->answer))
+                $this->answer = array_merge($this->answer, $answers);
+            else
+                $this->answer = $answers;
     }
 
     /**

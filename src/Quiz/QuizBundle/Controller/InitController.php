@@ -5,6 +5,9 @@ namespace Quiz\QuizBundle\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Quiz\QuizBundle\Entity\Rubrique;
 use Quiz\QuizBundle\Entity\Category;
+use Quiz\QuizBundle\Entity\Answer;
+use Quiz\QuizBundle\Entity\Question;
+use Quiz\QuizBundle\Entity\Quiz;
 
 /**
  * Description of InitController
@@ -33,6 +36,28 @@ class InitController extends Controller
     
     public function createQuizAction()
     {
+        $this->em = $this->getDoctrine()->getEntityManager();
+        $this->catrep = $this->getDoctrine()->getRepository('\Quiz\QuizBundle\Entity\Category');
+        
+        $ans1 = new Answer();
+        $ans1->setText('Oui');
+        $ans1->setExplanation('Soyons réalistes. ');
+        $ans1->setIsRight(true);
+        $this->em->persist($ans1);
+        
+        $ans2 = new Answer();
+        $ans2->setText('Non');
+        $ans2->setExplanation('Autre chose. '); 
+        $this->em->persist($ans2);
+        
+        $q = new Question();
+        $q->setQuestion('Oui ou non ?');
+        $q->addAnswers(array($ans1, $ans2));
+        $this->em->persist($q);
+        
+        $qu = new Quiz();
+        $qu->setName('Premier quiz de test');
+        
         return $this->render('QuizQuizBundle:Init:quiz.html.twig');
     }
     

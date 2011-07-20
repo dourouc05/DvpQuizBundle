@@ -14,6 +14,9 @@ class Quiz
     public function __construct()
     {
         $this->question = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->visits = 0;
+        $this->random = false;
+        $this->questionsToShow = -1;
     }
     
     /**
@@ -67,7 +70,6 @@ class Quiz
     /** 
      * @Gedmo\Slug(updatable=false)
      * @ORM\Column(name="slug", type="string", unique=true) 
-     * 
      */
     protected $slug; 
     
