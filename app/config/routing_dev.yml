@@ -1,3 +1,7 @@
+_sf2gencdt:
+    resource: "@Sf2genConsoleBundle/Resources/config/routing.yml"
+    prefix:   /_sf2gencdt    
+
 _welcome:
     pattern:  /
     defaults: { _controller: AcmeDemoBundle:Welcome:index }

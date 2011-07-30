@@ -17,10 +17,17 @@
       <parameter key="AsseticBundle">Symfony\Bundle\AsseticBundle\AsseticBundle</parameter>
       <parameter key="SensioFrameworkExtraBundle">Sensio\Bundle\FrameworkExtraBundle\SensioFrameworkExtraBundle</parameter>
       <parameter key="JMSSecurityExtraBundle">JMS\SecurityExtraBundle\JMSSecurityExtraBundle</parameter>
+      <parameter key="DoctrineFixturesBundle">Symfony\Bundle\DoctrineFixturesBundle\DoctrineFixturesBundle</parameter>
+      <parameter key="SonatajQueryBundle">Sonata\jQueryBundle\SonatajQueryBundle</parameter>
+      <parameter key="SonataBluePrintBundle">Sonata\BluePrintBundle\SonataBluePrintBundle</parameter>
+      <parameter key="SonataAdminBundle">Sonata\AdminBundle\SonataAdminBundle</parameter>
+      <parameter key="KnpMenuBundle">Knp\Bundle\MenuBundle\KnpMenuBundle</parameter>
+      <parameter key="StofDoctrineExtensionsBundle">Stof\DoctrineExtensionsBundle\StofDoctrineExtensionsBundle</parameter>
       <parameter key="AcmeDemoBundle">Acme\DemoBundle\AcmeDemoBundle</parameter>
       <parameter key="WebProfilerBundle">Symfony\Bundle\WebProfilerBundle\WebProfilerBundle</parameter>
       <parameter key="SensioDistributionBundle">Sensio\Bundle\DistributionBundle\SensioDistributionBundle</parameter>
       <parameter key="SensioGeneratorBundle">Sensio\Bundle\GeneratorBundle\SensioGeneratorBundle</parameter>
+      <parameter key="Sf2genConsoleBundle">Sf2gen\Bundle\ConsoleBundle\Sf2genConsoleBundle</parameter>
     </parameter>
     <parameter key="kernel.charset">UTF-8</parameter>
     <parameter key="kernel.container_class">appDevDebugProjectContainer</parameter>
@@ -365,10 +372,26 @@
     <parameter key="security.extra.controller_listener.class">JMS\SecurityExtraBundle\Controller\ControllerListener</parameter>
     <parameter key="security.access.iddqd_voter.class">JMS\SecurityExtraBundle\Security\Authorization\Voter\IddqdVoter</parameter>
     <parameter key="security.extra.secure_all_services">false</parameter>
+    <parameter key="sonata.admin.templates.layout">SonataAdminBundle::standard_layout.html.twig</parameter>
+    <parameter key="sonata.admin.templates.ajax">SonataAdminBundle::ajax_layout.html.twig</parameter>
+    <parameter key="knp_menu.provider.class">Knp\Bundle\MenuBundle\Provider\LazyProvider</parameter>
+    <parameter key="stof_doctrine_extensions.default_locale">en</parameter>
+    <parameter key="stof_doctrine_extensions.translation_fallback">false</parameter>
+    <parameter key="stof_doctrine_extensions.listener.translatable.class">Stof\DoctrineExtensionsBundle\Listener\TranslationListener</parameter>
+    <parameter key="stof_doctrine_extensions.listener.timestampable.class">Gedmo\Timestampable\TimestampableListener</parameter>
+    <parameter key="stof_doctrine_extensions.listener.sluggable.class">Gedmo\Sluggable\SluggableListener</parameter>
+    <parameter key="stof_doctrine_extensions.listener.tree.class">Gedmo\Tree\TreeListener</parameter>
+    <parameter key="stof_doctrine_extensions.listener.loggable.class">Stof\DoctrineExtensionsBundle\Listener\LoggableListener</parameter>
+    <parameter key="stof_doctrine_extensions.listener.sortable.class">Gedmo\Sortable\SortableListener</parameter>
     <parameter key="web_profiler.debug_toolbar.class">Symfony\Bundle\WebProfilerBundle\EventListener\WebDebugToolbarListener</parameter>
     <parameter key="web_profiler.debug_toolbar.intercept_redirects">false</parameter>
     <parameter key="web_profiler.debug_toolbar.mode">2</parameter>
     <parameter key="sensio.distribution.webconfigurator.class">Sensio\Bundle\DistributionBundle\Configurator\Configurator</parameter>
+    <parameter key="sf2gen.console.class">Sf2gen\Bundle\ConsoleBundle\Sf2genConsoleListener</parameter>
+    <parameter key="sf2gen_console.apps" type="collection">
+      <parameter>app</parameter>
+    </parameter>
+    <parameter key="sf2gen_console.new_process">false</parameter>
     <parameter key="data_collector.templates" type="collection">
       <parameter key="data_collector.config" type="collection">
         <parameter>config</parameter>
@@ -579,6 +602,14 @@
         <argument>-255</argument>
       </call>
       <call method="addListenerService">
+        <argument>kernel.request</argument>
+        <argument type="collection">
+          <argument>stof_doctrine_extensions.listener.translatable</argument>
+          <argument>onKernelRequest</argument>
+        </argument>
+        <argument>-10</argument>
+      </call>
+      <call method="addListenerService">
         <argument>kernel.controller</argument>
         <argument type="collection">
           <argument>acme.demo.listener</argument>
@@ -590,6 +621,14 @@
         <argument>kernel.response</argument>
         <argument type="collection">
           <argument>web_profiler.debug_toolbar</argument>
+          <argument>onKernelResponse</argument>
+        </argument>
+        <argument>-128</argument>
+      </call>
+      <call method="addListenerService">
+        <argument>kernel.response</argument>
+        <argument type="collection">
+          <argument>sf2gen.toolbar</argument>
           <argument>onKernelResponse</argument>
         </argument>
         <argument>-128</argument>
@@ -734,6 +773,10 @@
               <argument key="url">form.type.url</argument>
               <argument key="csrf">form.type.csrf</argument>
               <argument key="entity">form.type.entity</argument>
+              <argument key="sonata_type_admin">sonata.admin.form.type.admin</argument>
+              <argument key="sonata_type_collection">sonata.admin.form.type.collection</argument>
+              <argument key="sonata_type_model">sonata.admin.form.type.model</argument>
+              <argument key="sonata_type_immutable_array">sonata.admin.form.type.array</argument>
             </argument>
             <argument type="collection">
               <argument key="field" type="collection">
@@ -856,14 +899,7 @@
     </service>
     <service id="validator" class="Symfony\Component\Validator\Validator">
       <argument type="service" id="validator.mapping.class_metadata_factory"/>
-      <argument type="service">
-        <service class="Symfony\Bundle\FrameworkBundle\Validator\ConstraintValidatorFactory" public="false">
-          <argument type="service" id="service_container"/>
-          <argument type="collection">
-            <argument key="doctrine.orm.validator.unique">doctrine.orm.validator.unique</argument>
-          </argument>
-        </service>
-      </argument>
+      <argument type="service" id="validator.validator_factory"/>
       <argument type="collection">
         <argument type="service" id="doctrine.orm.validator_initializer"/>
       </argument>
@@ -896,6 +932,13 @@
         </service>
       </argument>
       <argument>null</argument>
+    </service>
+    <service id="validator.validator_factory" class="Symfony\Bundle\FrameworkBundle\Validator\ConstraintValidatorFactory" public="false">
+      <argument type="service" id="service_container"/>
+      <argument type="collection">
+        <argument key="doctrine.orm.validator.unique">doctrine.orm.validator.unique</argument>
+        <argument key="sonata.admin.validator.inline">sonata.admin.validator.inline</argument>
+      </argument>
     </service>
     <service id="profiler" class="Symfony\Component\HttpKernel\Profiler\Profiler">
       <tag name="monolog.logger" channel="profiler"/>
@@ -1073,6 +1116,9 @@
               </service>
             </argument>
           </call>
+          <call method="addLoader">
+            <argument type="service" id="sonata.admin.route_loader"/>
+          </call>
         </service>
       </argument>
     </service>
@@ -1235,6 +1281,11 @@
             <argument key="security.firewall.map.context.secured_area" type="service">
               <service class="Symfony\Component\HttpFoundation\RequestMatcher" public="false">
                 <argument>^/demo/secured/</argument>
+              </service>
+            </argument>
+            <argument key="security.firewall.map.context.sf2gen" type="service">
+              <service class="Symfony\Component\HttpFoundation\RequestMatcher" public="false">
+                <argument>/_sf2gencdt/.*</argument>
               </service>
             </argument>
           </argument>
@@ -1402,6 +1453,10 @@
         </service>
       </argument>
     </service>
+    <service id="security.firewall.map.context.sf2gen" class="Symfony\Bundle\SecurityBundle\Security\FirewallContext">
+      <argument type="collection"/>
+      <argument>null</argument>
+    </service>
     <service id="twig" class="Twig_Environment">
       <argument type="service" id="twig.loader"/>
       <argument type="collection">
@@ -1486,6 +1541,9 @@
             <argument type="collection"/>
           </service>
         </argument>
+      </call>
+      <call method="addExtension">
+        <argument type="service" id="sonata.admin.twig.extension"/>
       </call>
       <call method="addExtension">
         <argument type="service" id="twig.extension.acme.demo"/>
@@ -1587,7 +1645,9 @@
       <argument type="service">
         <service class="Doctrine\ORM\Configuration" public="false">
           <call method="setEntityNamespaces">
-            <argument type="collection"/>
+            <argument type="collection">
+              <argument key="StofDoctrineExtensionsBundle">Stof\DoctrineExtensionsBundle\Entity</argument>
+            </argument>
           </call>
           <call method="setMetadataCacheImpl">
             <argument type="service">
@@ -1618,7 +1678,26 @@
           </call>
           <call method="setMetadataDriverImpl">
             <argument type="service">
-              <service class="Doctrine\ORM\Mapping\Driver\DriverChain" public="false"/>
+              <service class="Doctrine\ORM\Mapping\Driver\DriverChain" public="false">
+                <call method="addDriver">
+                  <argument type="service">
+                    <service class="Symfony\Bridge\Doctrine\Mapping\Driver\XmlDriver" public="false">
+                      <argument type="collection">
+                        <argument>G:\Dvp\_RUBRIQUES\dvpquizbundle\vendor\bundles\Stof\DoctrineExtensionsBundle\Resources\config\doctrine</argument>
+                      </argument>
+                      <call method="setNamespacePrefixes">
+                        <argument type="collection">
+                          <argument key="G:\Dvp\_RUBRIQUES\dvpquizbundle\vendor\bundles\Stof\DoctrineExtensionsBundle\Resources\config\doctrine">Stof\DoctrineExtensionsBundle\Entity</argument>
+                        </argument>
+                      </call>
+                      <call method="setGlobalBasename">
+                        <argument>mapping</argument>
+                      </call>
+                    </service>
+                  </argument>
+                  <argument>Stof\DoctrineExtensionsBundle\Entity</argument>
+                </call>
+              </service>
             </argument>
           </call>
           <call method="setProxyDir">
@@ -1916,6 +1995,168 @@
               <argument type="service">
                 <service class="%assetic.directory_resource.class%" public="false">
                   <argument type="service" id="templating.loader"/>
+                  <argument>DoctrineFixturesBundle</argument>
+                  <argument>G:\Dvp\_RUBRIQUES\dvpquizbundle\app/Resources/DoctrineFixturesBundle/views</argument>
+                  <argument>/^[^.]+\.[^.]+\.twig$/</argument>
+                </service>
+              </argument>
+              <argument type="service">
+                <service class="%assetic.directory_resource.class%" public="false">
+                  <argument type="service" id="templating.loader"/>
+                  <argument>DoctrineFixturesBundle</argument>
+                  <argument>G:\Dvp\_RUBRIQUES\dvpquizbundle\vendor\bundles\Symfony\Bundle\DoctrineFixturesBundle/Resources/views</argument>
+                  <argument>/^[^.]+\.[^.]+\.twig$/</argument>
+                </service>
+              </argument>
+            </argument>
+          </service>
+        </argument>
+        <argument>twig</argument>
+      </call>
+      <call method="addResource">
+        <argument type="service">
+          <service class="Symfony\Bundle\AsseticBundle\Factory\Resource\CoalescingDirectoryResource" public="false">
+            <tag name="assetic.templating.twig"/>
+            <tag name="assetic.formula_resource" loader="twig"/>
+            <argument type="collection">
+              <argument type="service">
+                <service class="%assetic.directory_resource.class%" public="false">
+                  <argument type="service" id="templating.loader"/>
+                  <argument>SonatajQueryBundle</argument>
+                  <argument>G:\Dvp\_RUBRIQUES\dvpquizbundle\app/Resources/SonatajQueryBundle/views</argument>
+                  <argument>/^[^.]+\.[^.]+\.twig$/</argument>
+                </service>
+              </argument>
+              <argument type="service">
+                <service class="%assetic.directory_resource.class%" public="false">
+                  <argument type="service" id="templating.loader"/>
+                  <argument>SonatajQueryBundle</argument>
+                  <argument>G:\Dvp\_RUBRIQUES\dvpquizbundle\vendor\bundles\Sonata\jQueryBundle/Resources/views</argument>
+                  <argument>/^[^.]+\.[^.]+\.twig$/</argument>
+                </service>
+              </argument>
+            </argument>
+          </service>
+        </argument>
+        <argument>twig</argument>
+      </call>
+      <call method="addResource">
+        <argument type="service">
+          <service class="Symfony\Bundle\AsseticBundle\Factory\Resource\CoalescingDirectoryResource" public="false">
+            <tag name="assetic.templating.twig"/>
+            <tag name="assetic.formula_resource" loader="twig"/>
+            <argument type="collection">
+              <argument type="service">
+                <service class="%assetic.directory_resource.class%" public="false">
+                  <argument type="service" id="templating.loader"/>
+                  <argument>SonataBluePrintBundle</argument>
+                  <argument>G:\Dvp\_RUBRIQUES\dvpquizbundle\app/Resources/SonataBluePrintBundle/views</argument>
+                  <argument>/^[^.]+\.[^.]+\.twig$/</argument>
+                </service>
+              </argument>
+              <argument type="service">
+                <service class="%assetic.directory_resource.class%" public="false">
+                  <argument type="service" id="templating.loader"/>
+                  <argument>SonataBluePrintBundle</argument>
+                  <argument>G:\Dvp\_RUBRIQUES\dvpquizbundle\vendor\bundles\Sonata\BluePrintBundle/Resources/views</argument>
+                  <argument>/^[^.]+\.[^.]+\.twig$/</argument>
+                </service>
+              </argument>
+            </argument>
+          </service>
+        </argument>
+        <argument>twig</argument>
+      </call>
+      <call method="addResource">
+        <argument type="service">
+          <service class="Symfony\Bundle\AsseticBundle\Factory\Resource\CoalescingDirectoryResource" public="false">
+            <tag name="assetic.templating.twig"/>
+            <tag name="assetic.formula_resource" loader="twig"/>
+            <argument type="collection">
+              <argument type="service">
+                <service class="%assetic.directory_resource.class%" public="false">
+                  <argument type="service" id="templating.loader"/>
+                  <argument>SonataAdminBundle</argument>
+                  <argument>G:\Dvp\_RUBRIQUES\dvpquizbundle\app/Resources/SonataAdminBundle/views</argument>
+                  <argument>/^[^.]+\.[^.]+\.twig$/</argument>
+                </service>
+              </argument>
+              <argument type="service">
+                <service class="%assetic.directory_resource.class%" public="false">
+                  <argument type="service" id="templating.loader"/>
+                  <argument>SonataAdminBundle</argument>
+                  <argument>G:\Dvp\_RUBRIQUES\dvpquizbundle\vendor\bundles\Sonata\AdminBundle/Resources/views</argument>
+                  <argument>/^[^.]+\.[^.]+\.twig$/</argument>
+                </service>
+              </argument>
+            </argument>
+          </service>
+        </argument>
+        <argument>twig</argument>
+      </call>
+      <call method="addResource">
+        <argument type="service">
+          <service class="Symfony\Bundle\AsseticBundle\Factory\Resource\CoalescingDirectoryResource" public="false">
+            <tag name="assetic.templating.twig"/>
+            <tag name="assetic.formula_resource" loader="twig"/>
+            <argument type="collection">
+              <argument type="service">
+                <service class="%assetic.directory_resource.class%" public="false">
+                  <argument type="service" id="templating.loader"/>
+                  <argument>KnpMenuBundle</argument>
+                  <argument>G:\Dvp\_RUBRIQUES\dvpquizbundle\app/Resources/KnpMenuBundle/views</argument>
+                  <argument>/^[^.]+\.[^.]+\.twig$/</argument>
+                </service>
+              </argument>
+              <argument type="service">
+                <service class="%assetic.directory_resource.class%" public="false">
+                  <argument type="service" id="templating.loader"/>
+                  <argument>KnpMenuBundle</argument>
+                  <argument>G:\Dvp\_RUBRIQUES\dvpquizbundle\vendor\bundles\Knp\Bundle\MenuBundle/Resources/views</argument>
+                  <argument>/^[^.]+\.[^.]+\.twig$/</argument>
+                </service>
+              </argument>
+            </argument>
+          </service>
+        </argument>
+        <argument>twig</argument>
+      </call>
+      <call method="addResource">
+        <argument type="service">
+          <service class="Symfony\Bundle\AsseticBundle\Factory\Resource\CoalescingDirectoryResource" public="false">
+            <tag name="assetic.templating.twig"/>
+            <tag name="assetic.formula_resource" loader="twig"/>
+            <argument type="collection">
+              <argument type="service">
+                <service class="%assetic.directory_resource.class%" public="false">
+                  <argument type="service" id="templating.loader"/>
+                  <argument>StofDoctrineExtensionsBundle</argument>
+                  <argument>G:\Dvp\_RUBRIQUES\dvpquizbundle\app/Resources/StofDoctrineExtensionsBundle/views</argument>
+                  <argument>/^[^.]+\.[^.]+\.twig$/</argument>
+                </service>
+              </argument>
+              <argument type="service">
+                <service class="%assetic.directory_resource.class%" public="false">
+                  <argument type="service" id="templating.loader"/>
+                  <argument>StofDoctrineExtensionsBundle</argument>
+                  <argument>G:\Dvp\_RUBRIQUES\dvpquizbundle\vendor\bundles\Stof\DoctrineExtensionsBundle/Resources/views</argument>
+                  <argument>/^[^.]+\.[^.]+\.twig$/</argument>
+                </service>
+              </argument>
+            </argument>
+          </service>
+        </argument>
+        <argument>twig</argument>
+      </call>
+      <call method="addResource">
+        <argument type="service">
+          <service class="Symfony\Bundle\AsseticBundle\Factory\Resource\CoalescingDirectoryResource" public="false">
+            <tag name="assetic.templating.twig"/>
+            <tag name="assetic.formula_resource" loader="twig"/>
+            <argument type="collection">
+              <argument type="service">
+                <service class="%assetic.directory_resource.class%" public="false">
+                  <argument type="service" id="templating.loader"/>
                   <argument>AcmeDemoBundle</argument>
                   <argument>G:\Dvp\_RUBRIQUES\dvpquizbundle\app/Resources/AcmeDemoBundle/views</argument>
                   <argument>/^[^.]+\.[^.]+\.twig$/</argument>
@@ -2007,6 +2248,33 @@
                   <argument type="service" id="templating.loader"/>
                   <argument>SensioGeneratorBundle</argument>
                   <argument>G:\Dvp\_RUBRIQUES\dvpquizbundle\vendor\bundles\Sensio\Bundle\GeneratorBundle/Resources/views</argument>
+                  <argument>/^[^.]+\.[^.]+\.twig$/</argument>
+                </service>
+              </argument>
+            </argument>
+          </service>
+        </argument>
+        <argument>twig</argument>
+      </call>
+      <call method="addResource">
+        <argument type="service">
+          <service class="Symfony\Bundle\AsseticBundle\Factory\Resource\CoalescingDirectoryResource" public="false">
+            <tag name="assetic.templating.twig"/>
+            <tag name="assetic.formula_resource" loader="twig"/>
+            <argument type="collection">
+              <argument type="service">
+                <service class="%assetic.directory_resource.class%" public="false">
+                  <argument type="service" id="templating.loader"/>
+                  <argument>Sf2genConsoleBundle</argument>
+                  <argument>G:\Dvp\_RUBRIQUES\dvpquizbundle\app/Resources/Sf2genConsoleBundle/views</argument>
+                  <argument>/^[^.]+\.[^.]+\.twig$/</argument>
+                </service>
+              </argument>
+              <argument type="service">
+                <service class="%assetic.directory_resource.class%" public="false">
+                  <argument type="service" id="templating.loader"/>
+                  <argument>Sf2genConsoleBundle</argument>
+                  <argument>G:\Dvp\_RUBRIQUES\dvpquizbundle\vendor\bundles\Sf2gen\Bundle\ConsoleBundle/Resources/views</argument>
                   <argument>/^[^.]+\.[^.]+\.twig$/</argument>
                 </service>
               </argument>
@@ -2112,6 +2380,85 @@
       <argument type="service" id="service_container"/>
       <argument type="service" id="annotation_reader"/>
     </service>
+    <service id="sonata.admin.manager.orm" class="Sonata\AdminBundle\Model\ORM\ModelManager">
+      <argument type="service" id="doctrine.orm.default_entity_manager"/>
+    </service>
+    <service id="sonata.admin.builder.orm_form" class="Sonata\AdminBundle\Builder\ORM\FormContractor">
+      <argument type="service" id="form.factory"/>
+    </service>
+    <service id="sonata.admin.builder.orm_list" class="Sonata\AdminBundle\Builder\ORM\ListBuilder"/>
+    <service id="sonata.admin.builder.orm_view" class="Sonata\AdminBundle\Builder\ORM\ViewBuilder"/>
+    <service id="sonata.admin.builder.orm_datagrid" class="Sonata\AdminBundle\Builder\ORM\DatagridBuilder">
+      <argument type="service" id="form.factory"/>
+    </service>
+    <service id="sonata.admin.twig.extension" class="Sonata\AdminBundle\Twig\Extension\SonataAdminExtension">
+      <tag name="twig.extension"/>
+    </service>
+    <service id="sonata.admin.pool" class="Sonata\AdminBundle\Admin\Pool">
+      <argument type="service" id="service_container"/>
+      <call method="setAdminServiceIds">
+        <argument type="collection"/>
+      </call>
+      <call method="setAdminGroups">
+        <argument type="collection"/>
+      </call>
+      <call method="setAdminClasses">
+        <argument type="collection"/>
+      </call>
+    </service>
+    <service id="sonata.admin.route_loader" class="Sonata\AdminBundle\Route\AdminPoolLoader">
+      <tag name="routing.loader"/>
+      <argument type="service" id="sonata.admin.pool"/>
+      <argument type="collection"/>
+      <argument type="service" id="service_container"/>
+    </service>
+    <service id="sonata.admin.helper" class="Sonata\AdminBundle\Admin\AdminHelper">
+      <argument type="service" id="sonata.admin.pool"/>
+    </service>
+    <service id="sonata.admin.security.handler.noop" class="Sonata\AdminBundle\Security\Handler\NoopSecurityHandler"/>
+    <service id="sonata.admin.security.handler.acl" class="Sonata\AdminBundle\Security\Handler\AclSecurityHandler">
+      <argument type="service" id="security.context"/>
+    </service>
+    <service id="sonata.admin.form.type.admin" class="Sonata\AdminBundle\Form\Type\AdminType">
+      <tag name="form.type" alias="sonata_type_admin"/>
+    </service>
+    <service id="sonata.admin.form.type.collection" class="Sonata\AdminBundle\Form\Type\CollectionType">
+      <tag name="form.type" alias="sonata_type_collection"/>
+    </service>
+    <service id="sonata.admin.form.type.model" class="Sonata\AdminBundle\Form\Type\ModelType">
+      <tag name="form.type" alias="sonata_type_model"/>
+    </service>
+    <service id="sonata.admin.form.type.array" class="Sonata\AdminBundle\Form\Type\ImmutableArrayType">
+      <tag name="form.type" alias="sonata_type_immutable_array"/>
+    </service>
+    <service id="sonata.admin.validator.inline" class="Sonata\AdminBundle\Validator\InlineValidator">
+      <tag name="validator.constraint_validator" alias="sonata.admin.validator.inline"/>
+      <argument type="service" id="service_container"/>
+      <argument type="service" id="validator.validator_factory"/>
+    </service>
+    <service id="knp_menu.provider" class="Knp\Bundle\MenuBundle\Provider\LazyProvider">
+      <argument type="service" id="service_container"/>
+    </service>
+    <service id="stof_doctrine_extensions.listener.translatable" class="Stof\DoctrineExtensionsBundle\Listener\TranslationListener">
+      <tag name="kernel.event_listener" event="kernel.request" method="onKernelRequest" priority="-10"/>
+      <call method="setAnnotationReader">
+        <argument type="service" id="annotation_reader"/>
+      </call>
+      <call method="setDefaultLocale">
+        <argument>en</argument>
+      </call>
+      <call method="setTranslationFallback">
+        <argument>false</argument>
+      </call>
+    </service>
+    <service id="stof_doctrine_extensions.listener.loggable" class="Stof\DoctrineExtensionsBundle\Listener\LoggableListener">
+      <call method="setContainer">
+        <argument type="service" id="service_container"/>
+      </call>
+      <call method="setAnnotationReader">
+        <argument type="service" id="annotation_reader"/>
+      </call>
+    </service>
     <service id="twig.extension.acme.demo" class="Acme\DemoBundle\Twig\Extension\DemoExtension" public="false">
       <tag name="twig.extension"/>
       <argument type="service" id="twig.loader"/>
@@ -2128,6 +2475,11 @@
     </service>
     <service id="sensio.distribution.webconfigurator" class="Sensio\Bundle\DistributionBundle\Configurator\Configurator">
       <argument>G:\Dvp\_RUBRIQUES\dvpquizbundle\app</argument>
+    </service>
+    <service id="sf2gen.toolbar" class="Sf2gen\Bundle\ConsoleBundle\Sf2genConsoleListener">
+      <tag name="kernel.event_listener" event="kernel.response" method="onKernelResponse" priority="-128"/>
+      <argument type="service" id="kernel"/>
+      <argument type="service" id="templating"/>
     </service>
     <service id="monolog.logger.request" class="Symfony\Bridge\Monolog\Logger">
       <argument>request</argument>
@@ -2329,5 +2681,6 @@
     <service id="debug.event_dispatcher" alias="event_dispatcher"/>
     <service id="database_connection" alias="doctrine.dbal.default_connection"/>
     <service id="doctrine.orm.entity_manager" alias="doctrine.orm.default_entity_manager"/>
+    <service id="sonata.admin.security.handler" alias="sonata.admin.security.handler.noop"/>
   </services>
 </container>

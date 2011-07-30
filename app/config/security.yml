@@ -32,6 +32,10 @@ security:
             #anonymous: ~
             #http_basic:
             #    realm: "Secured Demo Area"
+            
+        sf2gen:
+            pattern:    /_sf2gencdt/.*
+            security:  false
 
     access_control:
         #- { path: ^/login, roles: IS_AUTHENTICATED_ANONYMOUSLY, requires_channel: https }

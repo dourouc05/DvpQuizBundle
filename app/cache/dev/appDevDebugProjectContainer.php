@@ -81,10 +81,17 @@ class appDevDebugProjectContainer extends Container
         $instance->addResource(new \Symfony\Bundle\AsseticBundle\Factory\Resource\CoalescingDirectoryResource(array(0 => new \Symfony\Bundle\AsseticBundle\Factory\Resource\DirectoryResource($a, 'AsseticBundle', 'G:\\Dvp\\_RUBRIQUES\\dvpquizbundle\\app/Resources/AsseticBundle/views', '/^[^.]+\\.[^.]+\\.twig$/'), 1 => new \Symfony\Bundle\AsseticBundle\Factory\Resource\DirectoryResource($a, 'AsseticBundle', 'G:\\Dvp\\_RUBRIQUES\\dvpquizbundle\\vendor\\bundles\\Symfony\\Bundle\\AsseticBundle/Resources/views', '/^[^.]+\\.[^.]+\\.twig$/'))), 'twig');
         $instance->addResource(new \Symfony\Bundle\AsseticBundle\Factory\Resource\CoalescingDirectoryResource(array(0 => new \Symfony\Bundle\AsseticBundle\Factory\Resource\DirectoryResource($a, 'SensioFrameworkExtraBundle', 'G:\\Dvp\\_RUBRIQUES\\dvpquizbundle\\app/Resources/SensioFrameworkExtraBundle/views', '/^[^.]+\\.[^.]+\\.twig$/'), 1 => new \Symfony\Bundle\AsseticBundle\Factory\Resource\DirectoryResource($a, 'SensioFrameworkExtraBundle', 'G:\\Dvp\\_RUBRIQUES\\dvpquizbundle\\vendor\\bundles\\Sensio\\Bundle\\FrameworkExtraBundle/Resources/views', '/^[^.]+\\.[^.]+\\.twig$/'))), 'twig');
         $instance->addResource(new \Symfony\Bundle\AsseticBundle\Factory\Resource\CoalescingDirectoryResource(array(0 => new \Symfony\Bundle\AsseticBundle\Factory\Resource\DirectoryResource($a, 'JMSSecurityExtraBundle', 'G:\\Dvp\\_RUBRIQUES\\dvpquizbundle\\app/Resources/JMSSecurityExtraBundle/views', '/^[^.]+\\.[^.]+\\.twig$/'), 1 => new \Symfony\Bundle\AsseticBundle\Factory\Resource\DirectoryResource($a, 'JMSSecurityExtraBundle', 'G:\\Dvp\\_RUBRIQUES\\dvpquizbundle\\vendor\\bundles\\JMS\\SecurityExtraBundle/Resources/views', '/^[^.]+\\.[^.]+\\.twig$/'))), 'twig');
+        $instance->addResource(new \Symfony\Bundle\AsseticBundle\Factory\Resource\CoalescingDirectoryResource(array(0 => new \Symfony\Bundle\AsseticBundle\Factory\Resource\DirectoryResource($a, 'DoctrineFixturesBundle', 'G:\\Dvp\\_RUBRIQUES\\dvpquizbundle\\app/Resources/DoctrineFixturesBundle/views', '/^[^.]+\\.[^.]+\\.twig$/'), 1 => new \Symfony\Bundle\AsseticBundle\Factory\Resource\DirectoryResource($a, 'DoctrineFixturesBundle', 'G:\\Dvp\\_RUBRIQUES\\dvpquizbundle\\vendor\\bundles\\Symfony\\Bundle\\DoctrineFixturesBundle/Resources/views', '/^[^.]+\\.[^.]+\\.twig$/'))), 'twig');
+        $instance->addResource(new \Symfony\Bundle\AsseticBundle\Factory\Resource\CoalescingDirectoryResource(array(0 => new \Symfony\Bundle\AsseticBundle\Factory\Resource\DirectoryResource($a, 'SonatajQueryBundle', 'G:\\Dvp\\_RUBRIQUES\\dvpquizbundle\\app/Resources/SonatajQueryBundle/views', '/^[^.]+\\.[^.]+\\.twig$/'), 1 => new \Symfony\Bundle\AsseticBundle\Factory\Resource\DirectoryResource($a, 'SonatajQueryBundle', 'G:\\Dvp\\_RUBRIQUES\\dvpquizbundle\\vendor\\bundles\\Sonata\\jQueryBundle/Resources/views', '/^[^.]+\\.[^.]+\\.twig$/'))), 'twig');
+        $instance->addResource(new \Symfony\Bundle\AsseticBundle\Factory\Resource\CoalescingDirectoryResource(array(0 => new \Symfony\Bundle\AsseticBundle\Factory\Resource\DirectoryResource($a, 'SonataBluePrintBundle', 'G:\\Dvp\\_RUBRIQUES\\dvpquizbundle\\app/Resources/SonataBluePrintBundle/views', '/^[^.]+\\.[^.]+\\.twig$/'), 1 => new \Symfony\Bundle\AsseticBundle\Factory\Resource\DirectoryResource($a, 'SonataBluePrintBundle', 'G:\\Dvp\\_RUBRIQUES\\dvpquizbundle\\vendor\\bundles\\Sonata\\BluePrintBundle/Resources/views', '/^[^.]+\\.[^.]+\\.twig$/'))), 'twig');
+        $instance->addResource(new \Symfony\Bundle\AsseticBundle\Factory\Resource\CoalescingDirectoryResource(array(0 => new \Symfony\Bundle\AsseticBundle\Factory\Resource\DirectoryResource($a, 'SonataAdminBundle', 'G:\\Dvp\\_RUBRIQUES\\dvpquizbundle\\app/Resources/SonataAdminBundle/views', '/^[^.]+\\.[^.]+\\.twig$/'), 1 => new \Symfony\Bundle\AsseticBundle\Factory\Resource\DirectoryResource($a, 'SonataAdminBundle', 'G:\\Dvp\\_RUBRIQUES\\dvpquizbundle\\vendor\\bundles\\Sonata\\AdminBundle/Resources/views', '/^[^.]+\\.[^.]+\\.twig$/'))), 'twig');
+        $instance->addResource(new \Symfony\Bundle\AsseticBundle\Factory\Resource\CoalescingDirectoryResource(array(0 => new \Symfony\Bundle\AsseticBundle\Factory\Resource\DirectoryResource($a, 'KnpMenuBundle', 'G:\\Dvp\\_RUBRIQUES\\dvpquizbundle\\app/Resources/KnpMenuBundle/views', '/^[^.]+\\.[^.]+\\.twig$/'), 1 => new \Symfony\Bundle\AsseticBundle\Factory\Resource\DirectoryResource($a, 'KnpMenuBundle', 'G:\\Dvp\\_RUBRIQUES\\dvpquizbundle\\vendor\\bundles\\Knp\\Bundle\\MenuBundle/Resources/views', '/^[^.]+\\.[^.]+\\.twig$/'))), 'twig');
+        $instance->addResource(new \Symfony\Bundle\AsseticBundle\Factory\Resource\CoalescingDirectoryResource(array(0 => new \Symfony\Bundle\AsseticBundle\Factory\Resource\DirectoryResource($a, 'StofDoctrineExtensionsBundle', 'G:\\Dvp\\_RUBRIQUES\\dvpquizbundle\\app/Resources/StofDoctrineExtensionsBundle/views', '/^[^.]+\\.[^.]+\\.twig$/'), 1 => new \Symfony\Bundle\AsseticBundle\Factory\Resource\DirectoryResource($a, 'StofDoctrineExtensionsBundle', 'G:\\Dvp\\_RUBRIQUES\\dvpquizbundle\\vendor\\bundles\\Stof\\DoctrineExtensionsBundle/Resources/views', '/^[^.]+\\.[^.]+\\.twig$/'))), 'twig');
         $instance->addResource(new \Symfony\Bundle\AsseticBundle\Factory\Resource\CoalescingDirectoryResource(array(0 => new \Symfony\Bundle\AsseticBundle\Factory\Resource\DirectoryResource($a, 'AcmeDemoBundle', 'G:\\Dvp\\_RUBRIQUES\\dvpquizbundle\\app/Resources/AcmeDemoBundle/views', '/^[^.]+\\.[^.]+\\.twig$/'), 1 => new \Symfony\Bundle\AsseticBundle\Factory\Resource\DirectoryResource($a, 'AcmeDemoBundle', 'G:\\Dvp\\_RUBRIQUES\\dvpquizbundle\\src\\Acme\\DemoBundle/Resources/views', '/^[^.]+\\.[^.]+\\.twig$/'))), 'twig');
         $instance->addResource(new \Symfony\Bundle\AsseticBundle\Factory\Resource\CoalescingDirectoryResource(array(0 => new \Symfony\Bundle\AsseticBundle\Factory\Resource\DirectoryResource($a, 'WebProfilerBundle', 'G:\\Dvp\\_RUBRIQUES\\dvpquizbundle\\app/Resources/WebProfilerBundle/views', '/^[^.]+\\.[^.]+\\.twig$/'), 1 => new \Symfony\Bundle\AsseticBundle\Factory\Resource\DirectoryResource($a, 'WebProfilerBundle', 'G:\\Dvp\\_RUBRIQUES\\dvpquizbundle\\vendor\\symfony\\src\\Symfony\\Bundle\\WebProfilerBundle/Resources/views', '/^[^.]+\\.[^.]+\\.twig$/'))), 'twig');
         $instance->addResource(new \Symfony\Bundle\AsseticBundle\Factory\Resource\CoalescingDirectoryResource(array(0 => new \Symfony\Bundle\AsseticBundle\Factory\Resource\DirectoryResource($a, 'SensioDistributionBundle', 'G:\\Dvp\\_RUBRIQUES\\dvpquizbundle\\app/Resources/SensioDistributionBundle/views', '/^[^.]+\\.[^.]+\\.twig$/'), 1 => new \Symfony\Bundle\AsseticBundle\Factory\Resource\DirectoryResource($a, 'SensioDistributionBundle', 'G:\\Dvp\\_RUBRIQUES\\dvpquizbundle\\vendor\\bundles\\Sensio\\Bundle\\DistributionBundle/Resources/views', '/^[^.]+\\.[^.]+\\.twig$/'))), 'twig');
         $instance->addResource(new \Symfony\Bundle\AsseticBundle\Factory\Resource\CoalescingDirectoryResource(array(0 => new \Symfony\Bundle\AsseticBundle\Factory\Resource\DirectoryResource($a, 'SensioGeneratorBundle', 'G:\\Dvp\\_RUBRIQUES\\dvpquizbundle\\app/Resources/SensioGeneratorBundle/views', '/^[^.]+\\.[^.]+\\.twig$/'), 1 => new \Symfony\Bundle\AsseticBundle\Factory\Resource\DirectoryResource($a, 'SensioGeneratorBundle', 'G:\\Dvp\\_RUBRIQUES\\dvpquizbundle\\vendor\\bundles\\Sensio\\Bundle\\GeneratorBundle/Resources/views', '/^[^.]+\\.[^.]+\\.twig$/'))), 'twig');
+        $instance->addResource(new \Symfony\Bundle\AsseticBundle\Factory\Resource\CoalescingDirectoryResource(array(0 => new \Symfony\Bundle\AsseticBundle\Factory\Resource\DirectoryResource($a, 'Sf2genConsoleBundle', 'G:\\Dvp\\_RUBRIQUES\\dvpquizbundle\\app/Resources/Sf2genConsoleBundle/views', '/^[^.]+\\.[^.]+\\.twig$/'), 1 => new \Symfony\Bundle\AsseticBundle\Factory\Resource\DirectoryResource($a, 'Sf2genConsoleBundle', 'G:\\Dvp\\_RUBRIQUES\\dvpquizbundle\\vendor\\bundles\\Sf2gen\\Bundle\\ConsoleBundle/Resources/views', '/^[^.]+\\.[^.]+\\.twig$/'))), 'twig');
         $instance->addResource(new \Symfony\Bundle\AsseticBundle\Factory\Resource\DirectoryResource($a, '', 'G:\\Dvp\\_RUBRIQUES\\dvpquizbundle\\app/Resources/views', '/^[^.]+\\.[^.]+\\.twig$/'), 'twig');
 
         return $instance;
@@ -234,18 +241,25 @@ class appDevDebugProjectContainer extends Container
         $c = new \Doctrine\Common\Cache\ArrayCache();
         $c->setNamespace('sf2orm_default_0c32d5f81a9ff174cdbffb3533063a14');
 
-        $d = new \Doctrine\ORM\Configuration();
-        $d->setEntityNamespaces(array());
-        $d->setMetadataCacheImpl($a);
-        $d->setQueryCacheImpl($b);
-        $d->setResultCacheImpl($c);
-        $d->setMetadataDriverImpl(new \Doctrine\ORM\Mapping\Driver\DriverChain());
-        $d->setProxyDir('G:\\Dvp\\_RUBRIQUES\\dvpquizbundle\\app/cache/dev/doctrine/orm/Proxies');
-        $d->setProxyNamespace('Proxies');
-        $d->setAutoGenerateProxyClasses(true);
-        $d->setClassMetadataFactoryName('Doctrine\\ORM\\Mapping\\ClassMetadataFactory');
+        $d = new \Symfony\Bridge\Doctrine\Mapping\Driver\XmlDriver(array(0 => 'G:\\Dvp\\_RUBRIQUES\\dvpquizbundle\\vendor\\bundles\\Stof\\DoctrineExtensionsBundle\\Resources\\config\\doctrine'));
+        $d->setNamespacePrefixes(array('G:\\Dvp\\_RUBRIQUES\\dvpquizbundle\\vendor\\bundles\\Stof\\DoctrineExtensionsBundle\\Resources\\config\\doctrine' => 'Stof\\DoctrineExtensionsBundle\\Entity'));
+        $d->setGlobalBasename('mapping');
 
-        return $this->services['doctrine.orm.default_entity_manager'] = call_user_func(array('Doctrine\\ORM\\EntityManager', 'create'), $this->get('doctrine.dbal.default_connection'), $d);
+        $e = new \Doctrine\ORM\Mapping\Driver\DriverChain();
+        $e->addDriver($d, 'Stof\\DoctrineExtensionsBundle\\Entity');
+
+        $f = new \Doctrine\ORM\Configuration();
+        $f->setEntityNamespaces(array('StofDoctrineExtensionsBundle' => 'Stof\\DoctrineExtensionsBundle\\Entity'));
+        $f->setMetadataCacheImpl($a);
+        $f->setQueryCacheImpl($b);
+        $f->setResultCacheImpl($c);
+        $f->setMetadataDriverImpl($e);
+        $f->setProxyDir('G:\\Dvp\\_RUBRIQUES\\dvpquizbundle\\app/cache/dev/doctrine/orm/Proxies');
+        $f->setProxyNamespace('Proxies');
+        $f->setAutoGenerateProxyClasses(true);
+        $f->setClassMetadataFactoryName('Doctrine\\ORM\\Mapping\\ClassMetadataFactory');
+
+        return $this->services['doctrine.orm.default_entity_manager'] = call_user_func(array('Doctrine\\ORM\\EntityManager', 'create'), $this->get('doctrine.dbal.default_connection'), $f);
     }
 
     /**
@@ -304,8 +318,10 @@ class appDevDebugProjectContainer extends Container
         $instance->addListenerService('kernel.view', array(0 => 'sensio_framework_extra.view.listener', 1 => 'onKernelView'), 0);
         $instance->addListenerService('kernel.response', array(0 => 'sensio_framework_extra.cache.listener', 1 => 'onKernelResponse'), 0);
         $instance->addListenerService('kernel.controller', array(0 => 'security.extra.controller_listener', 1 => 'onCoreController'), -255);
+        $instance->addListenerService('kernel.request', array(0 => 'stof_doctrine_extensions.listener.translatable', 1 => 'onKernelRequest'), -10);
         $instance->addListenerService('kernel.controller', array(0 => 'acme.demo.listener', 1 => 'onKernelController'), 0);
         $instance->addListenerService('kernel.response', array(0 => 'web_profiler.debug_toolbar', 1 => 'onKernelResponse'), -128);
+        $instance->addListenerService('kernel.response', array(0 => 'sf2gen.toolbar', 1 => 'onKernelResponse'), -128);
 
         return $instance;
     }
@@ -359,7 +375,7 @@ class appDevDebugProjectContainer extends Container
      */
     protected function getForm_FactoryService()
     {
-        return $this->services['form.factory'] = new \Symfony\Component\Form\FormFactory(array(0 => new \Symfony\Component\Form\Extension\DependencyInjection\DependencyInjectionExtension($this, array('field' => 'form.type.field', 'form' => 'form.type.form', 'birthday' => 'form.type.birthday', 'checkbox' => 'form.type.checkbox', 'choice' => 'form.type.choice', 'collection' => 'form.type.collection', 'country' => 'form.type.country', 'date' => 'form.type.date', 'datetime' => 'form.type.datetime', 'email' => 'form.type.email', 'file' => 'form.type.file', 'hidden' => 'form.type.hidden', 'integer' => 'form.type.integer', 'language' => 'form.type.language', 'locale' => 'form.type.locale', 'money' => 'form.type.money', 'number' => 'form.type.number', 'password' => 'form.type.password', 'percent' => 'form.type.percent', 'radio' => 'form.type.radio', 'repeated' => 'form.type.repeated', 'search' => 'form.type.search', 'textarea' => 'form.type.textarea', 'text' => 'form.type.text', 'time' => 'form.type.time', 'timezone' => 'form.type.timezone', 'url' => 'form.type.url', 'csrf' => 'form.type.csrf', 'entity' => 'form.type.entity'), array('field' => array(0 => 'form.type_extension.field'), 'form' => array(0 => 'form.type_extension.csrf')), array(0 => 'form.type_guesser.validator', 1 => 'form.type_guesser.doctrine'))));
+        return $this->services['form.factory'] = new \Symfony\Component\Form\FormFactory(array(0 => new \Symfony\Component\Form\Extension\DependencyInjection\DependencyInjectionExtension($this, array('field' => 'form.type.field', 'form' => 'form.type.form', 'birthday' => 'form.type.birthday', 'checkbox' => 'form.type.checkbox', 'choice' => 'form.type.choice', 'collection' => 'form.type.collection', 'country' => 'form.type.country', 'date' => 'form.type.date', 'datetime' => 'form.type.datetime', 'email' => 'form.type.email', 'file' => 'form.type.file', 'hidden' => 'form.type.hidden', 'integer' => 'form.type.integer', 'language' => 'form.type.language', 'locale' => 'form.type.locale', 'money' => 'form.type.money', 'number' => 'form.type.number', 'password' => 'form.type.password', 'percent' => 'form.type.percent', 'radio' => 'form.type.radio', 'repeated' => 'form.type.repeated', 'search' => 'form.type.search', 'textarea' => 'form.type.textarea', 'text' => 'form.type.text', 'time' => 'form.type.time', 'timezone' => 'form.type.timezone', 'url' => 'form.type.url', 'csrf' => 'form.type.csrf', 'entity' => 'form.type.entity', 'sonata_type_admin' => 'sonata.admin.form.type.admin', 'sonata_type_collection' => 'sonata.admin.form.type.collection', 'sonata_type_model' => 'sonata.admin.form.type.model', 'sonata_type_immutable_array' => 'sonata.admin.form.type.array'), array('field' => array(0 => 'form.type_extension.field'), 'form' => array(0 => 'form.type_extension.csrf')), array(0 => 'form.type_guesser.validator', 1 => 'form.type_guesser.doctrine'))));
     }
 
     /**
@@ -818,6 +834,19 @@ class appDevDebugProjectContainer extends Container
     }
 
     /**
+     * Gets the 'knp_menu.provider' service.
+     *
+     * This service is shared.
+     * This method always returns the same instance of the service.
+     *
+     * @return Knp\Bundle\MenuBundle\Provider\LazyProvider A Knp\Bundle\MenuBundle\Provider\LazyProvider instance.
+     */
+    protected function getKnpMenu_ProviderService()
+    {
+        return $this->services['knp_menu.provider'] = new \Knp\Bundle\MenuBundle\Provider\LazyProvider($this);
+    }
+
+    /**
      * Gets the 'logger' service.
      *
      * This service is shared.
@@ -1145,6 +1174,7 @@ class appDevDebugProjectContainer extends Container
         $d->addLoader(new \Symfony\Component\Routing\Loader\AnnotationDirectoryLoader($a, $c));
         $d->addLoader(new \Symfony\Component\Routing\Loader\AnnotationFileLoader($a, $c));
         $d->addLoader($c);
+        $d->addLoader($this->get('sonata.admin.route_loader'));
 
         return $this->services['routing.loader'] = new \Symfony\Bundle\FrameworkBundle\Routing\DelegatingLoader($this->get('controller_name_converter'), $this->get('monolog.logger.router'), $d);
     }
@@ -1211,7 +1241,7 @@ class appDevDebugProjectContainer extends Container
      */
     protected function getSecurity_FirewallService()
     {
-        return $this->services['security.firewall'] = new \Symfony\Component\Security\Http\Firewall(new \Symfony\Bundle\SecurityBundle\Security\FirewallMap($this, array('security.firewall.map.context.dev' => new \Symfony\Component\HttpFoundation\RequestMatcher('^/(_(profiler|wdt)|css|images|js)/'), 'security.firewall.map.context.login' => new \Symfony\Component\HttpFoundation\RequestMatcher('^/demo/secured/login$'), 'security.firewall.map.context.secured_area' => new \Symfony\Component\HttpFoundation\RequestMatcher('^/demo/secured/'))), $this->get('event_dispatcher'));
+        return $this->services['security.firewall'] = new \Symfony\Component\Security\Http\Firewall(new \Symfony\Bundle\SecurityBundle\Security\FirewallMap($this, array('security.firewall.map.context.dev' => new \Symfony\Component\HttpFoundation\RequestMatcher('^/(_(profiler|wdt)|css|images|js)/'), 'security.firewall.map.context.login' => new \Symfony\Component\HttpFoundation\RequestMatcher('^/demo/secured/login$'), 'security.firewall.map.context.secured_area' => new \Symfony\Component\HttpFoundation\RequestMatcher('^/demo/secured/'), 'security.firewall.map.context.sf2gen' => new \Symfony\Component\HttpFoundation\RequestMatcher('/_sf2gencdt/.*'))), $this->get('event_dispatcher'));
     }
 
     /**
@@ -1264,6 +1294,19 @@ class appDevDebugProjectContainer extends Container
         $h->addHandler(new \Symfony\Component\Security\Http\Logout\SessionLogoutHandler());
 
         return $this->services['security.firewall.map.context.secured_area'] = new \Symfony\Bundle\SecurityBundle\Security\FirewallContext(array(0 => new \Symfony\Component\Security\Http\Firewall\ChannelListener($f, new \Symfony\Component\Security\Http\EntryPoint\RetryAuthenticationEntryPoint(), $a), 1 => new \Symfony\Component\Security\Http\Firewall\ContextListener($b, array(0 => $this->get('security.user.provider.concrete.in_memory')), 'secured_area', $a, $c), 2 => $h, 3 => new \Symfony\Component\Security\Http\Firewall\UsernamePasswordFormAuthenticationListener($b, $e, new \Symfony\Component\Security\Http\Session\SessionAuthenticationStrategy('migrate'), $g, 'secured_area', array('check_path' => '/demo/secured/login_check', 'login_path' => '/demo/secured/login', 'use_forward' => false, 'always_use_default_target_path' => false, 'default_target_path' => '/', 'target_path_parameter' => '_target_path', 'use_referer' => false, 'failure_path' => NULL, 'failure_forward' => false, 'username_parameter' => '_username', 'password_parameter' => '_password', 'csrf_parameter' => '_csrf_token', 'intention' => 'authenticate', 'post_only' => true), NULL, NULL, $a, $c), 4 => new \Symfony\Component\Security\Http\Firewall\AccessListener($b, $this->get('security.access.decision_manager'), $f, $e, $a)), new \Symfony\Component\Security\Http\Firewall\ExceptionListener($b, $this->get('security.authentication.trust_resolver'), $g, new \Symfony\Component\Security\Http\EntryPoint\FormAuthenticationEntryPoint($this->get('http_kernel'), $g, '/demo/secured/login', false), NULL, NULL, $a));
+    }
+
+    /**
+     * Gets the 'security.firewall.map.context.sf2gen' service.
+     *
+     * This service is shared.
+     * This method always returns the same instance of the service.
+     *
+     * @return Symfony\Bundle\SecurityBundle\Security\FirewallContext A Symfony\Bundle\SecurityBundle\Security\FirewallContext instance.
+     */
+    protected function getSecurity_Firewall_Map_Context_Sf2genService()
+    {
+        return $this->services['security.firewall.map.context.sf2gen'] = new \Symfony\Bundle\SecurityBundle\Security\FirewallContext(array(), NULL);
     }
 
     /**
@@ -1424,6 +1467,270 @@ class appDevDebugProjectContainer extends Container
     protected function getSessionListenerService()
     {
         return $this->services['session_listener'] = new \Symfony\Bundle\FrameworkBundle\EventListener\SessionListener($this, true);
+    }
+
+    /**
+     * Gets the 'sf2gen.toolbar' service.
+     *
+     * This service is shared.
+     * This method always returns the same instance of the service.
+     *
+     * @return Sf2gen\Bundle\ConsoleBundle\Sf2genConsoleListener A Sf2gen\Bundle\ConsoleBundle\Sf2genConsoleListener instance.
+     */
+    protected function getSf2gen_ToolbarService()
+    {
+        return $this->services['sf2gen.toolbar'] = new \Sf2gen\Bundle\ConsoleBundle\Sf2genConsoleListener($this->get('kernel'), $this->get('templating'));
+    }
+
+    /**
+     * Gets the 'sonata.admin.builder.orm_datagrid' service.
+     *
+     * This service is shared.
+     * This method always returns the same instance of the service.
+     *
+     * @return Sonata\AdminBundle\Builder\ORM\DatagridBuilder A Sonata\AdminBundle\Builder\ORM\DatagridBuilder instance.
+     */
+    protected function getSonata_Admin_Builder_OrmDatagridService()
+    {
+        return $this->services['sonata.admin.builder.orm_datagrid'] = new \Sonata\AdminBundle\Builder\ORM\DatagridBuilder($this->get('form.factory'));
+    }
+
+    /**
+     * Gets the 'sonata.admin.builder.orm_form' service.
+     *
+     * This service is shared.
+     * This method always returns the same instance of the service.
+     *
+     * @return Sonata\AdminBundle\Builder\ORM\FormContractor A Sonata\AdminBundle\Builder\ORM\FormContractor instance.
+     */
+    protected function getSonata_Admin_Builder_OrmFormService()
+    {
+        return $this->services['sonata.admin.builder.orm_form'] = new \Sonata\AdminBundle\Builder\ORM\FormContractor($this->get('form.factory'));
+    }
+
+    /**
+     * Gets the 'sonata.admin.builder.orm_list' service.
+     *
+     * This service is shared.
+     * This method always returns the same instance of the service.
+     *
+     * @return Sonata\AdminBundle\Builder\ORM\ListBuilder A Sonata\AdminBundle\Builder\ORM\ListBuilder instance.
+     */
+    protected function getSonata_Admin_Builder_OrmListService()
+    {
+        return $this->services['sonata.admin.builder.orm_list'] = new \Sonata\AdminBundle\Builder\ORM\ListBuilder();
+    }
+
+    /**
+     * Gets the 'sonata.admin.builder.orm_view' service.
+     *
+     * This service is shared.
+     * This method always returns the same instance of the service.
+     *
+     * @return Sonata\AdminBundle\Builder\ORM\ViewBuilder A Sonata\AdminBundle\Builder\ORM\ViewBuilder instance.
+     */
+    protected function getSonata_Admin_Builder_OrmViewService()
+    {
+        return $this->services['sonata.admin.builder.orm_view'] = new \Sonata\AdminBundle\Builder\ORM\ViewBuilder();
+    }
+
+    /**
+     * Gets the 'sonata.admin.form.type.admin' service.
+     *
+     * This service is shared.
+     * This method always returns the same instance of the service.
+     *
+     * @return Sonata\AdminBundle\Form\Type\AdminType A Sonata\AdminBundle\Form\Type\AdminType instance.
+     */
+    protected function getSonata_Admin_Form_Type_AdminService()
+    {
+        return $this->services['sonata.admin.form.type.admin'] = new \Sonata\AdminBundle\Form\Type\AdminType();
+    }
+
+    /**
+     * Gets the 'sonata.admin.form.type.array' service.
+     *
+     * This service is shared.
+     * This method always returns the same instance of the service.
+     *
+     * @return Sonata\AdminBundle\Form\Type\ImmutableArrayType A Sonata\AdminBundle\Form\Type\ImmutableArrayType instance.
+     */
+    protected function getSonata_Admin_Form_Type_ArrayService()
+    {
+        return $this->services['sonata.admin.form.type.array'] = new \Sonata\AdminBundle\Form\Type\ImmutableArrayType();
+    }
+
+    /**
+     * Gets the 'sonata.admin.form.type.collection' service.
+     *
+     * This service is shared.
+     * This method always returns the same instance of the service.
+     *
+     * @return Sonata\AdminBundle\Form\Type\CollectionType A Sonata\AdminBundle\Form\Type\CollectionType instance.
+     */
+    protected function getSonata_Admin_Form_Type_CollectionService()
+    {
+        return $this->services['sonata.admin.form.type.collection'] = new \Sonata\AdminBundle\Form\Type\CollectionType();
+    }
+
+    /**
+     * Gets the 'sonata.admin.form.type.model' service.
+     *
+     * This service is shared.
+     * This method always returns the same instance of the service.
+     *
+     * @return Sonata\AdminBundle\Form\Type\ModelType A Sonata\AdminBundle\Form\Type\ModelType instance.
+     */
+    protected function getSonata_Admin_Form_Type_ModelService()
+    {
+        return $this->services['sonata.admin.form.type.model'] = new \Sonata\AdminBundle\Form\Type\ModelType();
+    }
+
+    /**
+     * Gets the 'sonata.admin.helper' service.
+     *
+     * This service is shared.
+     * This method always returns the same instance of the service.
+     *
+     * @return Sonata\AdminBundle\Admin\AdminHelper A Sonata\AdminBundle\Admin\AdminHelper instance.
+     */
+    protected function getSonata_Admin_HelperService()
+    {
+        return $this->services['sonata.admin.helper'] = new \Sonata\AdminBundle\Admin\AdminHelper($this->get('sonata.admin.pool'));
+    }
+
+    /**
+     * Gets the 'sonata.admin.manager.orm' service.
+     *
+     * This service is shared.
+     * This method always returns the same instance of the service.
+     *
+     * @return Sonata\AdminBundle\Model\ORM\ModelManager A Sonata\AdminBundle\Model\ORM\ModelManager instance.
+     */
+    protected function getSonata_Admin_Manager_OrmService()
+    {
+        return $this->services['sonata.admin.manager.orm'] = new \Sonata\AdminBundle\Model\ORM\ModelManager($this->get('doctrine.orm.default_entity_manager'));
+    }
+
+    /**
+     * Gets the 'sonata.admin.pool' service.
+     *
+     * This service is shared.
+     * This method always returns the same instance of the service.
+     *
+     * @return Sonata\AdminBundle\Admin\Pool A Sonata\AdminBundle\Admin\Pool instance.
+     */
+    protected function getSonata_Admin_PoolService()
+    {
+        $this->services['sonata.admin.pool'] = $instance = new \Sonata\AdminBundle\Admin\Pool($this);
+
+        $instance->setAdminServiceIds(array());
+        $instance->setAdminGroups(array());
+        $instance->setAdminClasses(array());
+
+        return $instance;
+    }
+
+    /**
+     * Gets the 'sonata.admin.route_loader' service.
+     *
+     * This service is shared.
+     * This method always returns the same instance of the service.
+     *
+     * @return Sonata\AdminBundle\Route\AdminPoolLoader A Sonata\AdminBundle\Route\AdminPoolLoader instance.
+     */
+    protected function getSonata_Admin_RouteLoaderService()
+    {
+        return $this->services['sonata.admin.route_loader'] = new \Sonata\AdminBundle\Route\AdminPoolLoader($this->get('sonata.admin.pool'), array(), $this);
+    }
+
+    /**
+     * Gets the 'sonata.admin.security.handler.acl' service.
+     *
+     * This service is shared.
+     * This method always returns the same instance of the service.
+     *
+     * @return Sonata\AdminBundle\Security\Handler\AclSecurityHandler A Sonata\AdminBundle\Security\Handler\AclSecurityHandler instance.
+     */
+    protected function getSonata_Admin_Security_Handler_AclService()
+    {
+        return $this->services['sonata.admin.security.handler.acl'] = new \Sonata\AdminBundle\Security\Handler\AclSecurityHandler($this->get('security.context'));
+    }
+
+    /**
+     * Gets the 'sonata.admin.security.handler.noop' service.
+     *
+     * This service is shared.
+     * This method always returns the same instance of the service.
+     *
+     * @return Sonata\AdminBundle\Security\Handler\NoopSecurityHandler A Sonata\AdminBundle\Security\Handler\NoopSecurityHandler instance.
+     */
+    protected function getSonata_Admin_Security_Handler_NoopService()
+    {
+        return $this->services['sonata.admin.security.handler.noop'] = new \Sonata\AdminBundle\Security\Handler\NoopSecurityHandler();
+    }
+
+    /**
+     * Gets the 'sonata.admin.twig.extension' service.
+     *
+     * This service is shared.
+     * This method always returns the same instance of the service.
+     *
+     * @return Sonata\AdminBundle\Twig\Extension\SonataAdminExtension A Sonata\AdminBundle\Twig\Extension\SonataAdminExtension instance.
+     */
+    protected function getSonata_Admin_Twig_ExtensionService()
+    {
+        return $this->services['sonata.admin.twig.extension'] = new \Sonata\AdminBundle\Twig\Extension\SonataAdminExtension();
+    }
+
+    /**
+     * Gets the 'sonata.admin.validator.inline' service.
+     *
+     * This service is shared.
+     * This method always returns the same instance of the service.
+     *
+     * @return Sonata\AdminBundle\Validator\InlineValidator A Sonata\AdminBundle\Validator\InlineValidator instance.
+     */
+    protected function getSonata_Admin_Validator_InlineService()
+    {
+        return $this->services['sonata.admin.validator.inline'] = new \Sonata\AdminBundle\Validator\InlineValidator($this, $this->get('validator.validator_factory'));
+    }
+
+    /**
+     * Gets the 'stof_doctrine_extensions.listener.loggable' service.
+     *
+     * This service is shared.
+     * This method always returns the same instance of the service.
+     *
+     * @return Stof\DoctrineExtensionsBundle\Listener\LoggableListener A Stof\DoctrineExtensionsBundle\Listener\LoggableListener instance.
+     */
+    protected function getStofDoctrineExtensions_Listener_LoggableService()
+    {
+        $this->services['stof_doctrine_extensions.listener.loggable'] = $instance = new \Stof\DoctrineExtensionsBundle\Listener\LoggableListener();
+
+        $instance->setContainer($this);
+        $instance->setAnnotationReader($this->get('annotation_reader'));
+
+        return $instance;
+    }
+
+    /**
+     * Gets the 'stof_doctrine_extensions.listener.translatable' service.
+     *
+     * This service is shared.
+     * This method always returns the same instance of the service.
+     *
+     * @return Stof\DoctrineExtensionsBundle\Listener\TranslationListener A Stof\DoctrineExtensionsBundle\Listener\TranslationListener instance.
+     */
+    protected function getStofDoctrineExtensions_Listener_TranslatableService()
+    {
+        $this->services['stof_doctrine_extensions.listener.translatable'] = $instance = new \Stof\DoctrineExtensionsBundle\Listener\TranslationListener();
+
+        $instance->setAnnotationReader($this->get('annotation_reader'));
+        $instance->setDefaultLocale('en');
+        $instance->setTranslationFallback(false);
+
+        return $instance;
     }
 
     /**
@@ -1751,6 +2058,7 @@ class appDevDebugProjectContainer extends Container
         $instance->addExtension(new \Symfony\Bridge\Twig\Extension\YamlExtension());
         $instance->addExtension(new \Symfony\Bridge\Twig\Extension\FormExtension(array(0 => 'form_div_layout.html.twig')));
         $instance->addExtension(new \Symfony\Bundle\AsseticBundle\Twig\AsseticExtension($this->get('assetic.asset_factory'), true, array()));
+        $instance->addExtension($this->get('sonata.admin.twig.extension'));
         $instance->addExtension($this->get('twig.extension.acme.demo'));
 
         return $instance;
@@ -1796,7 +2104,7 @@ class appDevDebugProjectContainer extends Container
      */
     protected function getValidatorService()
     {
-        return $this->services['validator'] = new \Symfony\Component\Validator\Validator($this->get('validator.mapping.class_metadata_factory'), new \Symfony\Bundle\FrameworkBundle\Validator\ConstraintValidatorFactory($this, array('doctrine.orm.validator.unique' => 'doctrine.orm.validator.unique')), array(0 => $this->get('doctrine.orm.validator_initializer')));
+        return $this->services['validator'] = new \Symfony\Component\Validator\Validator($this->get('validator.mapping.class_metadata_factory'), $this->get('validator.validator_factory'), array(0 => $this->get('doctrine.orm.validator_initializer')));
     }
 
     /**
@@ -1840,6 +2148,16 @@ class appDevDebugProjectContainer extends Container
     protected function getDoctrine_Orm_EntityManagerService()
     {
         return $this->get('doctrine.orm.default_entity_manager');
+    }
+
+    /**
+     * Gets the sonata.admin.security.handler service alias.
+     *
+     * @return Sonata\AdminBundle\Security\Handler\NoopSecurityHandler An instance of the sonata.admin.security.handler.noop service
+     */
+    protected function getSonata_Admin_Security_HandlerService()
+    {
+        return $this->get('sonata.admin.security.handler.noop');
     }
 
     /**
@@ -2056,6 +2374,23 @@ class appDevDebugProjectContainer extends Container
     }
 
     /**
+     * Gets the 'validator.validator_factory' service.
+     *
+     * This service is shared.
+     * This method always returns the same instance of the service.
+     *
+     * This service is private.
+     * If you want to be able to request this service from the container directly,
+     * make it public, otherwise you might end up with broken code.
+     *
+     * @return Symfony\Bundle\FrameworkBundle\Validator\ConstraintValidatorFactory A Symfony\Bundle\FrameworkBundle\Validator\ConstraintValidatorFactory instance.
+     */
+    protected function getValidator_ValidatorFactoryService()
+    {
+        return $this->services['validator.validator_factory'] = new \Symfony\Bundle\FrameworkBundle\Validator\ConstraintValidatorFactory($this, array('doctrine.orm.validator.unique' => 'doctrine.orm.validator.unique', 'sonata.admin.validator.inline' => 'sonata.admin.validator.inline'));
+    }
+
+    /**
      * {@inheritdoc}
      */
     public function getParameter($name)
@@ -2120,10 +2455,17 @@ class appDevDebugProjectContainer extends Container
                 'AsseticBundle' => 'Symfony\\Bundle\\AsseticBundle\\AsseticBundle',
                 'SensioFrameworkExtraBundle' => 'Sensio\\Bundle\\FrameworkExtraBundle\\SensioFrameworkExtraBundle',
                 'JMSSecurityExtraBundle' => 'JMS\\SecurityExtraBundle\\JMSSecurityExtraBundle',
+                'DoctrineFixturesBundle' => 'Symfony\\Bundle\\DoctrineFixturesBundle\\DoctrineFixturesBundle',
+                'SonatajQueryBundle' => 'Sonata\\jQueryBundle\\SonatajQueryBundle',
+                'SonataBluePrintBundle' => 'Sonata\\BluePrintBundle\\SonataBluePrintBundle',
+                'SonataAdminBundle' => 'Sonata\\AdminBundle\\SonataAdminBundle',
+                'KnpMenuBundle' => 'Knp\\Bundle\\MenuBundle\\KnpMenuBundle',
+                'StofDoctrineExtensionsBundle' => 'Stof\\DoctrineExtensionsBundle\\StofDoctrineExtensionsBundle',
                 'AcmeDemoBundle' => 'Acme\\DemoBundle\\AcmeDemoBundle',
                 'WebProfilerBundle' => 'Symfony\\Bundle\\WebProfilerBundle\\WebProfilerBundle',
                 'SensioDistributionBundle' => 'Sensio\\Bundle\\DistributionBundle\\SensioDistributionBundle',
                 'SensioGeneratorBundle' => 'Sensio\\Bundle\\GeneratorBundle\\SensioGeneratorBundle',
+                'Sf2genConsoleBundle' => 'Sf2gen\\Bundle\\ConsoleBundle\\Sf2genConsoleBundle',
             ),
             'kernel.charset' => 'UTF-8',
             'kernel.container_class' => 'appDevDebugProjectContainer',
@@ -2480,10 +2822,26 @@ class appDevDebugProjectContainer extends Container
             'security.extra.controller_listener.class' => 'JMS\\SecurityExtraBundle\\Controller\\ControllerListener',
             'security.access.iddqd_voter.class' => 'JMS\\SecurityExtraBundle\\Security\\Authorization\\Voter\\IddqdVoter',
             'security.extra.secure_all_services' => false,
+            'sonata.admin.templates.layout' => 'SonataAdminBundle::standard_layout.html.twig',
+            'sonata.admin.templates.ajax' => 'SonataAdminBundle::ajax_layout.html.twig',
+            'knp_menu.provider.class' => 'Knp\\Bundle\\MenuBundle\\Provider\\LazyProvider',
+            'stof_doctrine_extensions.default_locale' => 'en',
+            'stof_doctrine_extensions.translation_fallback' => false,
+            'stof_doctrine_extensions.listener.translatable.class' => 'Stof\\DoctrineExtensionsBundle\\Listener\\TranslationListener',
+            'stof_doctrine_extensions.listener.timestampable.class' => 'Gedmo\\Timestampable\\TimestampableListener',
+            'stof_doctrine_extensions.listener.sluggable.class' => 'Gedmo\\Sluggable\\SluggableListener',
+            'stof_doctrine_extensions.listener.tree.class' => 'Gedmo\\Tree\\TreeListener',
+            'stof_doctrine_extensions.listener.loggable.class' => 'Stof\\DoctrineExtensionsBundle\\Listener\\LoggableListener',
+            'stof_doctrine_extensions.listener.sortable.class' => 'Gedmo\\Sortable\\SortableListener',
             'web_profiler.debug_toolbar.class' => 'Symfony\\Bundle\\WebProfilerBundle\\EventListener\\WebDebugToolbarListener',
             'web_profiler.debug_toolbar.intercept_redirects' => false,
             'web_profiler.debug_toolbar.mode' => 2,
             'sensio.distribution.webconfigurator.class' => 'Sensio\\Bundle\\DistributionBundle\\Configurator\\Configurator',
+            'sf2gen.console.class' => 'Sf2gen\\Bundle\\ConsoleBundle\\Sf2genConsoleListener',
+            'sf2gen_console.apps' => array(
+                0 => 'app',
+            ),
+            'sf2gen_console.new_process' => false,
             'data_collector.templates' => array(
                 'data_collector.config' => array(
                     0 => 'config',

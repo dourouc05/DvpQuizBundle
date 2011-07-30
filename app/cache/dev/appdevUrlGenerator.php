@@ -13,6 +13,8 @@ use Symfony\Component\Routing\Exception\RouteNotFoundException;
 class appdevUrlGenerator extends Symfony\Component\Routing\Generator\UrlGenerator
 {
     static private $declaredRouteNames = array(
+       '_sf2gencdt' => true,
+       '_sf2gencdt_request' => true,
        '_welcome' => true,
        '_demo_login' => true,
        '_security_check' => true,
@@ -54,6 +56,16 @@ class appdevUrlGenerator extends Symfony\Component\Routing\Generator\UrlGenerato
         list($variables, $defaults, $requirements, $tokens) = $this->{'get'.$escapedName.'RouteInfo'}();
 
         return $this->doGenerate($variables, $defaults, $requirements, $tokens, $parameters, $name, $absolute);
+    }
+
+    private function get_sf2gencdtRouteInfo()
+    {
+        return array(array (), array (  '_controller' => 'Sf2gen\\Bundle\\ConsoleBundle\\Controller\\ConsoleController::toolbarAction',), array (), array (  0 =>   array (    0 => 'text',    1 => '/_sf2gencdt/',  ),));
+    }
+
+    private function get_sf2gencdt_requestRouteInfo()
+    {
+        return array(array (), array (  '_controller' => 'Sf2gen\\Bundle\\ConsoleBundle\\Controller\\ConsoleController::requestAction',), array (), array (  0 =>   array (    0 => 'text',    1 => '/_sf2gencdt/request/',  ),));
     }
 
     private function get_welcomeRouteInfo()
