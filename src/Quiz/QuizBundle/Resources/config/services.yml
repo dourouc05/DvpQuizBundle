@@ -1,5 +1,0 @@
-services:
-    twig.extension.quiz:
-        class: Quiz\QuizBundle\Twig\Extension\QuizQuizExtension
-        tags:
-            - { name: twig.extension }
