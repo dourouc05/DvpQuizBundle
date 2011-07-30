@@ -31,8 +31,8 @@ class Question
     /**
      * Quiz auquel appartient cette question
      * 
-     * @ORM\ManyToOne(targetEntity="Quiz")
-     *///, inversedBy="question"
+     * @ORM\ManyToOne(targetEntity="Quiz", inversedBy="question")
+     */
     protected $quiz;
     
     /**

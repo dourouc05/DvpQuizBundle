@@ -29,12 +29,12 @@ class Answer
      */
     protected $deleted;
     
-//    /** 
-//     * Question à laquelle appartient cette réponse
-//     * 
-//     * @ORM\ManyToOne(targetEntity="Question", inversedBy="answer")
-//     */
-//    protected $question; 
+   /** 
+    * Question à laquelle appartient cette réponse
+    * 
+    * @ORM\ManyToOne(targetEntity="Question", inversedBy="answer")
+    */
+   protected $question; 
     
     /**
      * Texte de la réponse
