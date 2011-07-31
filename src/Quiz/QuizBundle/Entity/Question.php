@@ -6,7 +6,7 @@ use Gedmo\Mapping\Annotation as Gedmo;
 
 /** 
  * @ORM\Entity(repositoryClass="Quiz\QuizBundle\Entity\Repository\SoftDeleteRepository")
- ** @Gedmo\Loggable
+ * @Gedmo\Loggable
  */
 class Question
 {

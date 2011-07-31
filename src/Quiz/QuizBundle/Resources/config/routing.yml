@@ -1,3 +1,15 @@
 QuizQuizBundle_homepage:
     pattern:  /hello/{name}
     defaults: { _controller: QuizQuizBundle:Default:index }
+
+homepage:
+    pattern:  /
+    defaults: { _controller: QuizQuizBundle:Default:index }
+
+init_rub:
+    pattern: /init/rubriques
+    defaults: { _controller: QuizQuizBundle:Init:importRubriques }
+  
+init_quiz: 
+    pattern: /init/premier-quiz
+    defaults: { _controller: QuizQuizBundle:Init:createQuiz }

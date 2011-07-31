@@ -7,9 +7,8 @@ use Gedmo\Mapping\Annotation as Gedmo;
 /**
  * @ORM\Entity(repositoryClass="Gedmo\Tree\Entity\Repository\NestedTreeRepository")
  * @Gedmo\Tree(type="nested") 
+ * @Gedmo\Loggable
  */
-// Old annotations
-// * @Gedmo\Loggable
 class Category
 {
     public function __construct()

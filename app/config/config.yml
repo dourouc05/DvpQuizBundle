@@ -4,14 +4,13 @@ imports:
 
 framework:
     #esi:             ~
-    #translator:      { fallback: en }
     secret:          %secret%
     charset:         UTF-8
     router:          { resource: "%kernel.root_dir%/config/routing.yml" }
     form:            true
     csrf_protection: true
     validation:      { enable_annotations: true }
-    templating:      { engines: ['twig'] } #assets_version: SomeVersionScheme
+    templating:      { engines: ['twig'] } 
     session:
         default_locale: %locale%
         auto_start:     true
@@ -46,6 +45,9 @@ doctrine:
     orm:
         auto_generate_proxy_classes: %kernel.debug%
         auto_mapping: true
+        
+        mappings:
+            StofDoctrineExtensionsBundle: ~
 
 # Swiftmailer Configuration
 swiftmailer:
@@ -57,3 +59,13 @@ swiftmailer:
 jms_security_extra:
     secure_controllers:  true
     secure_all_services: false
+
+stof_doctrine_extensions:
+    default_locale: fr_BE
+    orm: 
+        default: 
+            tree: true
+            timestampable: true
+            sluggable: true
+            loggable: true
+            translatable: false

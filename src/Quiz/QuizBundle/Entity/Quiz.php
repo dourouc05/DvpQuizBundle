@@ -6,9 +6,8 @@ use Gedmo\Mapping\Annotation as Gedmo;
 
 /**
  * @ORM\Entity(repositoryClass="Quiz\QuizBundle\Entity\Repository\SoftDeleteRepository")
+ * @Gedmo\Loggable
  */
-// Old annotations
-// * @Gedmo\Loggable
 class Quiz
 {
     public function __construct()
