@@ -26,6 +26,7 @@ class QuizQuizExtension extends \Twig_Extension
             'gab_right' => new \Twig_Filter_Method($this, 'gabRight', array('is_safe' => array('html'))),
             'gab_up'    => new \Twig_Filter_Method($this, 'gabUp',    array('is_safe' => array('html'))),
             'gab_down'  => new \Twig_Filter_Method($this, 'gabDown',  array('is_safe' => array('html'))),
+            'tree_show' => new \Twig_Filter_Method($this, 'treeShow', array('is_safe' => array('html'))),
         );
     }
     
