@@ -11,6 +11,10 @@ security:
         ROLE_ADMIN: [ROLE_USER, ROLE_RESP]
 
     providers:
+        main: 
+            entity: { class: Quiz\QuizBundle\Entity\User, property: username }
+            # id: user_provider.quiz
+      
         in_memory:
             users:
                 user:  { password: userpass, roles: [ 'ROLE_USER' ] }
