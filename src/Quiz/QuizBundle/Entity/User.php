@@ -1,13 +1,12 @@
 <?php
 
 namespace Quiz\QuizBundle\Entity;
-use FOS\UserBundle\Entity\User as BaseUser;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
  * @ORM\Entity
  */
-class User extends BaseUser
+class User implements UserInterface
 {
 	public function __construct()
 	{
@@ -26,6 +25,41 @@ class User extends BaseUser
      * @ORM\OneToMany(targetEntity="Quiz", mappedBy="user")
      */
     protected $quiz; 
+    
+    /**
+     * @ORM\Column(type="string", length="255")
+     */
+    protected $username;
+    
+    /**
+     * @ORM\Column(type="string", length="255")
+     */
+    protected $email;
+    
+    /**
+     * @ORM\Column(type="string", length="255")
+     */
+    protected $prenom;
+    
+    /**
+     * @ORM\Column(type="string", length="255")
+     */
+    protected $nom;
+    
+    /**
+     * @ORM\Column(type="boolean")
+     */
+    protected $redaction;
+    
+    /**
+     * @ORM\Column(type="boolean")
+     */
+    protected $responsable;
+    
+    /**
+     * @ORM\Column(type="boolean")
+     */
+    protected $administrateur;
 
     /**
      * Get id
@@ -75,6 +109,106 @@ class User extends BaseUser
     public function getEmail()
     {
         return $this->email;
+    }
+
+    /**
+     * Set nom
+     *
+     * @param string $nom
+     */
+    public function setNom($nom)
+    {
+        $this->nom = $nom;
+    }
+
+    /**
+     * Get nom
+     *
+     * @return string $nom
+     */
+    public function getNom()
+    {
+        return $this->nom;
+    }
+
+    /**
+     * Set prenom
+     *
+     * @param string $prenom
+     */
+    public function setPrenom($prenom)
+    {
+        $this->prenom = $prenom;
+    }
+
+    /**
+     * Get prenom
+     *
+     * @return string $prenom
+     */
+    public function getPrenom()
+    {
+        return $this->prenom;
+    }
+
+    /**
+     * Set redaction
+     *
+     * @param boolean $redaction
+     */
+    public function setRedaction($redaction)
+    {
+        $this->redaction = $redaction;
+    }
+
+    /**
+     * Get redaction
+     *
+     * @return boolean $redaction
+     */
+    public function getRedaction()
+    {
+        return $this->redaction;
+    }
+
+    /**
+     * Set responsable
+     *
+     * @param boolean $responsable
+     */
+    public function setResponsable($responsable)
+    {
+        $this->responsable = $responsable;
+    }
+
+    /**
+     * Get responsable
+     *
+     * @return boolean $responsable
+     */
+    public function getResponsable()
+    {
+        return $this->responsable;
+    }
+
+    /**
+     * Set administrateur
+     *
+     * @param boolean $administrateur
+     */
+    public function setAdministrateur($administrateur)
+    {
+        $this->administrateur = $administrateur;
+    }
+
+    /**
+     * Get administrateur
+     *
+     * @return boolean $administrateur
+     */
+    public function getAdministrateur()
+    {
+        return $this->administrateur;
     }
 
     /**
