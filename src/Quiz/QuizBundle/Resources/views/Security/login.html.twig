@@ -1,0 +1,23 @@
+{% extends "QuizQuizBundle::layout.html.twig" %}
+
+{% block content %}
+<h1>Connexion</h1>
+<p>
+    Veuillez vous connecter (mêmes nom d'utilisateur et mot de passe que sur le forum). 
+</p>
+{% if error %}
+<div class="error">
+    {{ error.message }}
+</div>
+{% endif %}
+<form action="{{ path('login_check') }}" method="post">
+    <label for="username">Nom d'utilisateur :</label>
+    <input type="text" id="username" name="_username" value="{{ last_username }}" />
+    <br/>
+    <label for="password">Mot de passe :</label>
+    <input type="password" id="password" name="_password" />
+    <br/>
+    {# <input type="hidden" name="_target_path" value="/account" /> #}
+    <input type="submit" name="login" />
+</form>
+{% endblock %}

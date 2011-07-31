@@ -22,13 +22,18 @@ security:
             security: false
 
         secured_area:
-            pattern:    ^/demo/secured/
-            form_login:
-                check_path: /demo/secured/login_check
-                login_path: /demo/secured/login
-            logout:
-                path:   /demo/secured/logout
-                target: /demo/
+            pattern:   ^/
+            anonymous: ~
+            form_login: 
+                login_path: /connexion
+                check_path: /connexion/verification
+#            pattern:    ^/demo/secured/
+#            form_login:
+#                check_path: /demo/secured/login_check
+#                login_path: /demo/secured/login
+#            logout:
+#                path:   /demo/secured/logout
+#                target: /demo/
             #anonymous: ~
             #http_basic:
             #    realm: "Secured Demo Area"
@@ -40,3 +45,12 @@ security:
     access_control:
         #- { path: ^/login, roles: IS_AUTHENTICATED_ANONYMOUSLY, requires_channel: https }
         #- { path: ^/_internal, roles: IS_AUTHENTICATED_ANONYMOUSLY, ip: 127.0.0.1 }
+        # il faut être resp pour avoir accès au panel d'admin
+        - { path: ^/admin, roles: ROLE_RESP } 
+        # pour les opérations rares et lourdes, il faut être superadmin
+        - { path: ^/superadmin, roles: ROLE_ADMIN } 
+        # tout le monde peut créer des quiz (mais pas partout : il faut qu'un resp autorise 
+        # la personne à créer des quiz rubriques pour qu'ils apparaissent dans les listes, 
+        # sinon accès si on a un lien exclusivement - validable par resp au besoin). 
+        - { path: ^/creer, roles: ROLE_USER }
+        

@@ -7,9 +7,16 @@ homepage:
     defaults: { _controller: QuizQuizBundle:Default:index }
 
 init_rub:
-    pattern: /init/rubriques
+    pattern:  /init/rubriques
     defaults: { _controller: QuizQuizBundle:Init:importRubriques }
   
 init_quiz: 
-    pattern: /init/premier-quiz
+    pattern:  /init/premier-quiz
     defaults: { _controller: QuizQuizBundle:Init:createQuiz }
+    
+login:
+    pattern:  /connexion
+    defaults: { _controller: QuizQuizBundle:Security:login }
+
+login_check:
+    pattern:  /connexion/verification
