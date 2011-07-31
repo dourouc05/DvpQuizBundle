@@ -1,10 +1,14 @@
 security:
+    acl:
+        connection: default
+        
     encoders:
         Symfony\Component\Security\Core\User\User: plaintext
 
     role_hierarchy:
-        ROLE_ADMIN:       ROLE_USER
-        ROLE_SUPER_ADMIN: [ROLE_USER, ROLE_ADMIN, ROLE_ALLOWED_TO_SWITCH]
+        # ROLE_USER
+        ROLE_RESP:  ROLE_USER
+        ROLE_ADMIN: [ROLE_USER, ROLE_RESP]
 
     providers:
         in_memory:
@@ -41,12 +45,13 @@ security:
     access_control:
         #- { path: ^/login, roles: IS_AUTHENTICATED_ANONYMOUSLY, requires_channel: https }
         #- { path: ^/_internal, roles: IS_AUTHENTICATED_ANONYMOUSLY, ip: 127.0.0.1 }
-        # il faut être resp pour avoir accès au panel d'admin
-        - { path: ^/admin, roles: ROLE_RESP } 
-        # pour les opérations rares et lourdes, il faut être superadmin
-        - { path: ^/superadmin, roles: ROLE_ADMIN } 
+        
         # tout le monde peut créer des quiz (mais pas partout : il faut qu'un resp autorise 
         # la personne à créer des quiz rubriques pour qu'ils apparaissent dans les listes, 
         # sinon accès si on a un lien exclusivement - validable par resp au besoin). 
         - { path: ^/creer, roles: ROLE_USER }
+        # il faut être resp pour avoir accès au panel d'admin
+        - { path: ^/admin, roles: ROLE_RESP } 
+        # pour les opérations rares et lourdes, il faut être superadmin
+        - { path: ^/superadmin, roles: ROLE_ADMIN } 
         
