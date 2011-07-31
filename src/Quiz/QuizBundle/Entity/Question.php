@@ -13,7 +13,10 @@ class Question
     public function __construct()
     {
         $this->answer = new \Doctrine\Common\Collections\ArrayCollection();
+        // On définit les valeurs par défaut, sinon l'ORM plante (colonnes requises)
         $this->deleted = false; 
+        $this->multipleAnswers = false;
+        $this->explanation = '';
     }
     
     /**

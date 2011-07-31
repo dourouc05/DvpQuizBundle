@@ -51,7 +51,7 @@ class InitController extends Controller
         $this->em->persist($ans2);
         
         $q = new Question();
-        $q->setQuestion('Oui ou non ?');
+        $q->setText('Oui ou non ?');
         $q->addAnswer($ans1);
         $q->addAnswer($ans2);
         $this->em->persist($q);
