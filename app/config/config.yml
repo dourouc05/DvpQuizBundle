@@ -47,6 +47,7 @@ doctrine:
         
         mappings:
             StofDoctrineExtensionsBundle: ~
+            QuizQuizBundle: ~
 
 swiftmailer:
     transport: %mailer_transport%
@@ -67,3 +68,5 @@ stof_doctrine_extensions:
             sluggable: true
             loggable: true
             translatable: false
+            
+sensio_framework_extra: ~
