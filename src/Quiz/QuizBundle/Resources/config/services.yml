@@ -2,6 +2,10 @@ parameters:
 #    quiz_quiz.example.class: Quiz\QuizBundle\Example
 
 services:
+    twig.extension.quiz:
+        class: Quiz\QuizBundle\Twig\Extension\QuizQuizExtension
+        tags:
+            - { name: twig.extension }
 #    quiz_quiz.example:
 #        class: %quiz_quiz.example.class%
 #        arguments: [@service_id, "plain_value", %parameter%]

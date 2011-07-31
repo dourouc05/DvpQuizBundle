@@ -1,0 +1,50 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr" lang="fr">
+	<head>
+		<title>{% block title %}Les quiz de Developpez.com{% endblock %}</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<link rel="shortcut icon" href="{{ asset('favicon.ico') }}" />
+		<meta name="MSN_TopicType" content="whitepaper"/>
+		<meta name="MSN_UserRating" content="100 %"/>
+		<link rel="stylesheet" type="text/css" href="/template/gabarit0.css" />
+		<link rel="stylesheet" type="text/css" media="print" href="/template/printer.css" />
+		<link rel="stylesheet" type="text/css" media="screen" href="http://www.developpez.com/public/css/index2.css" />
+		<link rel="stylesheet" type="text/css" media="screen" href="http://www.developpez.com/template/kit/article.css" />
+        {% block stylesheets %}{% endblock %}
+	</head>
+	<body xml:lang="fr">
+        {{ 65|gab_up }}
+		<table>
+			<tr>
+				<td valign="top" style="width: 100%; ">
+                    <div class="divarticle">
+                        {% block content %}{% endblock %}
+                    </div>
+				</td>
+				<td style="width: 300px; " valign="top">
+                    {{ "Qt"|gab_right }}
+				</td>
+			</tr>
+		</table>
+		<p class="licence">
+			Copyright &copy; 2011 Developpez LLC. Tous droits réservés Developpez LLC. 
+			Aucune reproduction, même partielle, ne peut être faite de ce site et de 
+			l'ensemble de son contenu : textes, documents et images sans l'autorisation 
+			expresse de Developpez LLC. Sinon vous encourez selon la loi jusqu'à 3 ans 
+			de prison et jusqu'à 300&nbsp;000&nbsp;E de dommages et intérêts.
+			Cette page est déposée à la 
+			<a href="http://www.sacd.fr/" onclick="window.open(this.href); return false;">SACD</a>.
+		</p>
+        <script type="text/javascript">
+          var _gaq = _gaq || [];
+          _gaq.push(['_setAccount', 'UA-20125448-1']);
+          _gaq.push(['_trackPageview']);
+          (function() {
+            var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+          })();
+        </script>
+        {{ 65|gab_down }}
+	</body>
+</html>
