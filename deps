@@ -88,10 +88,6 @@
 	git=https://github.com/knplabs/KnpMenuBundle.git
 	target=/bundles/Knp/Bundle/MenuBundle
 
-[UserBundle]
-	git=https://github.com/FriendsOfSymfony/FOSUserBundle.git
-	target=/bundles/FOS/UserBundle
-
 [ConsoleBundle]
     git=https://github.com/RapotOR/ConsoleBundle.git
     target=/bundles/Sf2gen/Bundle/ConsoleBundle
