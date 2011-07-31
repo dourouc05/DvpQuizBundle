@@ -15,12 +15,10 @@ framework:
         default_locale: %locale%
         auto_start:     true
 
-# Twig Configuration
 twig:
     debug:            %kernel.debug%
     strict_variables: %kernel.debug%
 
-# Assetic Configuration
 assetic:
     debug:          %kernel.debug%
     use_controller: false
@@ -28,10 +26,11 @@ assetic:
         cssrewrite: ~
         closure:
             jar: %kernel.root_dir%/java/yuicompressor-2.4.6.jar
+        yui_js:
+            jar: %kernel.root_dir%/java/yuicompressor-2.4.6.jar
         yui_css:
             jar: %kernel.root_dir%/java/yuicompressor-2.4.6.jar
 
-# Doctrine Configuration
 doctrine:
     dbal:
         driver:   %database_driver%
@@ -49,7 +48,6 @@ doctrine:
         mappings:
             StofDoctrineExtensionsBundle: ~
 
-# Swiftmailer Configuration
 swiftmailer:
     transport: %mailer_transport%
     host:      %mailer_host%
