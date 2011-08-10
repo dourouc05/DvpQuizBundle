@@ -13,7 +13,6 @@ class User implements UserInterface
     public function __construct()
     {
         $this->quiz = new \Doctrine\Common\Collections\ArrayCollection();
-        parent::__construct();
     }
 
     /**
@@ -75,7 +74,7 @@ class User implements UserInterface
     
     public function getPassword()
     {
-        return null;
+        return $this->password;
     }
     
     public function getSalt()

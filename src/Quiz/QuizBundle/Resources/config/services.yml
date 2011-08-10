@@ -1,18 +1,10 @@
-parameters:
-#    quiz_quiz.example.class: Quiz\QuizBundle\Example
-
-services:
+services: 
     twig.extension.quiz:
         class: Quiz\QuizBundle\Twig\Extension\QuizQuizExtension
         tags:
             - { name: twig.extension }
-    
-#    security.authentication.dvp_entry_point: 
-#        class: Quiz\QuizBundle\Security\DvpAuthenticationEntryPoint
-#    
-#    security.logout.handler.dvp: 
-#        class: Quiz\QuizBundle\Security\DvpLogoutHandler
             
-#    quiz_quiz.example:
-#        class: %quiz_quiz.example.class%
-#        arguments: [@service_id, "plain_value", %parameter%]
+    kernel.listener.dvp_authentication_listener:
+        class: Quiz\QuizBundle\Security\LoginFormPreAuthenticateListener
+        tags: 
+            - { name: kernel.event_listener, priority: 42424242, method: handle, event: kernel.request }

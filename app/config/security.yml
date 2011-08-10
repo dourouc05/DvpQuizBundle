@@ -12,7 +12,7 @@ security:
 
     providers:
         main: 
-#            entity: { class: Quiz\QuizBundle\Entity\User, property: username }
+            entity: { class: Quiz\QuizBundle\Entity\User, property: username }
 #            id: dvp.user_provider
       
         in_memory:
