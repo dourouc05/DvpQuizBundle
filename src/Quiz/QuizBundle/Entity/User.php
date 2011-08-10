@@ -8,18 +8,18 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class User implements UserInterface
 {
-	public function __construct()
-	{
+    public function __construct()
+    {
         $this->quiz = new \Doctrine\Common\Collections\ArrayCollection();
-		parent::__construct();
-	}
-    
-	/**
-	* @ORM\Id
-	* @ORM\Column(type="integer")
-	* @ORM\generatedValue(strategy="AUTO")
-	*/
-	protected $id;
+        parent::__construct();
+    }
+
+    /**
+    * @ORM\Id
+    * @ORM\Column(type="integer")
+    * @ORM\generatedValue(strategy="AUTO")
+    */
+    protected $id;
     
     /**
      * @ORM\OneToMany(targetEntity="Quiz", mappedBy="user")
@@ -60,6 +60,11 @@ class User implements UserInterface
      * @ORM\Column(type="boolean")
      */
     protected $administrateur;
+    
+    /**
+     * @ORM\OneToMany(targetEntity="Role", mappedBy="user")
+     */
+    protected $roles; 
 
     /**
      * Get id
@@ -229,5 +234,25 @@ class User implements UserInterface
     public function getQuiz()
     {
         return $this->quiz;
+    }
+
+    /**
+     * Add role
+     *
+     * @param Quiz\QuizBundle\Entity\Role $role
+     */
+    public function addRole(\Quiz\QuizBundle\Entity\Role $role)
+    {
+        $this->roles[] = $role;
+    }
+
+    /**
+     * Get roles
+     *
+     * @return Doctrine\Common\Collections\Collection $role
+     */
+    public function getRoles()
+    {
+        return $this->roles;
     }
 }
