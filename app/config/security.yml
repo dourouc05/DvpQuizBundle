@@ -12,8 +12,8 @@ security:
 
     providers:
         main: 
-            entity: { class: Quiz\QuizBundle\Entity\User, property: username }
-#            id: user_provider.quiz
+#            entity: { class: Quiz\QuizBundle\Entity\User, property: username }
+#            id: dvp.user_provider
       
         in_memory:
             users:
