@@ -69,6 +69,16 @@ class User extends BaseUser
     }
 
     /**
+     * Set id
+     *
+     * @param integer $id
+     */
+    public function setId($id)
+    {
+        $this->id = $id;
+    }
+
+    /**
      * Set firstName
      *
      * @param string $firstName
@@ -95,7 +105,7 @@ class User extends BaseUser
      */
     public function setName($name)
     {
-        $this->name = $ame;
+        $this->name = $name;
     }
 
     /**

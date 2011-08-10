@@ -3,8 +3,3 @@ services:
         class: Quiz\QuizBundle\Twig\Extension\QuizQuizExtension
         tags:
             - { name: twig.extension }
-            
-    kernel.listener.dvp_authentication_listener:
-        class: Quiz\QuizBundle\Security\LoginFormPreAuthenticateListener
-        tags: 
-            - { name: kernel.event_listener, priority: 42424242, method: handle, event: kernel.request }
