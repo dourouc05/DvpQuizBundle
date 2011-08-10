@@ -70,3 +70,8 @@ stof_doctrine_extensions:
             translatable: false
             
 sensio_framework_extra: ~
+
+fos_user: 
+    db_driver:       orm
+    firewall_name:   main
+    user_class:      Quiz\QuizBundle\Entity\User

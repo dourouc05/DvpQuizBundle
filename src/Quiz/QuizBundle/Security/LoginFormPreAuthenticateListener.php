@@ -10,10 +10,12 @@ class LoginFormPreAuthenticateListener
 {
     public function handle(Event $event)
     {
-        if($event->getRequest()->request->has('_password'))
+        $rq = $event->getRequest()->request;
+        if($rq->has('_password'))
         {
-            var_dump($event->getRequest()->request->get('_password'));
-            var_dump($event->getRequest()->request->get('_username'));
+            // $rq->set($id, $val)
+            var_dump($rq->get('_password'));
+            var_dump($rq->get('_username'));
 
             $user = new User();
 

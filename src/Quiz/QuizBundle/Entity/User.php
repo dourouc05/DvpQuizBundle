@@ -3,16 +3,17 @@
 namespace Quiz\QuizBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-use Symfony\Component\Security\Core\User\UserInterface;
+use FOS\UserBundle\Entity\User as BaseUser;
 
 /**
  * @ORM\Entity
  */
-class User implements UserInterface
+class User extends BaseUser
 {
     public function __construct()
     {
         $this->quiz = new \Doctrine\Common\Collections\ArrayCollection();
+        parent::__construct();
     }
 
     /**
@@ -30,22 +31,12 @@ class User implements UserInterface
     /**
      * @ORM\Column(type="string", length="255")
      */
-    protected $username;
+    protected $firstName;
     
     /**
      * @ORM\Column(type="string", length="255")
      */
-    protected $email;
-    
-    /**
-     * @ORM\Column(type="string", length="255")
-     */
-    protected $prenom;
-    
-    /**
-     * @ORM\Column(type="string", length="255")
-     */
-    protected $nom;
+    protected $name;
     
     /**
      * @ORM\Column(type="boolean")
@@ -61,40 +52,6 @@ class User implements UserInterface
      * @ORM\Column(type="boolean")
      */
     protected $administrateur;
-    
-    /**
-     * @ORM\OneToMany(targetEntity="Role", mappedBy="user")
-     */
-    protected $roles; 
-    
-    public function __toString()
-    {
-        return $this->username; 
-    }
-    
-    public function getPassword()
-    {
-        return $this->password;
-    }
-    
-    public function getSalt()
-    {
-        return null;
-    }
-    
-    public function eraseCredentials()
-    {
-        return;
-    }
-    
-    public function equals(UserInterface $u)
-    {
-        if(! $u instanceof User)
-            return false;
-        if($this->username != $u->getUsername())
-            return false;
-        return true;
-    }
 
     /**
      * Get id
@@ -107,83 +64,43 @@ class User implements UserInterface
     }
 
     /**
-     * Set username
+     * Set firstName
      *
-     * @param string $username
+     * @param string $firstName
      */
-    public function setUsername($username)
+    public function setFirstName($firstName)
     {
-        $this->username = $username;
+        $this->firstName = $firstName;
     }
 
     /**
-     * Get username
+     * Get firstName
      *
-     * @return string $username
+     * @return string $firstName
      */
-    public function getUsername()
+    public function getFirstNames()
     {
-        return $this->username;
+        return $this->firstName;
     }
 
     /**
-     * Set email
+     * Set name
      *
-     * @param string $email
+     * @param string $name
      */
-    public function setEmail($email)
+    public function setName($name)
     {
-        $this->email = $email;
+        $this->name = $ame;
     }
 
     /**
-     * Get email
+     * Get name
      *
-     * @return string $email
+     * @return string $name
      */
-    public function getEmail()
+    public function getName()
     {
-        return $this->email;
-    }
-
-    /**
-     * Set nom
-     *
-     * @param string $nom
-     */
-    public function setNom($nom)
-    {
-        $this->nom = $nom;
-    }
-
-    /**
-     * Get nom
-     *
-     * @return string $nom
-     */
-    public function getNom()
-    {
-        return $this->nom;
-    }
-
-    /**
-     * Set prenom
-     *
-     * @param string $prenom
-     */
-    public function setPrenom($prenom)
-    {
-        $this->prenom = $prenom;
-    }
-
-    /**
-     * Get prenom
-     *
-     * @return string $prenom
-     */
-    public function getPrenom()
-    {
-        return $this->prenom;
+        return $this->name;
     }
 
     /**
@@ -264,25 +181,5 @@ class User implements UserInterface
     public function getQuiz()
     {
         return $this->quiz;
-    }
-
-    /**
-     * Add role
-     *
-     * @param Quiz\QuizBundle\Entity\Role $role
-     */
-    public function addRole(\Quiz\QuizBundle\Entity\Role $role)
-    {
-        $this->roles[] = $role;
-    }
-
-    /**
-     * Get roles
-     *
-     * @return Doctrine\Common\Collections\Collection $role
-     */
-    public function getRoles()
-    {
-        return $this->roles;
     }
 }
