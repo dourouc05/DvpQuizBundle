@@ -24,7 +24,6 @@ class AppKernel extends Kernel
             new Knp\Bundle\MenuBundle\KnpMenuBundle(),
             new Stof\DoctrineExtensionsBundle\StofDoctrineExtensionsBundle(),
             new Quiz\QuizBundle\QuizQuizBundle(),
-            new Quiz\DvpSecurityBundle\QuizDvpSecurityBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {
