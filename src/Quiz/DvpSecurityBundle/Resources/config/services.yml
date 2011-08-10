@@ -1,7 +1,0 @@
-parameters:
-#    quiz_dvp_security.example.class: Quiz\DvpSecurityBundle\Example
-
-services:
-#    quiz_dvp_security.example:
-#        class: %quiz_dvp_security.example.class%
-#        arguments: [@service_id, "plain_value", %parameter%]

@@ -1,3 +1,0 @@
-QuizDvpSecurityBundle_homepage:
-    pattern:  /hello/{name}
-    defaults: { _controller: QuizDvpSecurityBundle:Default:index }
