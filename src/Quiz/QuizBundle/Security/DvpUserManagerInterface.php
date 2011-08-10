@@ -7,6 +7,6 @@ interface DvpUserManagerInterface
     function hasUsername($id);
     function getUsernames();
     function getRoles();
-    function getRolesForUsername($id);
-    function setRolesForUsername($id, array $roles);
+    function getRolesForId($id);
+    function setRolesForId($id, array $roles);
 }
