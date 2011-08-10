@@ -21,7 +21,7 @@ $loader->registerNamespaces(array(
     'Sonata'                            => __DIR__.'/../vendor/bundles',
     'Knp'                               => __DIR__.'/../vendor/bundles',
     'Gedmo'                             => __DIR__.'/../vendor/gedmo-doctrine-extensions/lib',
-    // 'Quiz'                              => __DIR__.'/../src/',
+    'Quiz'                              => __DIR__.'/../src/',
 ));
 $loader->registerPrefixes(array(
     'Twig_Extensions_' => __DIR__.'/../vendor/twig-extensions/lib',
