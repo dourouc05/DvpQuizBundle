@@ -12,8 +12,8 @@ security:
 
     providers:
         main: 
-            entity: { class: Quiz\QuizBundle\Entity\User, property: username }
-            # id: user_provider.quiz
+            # entity: { class: Quiz\QuizBundle\Entity\User, property: username }
+            id: user_provider.quiz
       
         in_memory:
             users:
@@ -31,23 +31,12 @@ security:
             form_login: 
                 login_path: /connexion
                 check_path: /connexion/verification
-#            pattern:    ^/demo/secured/
-#            form_login:
-#                check_path: /demo/secured/login_check
-#                login_path: /demo/secured/login
-#            logout:
-#                path:   /demo/secured/logout
-#                target: /demo/
-            #anonymous: ~
-            #http_basic:
-            #    realm: "Secured Demo Area"
             
         sf2gen:
             pattern:    /_sf2gencdt/.*
             security:  false
 
     access_control:
-        #- { path: ^/login, roles: IS_AUTHENTICATED_ANONYMOUSLY, requires_channel: https }
         #- { path: ^/_internal, roles: IS_AUTHENTICATED_ANONYMOUSLY, ip: 127.0.0.1 }
         
         # tout le monde peut créer des quiz (mais pas partout : il faut qu'un resp autorise 
@@ -59,3 +48,5 @@ security:
         # pour les opérations rares et lourdes, il faut être superadmin
         - { path: ^/superadmin, roles: ROLE_ADMIN } 
         
+    factories: 
+        - "%kernel.root_dir%/../src/Quiz/QuizBundle/Resources/config/security_factories.xml"

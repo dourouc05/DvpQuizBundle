@@ -6,6 +6,12 @@ services:
         class: Quiz\QuizBundle\Twig\Extension\QuizQuizExtension
         tags:
             - { name: twig.extension }
+    
+    security.authentication.dvp_entry_point: 
+        class: Quiz\QuizBundle\Security\DvpAuthenticationEntryPoint
+    
+    security.logout.handler.dvp: 
+        class: Quiz\QuizBundle\Security\DvpLogoutHandler
             
 #    quiz_quiz.example:
 #        class: %quiz_quiz.example.class%
