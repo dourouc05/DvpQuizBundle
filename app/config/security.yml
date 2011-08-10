@@ -28,17 +28,15 @@ security:
             security: false
 
         main:
-            pattern: ^/
+            pattern:        ^/
             form_login:
-                provider: fos_userbundle
-            logout:       true
-            anonymous:    true
-#        secured_area:
-#            pattern:   ^/
-#            anonymous: ~
-#            form_login: 
-#                login_path: /connexion
-#                check_path: /connexion/verification
+#                provider:   fos_userbundle
+                login_path: /connexion
+                check_path: /connexion/verification
+            logout:
+                path:       /deconnexion
+                target:     /
+            anonymous:      true
             
         sf2gen:
             pattern:    /_sf2gencdt/.*
@@ -56,6 +54,3 @@ security:
         - { path: ^/admin, roles: ROLE_RESP } 
         # pour les opérations rares et lourdes, il faut être superadmin
         - { path: ^/superadmin, roles: ROLE_ADMIN } 
-        
-#    factories: 
-#        - "%kernel.root_dir%/../src/Quiz/QuizBundle/Resources/config/security_factories.xml"

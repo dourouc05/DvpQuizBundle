@@ -10,12 +10,15 @@
     {{ error.message }}
 </div>
 {% endif %}
-<form action="{{ path('login_check') }}" method="post">
+<form action="{{ path('security_check') }}" method="post">
     <label for="username">Nom d'utilisateur :</label>
     <input type="text" id="username" name="_username" value="{{ last_username }}" />
     <br/>
     <label for="password">Mot de passe :</label>
     <input type="password" id="password" name="_password" />
+    <br/>
+    <input type="checkbox" id="remember_me" name="_remember_me" value="on" />
+    <label for="remember_me">Se souvenir de moi</label>
     <br/>
     {# <input type="hidden" name="_target_path" value="/account" /> #}
     <input type="submit" name="login" />

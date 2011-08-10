@@ -14,22 +14,42 @@ class SecurityController extends Controller
 {
     public function loginAction()
     {
-        $request = $this->getRequest();
+        $request = $this->container->get('request');
+        /* @var $request \Symfony\Component\HttpFoundation\Request */
         $session = $request->getSession();
-        
-        // Y a-t-il eu un problème de connexion ?
-        if ($request->attributes->has(SecurityContext::AUTHENTICATION_ERROR))
+        /* @var $session \Symfony\Component\HttpFoundation\Session */
+
+        // get the error if any (works with forward and redirect -- see below)
+        if($request->attributes->has(SecurityContext::AUTHENTICATION_ERROR))
         {
             $error = $request->attributes->get(SecurityContext::AUTHENTICATION_ERROR);
         }
-        else
+        elseif(null !== $session && $session->has(SecurityContext::AUTHENTICATION_ERROR))
         {
             $error = $session->get(SecurityContext::AUTHENTICATION_ERROR);
+            $session->remove(SecurityContext::AUTHENTICATION_ERROR);
         }
+        else
+        {
+            $error = '';
+        }
+
+        if ($error)
+            $error = $error->getMessage();
         
-        return $this->render('QuizQuizBundle:Security:login.html.twig', array(
-            'last_username' => $session->get(SecurityContext::LAST_USERNAME), // le dernier nom d'utilisateur entré par cet utilisateur
-            'error'         => $error, // l'erreur, le cas échéant
-        ));
+        // last username entered by the user
+        $lastUsername = (null === $session) ? '' : $session->get(SecurityContext::LAST_USERNAME);
+
+        return $this->container
+                    ->get('templating')
+                    ->renderResponse
+                        (
+                            'QuizQuizBundle:Security:login.html.'.$this->container->getParameter('fos_user.template.engine'), 
+                            array
+                                (
+                                    'last_username' => $lastUsername,
+                                    'error'         => $error,
+                                )
+                         );
     }
 }
