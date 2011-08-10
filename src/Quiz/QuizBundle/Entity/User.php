@@ -1,7 +1,9 @@
 <?php
 
 namespace Quiz\QuizBundle\Entity;
+
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Security\Core\User\UserInterface;
 
 /**
  * @ORM\Entity
@@ -65,6 +67,35 @@ class User implements UserInterface
      * @ORM\OneToMany(targetEntity="Role", mappedBy="user")
      */
     protected $roles; 
+    
+    public function __toString()
+    {
+        return $this->username; 
+    }
+    
+    public function getPassword()
+    {
+        return null;
+    }
+    
+    public function getSalt()
+    {
+        return null;
+    }
+    
+    public function eraseCredentials()
+    {
+        return;
+    }
+    
+    public function equals(UserInterface $u)
+    {
+        if(! $u instanceof User)
+            return false;
+        if($this->username != $u->getUsername())
+            return false;
+        return true;
+    }
 
     /**
      * Get id

@@ -1,7 +1,3 @@
-QuizDvpSecurityBundle:
-    resource: "@QuizDvpSecurityBundle/Resources/config/routing.yml"
-    prefix:   /
-
 QuizQuizBundle:
     resource: "@QuizQuizBundle/Resources/config/routing.yml"
     prefix:   /
