@@ -52,6 +52,11 @@ class User extends BaseUser
      * @ORM\Column(type="boolean")
      */
     protected $administrateur;
+    
+    /**
+     * @ORM\ManyToMany(targetEntity="Quiz\QuizBundle\Entity\Group")
+     */
+    protected $groups;
 
     /**
      * Get id

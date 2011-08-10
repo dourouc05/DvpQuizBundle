@@ -75,3 +75,10 @@ fos_user:
     db_driver:       orm
     firewall_name:   main
     user_class:      Quiz\QuizBundle\Entity\User
+    group:
+        group_class: Quiz\QuizBundle\Entity\Group
+    encoder:
+        algorithm:   is_scalar 
+        # peu importe le mot de passe entré, cela le validera à coup sûr ; 
+        # on peut le faire en toute sécurité, étant donné que c'est géré
+        # dans LoginFormPreAuthenticateListener
