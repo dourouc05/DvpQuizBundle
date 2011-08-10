@@ -39,14 +39,15 @@ class LoginFormPreAuthenticateListener
                               ->setParameter('id', $xml->id)
                               ->getResult();
                 
-                if(count($q) == 0) // pas d'utilisateur déjà en base, on devra le créer de zéro ; sinon, on laisse Sf2 et FOSUB gérer le tout
+                if(count($q) == 0) 
+                // pas d'utilisateur déjà en base, on devra le créer de zéro ; sinon, on laisse Sf2 et FOSUB gérer le tout
                 {
                     $user = $this->um->createUser();
                     $user->setId($xml->id);
                     $user->setUsername($xml->pseudo);
-                    echo 'creative mood' . "\n";
                 }
-                else // déjà en base, on fait les modifications nécessaires pour que tout soit bien synchronisé
+                else 
+                // déjà en base, on fait les modifications nécessaires pour que tout soit bien synchronisé
                 {
                     $user = $q[0];
                 }
@@ -58,10 +59,7 @@ class LoginFormPreAuthenticateListener
                 $user->setAdministrateur($xml->admin);
                 $this->em->persist($user);
                 $this->em->flush();
-                echo 'all good';
             }
         }
-
-            exit;
     }
 }
