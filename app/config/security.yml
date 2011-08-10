@@ -12,8 +12,8 @@ security:
 
     providers:
         main: 
-            # entity: { class: Quiz\QuizBundle\Entity\User, property: username }
-            id: user_provider.quiz
+            entity: { class: Quiz\QuizBundle\Entity\User, property: username }
+#            id: user_provider.quiz
       
         in_memory:
             users:
@@ -48,5 +48,5 @@ security:
         # pour les opérations rares et lourdes, il faut être superadmin
         - { path: ^/superadmin, roles: ROLE_ADMIN } 
         
-    factories: 
-        - "%kernel.root_dir%/../src/Quiz/QuizBundle/Resources/config/security_factories.xml"
+#    factories: 
+#        - "%kernel.root_dir%/../src/Quiz/QuizBundle/Resources/config/security_factories.xml"
