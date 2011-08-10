@@ -12,14 +12,25 @@ class User extends BaseUser
 {
     public function __construct()
     {
-        $this->quiz = new \Doctrine\Common\Collections\ArrayCollection();
         parent::__construct();
+        
+        $this->quiz = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->groups = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->password = true;
+        
+        $this->firstName = "";
+        $this->name = "";
+        
+        $this->redaction = false;
+        $this->responsable = false;
+        $this->administrateur = false;
     }
 
     /**
     * @ORM\Id
     * @ORM\Column(type="integer")
-    * @ORM\generatedValue(strategy="AUTO")
+     * 
+     * L'identifiant est voulu par le forum !
     */
     protected $id;
     
