@@ -7,6 +7,7 @@
             <tag name="kernel.event_listener" priority="100" event="kernel.request" method="handle" />
             <argument type="service" id="doctrine.orm.entity_manager" />
             <argument type="service" id="fos_user.user_manager" />
+            <argument type="service" id="security.encoder_factory" />
         </service>
     </services>
 </container>

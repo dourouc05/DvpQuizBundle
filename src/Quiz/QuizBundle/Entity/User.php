@@ -7,6 +7,7 @@ use FOS\UserBundle\Entity\User as BaseUser;
 
 /**
  * @ORM\Entity
+ * @ORM\Table(name="fos_user")
  */
 class User extends BaseUser
 {
@@ -16,7 +17,7 @@ class User extends BaseUser
         
         $this->quiz = new \Doctrine\Common\Collections\ArrayCollection();
         $this->groups = new \Doctrine\Common\Collections\ArrayCollection();
-        $this->password = true;
+        $this->enabled = true; 
         
         $this->firstName = "";
         $this->name = "";
