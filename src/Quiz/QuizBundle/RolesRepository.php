@@ -91,7 +91,7 @@ class RolesRepository
          * 
          * Il faut être administrateur pour : 
          *  - lancer les initialisations (routes /init/*) ; 
-         *  -  vider les caches.
+         *  -  vider les caches (tout, avec première page à plusieurs secondes).
          */
         $this->addRoleForResponsables   ('ROLE_CAT');
         $this->addRoleForResponsables   ('ROLE_INIT_RUB');
