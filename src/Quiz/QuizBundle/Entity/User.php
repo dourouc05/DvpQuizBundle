@@ -21,10 +21,6 @@ class User extends BaseUser
         
         $this->firstName = "";
         $this->name = "";
-        
-        $this->redaction = false;
-        $this->responsable = false;
-        $this->administrateur = false;
     }
 
     /**
