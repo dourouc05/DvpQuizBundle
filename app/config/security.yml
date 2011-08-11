@@ -26,6 +26,8 @@ security:
                 path:       /deconnexion
                 target:     /
             anonymous:      true
+            remember_me: 
+                key:        "AA„EE„II„MM„QQ„UU„Y"
             
         sf2gen:
             pattern:    /_sf2gencdt/.*
