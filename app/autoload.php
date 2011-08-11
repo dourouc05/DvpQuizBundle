@@ -22,6 +22,7 @@ $loader->registerNamespaces(array(
     'Sonata'                            => __DIR__.'/../vendor/bundles',
     'Knp'                               => __DIR__.'/../vendor/bundles',
     'CoreSphere'                        => __DIR__.'/../vendor/bundles',
+    'winzou'                            => __DIR__.'/../vendor/bundles',
     'Quiz'                              => __DIR__.'/../src/',
 ));
 $loader->registerPrefixes(array(

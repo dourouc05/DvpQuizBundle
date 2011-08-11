@@ -7,6 +7,16 @@ use Symfony\Bundle\TwigBundle\Loader\FilesystemLoader;
 
 class QuizQuizExtension extends \Twig_Extension
 {
+    private $em;
+    private $cache;
+    
+    public function __construct($em, $cache)
+    {
+        $this->em = $em;
+        $this->cache = $cache;
+        $this->cache->setNamespace('twig.extension..');
+    }
+    
     /**
      * Returns the name of the extension.
      *
@@ -30,9 +40,21 @@ class QuizQuizExtension extends \Twig_Extension
         );
     }
     
-    public function gabRight($rubrique)
+    public function gabRight($id)
     {
-        return utf8_encode(file_get_contents('http://' . $rubrique . '.developpez.com/index/rightColumn'));
+        if($this->cache->contains('right.' . $id))
+        {
+            return $this->cache->fetch('right.' . $id);
+        }
+        else
+        {
+            $col = $this->em->createQuery('SELECT r.colonneDroite FROM QuizQuizBundle:Rubrique r WHERE r.id = :id')
+                            ->setParameter('id', $id)
+                            ->getSingleResult();
+            $cache = utf8_encode(file_get_contents($col['colonneDroite']));
+            $this->cache->save('right.' . $id, $cache, 600); 
+            return $cache;
+        }
     } 
     
     public function gabUp($id)
@@ -43,5 +65,18 @@ class QuizQuizExtension extends \Twig_Extension
     public function gabDown($id)
     {
         return utf8_encode(file_get_contents($_SERVER['DOCUMENT_ROOT'] . '/template/caches/piedxhtml' . $id . '.cache'));
+    }
+    
+    public function treeShow()
+    {
+        $repo = $this->em->getRepository('\Quiz\QuizBundle\Entity\Category');
+        $roots = $repo->getRootNodes();
+        return subTreeShow($nodes, $repo);
+    }
+    
+    private function subTreeShow($nodes, $repo)
+    {
+        $ret  = '<ul>';
+        $ret .= '</ul>';
     }
 }

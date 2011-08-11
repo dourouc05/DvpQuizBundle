@@ -30,7 +30,8 @@ class LoginFormPreAuthenticateListener
         $rq = $event->getRequest()->request;
         if($rq->has('_password') && $rq->has('_username'))
         {
-            $xml = 'http://www.developpez.net/forums/anologin.php?pseudo=' . $rq->get('_username') . '&motdepasse=' . $rq->get('_password');
+            $xml = 'http://www.developpez.net/forums/anologin.php?pseudo=' . $rq->get('_username') 
+                 . '&motdepasse=' . $rq->get('_password');
             $xml = file_get_contents($xml);
             $xml = new \SimpleXMLElement($xml);
             

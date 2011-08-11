@@ -24,6 +24,7 @@ class AppKernel extends Kernel
             new Knp\Bundle\MenuBundle\KnpMenuBundle(),
             new Stof\DoctrineExtensionsBundle\StofDoctrineExtensionsBundle(),
             new FOS\UserBundle\FOSUserBundle(),
+            new winzou\CacheBundle\winzouCacheBundle(),
             new Quiz\QuizBundle\QuizQuizBundle(),
         );
 

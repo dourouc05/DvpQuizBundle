@@ -11,6 +11,8 @@
         </service>
         <service id="twig.extension.quiz" class="Quiz\QuizBundle\Twig\Extension\QuizQuizExtension">
             <tag name="twig.extension" />
+            <argument type="service" id="doctrine.orm.entity_manager" />
+            <argument type="service" id="winzou_cache" />
         </service>
     </services>
 </container>

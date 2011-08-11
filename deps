@@ -95,3 +95,7 @@
 [ConsoleBundle]
     git=https://github.com/RapotOR/ConsoleBundle.git
     target=/bundles/Sf2gen/Bundle/ConsoleBundle
+
+[winzouCacheBundle]
+    git=https://dourouc05@github.com/dourouc05/CacheBundle.git
+    target=/bundles/winzou/CacheBundle
