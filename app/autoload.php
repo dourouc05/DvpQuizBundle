@@ -15,13 +15,15 @@ $loader->registerNamespaces(array(
     'Monolog'                           => __DIR__.'/../vendor/monolog/src',
     'Assetic'                           => __DIR__.'/../vendor/assetic/src',
     'Metadata'                          => __DIR__.'/../vendor/metadata/src',
+    'Gedmo'                             => __DIR__.'/../vendor/gedmo-doctrine-extensions/lib',
     'Sf2gen'                            => __DIR__.'/../vendor/bundles',
     'FOS'                               => __DIR__.'/../vendor/bundles',
     'Stof'                              => __DIR__.'/../vendor/bundles',
     'Sonata'                            => __DIR__.'/../vendor/bundles',
     'Knp'                               => __DIR__.'/../vendor/bundles',
-    'Gedmo'                             => __DIR__.'/../vendor/gedmo-doctrine-extensions/lib',
+    'CoreSphere'                        => __DIR__.'/../vendor/bundles',
     'Quiz'                              => __DIR__.'/../src/',
+    'Acme'                              => __DIR__.'/../src/',
 ));
 $loader->registerPrefixes(array(
     'Twig_Extensions_' => __DIR__.'/../vendor/twig-extensions/lib',
@@ -35,9 +37,9 @@ if (!function_exists('intl_get_error_code')) {
     $loader->registerPrefixFallbacks(array(__DIR__.'/../vendor/symfony/src/Symfony/Component/Locale/Resources/stubs'));
 }
 
-$loader->registerNamespaceFallbacks(array(
-    __DIR__.'/../src',
-));
+//$loader->registerNamespaceFallbacks(array(
+//    __DIR__.'/../src',
+//));
 $loader->register();
 
 AnnotationRegistry::registerLoader(function($class) use ($loader) {

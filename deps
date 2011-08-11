@@ -58,6 +58,10 @@
     target=/bundles/Symfony/Bundle/AsseticBundle
     version=v1.0.0RC2
 
+[TwigProfilerBundle]
+    git=http://github.com/CoreSphere/TwigProfilerBundle.git
+    target=/bundles/CoreSphere/TwigProfilerBundle
+
 [doctrine-fixtures]
     git=http://github.com/doctrine/data-fixtures.git
 

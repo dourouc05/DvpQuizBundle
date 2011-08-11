@@ -33,6 +33,7 @@ class AppKernel extends Kernel
             $bundles[] = new Sensio\Bundle\DistributionBundle\SensioDistributionBundle();
             $bundles[] = new Sensio\Bundle\GeneratorBundle\SensioGeneratorBundle();
             $bundles[] = new Sf2gen\Bundle\ConsoleBundle\Sf2genConsoleBundle();
+            $bundles[] = new CoreSphere\TwigProfilerBundle\CoreSphereTwigProfilerBundle();
         }
 
         return $bundles;
