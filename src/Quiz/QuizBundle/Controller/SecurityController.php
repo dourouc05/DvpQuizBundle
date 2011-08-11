@@ -5,6 +5,10 @@ namespace Quiz\QuizBundle\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\Security\Core\SecurityContext;
 
+// Annotations
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
+
 /**
  * Contrôleur pour la sécurité : formulaire de connexion principalement. 
  *
