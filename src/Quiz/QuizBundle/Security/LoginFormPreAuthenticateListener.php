@@ -69,6 +69,31 @@ class LoginFormPreAuthenticateListener
                 $user->setRedaction((bool) $xml->redac);
                 $user->setResponsable((bool) $xml->resp);
                 $user->setAdministrateur((bool) $xml->admin);
+                
+                if($xml->redac || $xml->resp || $xml->admin)
+                {
+                    $groups = $this->em->createQuery('SELECT g FROM QuizQuizBundle:Group g')->getResult();
+                    
+                    foreach($groups as $g)
+                    {
+                        switch($g->getName())
+                        {
+                            case "Rédaction":
+                                var_dump('r');
+                                break;
+                            case "Responsables":
+                                var_dump('rr');
+                                break;
+                            case "Administrateurs":
+                                var_dump('a');
+                                break;
+                            default:
+                                var_dump($g->getName());
+                                break;
+                        }
+                    }
+                }
+                exit;
                 $this->em->persist($user);
                 $this->em->flush();
             }

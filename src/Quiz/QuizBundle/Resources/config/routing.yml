@@ -13,6 +13,10 @@ init_rub:
 init_quiz: 
     pattern:  /init/premier-quiz
     defaults: { _controller: QuizQuizBundle:Init:createQuiz }
+  
+init_security: 
+    pattern:  /init/securite
+    defaults: { _controller: QuizQuizBundle:Init:initializeSecurity }
     
 security_login:
     pattern:  /connexion

@@ -17,4 +17,15 @@ class Group extends BaseGroup
      * @ORM\generatedValue(strategy="AUTO")
      */
      protected $id;
+     
+     public function setId($id)
+     {
+         $this->id = $id; 
+     }
+     
+     public function addRoles($roles)
+     {
+         foreach($roles as $r)
+             $this->addRole($r);
+     }
 }

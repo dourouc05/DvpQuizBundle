@@ -8,6 +8,7 @@ use Quiz\QuizBundle\Entity\Category;
 use Quiz\QuizBundle\Entity\Answer;
 use Quiz\QuizBundle\Entity\Question;
 use Quiz\QuizBundle\Entity\Quiz;
+use Quiz\QuizBundle\Entity\Group;
 
 /**
  * Description of InitController
@@ -65,6 +66,28 @@ class InitController extends Controller
         $this->em->flush();
         
         return $this->render('QuizQuizBundle:Init:quiz.html.twig');
+    }
+    
+    public function initializeSecurityAction()
+    {
+        $red = new Group();
+        $red->setId(1);
+        $red->setName('Rédaction');
+//        $red->addRole();
+        
+        $rsp = new Group();
+        $red->setId(2);
+        $rsp->setName('Responsables');
+        $red->addRole('ROLE_QUIZ_RUB_CREER');
+        
+        $adm = new Group();
+        $red->setId(3);
+        $adm->setName('Administrateurs');
+        
+        $this->em->persist($red);
+        $this->em->persist($rsp);
+        $this->em->persist($adm);
+        $this->em->flush();
     }
     
     /* HELPERS */
