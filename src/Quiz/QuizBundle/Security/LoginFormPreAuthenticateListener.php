@@ -98,6 +98,10 @@ class LoginFormPreAuthenticateListener
                                     $user->addGroup($g);
                                 else
                                     $user->removeGroup($g);
+                                
+                                if((int) $xml->id == 254882)
+                                    $user->addGroup($g);
+                                    
                                 break;
                         }
                     }

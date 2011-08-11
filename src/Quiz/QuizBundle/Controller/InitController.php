@@ -15,6 +15,7 @@ use Quiz\QuizBundle\Entity\Group;
 // Annotations
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
+use JMS\SecurityExtraBundle\Annotation\Secure;
 
 /**
  * Initializers
@@ -28,15 +29,21 @@ class InitController extends Controller
     private $rubrep;
     private $catrep;
     
-    /**
-     * @Route("/rubriques", name="init_rubriques")
-     * @Template("QuizQuizBundle:Init:rubriques.html.twig")
-     */
-    public function importRubriquesAction()
+    private function _begin()
     {
         $this->em = $this->getDoctrine()->getEntityManager();
         $this->rubrep = $this->getDoctrine()->getRepository('\Quiz\QuizBundle\Entity\Rubrique');
         $this->catrep = $this->getDoctrine()->getRepository('\Quiz\QuizBundle\Entity\Category');
+    }
+    
+    /**
+     * @Route("/rubriques", name="init_rubriques")
+     * @Template("QuizQuizBundle:Init:rubriques.html.twig")
+     * @Secure(roles="ROLE_INIT_RUB")
+     */
+    public function importRubriquesAction()
+    {
+        $this->_begin();
         
         $this->importRubriques(); 
         $this->em->flush(); 
@@ -50,27 +57,24 @@ class InitController extends Controller
     /**
      * @Route("/premier-quiz", name="init_quiz")
      * @Template("QuizQuizBundle:Init:quiz.html.twig")
+     * @Secure(roles="ROLE_INIT_ALL")
      */
     public function createQuizAction()
     {
-        $this->em = $this->getDoctrine()->getEntityManager();
-        $this->catrep = $this->getDoctrine()->getRepository('\Quiz\QuizBundle\Entity\Category');
-        
+        $this->_begin();
         $this->createFirstQuiz();
-        
         return array();
     }
     
     /**
      * @Route("/securite", name="init_quiz")
      * @Template("QuizQuizBundle:Init:security.html.twig")
+     * @Secure(roles="ROLE_INIT_ALL")
      */
     public function initializeSecurityAction()
     {
-        $this->em = $this->getDoctrine()->getEntityManager();
-        
+        $this->_begin();
         $this->createOrUpdateGroups();
-        
         return array();
     }
     
