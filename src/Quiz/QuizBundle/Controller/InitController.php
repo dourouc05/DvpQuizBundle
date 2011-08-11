@@ -3,6 +3,8 @@
 namespace Quiz\QuizBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+
+use Quiz\QuizBundle\RolesRepository;
 use Quiz\QuizBundle\Entity\Rubrique;
 use Quiz\QuizBundle\Entity\Category;
 use Quiz\QuizBundle\Entity\Answer;
@@ -10,16 +12,25 @@ use Quiz\QuizBundle\Entity\Question;
 use Quiz\QuizBundle\Entity\Quiz;
 use Quiz\QuizBundle\Entity\Group;
 
+// Annotations
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
+
 /**
- * Description of InitController
+ * Initializers
  *
  * @author Thibaut
+ * @Route("/init")
  */
 class InitController extends Controller
 {
     private $rubrep;
     private $catrep;
     
+    /**
+     * @Route("/rubriques", name="init_rubriques")
+     * @Template("QuizQuizBundle:Init:rubriques.html.twig")
+     */
     public function importRubriquesAction()
     {
         $this->em = $this->getDoctrine()->getEntityManager();
@@ -32,9 +43,13 @@ class InitController extends Controller
         $this->importCategories();
         $this->em->flush(); 
         
-        return $this->render('QuizQuizBundle:Init:rubriques.html.twig');
+        return array();
     }
     
+    /**
+     * @Route("/premier-quiz", name="init_quiz")
+     * @Template("QuizQuizBundle:Init:quiz.html.twig")
+     */
     public function createQuizAction()
     {
         $this->em = $this->getDoctrine()->getEntityManager();
@@ -65,29 +80,37 @@ class InitController extends Controller
         $this->em->persist($qu);
         $this->em->flush();
         
-        return $this->render('QuizQuizBundle:Init:quiz.html.twig');
+        return array();
     }
     
+    /**
+     * @Route("/securite", name="init_quiz")
+     * @Template("QuizQuizBundle:Init:quiz.html.twig")
+     */
     public function initializeSecurityAction()
     {
-        $red = new Group();
-        $red->setId(1);
-        $red->setName('Rédaction');
-//        $red->addRole();
+        $this->em = $this->getDoctrine()->getEntityManager();
+        $roles = new RolesRepository();
         
-        $rsp = new Group();
+        $con = new Group('Connectés', $roles->getRolesForConnected());
+        $con->setId(1);
+        
+        $red = new Group('Rédaction', $roles->getRolesForRedaction());
         $red->setId(2);
-        $rsp->setName('Responsables');
-        $red->addRole('ROLE_QUIZ_RUB_CREER');
         
-        $adm = new Group();
-        $red->setId(3);
-        $adm->setName('Administrateurs');
+        $rsp = new Group('Responsables', $roles->getRolesForResponsables());
+        $rsp->setId(3);
         
+        $adm = new Group('Administrateurs', $roles->getRolesForAdministrateurs());
+        $adm->setId(4);
+        
+        $this->em->persist($con);
         $this->em->persist($red);
         $this->em->persist($rsp);
         $this->em->persist($adm);
         $this->em->flush();
+        
+        return array();
     }
     
     /* HELPERS */

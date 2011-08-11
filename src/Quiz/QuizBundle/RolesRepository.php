@@ -1,5 +1,7 @@
 <?php
 
+namespace Quiz\QuizBundle;
+
 /**
  * Repository for all Roles you can imagine out there (generic ones, of course). 
  * 
