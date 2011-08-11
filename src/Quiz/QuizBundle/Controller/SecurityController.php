@@ -23,7 +23,7 @@ class SecurityController extends Controller
     public function logoutAction() {}
     
     /**
-     * @Route("/connexion/verification", name="security_logout")
+     * @Route("/connexion/verification", name="security_check")
      * @Template("QuizQuizBundle:Init:rubriques.html.twig")
      */
     public function checkAction() {}
