@@ -86,14 +86,18 @@ class RolesRepository
          * 
          * Il faut être responsable pour : 
          *  - relancer l'importation des rubriques et des catégories ; 
-         *  - gérer les catégories. 
+         *  - gérer les catégories ; 
+         *  - vider les caches CacheBundle.
          * 
          * Il faut être administrateur pour : 
-         *  - lancer les initialisations (routes /init/*). 
+         *  - lancer les initialisations (routes /init/*) ; 
+         *  -  vider les caches.
          */
         $this->addRoleForResponsables   ('ROLE_CAT');
         $this->addRoleForResponsables   ('ROLE_INIT_RUB');
+        $this->addRoleForResponsables   ('ROLE_CACHE_BUNDLE');
         $this->addRoleForAdministrateurs('ROLE_INIT_ALL');
+        $this->addRoleForAdministrateurs('ROLE_CACHE_ALL');
     }
     
     private function addRoleForEveryone($role)
