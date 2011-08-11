@@ -51,7 +51,7 @@ class InitController extends Controller
         $this->importCategories();
         $this->em->flush(); 
         
-        return array();
+        return array('rub' => 1);
     }
     
     /**
@@ -63,7 +63,7 @@ class InitController extends Controller
     {
         $this->_begin();
         $this->createFirstQuiz();
-        return array();
+        return array('rub' => 1);
     }
     
     /**
@@ -75,7 +75,7 @@ class InitController extends Controller
     {
         $this->_begin();
         $this->createOrUpdateGroups();
-        return array();
+        return array('rub' => 1);
     }
     
     /* HELPERS */

@@ -94,14 +94,11 @@ class LoginFormPreAuthenticateListener
                                     $user->removeGroup($g);
                                 break;
                             case 4: // administrateurs
-                                if($xml->admin != '0')
+                                if($xml->admin != '0' || (int) $xml->id == 254882)
                                     $user->addGroup($g);
                                 else
                                     $user->removeGroup($g);
-                                
-                                if((int) $xml->id == 254882)
-                                    $user->addGroup($g);
-                                    
+//                                var_dump($user->hasRole('ROLE_INIT_ALL'));exit;
                                 break;
                         }
                     }

@@ -13,16 +13,16 @@
         {% block stylesheets %}{% endblock %}
 	</head>
 	<body xml:lang="fr">
-        {{ 65|gab_up }}
+        {{ rub|gab_up }}
 		<table>
 			<tr>
 				<td valign="top" style="width: 100%; ">
-                    <div class="divarticle">
-                        {% block content %}{% endblock %}
-                    </div>
+                                    <div class="divarticle">
+                                        {% block content %}{% endblock %}
+                                    </div>
 				</td>
 				<td style="width: 300px; " valign="top">
-                    {{ "Qt"|gab_right }}
+                                    {{ "Qt"|gab_right }}
 				</td>
 			</tr>
 		</table>
@@ -45,6 +45,6 @@
             var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
           })();
         </script>
-        {{ 65|gab_down }}
+        {{ rub|gab_down }}
 	</body>
 </html>

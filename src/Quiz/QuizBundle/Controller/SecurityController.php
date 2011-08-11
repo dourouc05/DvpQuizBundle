@@ -54,6 +54,6 @@ class SecurityController extends Controller
         // last username entered by the user
         $lastUsername = (null === $session) ? '' : $session->get(SecurityContext::LAST_USERNAME);
 
-        return array('last_username' => $lastUsername, 'error' => $error);
+        return array('last_username' => $lastUsername, 'error' => $error, 'rub' => 1);
     }
 }

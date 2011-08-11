@@ -51,21 +51,6 @@ class User extends BaseUser
     protected $name;
     
     /**
-     * @ORM\Column(type="boolean")
-     */
-    protected $redaction;
-    
-    /**
-     * @ORM\Column(type="boolean")
-     */
-    protected $responsable;
-    
-    /**
-     * @ORM\Column(type="boolean")
-     */
-    protected $administrateur;
-    
-    /**
      * @ORM\ManyToMany(targetEntity="Quiz\QuizBundle\Entity\Group")
      */
     protected $groups;
@@ -128,66 +113,6 @@ class User extends BaseUser
     public function getName()
     {
         return $this->name;
-    }
-
-    /**
-     * Set redaction
-     *
-     * @param boolean $redaction
-     */
-    public function setRedaction($redaction)
-    {
-        $this->redaction = $redaction;
-    }
-
-    /**
-     * Get redaction
-     *
-     * @return boolean $redaction
-     */
-    public function getRedaction()
-    {
-        return $this->redaction;
-    }
-
-    /**
-     * Set responsable
-     *
-     * @param boolean $responsable
-     */
-    public function setResponsable($responsable)
-    {
-        $this->responsable = $responsable;
-    }
-
-    /**
-     * Get responsable
-     *
-     * @return boolean $responsable
-     */
-    public function getResponsable()
-    {
-        return $this->responsable;
-    }
-
-    /**
-     * Set administrateur
-     *
-     * @param boolean $administrateur
-     */
-    public function setAdministrateur($administrateur)
-    {
-        $this->administrateur = $administrateur;
-    }
-
-    /**
-     * Get administrateur
-     *
-     * @return boolean $administrateur
-     */
-    public function getAdministrateur()
-    {
-        return $this->administrateur;
     }
 
     /**
