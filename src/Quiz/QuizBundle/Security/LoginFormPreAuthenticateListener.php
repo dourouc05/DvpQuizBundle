@@ -66,37 +66,46 @@ class LoginFormPreAuthenticateListener
                 $user->setEmail((string) $xml->email);
                 $user->setFirstName((string) $xml->prenom);
                 $user->setName((string) $xml->nom);
-                $user->setRedaction((bool) $xml->redac);
-                $user->setResponsable((bool) $xml->resp);
-                $user->setAdministrateur((bool) $xml->admin);
+//                $user->setRedaction((bool) $xml->redac);
+//                $user->setResponsable((bool) $xml->resp);
+//                $user->setAdministrateur((bool) $xml->admin);
                 
-                if($xml->redac || $xml->resp || $xml->admin)
+                if((bool) $xml->redac || (bool) $xml->resp || (bool) $xml->admin)
                 {
                     $groups = $this->em->createQuery('SELECT g FROM QuizQuizBundle:Group g')->getResult();
                     
                     foreach($groups as $g)
                     {
-                        switch($g->getName())
+                        switch($g->getId())
                         {
-                            case "Rédaction":
-                                var_dump('r');
+                            case 1: // connectés
+                                $user->addGroup($g);
                                 break;
-                            case "Responsables":
-                                var_dump('rr');
+                            case 2: // rédaction
+                                if($xml->redac != '0' || $xml->resp != '0' || $xml->admin != '0')
+                                    $user->addGroup($g);
+                                else
+                                    $user->removeGroup($g);
                                 break;
-                            case "Administrateurs":
-                                var_dump('a');
+                            case 3: // responsables
+                                if($xml->resp != '0' || $xml->admin != '0')
+                                    $user->addGroup($g);
+                                else
+                                    $user->removeGroup($g);
                                 break;
-                            default:
-                                var_dump($g->getName());
+                            case 4: // administrateurs
+                                if($xml->admin != '0')
+                                    $user->addGroup($g);
+                                else
+                                    $user->removeGroup($g);
                                 break;
                         }
                     }
                 }
-                exit;
+                
                 $this->em->persist($user);
                 $this->em->flush();
             }
-        }
+        } 
     }
 }
