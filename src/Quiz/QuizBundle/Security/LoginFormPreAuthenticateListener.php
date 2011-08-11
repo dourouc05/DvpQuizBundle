@@ -98,7 +98,6 @@ class LoginFormPreAuthenticateListener
                                     $user->addGroup($g);
                                 else
                                     $user->removeGroup($g);
-//                                var_dump($user->hasRole('ROLE_INIT_ALL'));exit;
                                 break;
                         }
                     }
