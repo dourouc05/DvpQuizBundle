@@ -1,22 +1,6 @@
-QuizQuizBundle_homepage:
-    pattern:  /hello/{name}
-    defaults: { _controller: QuizQuizBundle:Default:index }
-
 homepage:
     pattern:  /
     defaults: { _controller: QuizQuizBundle:Default:index }
-    
-security_login:
-    pattern:  /connexion
-    defaults: { _controller: QuizQuizBundle:Security:login }
-
-security_check:
-    pattern:  /connexion/verification
-    defaults: { _controller: QuizQuizBundle:Security:check }
-    
-security_logout: 
-    pattern:  /deconnexion
-    defaults: { _controller: QuizQuizBundle:Security:logout }
     
 _annotations:
     resource: "@QuizQuizBundle/Controller"

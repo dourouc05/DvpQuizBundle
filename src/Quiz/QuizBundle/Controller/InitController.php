@@ -24,6 +24,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
  */
 class InitController extends Controller
 {
+    private $em;
     private $rubrep;
     private $catrep;
     
@@ -55,60 +56,20 @@ class InitController extends Controller
         $this->em = $this->getDoctrine()->getEntityManager();
         $this->catrep = $this->getDoctrine()->getRepository('\Quiz\QuizBundle\Entity\Category');
         
-        $ans1 = new Answer();
-        $ans1->setText('Oui');
-        $ans1->setExplanation('Soyons réalistes. ');
-        $ans1->setIsRight(true);
-        $this->em->persist($ans1);
-        
-        $ans2 = new Answer();
-        $ans2->setText('Non');
-        $ans2->setExplanation('Autre chose. '); 
-        $this->em->persist($ans2);
-        
-        $q = new Question();
-        $q->setText('Oui ou non ?');
-        $q->addAnswer($ans1);
-        $q->addAnswer($ans2);
-        $this->em->persist($q);
-        $this->em->flush();
-        var_dump(1);
-        
-        $qu = new Quiz();
-        $qu->setName('Premier quiz de test');
-        $qu->addQuestion($q);
-        $this->em->persist($qu);
-        $this->em->flush();
+        $this->createFirstQuiz();
         
         return array();
     }
     
     /**
      * @Route("/securite", name="init_quiz")
-     * @Template("QuizQuizBundle:Init:quiz.html.twig")
+     * @Template("QuizQuizBundle:Init:security.html.twig")
      */
     public function initializeSecurityAction()
     {
         $this->em = $this->getDoctrine()->getEntityManager();
-        $roles = new RolesRepository();
         
-        $con = new Group('Connectés', $roles->getRolesForConnected());
-        $con->setId(1);
-        
-        $red = new Group('Rédaction', $roles->getRolesForRedaction());
-        $red->setId(2);
-        
-        $rsp = new Group('Responsables', $roles->getRolesForResponsables());
-        $rsp->setId(3);
-        
-        $adm = new Group('Administrateurs', $roles->getRolesForAdministrateurs());
-        $adm->setId(4);
-        
-        $this->em->persist($con);
-        $this->em->persist($red);
-        $this->em->persist($rsp);
-        $this->em->persist($adm);
-        $this->em->flush();
+        $this->createOrUpdateGroups();
         
         return array();
     }
@@ -275,5 +236,85 @@ class InitController extends Controller
             
             $this->em->persist($cat);
         }
+    }
+    
+    private function createFirstQuiz()
+    {
+        $ans1 = new Answer();
+        $ans1->setText('Oui');
+        $ans1->setExplanation('Soyons réalistes. ');
+        $ans1->setIsRight(true);
+        $this->em->persist($ans1);
+        
+        $ans2 = new Answer();
+        $ans2->setText('Non');
+        $ans2->setExplanation('Autre chose. '); 
+        $this->em->persist($ans2);
+        
+        $q = new Question();
+        $q->setText('Oui ou non ?');
+        $q->addAnswer($ans1);
+        $q->addAnswer($ans2);
+        $this->em->persist($q);
+        $this->em->flush();
+        
+        $qu = new Quiz();
+        $qu->setName('Premier quiz de test');
+        $qu->addQuestion($q);
+        $this->em->persist($qu);
+        $this->em->flush();
+    }
+    
+    private function createOrUpdateGroups()
+    {
+        $roles = new RolesRepository();
+        
+        $grps = $this->em->createQuery('SELECT g FROM QuizQuizBundle:Group g')->getResult();
+        
+        if(count($grps) == 0)
+        {
+            $con = new Group('Connectés', $roles->getRolesForConnected());
+            $con->setId(1);
+
+            $red = new Group('Rédaction', $roles->getRolesForRedaction());
+            $red->setId(2);
+
+            $rsp = new Group('Responsables', $roles->getRolesForResponsables());
+            $rsp->setId(3);
+
+            $adm = new Group('Administrateurs', $roles->getRolesForAdministrateurs());
+            $adm->setId(4);
+        }
+        else
+        {
+            foreach($grps as $g)
+            {
+                switch($g->getName())
+                {
+                    case 'Connectés':
+                        $con = $g;
+                        $con->addRoles($roles->getRolesForConnected());
+                        break;
+                    case 'Rédaction':
+                        $red = $g;
+                        $red->addRoles($roles->getRolesForRedaction());
+                        break;
+                    case 'Responsables':
+                        $rsp = $g;
+                        $rsp->addRoles($roles->getRolesForResponsables());
+                        break;
+                    case 'Administrateurs':
+                        $adm = $g;
+                        $adm->addRoles($roles->getRolesForAdministrateurs());
+                        break;
+                }
+            }
+        }
+        
+        $this->em->persist($con);
+        $this->em->persist($red);
+        $this->em->persist($rsp);
+        $this->em->persist($adm);
+        $this->em->flush();
     }
 }

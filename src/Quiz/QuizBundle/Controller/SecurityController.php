@@ -12,44 +12,44 @@ use Symfony\Component\Security\Core\SecurityContext;
  */
 class SecurityController extends Controller
 {
+    /**
+     * @Route("/deconnexion", name="security_logout")
+     * @Template("QuizQuizBundle:Init:rubriques.html.twig")
+     */
+    public function logoutAction() {}
+    
+    /**
+     * @Route("/connexion/verification", name="security_logout")
+     * @Template("QuizQuizBundle:Init:rubriques.html.twig")
+     */
+    public function checkAction() {}
+    
+    /**
+     * @Route("/connexion", name="security_login")
+     * @Template("QuizQuizBundle:Security:login.html.twig")
+     */
     public function loginAction()
     {
         $request = $this->container->get('request');
-        /* @var $request \Symfony\Component\HttpFoundation\Request */
         $session = $request->getSession();
-        /* @var $session \Symfony\Component\HttpFoundation\Session */
 
-        // get the error if any (works with forward and redirect -- see below)
         if($request->attributes->has(SecurityContext::AUTHENTICATION_ERROR))
         {
-            $error = $request->attributes->get(SecurityContext::AUTHENTICATION_ERROR);
+            $error = $request->attributes->get(SecurityContext::AUTHENTICATION_ERROR)->getMessage();
         }
         elseif(null !== $session && $session->has(SecurityContext::AUTHENTICATION_ERROR))
         {
-            $error = $session->get(SecurityContext::AUTHENTICATION_ERROR);
+            $error = $session->get(SecurityContext::AUTHENTICATION_ERROR)->getMessage();
             $session->remove(SecurityContext::AUTHENTICATION_ERROR);
         }
         else
         {
             $error = '';
         }
-
-        if ($error)
-            $error = $error->getMessage();
         
         // last username entered by the user
         $lastUsername = (null === $session) ? '' : $session->get(SecurityContext::LAST_USERNAME);
 
-        return $this->container
-                    ->get('templating')
-                    ->renderResponse
-                        (
-                            'QuizQuizBundle:Security:login.html.'.$this->container->getParameter('fos_user.template.engine'), 
-                            array
-                                (
-                                    'last_username' => $lastUsername,
-                                    'error'         => $error,
-                                )
-                         );
+        return array('last_username' => $lastUsername, 'error' => $error);
     }
 }
