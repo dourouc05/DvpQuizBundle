@@ -3,6 +3,7 @@
 namespace Quiz\QuizBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Quiz\QuizBundle\Controller\Helpers\TreeHelpers;
 
 // Annotations
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
@@ -16,6 +17,7 @@ class DefaultController extends Controller
      */
     public function indexAction()
     {
-        return array('rub' => 1);
+        $helper = new TreeHelpers($this->getDoctrine()->getEntityManager(), $this->get('winzou_cache'));
+        return array('rub' => 1, 'cat' => $helper->treeShow());
     }
 }

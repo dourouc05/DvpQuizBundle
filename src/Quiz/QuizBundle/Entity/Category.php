@@ -11,6 +11,11 @@ use Gedmo\Mapping\Annotation as Gedmo;
  */
 class Category
 {
+    public function __toString()
+    {
+        return $this->title;
+    }
+    
     public function __construct()
     {
         $this->children = new \Doctrine\Common\Collections\ArrayCollection();

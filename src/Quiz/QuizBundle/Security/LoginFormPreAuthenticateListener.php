@@ -40,7 +40,7 @@ class LoginFormPreAuthenticateListener
             // on sette le mot de passe à ce qu'on attend ; si l'utilisateur
             // n'est pas bien identifié par le forum, on ne change pas le mot
             // de passe reçu et il ne passera pas. 
-            if(0 != $xml->ok)
+            if(0 != (int) $xml->ok)
             {
                 $q = $this->em->createQuery('SELECT u FROM QuizQuizBundle:User u WHERE u.id = :id')
                               ->setParameter('id', (int) $xml->id)
@@ -67,9 +67,6 @@ class LoginFormPreAuthenticateListener
                 $user->setEmail((string) $xml->email);
                 $user->setFirstName((string) $xml->prenom);
                 $user->setName((string) $xml->nom);
-//                $user->setRedaction((bool) $xml->redac);
-//                $user->setResponsable((bool) $xml->resp);
-//                $user->setAdministrateur((bool) $xml->admin);
                 
                 if((bool) $xml->redac || (bool) $xml->resp || (bool) $xml->admin)
                 {
@@ -83,19 +80,19 @@ class LoginFormPreAuthenticateListener
                                 $user->addGroup($g);
                                 break;
                             case 2: // rédaction
-                                if($xml->redac != '0' || $xml->resp != '0' || $xml->admin != '0')
+                                if((int) $xml->redac != '0' || (int) $xml->resp != '0' || (int) $xml->admin != '0')
                                     $user->addGroup($g);
                                 else
                                     $user->removeGroup($g);
                                 break;
                             case 3: // responsables
-                                if($xml->resp != '0' || $xml->admin != '0')
+                                if((int) $xml->resp != '0' || (int) $xml->admin != '0')
                                     $user->addGroup($g);
                                 else
                                     $user->removeGroup($g);
                                 break;
                             case 4: // administrateurs
-                                if($xml->admin != '0' || (int) $xml->id == 254882)
+                                if((int) $xml->admin != '0' || (int) $xml->id == 254882)
                                     $user->addGroup($g);
                                 else
                                     $user->removeGroup($g);

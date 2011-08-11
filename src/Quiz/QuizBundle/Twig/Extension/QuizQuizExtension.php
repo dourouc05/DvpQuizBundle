@@ -36,7 +36,6 @@ class QuizQuizExtension extends \Twig_Extension
             'gab_right' => new \Twig_Filter_Method($this, 'gabRight', array('is_safe' => array('html'))),
             'gab_up'    => new \Twig_Filter_Method($this, 'gabUp',    array('is_safe' => array('html'))),
             'gab_down'  => new \Twig_Filter_Method($this, 'gabDown',  array('is_safe' => array('html'))),
-            'tree_show' => new \Twig_Filter_Method($this, 'treeShow', array('is_safe' => array('html'))),
         );
     }
     
@@ -65,18 +64,5 @@ class QuizQuizExtension extends \Twig_Extension
     public function gabDown($id)
     {
         return utf8_encode(file_get_contents($_SERVER['DOCUMENT_ROOT'] . '/template/caches/piedxhtml' . $id . '.cache'));
-    }
-    
-    public function treeShow()
-    {
-        $repo = $this->em->getRepository('\Quiz\QuizBundle\Entity\Category');
-        $roots = $repo->getRootNodes();
-        return subTreeShow($nodes, $repo);
-    }
-    
-    private function subTreeShow($nodes, $repo)
-    {
-        $ret  = '<ul>';
-        $ret .= '</ul>';
     }
 }
