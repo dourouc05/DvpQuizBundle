@@ -16,6 +16,6 @@ class DefaultController extends Controller
      */
     public function indexAction()
     {
-        return array();
+        return array('rub' => 1);
     }
 }
