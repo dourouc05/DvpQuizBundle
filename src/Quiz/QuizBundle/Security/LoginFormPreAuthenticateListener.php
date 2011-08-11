@@ -42,9 +42,8 @@ class LoginFormPreAuthenticateListener
             if(0 != $xml->ok)
             {
                 $q = $this->em->createQuery('SELECT u FROM QuizQuizBundle:User u WHERE u.id = :id')
-//                              ->setParameter('id', 254882)
                               ->setParameter('id', (int) $xml->id)
-                              ->getResult();
+                              ->getResult(); // pas d'exception si aucun résultat
                 
                 if(0 == count($q)) 
                 // pas d'utilisateur déjà en base, on devra le créer de zéro ; sinon, on laisse Sf2 et FOSUB gérer le tout
