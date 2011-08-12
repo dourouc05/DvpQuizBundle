@@ -66,7 +66,7 @@ class RolesRepository
          *  - éditer tous les quiz. 
          * 
          * Il faut être autorisé spécialement par un responsable pour une seule rubrique à la fois pour : 
-         *  - créer un quiz rubrique pour une rubrique (ROLE_QUIZ_CREATE_RUB_$rub). 
+         *  - créer un quiz rubrique pour une rubrique (ACL). 
          */
         $this->addRoleForConnected      ('ROLE_QUIZ_CREATE_RED'); 
         $this->addRoleForConnected      ('ROLE_QUIZ_EDIT_RED_SELF');
