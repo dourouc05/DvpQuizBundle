@@ -81,4 +81,3 @@ fos_user:
 winzou_cache:
     options: 
         cache_dir: %kernel.cache_dir%/cache
-#        default_driver: lifetimefile

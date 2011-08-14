@@ -97,5 +97,5 @@
     target=/bundles/Sf2gen/Bundle/ConsoleBundle
 
 [winzouCacheBundle]
-    git=https://dourouc05@github.com/dourouc05/CacheBundle.git
+    git=https://github.com/winzou/CacheBundle.git
     target=/bundles/winzou/CacheBundle

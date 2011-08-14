@@ -16,16 +16,16 @@ class TreeHelpers
     
     public function treeShow()
     {
-        if($this->cache->contains('full.' . $id))
+        if($this->cache->contains('full'))
         {
-            return $this->cache->fetch('full.' . $id);
+            return $this->cache->fetch('full');
         }
         else
         {
             $repo  = $this->em->getRepository('\Quiz\QuizBundle\Entity\Category');
             $roots = $repo->getRootNodes();
             $cache = $this->subTreeShow($roots, $repo);
-            $this->cache->save('full.' . $id, $cache, 600); 
+            $this->cache->save('full', $cache, 600); 
             return $cache;
         }
     }
