@@ -20,4 +20,15 @@ class DefaultController extends Controller
         $helper = new TreeHelpers($this->getDoctrine()->getEntityManager(), $this->get('winzou_cache'));
         return array('rub' => 1, 'cat' => $helper->treeContents());
     }
+    
+    /**
+     * @Route("/c{id}/{slug}", name="indexCategory", requirements={"id" = "\d+", "slug" = ".+"}, defaults={"slug" = ""})
+     * @Template("QuizQuizBundle:Index:category.html.twig")
+     */
+    public function indexCategoryAction($id, $slug)
+    {
+        var_dump($id); 
+        var_dump($slug); 
+        exit;
+    }
 }
