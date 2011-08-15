@@ -2,11 +2,6 @@ security:
 #    acl:
 #        connection: default
 
-    role_hierarchy:
-        # ROLE_USER
-        ROLE_RESP:  ROLE_USER
-        ROLE_ADMIN: [ROLE_USER, ROLE_RESP]
-
     providers:
         fos_userbundle:
             id: fos_user.user_manager
@@ -19,7 +14,6 @@ security:
         main:
             pattern:        ^/
             form_login:
-#                provider:   fos_userbundle
                 login_path: /connexion
                 check_path: /connexion/verification
             logout:
