@@ -22,11 +22,13 @@ class QuizController extends Controller
     {
         $quiz = $this->getDoctrine()
                     ->getEntityManager()
-                    ->createQuery('SELECT q, c FROM QuizQuizBundle:Quiz q JOIN q.category c WHERE q.id = :id')
+                    ->createQuery('SELECT q, c, r FROM QuizQuizBundle:Quiz q JOIN q.category c JOIN c.rubrique r WHERE q.id = :id')
                     ->setParameter('id', $id)
                     ->getSingleResult();
         
         if($slug != $quiz->getSlug())
             return $this->redirect($this->generateUrl('indexCategory', array('id' => $id, 'slug' => $quiz->getSlug())), 301);
+        
+        return array('rub' => $quiz->getCategory()->getRubrique()->getId(), 'quiz' => $quiz); 
     }
 }
