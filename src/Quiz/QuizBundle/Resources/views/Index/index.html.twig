@@ -9,6 +9,9 @@
     {{ cat|raw }}
 </p>
 <p>
+    {% include "QuizQuizBundle:Helpers:tree.html.twig" with { 'nodes': cat } %}
+</p>
+<p>
     Les quiz les plus visités. 
 </p>
 <p>
