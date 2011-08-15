@@ -77,6 +77,8 @@ class TreeHelpers
             $add['title'] = $node->getTitle();
             if($repo->childCount($node, true))
                 $add['children'] = $this->subTreeContents($repo->children($node, true), $repo);
+            else
+                $add['children'] = array();
             $ret[] = $add;
         }
         

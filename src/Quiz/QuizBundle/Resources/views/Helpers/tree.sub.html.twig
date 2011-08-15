@@ -1,0 +1,8 @@
+<li>
+    {{ nodes.title }}
+    {% for node in nodes.children %}
+        <ul>
+        {% include "QuizQuizBundle:Helpers:tree.sub.html.twig" with { 'nodes': node } %}
+        </ul>
+    {% endfor %}
+</li>

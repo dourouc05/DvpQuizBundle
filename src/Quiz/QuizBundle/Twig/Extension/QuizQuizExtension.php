@@ -36,6 +36,7 @@ class QuizQuizExtension extends \Twig_Extension
             'gab_right' => new \Twig_Filter_Method($this, 'gabRight', array('is_safe' => array('html'))),
             'gab_up'    => new \Twig_Filter_Method($this, 'gabUp',    array('is_safe' => array('html'))),
             'gab_down'  => new \Twig_Filter_Method($this, 'gabDown',  array('is_safe' => array('html'))),
+            'var_dump'  => new \Twig_Filter_Method($this, 'varDump',  array('is_safe' => array('html'))),
         );
     }
     
@@ -64,5 +65,11 @@ class QuizQuizExtension extends \Twig_Extension
     public function gabDown($id)
     {
         return utf8_encode(file_get_contents($_SERVER['DOCUMENT_ROOT'] . '/template/caches/piedxhtml' . $id . '.cache'));
+    }
+    
+    public function varDump($what)
+    {
+        var_dump($what);
+        exit;
     }
 }
