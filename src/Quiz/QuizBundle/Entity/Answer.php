@@ -16,6 +16,11 @@ class Answer
         $this->isRight = false;
     }
     
+    public function __toString()
+    {
+        return $this->text;
+    }
+    
     /**
      * @ORM\Column(type="integer")
      * @ORM\Id
