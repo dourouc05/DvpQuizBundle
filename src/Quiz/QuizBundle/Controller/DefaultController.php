@@ -38,14 +38,14 @@ class DefaultController extends Controller
                     ->getSingleResult();
         
         // Redirect ASAP, to avoid too many SQL requests. 
+        // 301: Moved Permanently
+        // Without "return," redirect does not actually happen (it just returns a Response, which is lost otherwise). 
         if($slug != $cat->getSlug())
             return $this->redirect($this->generateUrl('indexCategory', array('id' => $id, 'slug' => $cat->getSlug())), 301);
         
         $quiz = $this->getDoctrine()
                      ->getRepository('\Quiz\QuizBundle\Entity\Quiz')
                      ->findByWithUser(array('category' => $cat->getId()), null, null, null, $userCanSeeDeleted);
-        // 301: Moved Permanently
-        // Without "return," redirect does not actually happen (it just returns a Response, which is lost otherwise). 
         
         return array('rub' => $cat->getRubrique()->getId(), 'cat' => $cat->getTitle(), 'quiz' => $quiz);
     }
