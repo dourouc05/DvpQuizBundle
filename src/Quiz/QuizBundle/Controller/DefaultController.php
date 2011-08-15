@@ -27,18 +27,23 @@ class DefaultController extends Controller
      */
     public function indexCategoryAction($id, $slug)
     {
+        // If user is allowed to see deleted quizzes, let's show him! This shall also work
+        // with redactor's quizzes when it gets implemented. 
+        $userCanSeeDeleted = $this->get('security.context')->isGranted('ROLE_QUIZ_SEE_ALL');
+        
         $cat = $this->getDoctrine()
                     ->getEntityManager()
                     ->createQuery('SELECT c, r FROM QuizQuizBundle:Category c JOIN c.rubrique r WHERE c.id = :id')
                     ->setParameter('id', $id)
                     ->getSingleResult();
         
-        $quiz = $this->getDoctrine()
-                     ->getRepository('\Quiz\QuizBundle\Entity\Quiz')
-                     ->findByWithUser(array('category' => $cat), null, null, null, $this->get('security.context'));
-        
+        // Redirect ASAP, to avoid too many SQL requests. 
         if($slug != $cat->getSlug())
             return $this->redirect($this->generateUrl('indexCategory', array('id' => $id, 'slug' => $cat->getSlug())), 301);
+        
+        $quiz = $this->getDoctrine()
+                     ->getRepository('\Quiz\QuizBundle\Entity\Quiz')
+                     ->findByWithUser(array('category' => $cat->getId()), null, null, null, $userCanSeeDeleted);
         // 301: Moved Permanently
         // Without "return," redirect does not actually happen (it just returns a Response, which is lost otherwise). 
         
