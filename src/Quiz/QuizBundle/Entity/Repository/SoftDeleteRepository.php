@@ -2,11 +2,22 @@
 
 namespace Quiz\QuizBundle\Entity\Repository;
 
+use Quiz\QuizBundle\Entity\User;
+
 class SoftDeleteRepository extends \Doctrine\ORM\EntityRepository
 {
     public function findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
     {
         return parent::findBy($this->fixCriteria($criteria), $orderBy, $limit, $offset);
+    }
+    
+    public function findByWithUser(array $criteria, array $orderBy = null, $limit = null, $offset = null, User $user = null)
+    {
+        // If user is allowed to see deleted quizzes, let's show him! 
+        if(@$user && $user->hasRole('ROLE_QUIZ_SEE_ALL'))
+            return parent::findBy($criteria, $orderBy, $limit, $offset);
+        else
+            return parent::findBy($this->fixCriteria($criteria), $orderBy, $limit, $offset);
     }
 
     public function findOneBy(array $criteria)

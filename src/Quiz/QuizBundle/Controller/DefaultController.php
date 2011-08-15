@@ -35,7 +35,7 @@ class DefaultController extends Controller
         
         $quiz = $this->getDoctrine()
                      ->getRepository('\Quiz\QuizBundle\Entity\Quiz')
-                     ->findBy(array('category' => $cat));
+                     ->findByWithUser(array('category' => $cat), null, null, null, $this->get('security.context'));
         
         if($slug != $cat->getSlug())
             return $this->redirect($this->generateUrl('indexCategory', array('id' => $id, 'slug' => $cat->getSlug())), 301);
