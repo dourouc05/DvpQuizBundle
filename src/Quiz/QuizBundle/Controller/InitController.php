@@ -37,9 +37,24 @@ class InitController extends Controller
     }
     
     /**
+     * @Route("/securite", name="init_securite")
+     * @Template("QuizQuizBundle:Init:security.html.twig")
+     * #Secure(roles="ROLE_INIT_ALL")
+     *
+     * Ce contrôleur n'est pas à sécuriser, sinon on ne peut pas initialiser
+     * l'application de zéro. 
+     */
+    public function initializeSecurityAction()
+    {
+        $this->_begin();
+        $this->createOrUpdateGroups();
+        return array('rub' => 1);
+    }
+    
+    /**
      * @Route("/rubriques", name="init_rubriques")
      * @Template("QuizQuizBundle:Init:rubriques.html.twig")
-     * @Secure(roles="ROLE_INIT_RUB")
+     * #Secure(roles="ROLE_INIT_RUB")
      */
     public function importRubriquesAction()
     {
@@ -66,25 +81,14 @@ class InitController extends Controller
         return array('rub' => 1);
     }
     
-    /**
-     * @Route("/securite", name="init_quiz")
-     * @Template("QuizQuizBundle:Init:security.html.twig")
-     * @Secure(roles="ROLE_INIT_ALL")
-     */
-    public function initializeSecurityAction()
-    {
-        $this->_begin();
-        $this->createOrUpdateGroups();
-        return array('rub' => 1);
-    }
-    
     /* HELPERS */
     
     private function importRubriques()
     {
         // Du gabarit, crée une connexion MySQL qu'on utilise
         require_once($_SERVER['DOCUMENT_ROOT'] . '/template/connexion.php');
-        $result = mysql_query('SELECT * FROM RUBRIQUE ORDER BY ID_RUBRIQUE');
+        mysql_query('SET NAMES UTF8');
+        $result = mysql_query('SELECT * FROM RUBRIQUE ORDER BY ID_RUBRIQUE ');
         
         // Pour chaque ligne, on vérifie qu'on a les infos nécessaires (sans quoi
         // tout peut planter à l'affichage...), qu'on n'a pas déjà la rubrique en 
