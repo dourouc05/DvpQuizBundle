@@ -33,7 +33,9 @@ class DefaultController extends Controller
                   ->getSingleResult();
         
         if($slug != $cat->getSlug())
-            $this->redirect($this->generateUrl('indexCategory', array('id' => $id, 'slug' => $cat->getSlug())), 301);
+            return $this->redirect($this->generateUrl('indexCategory', array('id' => $id, 'slug' => $cat->getSlug())), 301);
+        // 301: Moved Permanently
+        // Without "return," redirect does not actually happen (it just returns a Response, which is lost otherwise). 
         
         return array('rub' => $cat->getRubrique()->getId());
     }
