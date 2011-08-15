@@ -5,7 +5,7 @@
 <h2>{{ cat }}</h2>
 <ul>
     {% for q in quiz %}
-        <li>{{ q }}</li>
+        <li><a href="{{ path('quizShow', {'id': q.getId(), 'slug': q.getSlug()}) }}">{{ q }}</a></li>
     {% else %}
         <li>
             Pas de quiz dans cette catégorie. 

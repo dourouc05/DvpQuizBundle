@@ -20,10 +20,13 @@ class QuizController extends Controller
      */
     public function showAction($id, $slug)
     {
-        $cat = $this->getDoctrine()
+        $quiz = $this->getDoctrine()
                     ->getEntityManager()
                     ->createQuery('SELECT q, c FROM QuizQuizBundle:Quiz q JOIN QuizQuizBundle:Category c WHERE q.id = :id')
                     ->setParameter('id', $id)
                     ->getSingleResult();
+        
+        if($slug != $quiz->getSlug())
+            return $this->redirect($this->generateUrl('indexCategory', array('id' => $id, 'slug' => $quiz->getSlug())), 301);
     }
 }
