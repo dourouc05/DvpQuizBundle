@@ -33,7 +33,7 @@ class DefaultController extends Controller
                   ->getSingleResult();
         
         if($slug != $cat->getSlug())
-            $this->redirect($this->generateUrl('indexCategory', array('id' => $id, 'slug' => $cat->getSlug())), 302);
+            $this->redirect($this->generateUrl('indexCategory', array('id' => $id, 'slug' => $cat->getSlug())), 301);
         
         return array('rub' => $cat->getRubrique()->getId());
     }
