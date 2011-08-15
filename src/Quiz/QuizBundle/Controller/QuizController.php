@@ -14,5 +14,16 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
  */
 class QuizController extends Controller
 {
-    
+    /**
+     * @Route("/q{id}/{slug}", name="quizShow")
+     * @Template("QuizQuizBundle:Quiz:show.html.twig")
+     */
+    public function showAction($id, $slug)
+    {
+        $cat = $this->getDoctrine()
+                    ->getEntityManager()
+                    ->createQuery('SELECT q, c FROM QuizQuizBundle:Quiz q JOIN QuizQuizBundle:Category c WHERE q.id = :id')
+                    ->setParameter('id', $id)
+                    ->getSingleResult();
+    }
 }
