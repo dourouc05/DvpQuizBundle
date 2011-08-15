@@ -16,18 +16,27 @@ class TreeHelpers
     
     public function treeShow()
     {
-        if($this->cache->contains('full'))
+        if($this->cache->contains('full.html'))
         {
-            return $this->cache->fetch('full');
+            return $this->cache->fetch('full.html');
         }
         else
         {
             $repo  = $this->em->getRepository('\Quiz\QuizBundle\Entity\Category');
             $roots = $repo->getRootNodes();
             $cache = $this->subTreeShow($roots, $repo);
-            $this->cache->save('full', $cache, 600); 
+            $this->cache->save('full.html', $cache, 600); 
             return $cache;
         }
+    }
+    
+    public function treeContents()
+    {
+        $repo  = $this->em->getRepository('\Quiz\QuizBundle\Entity\Category');
+        $roots = $repo->getRootNodes();
+        $data  = $this->subTreeContents($roots, $repo);
+        print_r($data);exit;
+        return $data;
     }
     
     private function subTreeShow($nodes, $repo)
@@ -44,6 +53,22 @@ class TreeHelpers
         }
         
         $ret .= '</ul>';
+        
+        return $ret;
+    }
+    
+    private function subTreeContents($nodes, $repo)
+    {
+        $ret = array();
+        
+        foreach($nodes as $node)
+        {
+            $add = array();
+            $add['title'] = $node->getTitle();
+            if($repo->childCount($node, true))
+                $add['children'] = $this->subTreeContents($repo->children($node, true), $repo);
+            $ret[] = $add;
+        }
         
         return $ret;
     }

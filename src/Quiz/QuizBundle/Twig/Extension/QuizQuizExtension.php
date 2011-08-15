@@ -14,7 +14,7 @@ class QuizQuizExtension extends \Twig_Extension
     {
         $this->em = $em;
         $this->cache = $cache;
-        $this->cache->setNamespace('twig.extension..');
+        $this->cache->setNamespace('twig.extension.gabarit..');
     }
     
     /**
