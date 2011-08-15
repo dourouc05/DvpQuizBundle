@@ -27,28 +27,15 @@ class DefaultController extends Controller
      */
     public function indexCategoryAction($id, $slug)
     {
-//        $xat = $this->getDoctrine()
-//                    ->getRepository('\Quiz\QuizBundle\Entity\Category')
-//                    ->createQueryBuilder('c')
-//                    ->select('c')
-//                    ->where('c.id = :id')
-//                    ->setParameter('id', $id)
-//                    ->getQuery()
-//                    ->getSingleResult();
         $cat = $this->getDoctrine()
                     ->getEntityManager()
                     ->createQuery('SELECT c, r FROM QuizQuizBundle:Category c JOIN c.rubrique r WHERE c.id = :id')
                     ->setParameter('id', $id)
                     ->getSingleResult();
+        
         $quiz = $this->getDoctrine()
                      ->getRepository('\Quiz\QuizBundle\Entity\Quiz')
                      ->findBy(array('category' => $cat));
-//        $quiz = $this->getDoctrine()
-//                     ->getEntityManager()
-//                     ->createQuery('SELECT q FROM QuizQuizBundle:Quiz q WHERE q.category = :cat AND q.deleted = :deleted')
-//                     ->setParameter('cat', $cat)
-//                     ->setParameter('deleted', false)
-//                     ->getResult();
         
         if($slug != $cat->getSlug())
             return $this->redirect($this->generateUrl('indexCategory', array('id' => $id, 'slug' => $cat->getSlug())), 301);
