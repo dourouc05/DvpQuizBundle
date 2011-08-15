@@ -37,6 +37,6 @@ class DefaultController extends Controller
         // 301: Moved Permanently
         // Without "return," redirect does not actually happen (it just returns a Response, which is lost otherwise). 
         
-        return array('rub' => $cat->getRubrique()->getId());
+        return array('rub' => $cat->getRubrique()->getId(), 'cat' => $cat->getTitle(), 'quiz' => $cat->getQuiz());
     }
 }

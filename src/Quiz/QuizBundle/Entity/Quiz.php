@@ -19,6 +19,11 @@ class Quiz
         $this->deleted = false;
     }
     
+    public function __toString()
+    {
+        return $this->name;
+    }
+    
     /**
      * @ORM\Column(type="integer")
      * @ORM\Id

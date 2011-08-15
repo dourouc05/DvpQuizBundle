@@ -2,5 +2,14 @@
 
 {% block content %}
 <h1>Quiz de Developpez.com</h1>
-<h2>Catégorie</h2>
+<h2>{{ cat }}</h2>
+<ul>
+    {% for q in quiz %}
+        <li>{{ q }}</li>
+    {% else %}
+        <li>
+            Pas de quiz dans cette catégorie. 
+        </li>
+    {% endfor %}
+</ul>
 {% endblock %}
