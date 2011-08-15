@@ -27,8 +27,14 @@ class DefaultController extends Controller
      */
     public function indexCategoryAction($id, $slug)
     {
-        var_dump($id); 
-        var_dump($slug); 
-        exit;
+        $em = $this->getDoctrine()->getEntityManager(); 
+        $cat = $em->createQuery('SELECT c, r FROM QuizQuizBundle:Category c JOIN c.rubrique r WHERE c.id = :id')
+                  ->setParameter('id', $id)
+                  ->getSingleResult();
+        
+        if($slug != $cat->getSlug())
+            $this->redirect($this->generateUrl('indexCategory', array('id' => $id, 'slug' => $cat->getSlug())), 302);
+        
+        return array('rub' => $cat->getRubrique()->getId());
     }
 }
