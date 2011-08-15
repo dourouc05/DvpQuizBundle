@@ -1,6 +1,7 @@
 <?php
 
 namespace Quiz\QuizBundle\Entity;
+
 use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Mapping\Annotation as Gedmo;
 
@@ -8,6 +9,8 @@ use Gedmo\Mapping\Annotation as Gedmo;
  * @ORM\Entity(repositoryClass="Gedmo\Tree\Entity\Repository\NestedTreeRepository")
  * @Gedmo\Tree(type="nested") 
  * @Gedmo\Loggable
+ * 
+ * Simple version, without soft delete: 
  */
 class Category
 {
