@@ -34,14 +34,4 @@ security:
             security:  false
 
     access_control:
-        - { path: ^/login$, role: IS_AUTHENTICATED_ANONYMOUSLY }
         #- { path: ^/_internal, roles: IS_AUTHENTICATED_ANONYMOUSLY, ip: 127.0.0.1 }
-        
-        # tout le monde peut créer des quiz (mais pas partout : il faut qu'un resp autorise 
-        # la personne à créer des quiz rubriques pour qu'ils apparaissent dans les listes, 
-        # sinon accès si on a un lien exclusivement - validable par resp au besoin). 
-        - { path: ^/creer, roles: ROLE_USER }
-        # il faut être resp pour avoir accès au panel d'admin
-        - { path: ^/admin, roles: ROLE_RESP } 
-        # pour les opérations rares et lourdes, il faut être superadmin
-        - { path: ^/superadmin, roles: ROLE_ADMIN } 
