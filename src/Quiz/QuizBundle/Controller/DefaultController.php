@@ -9,6 +9,9 @@ use Quiz\QuizBundle\Controller\Helpers\TreeHelpers;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 
+/**
+ * Indexes
+ */
 class DefaultController extends Controller
 {
     /**
