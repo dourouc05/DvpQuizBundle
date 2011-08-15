@@ -3,4 +3,9 @@
 {% block content %}
 <h1>Quiz de Developpez.com</h1>
 <h2>{{ quiz }}</h2>
+{% for question in quiz.getQuestion() %}
+<section>
+    <h1>{{ question.text }}</h1>
+</section>
+{% endfor %}
 {% endblock %}

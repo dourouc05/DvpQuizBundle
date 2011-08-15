@@ -210,7 +210,6 @@ class InitHelpers
         $q->addAnswer($ans1);
         $q->addAnswer($ans2);
         $this->em->persist($q);
-        $this->em->flush();
         
         $qu = new Quiz();
         $qu->setName('Premier quiz de test');
