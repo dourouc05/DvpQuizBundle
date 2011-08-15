@@ -22,7 +22,7 @@ class QuizController extends Controller
     {
         $quiz = $this->getDoctrine()
                     ->getEntityManager()
-                    ->createQuery('SELECT q, c FROM QuizQuizBundle:Quiz q JOIN QuizQuizBundle:Category c WHERE q.id = :id')
+                    ->createQuery('SELECT q, c FROM QuizQuizBundle:Quiz q JOIN q.category c WHERE q.id = :id')
                     ->setParameter('id', $id)
                     ->getSingleResult();
         
