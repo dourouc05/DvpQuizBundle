@@ -25,18 +25,28 @@ class TreeHelpers
             $repo  = $this->em->getRepository('\Quiz\QuizBundle\Entity\Category');
             $roots = $repo->getRootNodes();
             $cache = $this->subTreeShow($roots, $repo);
-            $this->cache->save('full.html', $cache, 600); 
+            $this->cache->save('full.html', $cache, 86400); // Le cache expire après un jour, 
+            // car les resps ont la possibilité de vider ce cache, donc après chaque création
+            // de catégorie notamment. À évaluer : la possibilité de vider ce cache (uniquement
+            // pour ce helper) lors de la création de nouvelles catégories. 
             return $cache;
         }
     }
     
     public function treeContents()
     {
-        $repo  = $this->em->getRepository('\Quiz\QuizBundle\Entity\Category');
-        $roots = $repo->getRootNodes();
-        $data  = $this->subTreeContents($roots, $repo);
-        print_r($data);exit;
-        return $data;
+        if($this->cache->contains('full.array'))
+        {
+            return $this->cache->fetch('full.array');
+        }
+        else
+        {
+            $repo  = $this->em->getRepository('\Quiz\QuizBundle\Entity\Category');
+            $roots = $repo->getRootNodes();
+            $data  = $this->subTreeContents($roots, $repo);
+            $this->cache->save('full.array', $data, 86400); 
+            return $data;
+        }
     }
     
     private function subTreeShow($nodes, $repo)

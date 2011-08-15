@@ -18,7 +18,6 @@ class DefaultController extends Controller
     public function indexAction()
     {
         $helper = new TreeHelpers($this->getDoctrine()->getEntityManager(), $this->get('winzou_cache'));
-        $helper->treeContents();
-        return array('rub' => 1, 'cat' => $helper->treeShow());
+        return array('rub' => 1, 'cat' => $helper->treeContents());
     }
 }
