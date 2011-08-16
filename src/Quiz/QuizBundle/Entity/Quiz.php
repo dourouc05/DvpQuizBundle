@@ -356,14 +356,12 @@ class Quiz
      *
      * @param Quiz\QuizBundle\Entity\Question $questions
      */
-    public function addQuestions($questions)
+    public function addQuestions(array $questions)
     {
-        if(is_array($answers))
-            if(is_array($this->question))
-                $this->question = array_merge($this->answer, $answers);
-            else
-                $this->question = $answers;
-        $this->question[] = $question;
+        if(is_array($this->question))
+            $this->question = array_merge($this->question, $questions);
+        else
+            $this->question = $answers;
     }
 
     /**
@@ -374,5 +372,10 @@ class Quiz
     public function getQuestion()
     {
         return $this->question;
+    }
+    
+    public function getQuestions()
+    {
+        return $this->getQuestion();
     }
 }

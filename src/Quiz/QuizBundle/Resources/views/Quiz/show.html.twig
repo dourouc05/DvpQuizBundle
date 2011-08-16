@@ -11,7 +11,7 @@
         {% for answer in question.getAnswer() %}
             <li>{{ answer }}</li>
         {% endfor %}
-        <form action="{{ path('quizShow') }}" method="post" {{ form_enctype(form) }}>
+        <form action="{{ path('quizShow', {'id': quiz.getId(), 'slug': quiz.getSlug()}) }}" method="post" {{ form_enctype(form) }}>
             {{ form_errors(form) }}
 
             {{ form_rest(form) }}

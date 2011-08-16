@@ -210,4 +210,9 @@ class Question
     {
         return $this->answer;
     }
+    
+    public function getAnswers()
+    {
+        return $this->getAnswer();
+    }
 }

@@ -32,6 +32,6 @@ class QuizController extends Controller
         
         $form = $this->createForm(new QuizForm(), $quiz); 
         
-        return array('rub' => $quiz->getCategory()->getRubrique()->getId(), 'quiz' => $quiz, 'form' => $form); 
+        return array('rub' => $quiz->getCategory()->getRubrique()->getId(), 'quiz' => $quiz, 'form' => $form->createView()); 
     }
 }
