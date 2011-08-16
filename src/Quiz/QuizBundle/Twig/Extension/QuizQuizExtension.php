@@ -4,6 +4,7 @@ namespace Quiz\QuizBundle\Twig\Extension;
 
 use Symfony\Component\HttpKernel\KernelInterface;
 use Symfony\Bundle\TwigBundle\Loader\FilesystemLoader;
+use Quiz\QuizBundle\Form\QuizForm;
 
 class QuizQuizExtension extends \Twig_Extension
 {

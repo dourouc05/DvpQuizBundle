@@ -11,27 +11,32 @@ use Quiz\QuizBundle\Entity\Quiz;
  */
 class QuizForm
 {
-    public function buildForm(Quiz $quiz)
+    public static function buildForm(Quiz $quiz)
     {
         $questions = $quiz->getQuestions();
         $form = array();
+        $form['text'] = $quiz->getName(); 
+        $form['quid'] = $quiz->getId(); 
+        $form['slug'] = $quiz->getSlug();
         
         foreach($questions as $fid => $q)
         {
             if(! $q->isDeleted())
             {
-                $form[$fid]['text'] = $q->getText();
-                $form[$fid]['mult'] = $q->getMultipleAnswers(); 
-                $form[$fid]['expl'] = $q->getExplanation();
+                $form['ques'][$fid]['text'] = $q->getText();
+                $form['ques'][$fid]['mult'] = (bool) $q->getMultipleAnswers(); 
+                $form['ques'][$fid]['expl'] = $q->getExplanation();
+                $form['ques'][$fid]['foid'] = $q->getId();
 
                 $answers = $q->getAnswers();
                 foreach($answers as $aid => $a)
                 {
                     if(! $a->isDeleted())
                     {
-                        $form[$fid]['ans'][$aid]['text'] = $a->getText();
-                        $form[$fid]['ans'][$aid]['isri'] = $a->getIsRight();
-                        $form[$fid]['ans'][$aid]['expl'] = $a->getExplanation();
+                        $form['ques'][$fid]['ans'][$aid]['text'] = $a->getText();
+                        $form['ques'][$fid]['ans'][$aid]['isri'] = $a->getIsRight();
+                        $form['ques'][$fid]['ans'][$aid]['expl'] = $a->getExplanation();
+                        $form['ques'][$fid]['ans'][$aid]['anid'] = $a->getId();
                     }
                 }
             }

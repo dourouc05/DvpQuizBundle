@@ -2,20 +2,6 @@
 
 {% block content %}
 <h1>Quiz de Developpez.com</h1>
-<h2>{{ quiz }}</h2>
-{% set questions = quiz.getQuestion() %}
-{% for question in questions %}
-<section>
-    <h1>{{ question.text }}</h1>
-    <ul>
-        {% for answer in question.getAnswer() %}
-            <li>{{ answer }}</li>
-        {% endfor %}
-        <form action="{{ path('quizShow', {'id': quiz.getId(), 'slug': quiz.getSlug()}) }}" method="post">
-            {{ form|var_dump }}
-            <input type="submit" />
-        </form>
-    </ul>
-</section>
-{% endfor %}
+{% include "QuizQuizBundle:Helpers:form.full.html.twig" with {'quiz': form} %}
+{{ form|var_dump }}
 {% endblock %}

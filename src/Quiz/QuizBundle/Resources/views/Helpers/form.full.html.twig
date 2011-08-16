@@ -1,0 +1,21 @@
+<h2>{{ quiz.text }}</h2>
+<form action="{{ path('quizShow', {'id': quiz.quid, 'slug': quiz.slug}) }}" method="post">
+    {% for question in quiz.ques %}
+        <section>
+            <h1>{{ question.text }}</h1>
+            <ul>
+                {% for answer in question.ans %}
+                    <li>
+                        {% if question.mult %}
+                            <input type="checkbox" name="{{question.foid}}" id="{{question.foid}}-{{answer.anid}}" value=""/>
+                        {% else %}
+                            <input type="radio" name="{{question.foid}}" id="{{question.foid}}-{{answer.anid}}" value=""/>
+                        {% endif %}
+                        <label for="{{question.foid}}-{{answer.anid}}">{{ answer.text }}</label>
+                    </li>
+                {% endfor %}
+            </ul>
+        </section>
+    {% endfor %}
+    <input type="submit" />
+</form>
