@@ -4,6 +4,7 @@ namespace Quiz\QuizBundle\Form;
 
 use Quiz\QuizBundle\Entity\Quiz;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\ParameterBag;
 use winzou\CacheBundle\Cache\AbstractCache;
 
 /**
@@ -61,8 +62,21 @@ class QuizForm
             $this->cache->save($quiz->getId() . '.array', $form);
         }
         
-        $form['req']  = &$request;
+        // This is not cacheable! So the second foreach round. 
+        foreach($form['ques'] as $fid => $q)
+        {
+            foreach($q['ans'] as $aid => $a)
+            {
+                        var_dump($form['ques'][$fid]['foid'] . '-' . $form['ques'][$fid]['ans'][$aid]['anid']);
+                        var_dump($request->request->get($form['ques'][$fid]['foid'] . '-' . $form['ques'][$fid]['ans'][$aid]['anid']));
+                        var_dump(in_array($form['ques'][$fid]['foid'] . '-' . $form['ques'][$fid]['ans'][$aid]['anid'], $_POST));
+            }
+        }
+        
+        $form['req']  = $request->request;
         $form['corr'] = (bool) ($request->getMethod() == "POST"); 
+        
+        var_dump($request->request);exit;
         
         return $form;
     }
