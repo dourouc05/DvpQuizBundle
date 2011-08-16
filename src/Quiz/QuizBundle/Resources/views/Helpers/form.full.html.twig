@@ -11,14 +11,16 @@
                                 type="checkbox"
                                 name="{{question.foid}}-{{answer.anid}}"
                                 id="{{question.foid}}-{{answer.anid}}"
-                                {# checked="checked" #}/>
+                                {% if quiz.corr and quiz.corr %} checked="checked" {% endif %}
+                                />
                         {% else %}
                             <input 
                                 type="radio" 
                                 name="{{question.foid}}" 
                                 id="{{question.foid}}-{{answer.anid}}" 
                                 value="{{question.foid}}-{{answer.anid}}" 
-                                {# checked="checked" #}/>
+                                {% if quiz.corr and quiz.corr %} checked="checked" {% endif %}
+                                />
                         {% endif %}
                         <label for="{{question.foid}}-{{answer.anid}}">{{ answer.text }}</label>
                     </li>

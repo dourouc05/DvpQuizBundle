@@ -31,7 +31,8 @@ class QuizController extends Controller
         if($slug != $quiz->getSlug())
             return $this->redirect($this->generateUrl('indexCategory', array('id' => $id, 'slug' => $quiz->getSlug())), 301);
         
-        $form = QuizForm::buildForm($quiz, $this->getRequest()); 
+        $fb = new QuizForm($this->get('winzou_cache'));
+        $form = $fb->buildForm($quiz, $this->getRequest()); 
         
         return array('rub' => $quiz->getCategory()->getRubrique()->getId(), 'quiz' => $quiz, 'form' => $form); 
     }
