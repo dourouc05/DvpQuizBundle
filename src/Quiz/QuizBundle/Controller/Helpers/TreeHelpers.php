@@ -42,7 +42,7 @@ class TreeHelpers
             $repo  = $this->em->getRepository('\Quiz\QuizBundle\Entity\Category');
             $roots = $repo->getRootNodes();
             $data  = $this->subTreeContents($roots, $repo);
-            $this->cache->save('full.array', $data, 86400); 
+            $this->cache->save('full.array', $data); 
             return $data;
         }
     }
