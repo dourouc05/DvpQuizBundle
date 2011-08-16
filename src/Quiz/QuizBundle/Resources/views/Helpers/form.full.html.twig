@@ -22,11 +22,31 @@
                                 {% if answer.chck %} checked="checked" {% endif %}
                                 />
                         {% endif %}
-                        <label for="{{question.foid}}-{{answer.anid}}">{{ answer.text }}</label>
+                        <label for="{{question.foid}}-{{answer.anid}}">
+                            <span 
+                                {% if (answer.chck and answer.isri) %}
+                                    style="color: green;"
+                                {% elseif (answer.chck and not answer.isri) %}
+                                    style="color: red;"
+                                {% endif %}
+                                >
+                                {{ answer.text }}
+                            </span>
+                        </label>
+                        {% if answer.chck %}
+                            <p>
+                                {{ answer.expl }}
+                            </p>
+                        {% endif %}
                     </li>
                 {% endfor %}
             </ul>
         </section>
+        {% if quiz.corr %}
+            <p>
+                {{ question.expl }}
+            </p>
+        {% endif %}
     {% endfor %}
     <input type="submit" />
 </form>

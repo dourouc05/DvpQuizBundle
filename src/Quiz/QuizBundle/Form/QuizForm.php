@@ -51,7 +51,7 @@ class QuizForm
                         if(! $a->isDeleted())
                         {
                             $form['ques'][$fid]['ans'][$aid]['text'] = $a->getText();
-                            $form['ques'][$fid]['ans'][$aid]['isri'] = $a->getIsRight();
+                            $form['ques'][$fid]['ans'][$aid]['isri'] = $a->getIsRight(); // Is this the right answer? 
                             $form['ques'][$fid]['ans'][$aid]['expl'] = $a->getExplanation();
                             $form['ques'][$fid]['ans'][$aid]['anid'] = $a->getId();
                             $form['ques'][$fid]['ans'][$aid]['chck'] = false;
