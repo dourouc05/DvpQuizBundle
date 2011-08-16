@@ -11,11 +11,12 @@ class TreeHelpers
     {
         $this->em = $em;
         $this->cache = $cache;
-        $this->cache->setNamespace('helpers.tree..');
     }
     
     public function treeContents()
     {
+        $this->cache->setNamespace('helpers.tree..');
+        
         if($this->cache->contains('full.array'))
         {
             return $this->cache->fetch('full.array');

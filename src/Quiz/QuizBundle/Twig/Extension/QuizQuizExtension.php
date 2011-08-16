@@ -15,7 +15,6 @@ class QuizQuizExtension extends \Twig_Extension
     {
         $this->em = $em;
         $this->cache = $cache;
-        $this->cache->setNamespace('twig.extension.gabarit..');
     }
     
     /**
@@ -44,6 +43,8 @@ class QuizQuizExtension extends \Twig_Extension
     
     public function gabRight($id)
     {
+        $this->cache->setNamespace('twig.extension.gabarit..');
+        
         if($this->cache->contains('right.' . $id))
         {
             return $this->cache->fetch('right.' . $id);
