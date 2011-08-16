@@ -1,9 +1,5 @@
 <ul>
     {% for node in nodes %}
-        {#{ nodes |var_dump }}
-        <li>
-            {{ node.title }}
-        </li>#}
         {% include "QuizQuizBundle:Helpers:tree.sub.html.twig" with { 'nodes': node } %}
     {% endfor %}
 </ul>
