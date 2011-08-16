@@ -1,8 +1,8 @@
 <li>
-    {{ nodes.title }}
+    <a href="{{ path('indexCategory', {'id': nodes.id, 'slug': nodes.slug}) }}">{{ nodes.title }}</a> ({{ nodes.nb }})
     {% for node in nodes.children %}
         <ul>
-        {% include "QuizQuizBundle:Helpers:tree.sub.html.twig" with { 'nodes': node } %}
+            {% include "QuizQuizBundle:Helpers:tree.sub.html.twig" with { 'nodes': node } %}
         </ul>
     {% endfor %}
 </li>
