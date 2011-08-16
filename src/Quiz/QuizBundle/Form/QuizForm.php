@@ -19,11 +19,12 @@ class QuizForm
     public function __construct(AbstractCache $cache)
     {
         $this->cache = $cache;
-        $this->cache->setNamespace('form.quiz..');
     }
     
     public function buildForm(Quiz $quiz, Request $request)
     {
+        $this->cache->setNamespace('form.quiz..');
+        
         if(false && $this->cache->contains($quiz->getId() . '.array'))
         {
             $form = $this->cache->fetch($quiz->getId() . '.array');
@@ -60,7 +61,7 @@ class QuizForm
                 }
             }
             
-            $this->cache->save($quiz->getId() . '.array', $form);
+            $this->cache->save($quiz->getId() . '.array', $form, 31536000);
         }
         
         // This is not cacheable! So the second foreach round. But let's try not to
@@ -76,9 +77,6 @@ class QuizForm
                     {
                         $form['ques'][$fid]['ans'][$aid]['chck'] = true;
                     }
-//                            var_dump($form['ques'][$fid]['foid'] . '-' . $form['ques'][$fid]['ans'][$aid]['anid']);
-//                            var_dump($request->request->get($form['ques'][$fid]['foid'] . '-' . $form['ques'][$fid]['ans'][$aid]['anid']));
-//                            var_dump(in_array($form['ques'][$fid]['foid'] . '-' . $form['ques'][$fid]['ans'][$aid]['anid'], $_POST));
                 }
             }
         }
