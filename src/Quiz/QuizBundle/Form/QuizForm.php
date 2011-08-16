@@ -24,7 +24,7 @@ class QuizForm
     
     public function buildForm(Quiz $quiz, Request $request)
     {
-        if($this->cache->contains($quiz->getId() . '.array'))
+        if(false && $this->cache->contains($quiz->getId() . '.array'))
         {
             $form = $this->cache->fetch($quiz->getId() . '.array');
         }
@@ -54,6 +54,7 @@ class QuizForm
                             $form['ques'][$fid]['ans'][$aid]['isri'] = $a->getIsRight();
                             $form['ques'][$fid]['ans'][$aid]['expl'] = $a->getExplanation();
                             $form['ques'][$fid]['ans'][$aid]['anid'] = $a->getId();
+                            $form['ques'][$fid]['ans'][$aid]['chck'] = false;
                         }
                     }
                 }
@@ -62,21 +63,29 @@ class QuizForm
             $this->cache->save($quiz->getId() . '.array', $form);
         }
         
-        // This is not cacheable! So the second foreach round. 
-        foreach($form['ques'] as $fid => $q)
+        // This is not cacheable! So the second foreach round. But let's try not to
+        // have both in one request. 
+        $form['corr'] = (bool) ($request->getMethod() == "POST"); 
+        if($form['corr'])
         {
-            foreach($q['ans'] as $aid => $a)
+            foreach($form['ques'] as $fid => $q)
             {
-                        var_dump($form['ques'][$fid]['foid'] . '-' . $form['ques'][$fid]['ans'][$aid]['anid']);
-                        var_dump($request->request->get($form['ques'][$fid]['foid'] . '-' . $form['ques'][$fid]['ans'][$aid]['anid']));
-                        var_dump(in_array($form['ques'][$fid]['foid'] . '-' . $form['ques'][$fid]['ans'][$aid]['anid'], $_POST));
+                foreach($q['ans'] as $aid => $a)
+                {
+                    if((bool) in_array($form['ques'][$fid]['foid'] . '-' . $form['ques'][$fid]['ans'][$aid]['anid'], $_POST))
+                    {
+                        $form['ques'][$fid]['ans'][$aid]['chck'] = true;
+                    }
+//                            var_dump($form['ques'][$fid]['foid'] . '-' . $form['ques'][$fid]['ans'][$aid]['anid']);
+//                            var_dump($request->request->get($form['ques'][$fid]['foid'] . '-' . $form['ques'][$fid]['ans'][$aid]['anid']));
+//                            var_dump(in_array($form['ques'][$fid]['foid'] . '-' . $form['ques'][$fid]['ans'][$aid]['anid'], $_POST));
+                }
             }
         }
-        
         $form['req']  = $request->request;
         $form['corr'] = (bool) ($request->getMethod() == "POST"); 
         
-        var_dump($request->request);exit;
+//        var_dump($request->request);exit;
         
         return $form;
     }
