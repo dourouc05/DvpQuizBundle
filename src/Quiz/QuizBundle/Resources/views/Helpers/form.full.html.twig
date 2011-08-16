@@ -48,5 +48,7 @@
             </p>
         {% endif %}
     {% endfor %}
-    <input type="submit" />
+    {% if not quiz.corr %}
+        <input type="submit" />
+    {% endif %}
 </form>
