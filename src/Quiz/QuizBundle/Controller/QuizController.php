@@ -21,7 +21,6 @@ class QuizController extends Controller
      */
     public function showAction($id, $slug)
     {
-        var_dump($_POST);
         $quiz = $this->getDoctrine()
                      ->getEntityManager()
                      ->createQuery('SELECT q, c, r FROM QuizQuizBundle:Quiz q JOIN q.category c JOIN c.rubrique r WHERE q.id = :id')

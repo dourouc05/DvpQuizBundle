@@ -83,8 +83,6 @@ class QuizForm
         $form['req']  = $request->request;
         $form['corr'] = (bool) ($request->getMethod() == "POST"); 
         
-//        var_dump($request->request);exit;
-        
         return $form;
     }
 }
