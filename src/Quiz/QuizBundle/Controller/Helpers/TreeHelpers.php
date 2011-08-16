@@ -25,10 +25,8 @@ class TreeHelpers
             $repo  = $this->em->getRepository('\Quiz\QuizBundle\Entity\Category');
             $roots = $repo->getRootNodes();
             $cache = $this->subTreeShow($roots, $repo);
-            $this->cache->save('full.html', $cache, 86400); // Le cache expire après un jour, 
-            // car les resps ont la possibilité de vider ce cache, donc après chaque création
-            // de catégorie notamment. À évaluer : la possibilité de vider ce cache (uniquement
-            // pour ce helper) lors de la création de nouvelles catégories. 
+            $this->cache->save('full.html', $cache); // Le cache n'expire jamais : 
+            // on élimine ce qu'il faut à chaque création de catégorie. 
             return $cache;
         }
     }

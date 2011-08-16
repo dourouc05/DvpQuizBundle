@@ -2,6 +2,8 @@
 
 namespace Quiz\QuizBundle\Form;
 
+use Quiz\QuizBundle\Entity\Quiz;
+
 /**
  * Form for a full quiz (including all answers, managing the randomization properly). 
  *
@@ -9,19 +11,22 @@ namespace Quiz\QuizBundle\Form;
  */
 class QuizForm
 {
-    public function getName()
+    public function buildForm(Quiz $quiz)
     {
-        return 'quiz';
-    }
-    
-    public function buildForm(FormBuilder $builder, array $options)
-    {
-        $quiz = $options['data'];
         $questions = $quiz->getQuestions();
+        $form = array();
         
-        foreach($questions as $id => $q)
+        foreach($questions as $fid => $q)
         {
-            $builder->add('text', new QuestionForm(), array('data' => $q));
+            $form[$fid]['text'] = $q->getText();
+            
+            $answers = $q->getAnswers();
+            foreach($answers as $aid => $a)
+            {
+                
+            }
         }
+        
+        return $form;
     }
 }
