@@ -11,11 +11,8 @@
         {% for answer in question.getAnswer() %}
             <li>{{ answer }}</li>
         {% endfor %}
-        <form action="{{ path('quizShow', {'id': quiz.getId(), 'slug': quiz.getSlug()}) }}" method="post" {{ form_enctype(form) }}>
-            {{ form_errors(form) }}
-
-            {{ form_rest(form) }}
-
+        <form action="{{ path('quizShow', {'id': quiz.getId(), 'slug': quiz.getSlug()}) }}" method="post">
+            {{ form|var_dump }}
             <input type="submit" />
         </form>
     </ul>

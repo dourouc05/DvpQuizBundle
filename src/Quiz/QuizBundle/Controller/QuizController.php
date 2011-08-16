@@ -30,8 +30,8 @@ class QuizController extends Controller
         if($slug != $quiz->getSlug())
             return $this->redirect($this->generateUrl('indexCategory', array('id' => $id, 'slug' => $quiz->getSlug())), 301);
         
-        $form = $this->createForm(new QuizForm(), $quiz); 
+        $form = new QuizForm; 
         
-        return array('rub' => $quiz->getCategory()->getRubrique()->getId(), 'quiz' => $quiz, 'form' => $form->createView()); 
+        return array('rub' => $quiz->getCategory()->getRubrique()->getId(), 'quiz' => $quiz, 'form' => $form); 
     }
 }

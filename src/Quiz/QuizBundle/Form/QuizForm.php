@@ -18,12 +18,22 @@ class QuizForm
         
         foreach($questions as $fid => $q)
         {
-            $form[$fid]['text'] = $q->getText();
-            
-            $answers = $q->getAnswers();
-            foreach($answers as $aid => $a)
+            if(! $q->isDeleted())
             {
-                
+                $form[$fid]['text'] = $q->getText();
+                $form[$fid]['mult'] = $q->getMultipleAnswers(); 
+                $form[$fid]['expl'] = $q->getExplanation();
+
+                $answers = $q->getAnswers();
+                foreach($answers as $aid => $a)
+                {
+                    if(! $a->isDeleted())
+                    {
+                        $form[$fid]['ans'][$aid]['text'] = $a->getText();
+                        $form[$fid]['ans'][$aid]['isri'] = $a->getIsRight();
+                        $form[$fid]['ans'][$aid]['expl'] = $a->getExplanation();
+                    }
+                }
             }
         }
         
