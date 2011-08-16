@@ -72,7 +72,9 @@ class QuizQuizExtension extends \Twig_Extension
     
     public function gabLicense($id)
     {
-        return utf8_encode(file_get_contents($_SERVER['DOCUMENT_ROOT'] . '/template/licence3.php'));
+        return utf8_encode(str_replace('<?php
+echo $Annee;
+?>', date('Y'), file_get_contents($_SERVER['DOCUMENT_ROOT'] . '/template/licence3.php')));
     }
     
     public function varDump($what)
