@@ -51,15 +51,6 @@ class InitHelpers
             // donc les parents manuellement. 
             switch($r['ID_RUBRIQUE'])
             {
-            case 44:  // IRC
-                $r['ID_PARENT'] = 70; // enfant de Réseau
-                break;
-            case 49:  // LaTeX
-            case 60:  // Fortran
-            case 61:  // PureBasic
-            case 100: // R
-                $r['ID_PARENT'] = 21; // enfants de Autres
-                break;
             case 68:  // UNIX
             case 69:  // BSD
             case 110: // Systèmes embarqués

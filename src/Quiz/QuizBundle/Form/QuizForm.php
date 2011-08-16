@@ -73,7 +73,9 @@ class QuizForm
             {
                 foreach($q['ans'] as $aid => $a)
                 {
-                    if((bool) in_array($form['ques'][$fid]['foid'] . '-' . $form['ques'][$fid]['ans'][$aid]['anid'], $_POST))
+                    // Support for both radio buttons and checkboxes
+                    if(in_array($form['ques'][$fid]['foid'] . '-' . $form['ques'][$fid]['ans'][$aid]['anid'], $_POST)
+                    || isset($_POST[$form['ques'][$fid]['foid'] . '-' . $form['ques'][$fid]['ans'][$aid]['anid']]))
                     {
                         $form['ques'][$fid]['ans'][$aid]['chck'] = true;
                     }
