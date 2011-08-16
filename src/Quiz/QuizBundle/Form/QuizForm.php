@@ -3,6 +3,8 @@
 namespace Quiz\QuizBundle\Form;
 
 use Quiz\QuizBundle\Entity\Quiz;
+use Symfony\Component\HttpFoundation\Request;
+use winzou\CacheBundle\Cache\AbstractCache;
 
 /**
  * Form for a full quiz (including all answers, managing the randomization properly). 
@@ -11,14 +13,14 @@ use Quiz\QuizBundle\Entity\Quiz;
  */
 class QuizForm
 {
-    public static function buildForm(Quiz $quiz)
+    public function buildForm(Quiz $quiz, Request $request)
     {
-        $questions = $quiz->getQuestions();
         $form = array();
         $form['text'] = $quiz->getName(); 
         $form['quid'] = $quiz->getId(); 
         $form['slug'] = $quiz->getSlug();
         
+        $questions = $quiz->getQuestions();
         foreach($questions as $fid => $q)
         {
             if(! $q->isDeleted())
@@ -41,6 +43,9 @@ class QuizForm
                 }
             }
         }
+        
+        $form['req']  = &$request;
+        $form['corr'] = (bool) ($request->getMethod() == "POST"); 
         
         return $form;
     }

@@ -21,6 +21,7 @@ class QuizController extends Controller
      */
     public function showAction($id, $slug)
     {
+        var_dump($_POST);
         $quiz = $this->getDoctrine()
                      ->getEntityManager()
                      ->createQuery('SELECT q, c, r FROM QuizQuizBundle:Quiz q JOIN q.category c JOIN c.rubrique r WHERE q.id = :id')
@@ -30,7 +31,7 @@ class QuizController extends Controller
         if($slug != $quiz->getSlug())
             return $this->redirect($this->generateUrl('indexCategory', array('id' => $id, 'slug' => $quiz->getSlug())), 301);
         
-        $form = QuizForm::buildForm($quiz); 
+        $form = QuizForm::buildForm($quiz, $this->getRequest()); 
         
         return array('rub' => $quiz->getCategory()->getRubrique()->getId(), 'quiz' => $quiz, 'form' => $form); 
     }

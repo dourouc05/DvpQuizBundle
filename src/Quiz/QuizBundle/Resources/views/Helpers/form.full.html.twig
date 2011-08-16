@@ -3,13 +3,22 @@
     {% for question in quiz.ques %}
         <section>
             <h1>{{ question.text }}</h1>
-            <ul>
+            <ul style="list-style-type: none;">
                 {% for answer in question.ans %}
                     <li>
                         {% if question.mult %}
-                            <input type="checkbox" name="{{question.foid}}" id="{{question.foid}}-{{answer.anid}}" value=""/>
+                            <input
+                                type="checkbox"
+                                name="{{question.foid}}-{{answer.anid}}"
+                                id="{{question.foid}}-{{answer.anid}}"
+                                {# checked="checked" #}/>
                         {% else %}
-                            <input type="radio" name="{{question.foid}}" id="{{question.foid}}-{{answer.anid}}" value=""/>
+                            <input 
+                                type="radio" 
+                                name="{{question.foid}}" 
+                                id="{{question.foid}}-{{answer.anid}}" 
+                                value="{{question.foid}}-{{answer.anid}}" 
+                                {# checked="checked" #}/>
                         {% endif %}
                         <label for="{{question.foid}}-{{answer.anid}}">{{ answer.text }}</label>
                     </li>
