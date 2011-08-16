@@ -39,28 +39,32 @@
 
 [SensioFrameworkExtraBundle]
     git=git://github.com/sensio/SensioFrameworkExtraBundle.git
-    target=/bundles/Sensio/Bundle/FrameworkExtraBundle
+    target=bundles/Sensio/Bundle/FrameworkExtraBundle
 
 [JMSSecurityExtraBundle]
     git=git://github.com/schmittjoh/JMSSecurityExtraBundle.git
-    target=/bundles/JMS/SecurityExtraBundle
+    target=bundles/JMS/SecurityExtraBundle
 
 [SensioDistributionBundle]
     git=git://github.com/sensio/SensioDistributionBundle.git
-    target=/bundles/Sensio/Bundle/DistributionBundle
+    target=bundles/Sensio/Bundle/DistributionBundle
 
 [SensioGeneratorBundle]
     git=git://github.com/sensio/SensioGeneratorBundle.git
-    target=/bundles/Sensio/Bundle/GeneratorBundle
+    target=bundles/Sensio/Bundle/GeneratorBundle
 
 [AsseticBundle]
     git=git://github.com/symfony/AsseticBundle.git
-    target=/bundles/Symfony/Bundle/AsseticBundle
+    target=bundles/Symfony/Bundle/AsseticBundle
     version=v1.0.0RC2
 
 [TwigProfilerBundle]
     git=git://github.com/CoreSphere/TwigProfilerBundle.git
-    target=/bundles/CoreSphere/TwigProfilerBundle
+    target=bundles/CoreSphere/TwigProfilerBundle
+	
+[FOSUserBundle]
+    git=git://github.com/FriendsOfSymfony/FOSUserBundle.git
+    target=bundles/FOS/UserBundle
 
 [doctrine-fixtures]
     git=git://github.com/doctrine/data-fixtures.git
@@ -70,32 +74,32 @@
 
 [DoctrineFixturesBundle]
     git=git://github.com/symfony/DoctrineFixturesBundle.git
-    target=/bundles/Symfony/Bundle/DoctrineFixturesBundle
+    target=bundles/Symfony/Bundle/DoctrineFixturesBundle
 
 [DoctrineExtensionsBundle]
 	git=git://github.com/stof/StofDoctrineExtensionsBundle.git
-	target=/bundles/Stof/DoctrineExtensionsBundle
+	target=bundles/Stof/DoctrineExtensionsBundle
 
 [jQueryBundle]
 	git=git://github.com/sonata-project/SonatajQueryBundle.git
-	target=/bundles/Sonata/jQueryBundle
+	target=bundles/Sonata/jQueryBundle
 
 [BluePrintBundle]
 	git=git://github.com/sonata-project/SonataBluePrintBundle.git
-	target=/bundles/Sonata/BluePrintBundle
+	target=bundles/Sonata/BluePrintBundle
 
 [AdminBundle]
 	git=git://github.com/sonata-project/SonataAdminBundle.git
-	target=/bundles/Sonata/AdminBundle
+	target=bundles/Sonata/AdminBundle
 
 [MenuBundle]
 	git=git://github.com/knplabs/KnpMenuBundle.git
-	target=/bundles/Knp/Bundle/MenuBundle
+	target=bundles/Knp/Bundle/MenuBundle
 
 [ConsoleBundle]
     git=git://github.com/RapotOR/ConsoleBundle.git
-    target=/bundles/Sf2gen/Bundle/ConsoleBundle
+    target=bundles/Sf2gen/Bundle/ConsoleBundle
 
 [winzouCacheBundle]
     git=git://github.com/winzou/CacheBundle.git
-    target=/bundles/winzou/CacheBundle
+    target=bundles/winzou/CacheBundle
