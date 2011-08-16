@@ -34,13 +34,4 @@ class QuizController extends Controller
         
         return array('rub' => $quiz->getCategory()->getRubrique()->getId(), 'quiz' => $quiz, 'form' => $form); 
     }
-    
-    /**
-     * @Route("/q{id}-v/{slug}", name="quizSend", requirements={"id" = "\d+", "slug" = ".+"}, defaults={"slug" = ""})
-     * @Template("QuizQuizBundle:Quiz:send.html.twig")
-     */
-    public function sendAction($id, $slug)
-    {
-        return array();
-    }
 }
