@@ -4,6 +4,7 @@ namespace Quiz\QuizBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Quiz\QuizBundle\Controller\Helpers\TreeHelpers;
+use Quiz\QuizBundle\Form\QuizForm;
 
 // Annotations
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
@@ -15,7 +16,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 class QuizController extends Controller
 {
     /**
-     * @Route("/q{id}/{slug}", name="quizShow")
+     * @Route("/q{id}/{slug}", name="quizShow", requirements={"id" = "\d+", "slug" = ".+"}, defaults={"slug" = ""})
      * @Template("QuizQuizBundle:Quiz:show.html.twig")
      */
     public function showAction($id, $slug)
@@ -29,6 +30,17 @@ class QuizController extends Controller
         if($slug != $quiz->getSlug())
             return $this->redirect($this->generateUrl('indexCategory', array('id' => $id, 'slug' => $quiz->getSlug())), 301);
         
-        return array('rub' => $quiz->getCategory()->getRubrique()->getId(), 'quiz' => $quiz); 
+        $form = $this->createForm(new QuizForm(), $quiz); 
+        
+        return array('rub' => $quiz->getCategory()->getRubrique()->getId(), 'quiz' => $quiz, 'form' => $form); 
+    }
+    
+    /**
+     * @Route("/q{id}-v/{slug}", name="quizSend", requirements={"id" = "\d+", "slug" = ".+"}, defaults={"slug" = ""})
+     * @Template("QuizQuizBundle:Quiz:send.html.twig")
+     */
+    public function sendAction($id, $slug)
+    {
+        return array();
     }
 }

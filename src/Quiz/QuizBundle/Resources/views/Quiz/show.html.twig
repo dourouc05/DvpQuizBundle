@@ -11,6 +11,13 @@
         {% for answer in question.getAnswer() %}
             <li>{{ answer }}</li>
         {% endfor %}
+        <form action="{{ path('quizShow') }}" method="post" {{ form_enctype(form) }}>
+            {{ form_errors(form) }}
+
+            {{ form_rest(form) }}
+
+            <input type="submit" />
+        </form>
     </ul>
 </section>
 {% endfor %}
