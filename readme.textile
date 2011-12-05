@@ -1,0 +1,7 @@
+h1. Developpez.com Quiz Applications
+
+Using Symfony 2.0. 
+
+h1. Licence 
+
+Vous pouvez utiliser ces sources à des fins éducatives et personnelles exclusivement, elles ne peuvent pas être utilisées en production, sur quelque site que ce soit, peu importe les modifications effectuées. Il est interdit de distribuer une version modifiée de ces sources.
